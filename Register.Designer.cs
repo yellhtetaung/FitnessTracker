@@ -374,7 +374,6 @@ namespace FitnessTracker
             // 
             this.lblClear.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblClear.BackColor = System.Drawing.Color.Red;
-            this.lblClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblClear.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblClear.ForeColor = System.Drawing.Color.White;
             this.lblClear.Location = new System.Drawing.Point(17, 618);
@@ -389,7 +388,6 @@ namespace FitnessTracker
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(221, 618);

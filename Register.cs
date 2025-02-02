@@ -53,7 +53,7 @@ namespace FitnessTracker
             }
         }
 
-        private void lblClear_Click(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
             txtFullName.Text = "";
             txtUsername.Text = "";
@@ -73,7 +73,7 @@ namespace FitnessTracker
             AutoID();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnRegister_Click(object sender, EventArgs e)
         {
             if (txtFullName.Text == "")
             {
@@ -140,6 +140,13 @@ namespace FitnessTracker
                 }
 
             }
+        }
+
+        private void linkLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Login login = new Login();
+            this.Hide();
+            login.ShowDialog();
         }
     }
 }

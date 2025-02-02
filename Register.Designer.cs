@@ -56,11 +56,13 @@ namespace FitnessTracker
             this.rdoMale = new System.Windows.Forms.RadioButton();
             this.rdoFemale = new System.Windows.Forms.RadioButton();
             this.rdoOther = new System.Windows.Forms.RadioButton();
-            this.lblClear = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnRegister = new System.Windows.Forms.Button();
             this.dtpDOB = new System.Windows.Forms.DateTimePicker();
             this.lblMemberID = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.linkLogin = new System.Windows.Forms.LinkLabel();
             this.panelPassword.SuspendLayout();
             this.panelFullName.SuspendLayout();
             this.panelUsername.SuspendLayout();
@@ -169,7 +171,7 @@ namespace FitnessTracker
             this.txtFullName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFullName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFullName.ForeColor = System.Drawing.Color.Black;
-            this.txtFullName.Location = new System.Drawing.Point(11, 8);
+            this.txtFullName.Location = new System.Drawing.Point(11, 7);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Size = new System.Drawing.Size(383, 15);
             this.txtFullName.TabIndex = 1;
@@ -203,7 +205,7 @@ namespace FitnessTracker
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsername.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.ForeColor = System.Drawing.Color.Black;
-            this.txtUsername.Location = new System.Drawing.Point(11, 8);
+            this.txtUsername.Location = new System.Drawing.Point(11, 7);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(383, 15);
             this.txtUsername.TabIndex = 2;
@@ -226,7 +228,7 @@ namespace FitnessTracker
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.ForeColor = System.Drawing.Color.Black;
-            this.txtEmail.Location = new System.Drawing.Point(11, 8);
+            this.txtEmail.Location = new System.Drawing.Point(11, 7);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(383, 15);
             this.txtEmail.TabIndex = 3;
@@ -269,7 +271,7 @@ namespace FitnessTracker
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPhone.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.ForeColor = System.Drawing.Color.Black;
-            this.txtPhone.Location = new System.Drawing.Point(11, 8);
+            this.txtPhone.Location = new System.Drawing.Point(11, 7);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(383, 15);
             this.txtPhone.TabIndex = 4;
@@ -303,7 +305,7 @@ namespace FitnessTracker
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAddress.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress.ForeColor = System.Drawing.Color.Black;
-            this.txtAddress.Location = new System.Drawing.Point(11, 8);
+            this.txtAddress.Location = new System.Drawing.Point(11, 7);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(383, 15);
             this.txtAddress.TabIndex = 4;
@@ -370,33 +372,33 @@ namespace FitnessTracker
             this.rdoOther.Text = "Other";
             this.rdoOther.UseVisualStyleBackColor = true;
             // 
-            // lblClear
+            // btnClear
             // 
-            this.lblClear.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblClear.BackColor = System.Drawing.Color.Red;
-            this.lblClear.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClear.ForeColor = System.Drawing.Color.White;
-            this.lblClear.Location = new System.Drawing.Point(17, 618);
-            this.lblClear.Name = "lblClear";
-            this.lblClear.Size = new System.Drawing.Size(193, 40);
-            this.lblClear.TabIndex = 12;
-            this.lblClear.Text = " CLEAR";
-            this.lblClear.UseVisualStyleBackColor = false;
-            this.lblClear.Click += new System.EventHandler(this.lblClear_Click);
+            this.btnClear.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnClear.BackColor = System.Drawing.Color.Red;
+            this.btnClear.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(17, 618);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(193, 40);
+            this.btnClear.TabIndex = 12;
+            this.btnClear.Text = " CLEAR";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // button1
+            // btnRegister
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button1.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(221, 618);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(193, 40);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "REGISTER";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnRegister.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRegister.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnRegister.Font = new System.Drawing.Font("Cooper Black", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegister.ForeColor = System.Drawing.Color.White;
+            this.btnRegister.Location = new System.Drawing.Point(221, 618);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(193, 40);
+            this.btnRegister.TabIndex = 11;
+            this.btnRegister.Text = "REGISTER";
+            this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // dtpDOB
             // 
@@ -431,16 +433,45 @@ namespace FitnessTracker
             this.lblID.TabIndex = 20;
             this.lblID.Text = "M0001";
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(114, 679);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(157, 16);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "Already have an account?";
+            // 
+            // linkLogin
+            // 
+            this.linkLogin.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.linkLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.linkLogin.AutoSize = true;
+            this.linkLogin.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLogin.LinkColor = System.Drawing.Color.Blue;
+            this.linkLogin.Location = new System.Drawing.Point(269, 679);
+            this.linkLogin.Name = "linkLogin";
+            this.linkLogin.Size = new System.Drawing.Size(39, 16);
+            this.linkLogin.TabIndex = 42;
+            this.linkLogin.TabStop = true;
+            this.linkLogin.Text = "Login";
+            this.linkLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLogin_LinkClicked);
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 683);
+            this.ClientSize = new System.Drawing.Size(439, 728);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.linkLogin);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.dtpDOB);
             this.Controls.Add(this.lblMemberID);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.lblClear);
+            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.rdoOther);
             this.Controls.Add(this.rdoFemale);
             this.Controls.Add(this.rdoMale);
@@ -462,7 +493,6 @@ namespace FitnessTracker
             this.Controls.Add(this.lblDesc);
             this.Controls.Add(this.lblTitle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(455, 722);
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Zen Fitness Register";
@@ -512,10 +542,12 @@ namespace FitnessTracker
         private System.Windows.Forms.RadioButton rdoMale;
         private System.Windows.Forms.RadioButton rdoFemale;
         private System.Windows.Forms.RadioButton rdoOther;
-        private System.Windows.Forms.Button lblClear;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.DateTimePicker dtpDOB;
         private System.Windows.Forms.Label lblMemberID;
         private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkLogin;
     }
 }

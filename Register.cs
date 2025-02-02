@@ -77,42 +77,42 @@ namespace FitnessTracker
         {
             if (txtFullName.Text == "")
             {
-                MessageBox.Show("Please fill in fullname!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter your full name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtFullName.Focus();
             }
             else if (txtUsername.Text == "")
             {
-                MessageBox.Show("Please fill in username!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter your username.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtUsername.Focus();
             }
             else if (txtUsername.Text.Length < 3)
             {
-                MessageBox.Show("Username must be more than 3 characters!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Username must be more than 3 characters.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtUsername.Focus();
             }
             else if (txtEmail.Text == "")
             {
-                MessageBox.Show("Please fill in email!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter your email address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtEmail.Focus();
             }
             else if (txtPassword.Text == "")
             {
-                MessageBox.Show("Please fill in password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter your password.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Focus();
             }
             else if (txtPhone.Text == "")
             {
-                MessageBox.Show("Please fill in phone number!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter your phone number.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPhone.Focus();
             }
             else if (txtAddress.Text == "")
             {
-                MessageBox.Show("Please fill in address!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter your address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtAddress.Focus();
             }
             else if (rdoMale.Checked == false && rdoFemale.Checked == false && rdoOther.Checked == false)
             {
-                MessageBox.Show("Please choose member gender!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please choose your gender!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -137,6 +137,9 @@ namespace FitnessTracker
                     Login login = new Login();
                     this.Hide();
                     login.ShowDialog();
+                } else
+                {
+                    MessageBox.Show("Something Wrong!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }

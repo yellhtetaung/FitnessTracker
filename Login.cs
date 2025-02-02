@@ -42,12 +42,12 @@ namespace FitnessTracker
             {
                 if (txtUsername.Text == "")
                 {
-                    MessageBox.Show("Please fill username!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Username must be provide.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtUsername.Focus();
                 }
                 else if (txtPassword.Text == "")
                 {
-                    MessageBox.Show("Please fill password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Password must be provide.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPassword.Focus();
                 }
                 else
@@ -58,15 +58,17 @@ namespace FitnessTracker
 
                     memberDta = objMember.LoginMember(memberData.MemberUsername, memberData.MemberPassword);
 
-                    Console.WriteLine(memberDta.Rows.Count);
-                    Console.WriteLine(memberData.MemberPassword);
-                    Console.WriteLine(memberData.MemberUsername);
-
                     if (memberDta.Rows.Count > 0)
                     {
-                        MessageBox.Show("Login Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         loginUsername = memberDta.Rows[0][1].ToString();
                         loginMemberID = memberDta.Rows[0][0].ToString();
+                        this.Hide();
+                        AdminDashboard admin = new AdminDashboard();
+                        admin.ShowDialog();
+                    } else
+                    {
+                        MessageBox.Show("Incorrect username or password!", "Login in Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtUsername.Focus();
                     }
                 }
             }

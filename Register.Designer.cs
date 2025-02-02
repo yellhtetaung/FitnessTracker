@@ -495,7 +495,7 @@ namespace FitnessTracker
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Zen Fitness Register";
+            this.Text = "Register";
             this.Load += new System.EventHandler(this.Register_Load);
             this.panelPassword.ResumeLayout(false);
             this.panelPassword.PerformLayout();

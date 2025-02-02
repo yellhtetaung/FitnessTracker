@@ -210,7 +210,7 @@ namespace FitnessTracker
             this.MinimumSize = new System.Drawing.Size(455, 418);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Zen Fitness Login";
+            this.Text = "Login";
             this.panelUsername.ResumeLayout(false);
             this.panelUsername.PerformLayout();
             this.panelPassword.ResumeLayout(false);

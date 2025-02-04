@@ -30,6 +30,7 @@ namespace FitnessTracker
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Activity));
             this.lblActivity = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
             this.panelUsername = new System.Windows.Forms.Panel();
@@ -45,37 +46,33 @@ namespace FitnessTracker
             this.txtMetricThree = new System.Windows.Forms.TextBox();
             this.lblMetricThree = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.dgvActData = new System.Windows.Forms.DataGridView();
-            this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
-            this.fitnessTrackerDatasetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.activitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.activitiesTableAdapter = new FitnessTracker.FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter();
-            this.activitiesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.actIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metricOneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metricTwoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metricThreeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
+            this.activitiesTableAdapter = new FitnessTracker.FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter();
             this.panelUsername.SuspendLayout();
             this.panelPassword.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDatasetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).BeginInit();
             this.SuspendLayout();
             // 
             // lblActivity
             // 
             this.lblActivity.AutoSize = true;
             this.lblActivity.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActivity.Location = new System.Drawing.Point(31, 26);
+            this.lblActivity.Location = new System.Drawing.Point(15, 26);
             this.lblActivity.Name = "lblActivity";
             this.lblActivity.Size = new System.Drawing.Size(79, 16);
             this.lblActivity.TabIndex = 0;
@@ -85,7 +82,7 @@ namespace FitnessTracker
             // 
             this.lblID.AutoSize = true;
             this.lblID.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(116, 26);
+            this.lblID.Location = new System.Drawing.Point(100, 26);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(45, 16);
             this.lblID.TabIndex = 1;
@@ -96,10 +93,10 @@ namespace FitnessTracker
             this.panelUsername.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panelUsername.Controls.Add(this.txtActivityName);
             this.panelUsername.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelUsername.Location = new System.Drawing.Point(34, 77);
+            this.panelUsername.Location = new System.Drawing.Point(18, 77);
             this.panelUsername.Name = "panelUsername";
             this.panelUsername.Size = new System.Drawing.Size(295, 30);
-            this.panelUsername.TabIndex = 38;
+            this.panelUsername.TabIndex = 1;
             // 
             // txtActivityName
             // 
@@ -118,10 +115,10 @@ namespace FitnessTracker
             this.panelPassword.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panelPassword.Controls.Add(this.txtMetricOne);
             this.panelPassword.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelPassword.Location = new System.Drawing.Point(34, 138);
+            this.panelPassword.Location = new System.Drawing.Point(18, 138);
             this.panelPassword.Name = "panelPassword";
             this.panelPassword.Size = new System.Drawing.Size(250, 30);
-            this.panelPassword.TabIndex = 39;
+            this.panelPassword.TabIndex = 2;
             // 
             // txtMetricOne
             // 
@@ -131,16 +128,15 @@ namespace FitnessTracker
             this.txtMetricOne.ForeColor = System.Drawing.Color.Black;
             this.txtMetricOne.Location = new System.Drawing.Point(11, 8);
             this.txtMetricOne.Name = "txtMetricOne";
-            this.txtMetricOne.Size = new System.Drawing.Size(186, 15);
+            this.txtMetricOne.Size = new System.Drawing.Size(236, 15);
             this.txtMetricOne.TabIndex = 4;
-            this.txtMetricOne.UseSystemPasswordChar = true;
             this.txtMetricOne.WordWrap = false;
             // 
             // lblMetricOne
             // 
             this.lblMetricOne.AutoSize = true;
             this.lblMetricOne.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMetricOne.Location = new System.Drawing.Point(31, 119);
+            this.lblMetricOne.Location = new System.Drawing.Point(15, 119);
             this.lblMetricOne.Name = "lblMetricOne";
             this.lblMetricOne.Size = new System.Drawing.Size(77, 16);
             this.lblMetricOne.TabIndex = 41;
@@ -151,7 +147,7 @@ namespace FitnessTracker
             this.lblActivityName.AutoSize = true;
             this.lblActivityName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblActivityName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblActivityName.Location = new System.Drawing.Point(31, 56);
+            this.lblActivityName.Location = new System.Drawing.Point(15, 56);
             this.lblActivityName.Name = "lblActivityName";
             this.lblActivityName.Size = new System.Drawing.Size(95, 16);
             this.lblActivityName.TabIndex = 40;
@@ -163,10 +159,10 @@ namespace FitnessTracker
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.Controls.Add(this.txtMetricTwo);
             this.panel1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(280, 126);
+            this.panel1.Location = new System.Drawing.Point(264, 126);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 30);
-            this.panel1.TabIndex = 42;
+            this.panel1.TabIndex = 3;
             // 
             // txtMetricTwo
             // 
@@ -176,16 +172,15 @@ namespace FitnessTracker
             this.txtMetricTwo.ForeColor = System.Drawing.Color.Black;
             this.txtMetricTwo.Location = new System.Drawing.Point(11, 8);
             this.txtMetricTwo.Name = "txtMetricTwo";
-            this.txtMetricTwo.Size = new System.Drawing.Size(186, 15);
+            this.txtMetricTwo.Size = new System.Drawing.Size(236, 15);
             this.txtMetricTwo.TabIndex = 4;
-            this.txtMetricTwo.UseSystemPasswordChar = true;
             this.txtMetricTwo.WordWrap = false;
             // 
             // lblMetricTwo
             // 
             this.lblMetricTwo.AutoSize = true;
             this.lblMetricTwo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMetricTwo.Location = new System.Drawing.Point(277, 107);
+            this.lblMetricTwo.Location = new System.Drawing.Point(261, 107);
             this.lblMetricTwo.Name = "lblMetricTwo";
             this.lblMetricTwo.Size = new System.Drawing.Size(77, 16);
             this.lblMetricTwo.TabIndex = 43;
@@ -196,10 +191,10 @@ namespace FitnessTracker
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel2.Controls.Add(this.txtMetricThree);
             this.panel2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(538, 126);
+            this.panel2.Location = new System.Drawing.Point(522, 126);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(250, 30);
-            this.panel2.TabIndex = 44;
+            this.panel2.TabIndex = 4;
             // 
             // txtMetricThree
             // 
@@ -209,16 +204,15 @@ namespace FitnessTracker
             this.txtMetricThree.ForeColor = System.Drawing.Color.Black;
             this.txtMetricThree.Location = new System.Drawing.Point(11, 8);
             this.txtMetricThree.Name = "txtMetricThree";
-            this.txtMetricThree.Size = new System.Drawing.Size(186, 15);
+            this.txtMetricThree.Size = new System.Drawing.Size(236, 15);
             this.txtMetricThree.TabIndex = 4;
-            this.txtMetricThree.UseSystemPasswordChar = true;
             this.txtMetricThree.WordWrap = false;
             // 
             // lblMetricThree
             // 
             this.lblMetricThree.AutoSize = true;
             this.lblMetricThree.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMetricThree.Location = new System.Drawing.Point(535, 107);
+            this.lblMetricThree.Location = new System.Drawing.Point(519, 107);
             this.lblMetricThree.Name = "lblMetricThree";
             this.lblMetricThree.Size = new System.Drawing.Size(88, 16);
             this.lblMetricThree.TabIndex = 45;
@@ -238,19 +232,19 @@ namespace FitnessTracker
             this.panel3.Size = new System.Drawing.Size(813, 229);
             this.panel3.TabIndex = 46;
             // 
-            // btnSave
+            // btnDelete
             // 
-            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSave.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnSave.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(668, 177);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(120, 35);
-            this.btnSave.TabIndex = 39;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDelete.BackColor = System.Drawing.Color.Red;
+            this.btnDelete.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(370, 177);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(120, 35);
+            this.btnDelete.TabIndex = 7;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -258,28 +252,32 @@ namespace FitnessTracker
             this.btnUpdate.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnUpdate.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(527, 177);
+            this.btnUpdate.Location = new System.Drawing.Point(511, 177);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(120, 35);
-            this.btnUpdate.TabIndex = 40;
+            this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // btnDelete
+            // btnSave
             // 
-            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDelete.BackColor = System.Drawing.Color.Red;
-            this.btnDelete.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(386, 177);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(120, 35);
-            this.btnDelete.TabIndex = 41;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSave.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnSave.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(652, 177);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(120, 35);
+            this.btnSave.TabIndex = 5;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // dgvActData
             // 
+            this.dgvActData.AllowUserToAddRows = false;
+            this.dgvActData.AllowUserToDeleteRows = false;
             this.dgvActData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -295,62 +293,71 @@ namespace FitnessTracker
             this.dgvActData.Location = new System.Drawing.Point(12, 244);
             this.dgvActData.Margin = new System.Windows.Forms.Padding(0);
             this.dgvActData.Name = "dgvActData";
+            this.dgvActData.ReadOnly = true;
             this.dgvActData.Size = new System.Drawing.Size(813, 197);
             this.dgvActData.TabIndex = 47;
+            this.dgvActData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvActData_CellDoubleClick);
+            // 
+            // actIDDataGridViewTextBoxColumn
+            // 
+            this.actIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.actIDDataGridViewTextBoxColumn.DataPropertyName = "ActID";
+            this.actIDDataGridViewTextBoxColumn.DividerWidth = 1;
+            this.actIDDataGridViewTextBoxColumn.HeaderText = "ActID";
+            this.actIDDataGridViewTextBoxColumn.Name = "actIDDataGridViewTextBoxColumn";
+            this.actIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.actIDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.actIDDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // actNameDataGridViewTextBoxColumn
+            // 
+            this.actNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.actNameDataGridViewTextBoxColumn.DataPropertyName = "ActName";
+            this.actNameDataGridViewTextBoxColumn.DividerWidth = 1;
+            this.actNameDataGridViewTextBoxColumn.HeaderText = "ActName";
+            this.actNameDataGridViewTextBoxColumn.Name = "actNameDataGridViewTextBoxColumn";
+            this.actNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // metricOneDataGridViewTextBoxColumn
+            // 
+            this.metricOneDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.metricOneDataGridViewTextBoxColumn.DataPropertyName = "MetricOne";
+            this.metricOneDataGridViewTextBoxColumn.DividerWidth = 1;
+            this.metricOneDataGridViewTextBoxColumn.HeaderText = "MetricOne";
+            this.metricOneDataGridViewTextBoxColumn.Name = "metricOneDataGridViewTextBoxColumn";
+            this.metricOneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // metricTwoDataGridViewTextBoxColumn
+            // 
+            this.metricTwoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.metricTwoDataGridViewTextBoxColumn.DataPropertyName = "MetricTwo";
+            this.metricTwoDataGridViewTextBoxColumn.DividerWidth = 1;
+            this.metricTwoDataGridViewTextBoxColumn.HeaderText = "MetricTwo";
+            this.metricTwoDataGridViewTextBoxColumn.Name = "metricTwoDataGridViewTextBoxColumn";
+            this.metricTwoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // metricThreeDataGridViewTextBoxColumn
+            // 
+            this.metricThreeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.metricThreeDataGridViewTextBoxColumn.DataPropertyName = "MetricThree";
+            this.metricThreeDataGridViewTextBoxColumn.DividerWidth = 1;
+            this.metricThreeDataGridViewTextBoxColumn.HeaderText = "MetricThree";
+            this.metricThreeDataGridViewTextBoxColumn.Name = "metricThreeDataGridViewTextBoxColumn";
+            this.metricThreeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // activitiesBindingSource
+            // 
+            this.activitiesBindingSource.DataMember = "Activities";
+            this.activitiesBindingSource.DataSource = this.fitnessTrackerDataset;
             // 
             // fitnessTrackerDataset
             // 
             this.fitnessTrackerDataset.DataSetName = "FitnessTrackerDataset";
             this.fitnessTrackerDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // fitnessTrackerDatasetBindingSource
-            // 
-            this.fitnessTrackerDatasetBindingSource.DataSource = this.fitnessTrackerDataset;
-            this.fitnessTrackerDatasetBindingSource.Position = 0;
-            // 
-            // activitiesBindingSource
-            // 
-            this.activitiesBindingSource.DataMember = "Activities";
-            this.activitiesBindingSource.DataSource = this.fitnessTrackerDatasetBindingSource;
-            // 
             // activitiesTableAdapter
             // 
             this.activitiesTableAdapter.ClearBeforeFill = true;
-            // 
-            // activitiesBindingSource1
-            // 
-            this.activitiesBindingSource1.DataMember = "Activities";
-            this.activitiesBindingSource1.DataSource = this.fitnessTrackerDataset;
-            // 
-            // actIDDataGridViewTextBoxColumn
-            // 
-            this.actIDDataGridViewTextBoxColumn.DataPropertyName = "ActID";
-            this.actIDDataGridViewTextBoxColumn.HeaderText = "ActID";
-            this.actIDDataGridViewTextBoxColumn.Name = "actIDDataGridViewTextBoxColumn";
-            // 
-            // actNameDataGridViewTextBoxColumn
-            // 
-            this.actNameDataGridViewTextBoxColumn.DataPropertyName = "ActName";
-            this.actNameDataGridViewTextBoxColumn.HeaderText = "ActName";
-            this.actNameDataGridViewTextBoxColumn.Name = "actNameDataGridViewTextBoxColumn";
-            // 
-            // metricOneDataGridViewTextBoxColumn
-            // 
-            this.metricOneDataGridViewTextBoxColumn.DataPropertyName = "MetricOne";
-            this.metricOneDataGridViewTextBoxColumn.HeaderText = "MetricOne";
-            this.metricOneDataGridViewTextBoxColumn.Name = "metricOneDataGridViewTextBoxColumn";
-            // 
-            // metricTwoDataGridViewTextBoxColumn
-            // 
-            this.metricTwoDataGridViewTextBoxColumn.DataPropertyName = "MetricTwo";
-            this.metricTwoDataGridViewTextBoxColumn.HeaderText = "MetricTwo";
-            this.metricTwoDataGridViewTextBoxColumn.Name = "metricTwoDataGridViewTextBoxColumn";
-            // 
-            // metricThreeDataGridViewTextBoxColumn
-            // 
-            this.metricThreeDataGridViewTextBoxColumn.DataPropertyName = "MetricThree";
-            this.metricThreeDataGridViewTextBoxColumn.HeaderText = "MetricThree";
-            this.metricThreeDataGridViewTextBoxColumn.Name = "metricThreeDataGridViewTextBoxColumn";
             // 
             // Activity
             // 
@@ -365,6 +372,7 @@ namespace FitnessTracker
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.lblActivity);
             this.Controls.Add(this.panel3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(850, 489);
             this.Name = "Activity";
             this.Text = "Activity";
@@ -380,10 +388,8 @@ namespace FitnessTracker
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDatasetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -410,15 +416,13 @@ namespace FitnessTracker
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dgvActData;
-        private System.Windows.Forms.BindingSource fitnessTrackerDatasetBindingSource;
         private FitnessTrackerDataset fitnessTrackerDataset;
-        private System.Windows.Forms.BindingSource activitiesBindingSource;
         private FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter activitiesTableAdapter;
+        private System.Windows.Forms.BindingSource activitiesBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn actIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn metricOneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn metricTwoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn metricThreeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource activitiesBindingSource1;
     }
 }

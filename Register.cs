@@ -77,8 +77,6 @@ namespace FitnessTracker
         {
             try
             {
-
-
                 if (txtFullName.Text == "")
                 {
                     MessageBox.Show("Please enter your full name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -148,7 +146,8 @@ namespace FitnessTracker
                     }
 
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

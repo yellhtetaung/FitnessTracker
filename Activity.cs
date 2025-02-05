@@ -82,7 +82,7 @@ namespace FitnessTracker
             }
         }
 
-        public void DeleteActivity (String id)
+        public void DeleteActivity(String id)
         {
             try
             {

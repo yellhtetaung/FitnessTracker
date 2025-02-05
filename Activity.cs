@@ -61,6 +61,41 @@ namespace FitnessTracker
             txtMetricThree.Clear();
         }
 
+        public void UpdateActivity(String id, String name, String metricOne, String metricTwo, String metricThree)
+        {
+            try
+            {
+                ClsActivity activity = new ClsActivity();
+                activity.ActivityID = id;
+                activity.ActivityName = name;
+                activity.MetricOne = metricOne;
+                activity.MetricTwo = metricTwo;
+                activity.MetricThree = metricThree;
+
+                objActivity.UpdateActivity(activity.ActivityName, activity.MetricOne, activity.MetricTwo, activity.MetricThree, activity.ActivityID);
+                dgvActData.DataSource = objActivity.GetData();
+                dgvActData.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void DeleteActivity (String id)
+        {
+            try
+            {
+                objActivity.DeleteActivity(id);
+                dgvActData.Refresh();
+                AutoID();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void Activity_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'fitnessTrackerDataset.Activities' table. You can move, or remove it, as needed.
@@ -118,85 +153,22 @@ namespace FitnessTracker
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occured. Please try again!", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void dgvActData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            ActivityDetail activityDetail = new ActivityDetail(this);
             int row = dgvActData.CurrentRow.Index;
 
-            lblID.Text = dgvActData[0, row].Value.ToString();
-            txtActivityName.Text = dgvActData[1, row].Value.ToString();
-            txtMetricOne.Text = dgvActData[2, row].Value.ToString();
-            txtMetricTwo.Text = dgvActData[3, row].Value.ToString();
-            txtMetricThree.Text = dgvActData[4, row].Value.ToString();
-        }
+            activityDetail.ActivityID = dgvActData[0, row].Value.ToString();
+            activityDetail.ActivityName = dgvActData[1, row].Value.ToString();
+            activityDetail.MetricOne = dgvActData[2, row].Value.ToString();
+            activityDetail.MetricTwo = dgvActData[3, row].Value.ToString();
+            activityDetail.MetricThree = dgvActData[4, row].Value.ToString();
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (txtActivityName.Text == "")
-                {
-                    MessageBox.Show("Please enter activity name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtActivityName.Focus();
-                }
-                else if (txtMetricOne.Text == "")
-                {
-                    MessageBox.Show("Please enter Metric One.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtMetricOne.Focus();
-                }
-                else if (txtMetricTwo.Text == "")
-                {
-                    MessageBox.Show("Please enter Metric Two.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtMetricTwo.Focus();
-                }
-                else if (txtMetricThree.Text == "")
-                {
-                    MessageBox.Show("Please enter Metric Three.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtMetricThree.Focus();
-                }
-                else
-                {
-                    ClsActivity activity = new ClsActivity();
-                    activity.ActivityID = lblID.Text;
-                    activity.ActivityName = txtActivityName.Text;
-                    activity.MetricOne = txtMetricOne.Text;
-                    activity.MetricTwo = txtMetricTwo.Text;
-                    activity.MetricThree = txtMetricThree.Text;
-
-                    objActivity.UpdateActivity(activity.ActivityName, activity.MetricOne, activity.MetricTwo, activity.MetricThree, activity.ActivityID);
-                    MessageBox.Show("Activity has been updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    dgvActData.DataSource = objActivity.GetData();
-                    dgvActData.Refresh();
-
-                    ClearAll();
-
-                    AutoID();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occured. Please try again!", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int deleteRow = dgvActData.CurrentCell.RowIndex;
-                dgvActData.Rows.RemoveAt(deleteRow);
-
-                objActivity.DeleteActivity(lblID.Text);
-                MessageBox.Show("Activity has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occured. Please try again!", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            activityDetail.Show();
         }
     }
 }

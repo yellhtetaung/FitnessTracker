@@ -28,49 +28,56 @@ namespace FitnessTracker
         {
             Register register = new Register();
             this.Hide();
-            register.ShowDialog();
+            register.Show();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (loginCount == 2)
+            try
             {
-                MessageBox.Show("Something went wrong!");
-                Application.Exit();
-            }
-            else
-            {
-                if (txtUsername.Text == "")
+                if (loginCount == 2)
                 {
-                    MessageBox.Show("Username must be provide.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtUsername.Focus();
-                }
-                else if (txtPassword.Text == "")
-                {
-                    MessageBox.Show("Password must be provide.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtPassword.Focus();
+                    MessageBox.Show("Something went wrong!");
+                    Application.Exit();
                 }
                 else
                 {
-                    ClsMember memberData = new ClsMember();
-                    memberData.MemberUsername = txtUsername.Text;
-                    memberData.MemberPassword = txtPassword.Text;
-
-                    memberDta = objMember.LoginMember(memberData.MemberUsername, memberData.MemberPassword);
-
-                    if (memberDta.Rows.Count > 0)
+                    if (txtUsername.Text == "")
                     {
-                        loginUsername = memberDta.Rows[0][1].ToString();
-                        loginMemberID = memberDta.Rows[0][0].ToString();
-                        this.Hide();
-                        AdminDashboard admin = new AdminDashboard();
-                        admin.ShowDialog();
-                    } else
-                    {
-                        MessageBox.Show("Incorrect username or password!", "Login in Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Username must be provide.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtUsername.Focus();
                     }
+                    else if (txtPassword.Text == "")
+                    {
+                        MessageBox.Show("Password must be provide.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtPassword.Focus();
+                    }
+                    else
+                    {
+                        ClsMember memberData = new ClsMember();
+                        memberData.MemberUsername = txtUsername.Text;
+                        memberData.MemberPassword = txtPassword.Text;
+
+                        memberDta = objMember.LoginMember(memberData.MemberUsername, memberData.MemberPassword);
+
+                        if (memberDta.Rows.Count > 0)
+                        {
+                            loginUsername = memberDta.Rows[0][1].ToString();
+                            loginMemberID = memberDta.Rows[0][0].ToString();
+                            this.Hide();
+                            AdminDashboard admin = new AdminDashboard();
+                            admin.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Incorrect username or password!", "Login in Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txtUsername.Focus();
+                        }
+                    }
                 }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

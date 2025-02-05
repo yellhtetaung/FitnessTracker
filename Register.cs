@@ -75,73 +75,82 @@ namespace FitnessTracker
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            if (txtFullName.Text == "")
+            try
             {
-                MessageBox.Show("Please enter your full name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtFullName.Focus();
-            }
-            else if (txtUsername.Text == "")
-            {
-                MessageBox.Show("Please enter your username.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtUsername.Focus();
-            }
-            else if (txtUsername.Text.Length < 3)
-            {
-                MessageBox.Show("Username must be more than 3 characters.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtUsername.Focus();
-            }
-            else if (txtEmail.Text == "")
-            {
-                MessageBox.Show("Please enter your email address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtEmail.Focus();
-            }
-            else if (txtPassword.Text == "")
-            {
-                MessageBox.Show("Please enter your password.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtPassword.Focus();
-            }
-            else if (txtPhone.Text == "")
-            {
-                MessageBox.Show("Please enter your phone number.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtPhone.Focus();
-            }
-            else if (txtAddress.Text == "")
-            {
-                MessageBox.Show("Please enter your address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtAddress.Focus();
-            }
-            else if (rdoMale.Checked == false && rdoFemale.Checked == false && rdoOther.Checked == false)
-            {
-                MessageBox.Show("Please choose your gender!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                ClsMember memberData = new ClsMember();
-                memberData.MemberID = lblID.Text;
-                memberData.MemberFullName = txtFullName.Text;
-                memberData.MemberUsername = txtUsername.Text;
-                memberData.MemberEmail = txtEmail.Text;
-                memberData.MemberPassword = txtPassword.Text;
-                memberData.MemberDOB = dtpDOB.Value;
-                memberData.MemberGender = rdoMale.Checked ? 'M' : rdoFemale.Checked ? 'F' : 'O';
-                memberData.MemberAddress = txtAddress.Text;
-                memberData.MemberPhone = txtPhone.Text;
 
-                int insertMember = objMember.InsertMemberData(memberData.MemberID, memberData.MemberFullName, memberData.MemberUsername, memberData.MemberEmail, memberData.MemberPassword, memberData.MemberDOB, memberData.MemberGender.ToString(), memberData.MemberPhone, memberData.MemberAddress);
 
-                if (insertMember > 0)
+                if (txtFullName.Text == "")
                 {
-                    MessageBox.Show("Member added successfully.");
-                    AutoID();
-
-                    Login login = new Login();
-                    this.Hide();
-                    login.ShowDialog();
-                } else
-                {
-                    MessageBox.Show("Something Wrong!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please enter your full name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtFullName.Focus();
                 }
+                else if (txtUsername.Text == "")
+                {
+                    MessageBox.Show("Please enter your username.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtUsername.Focus();
+                }
+                else if (txtUsername.Text.Length < 3)
+                {
+                    MessageBox.Show("Username must be more than 3 characters.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtUsername.Focus();
+                }
+                else if (txtEmail.Text == "")
+                {
+                    MessageBox.Show("Please enter your email address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtEmail.Focus();
+                }
+                else if (txtPassword.Text == "")
+                {
+                    MessageBox.Show("Please enter your password.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtPassword.Focus();
+                }
+                else if (txtPhone.Text == "")
+                {
+                    MessageBox.Show("Please enter your phone number.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtPhone.Focus();
+                }
+                else if (txtAddress.Text == "")
+                {
+                    MessageBox.Show("Please enter your address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtAddress.Focus();
+                }
+                else if (rdoMale.Checked == false && rdoFemale.Checked == false && rdoOther.Checked == false)
+                {
+                    MessageBox.Show("Please choose your gender!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    ClsMember memberData = new ClsMember();
+                    memberData.MemberID = lblID.Text;
+                    memberData.MemberFullName = txtFullName.Text;
+                    memberData.MemberUsername = txtUsername.Text;
+                    memberData.MemberEmail = txtEmail.Text;
+                    memberData.MemberPassword = txtPassword.Text;
+                    memberData.MemberDOB = dtpDOB.Value;
+                    memberData.MemberGender = rdoMale.Checked ? 'M' : rdoFemale.Checked ? 'F' : 'O';
+                    memberData.MemberAddress = txtAddress.Text;
+                    memberData.MemberPhone = txtPhone.Text;
 
+                    int insertMember = objMember.InsertMemberData(memberData.MemberID, memberData.MemberFullName, memberData.MemberUsername, memberData.MemberEmail, memberData.MemberPassword, memberData.MemberDOB, memberData.MemberGender.ToString(), memberData.MemberPhone, memberData.MemberAddress);
+
+                    if (insertMember > 0)
+                    {
+                        MessageBox.Show("Member added successfully.");
+                        AutoID();
+
+                        Login login = new Login();
+                        this.Hide();
+                        login.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something Wrong!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

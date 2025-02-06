@@ -8,35 +8,35 @@ namespace FitnessTracker
 {
     class ClsMember
     {
-        private String _MemberID, _MemberFullName, _MemberUsername, _MemberEmail, _MemberPassword, _MemberPhone, _MemberAddress;
-        private Char _MemberGender;
+        private string _MemberID, _MemberFullName, _MemberUsername, _MemberEmail, _MemberPassword, _MemberPhone, _MemberAddress;
+        private char _MemberGender;
         private DateTime _MemberDOB;
 
-        public String MemberID
+        public string MemberID
         {
             set { _MemberID = value; }
             get { return _MemberID; }
         }
 
-        public String MemberFullName
+        public string MemberFullName
         {
             set { _MemberFullName = value; }
             get { return _MemberFullName; }
         }
 
-        public String MemberUsername
+        public string MemberUsername
         {
             set { _MemberUsername = value; }
             get { return _MemberUsername; }
         }
 
-        public String MemberEmail
+        public string MemberEmail
         {
             set { _MemberEmail = value; }
             get { return _MemberEmail; }
         }
 
-        public String MemberPassword
+        public string MemberPassword
         {
             set { _MemberPassword = value; }
             get { return _MemberPassword; }
@@ -48,13 +48,13 @@ namespace FitnessTracker
             get { return _MemberGender; }
         }
 
-        public String MemberPhone
+        public string MemberPhone
         {
             set { _MemberPhone = value; }
             get { return _MemberPhone; }
         }
 
-        public String MemberAddress
+        public string MemberAddress
         {
             set { _MemberAddress = value; }
             get { return _MemberAddress; }

@@ -12,11 +12,11 @@ namespace FitnessTracker
 {
     public partial class ActivityDetail : Form
     {
-        public String ActivityID { set; get; }
-        public String ActivityName { set; get; }
-        public String MetricOne { set; get; }
-        public String MetricTwo { set; get; }
-        public String MetricThree { set; get; }
+        public string ActivityID { set; get; }
+        public string ActivityName { set; get; }
+        public string MetricOne { set; get; }
+        public string MetricTwo { set; get; }
+        public string MetricThree { set; get; }
 
         private readonly Activity activityForm;
 
@@ -74,12 +74,9 @@ namespace FitnessTracker
         {
             DialogResult result = MessageBox.Show("Are you sure you want to delete this activity?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            Console.WriteLine(result);
-            Console.WriteLine(DialogResult.Yes);
-
             if (result == DialogResult.Yes)
             {
-                this.activityForm.DeleteActivity(lblID.Text);
+                activityForm.DeleteActivity(lblID.Text);
                 MessageBox.Show("Activity has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }

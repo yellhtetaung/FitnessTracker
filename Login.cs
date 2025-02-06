@@ -16,8 +16,8 @@ namespace FitnessTracker
         DataTable memberDta = new DataTable();
 
         int loginCount = 0;
-        public static String loginUsername;
-        public static String loginMemberID;
+        public static string loginUsername;
+        public static string loginMemberID;
 
         public Login()
         {

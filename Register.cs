@@ -31,7 +31,7 @@ namespace FitnessTracker
             else
             {
                 int size = memberDta.Rows.Count - 1;
-                String oldID = memberDta.Rows[size][0].ToString();
+                string oldID = memberDta.Rows[size][0].ToString();
                 int newID = Convert.ToInt32(oldID.Substring(1, 4));
 
                 if (newID >= 1 && newID < 9)

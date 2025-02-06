@@ -31,7 +31,7 @@ namespace FitnessTracker
             else
             {
                 int size = activityDta.Rows.Count - 1;
-                String oldID = activityDta.Rows[size][0].ToString();
+                string oldID = activityDta.Rows[size][0].ToString();
                 int newID = Convert.ToInt32(oldID.Substring(1, 4));
 
                 if (newID >= 1 && newID < 9)
@@ -61,7 +61,7 @@ namespace FitnessTracker
             txtMetricThree.Clear();
         }
 
-        public void UpdateActivity(String id, String name, String metricOne, String metricTwo, String metricThree)
+        public void UpdateActivity(string id, string name, string metricOne, string metricTwo, string metricThree)
         {
             try
             {
@@ -82,11 +82,12 @@ namespace FitnessTracker
             }
         }
 
-        public void DeleteActivity(String id)
+        public void DeleteActivity(string id)
         {
             try
             {
                 objActivity.DeleteActivity(id);
+                dgvActData.DataSource = objActivity.GetData();
                 dgvActData.Refresh();
                 AutoID();
             }

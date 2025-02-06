@@ -8,33 +8,33 @@ namespace FitnessTracker
 {
     class ClsActivity
     {
-        private String _ActivityID, _ActivityName, _MetricOne, _MetricTwo, _MetricThree;
+        private string _ActivityID, _ActivityName, _MetricOne, _MetricTwo, _MetricThree;
 
-        public String ActivityID
+        public string ActivityID
         {
             set { _ActivityID = value; }
             get { return _ActivityID; }
         }
 
-        public String ActivityName
+        public string ActivityName
         {
             set { _ActivityName = value; }
             get { return _ActivityName; }
         }
 
-        public String MetricOne
+        public string MetricOne
         {
             set { _MetricOne = value; }
             get { return _MetricOne; }
         }
 
-        public String MetricTwo
+        public string MetricTwo
         {
             set { _MetricTwo = value; }
             get { return _MetricTwo; }
         }
 
-        public String MetricThree
+        public string MetricThree
         {
             set { _MetricThree = value; }
             get { return _MetricThree; }

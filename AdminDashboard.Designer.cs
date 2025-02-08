@@ -49,13 +49,13 @@ namespace FitnessTracker
             this.menuAdmin.Size = new System.Drawing.Size(800, 44);
             this.menuAdmin.TabIndex = 0;
             this.menuAdmin.Text = "menuAdmin";
-            this.menuAdmin.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuAdmin_ItemClicked);
             // 
             // activityToolStripMenuItem
             // 
             this.activityToolStripMenuItem.Name = "activityToolStripMenuItem";
             this.activityToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.activityToolStripMenuItem.Text = "Activity";
+            this.activityToolStripMenuItem.Click += new System.EventHandler(this.activityToolStripMenuItem_Click);
             // 
             // label1
             // 

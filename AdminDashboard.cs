@@ -17,7 +17,7 @@ namespace FitnessTracker
             InitializeComponent();
         }
 
-        private void menuAdmin_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void activityToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Activity activity = new Activity();
             this.Hide();

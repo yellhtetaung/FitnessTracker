@@ -147,6 +147,7 @@ namespace FitnessTracker
                         dgvActData.Refresh();
 
                         ClearAll();
+                        txtActivityName.Focus();
 
                         AutoID();
                     }

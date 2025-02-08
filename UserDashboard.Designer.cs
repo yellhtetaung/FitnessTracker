@@ -30,32 +30,32 @@ namespace FitnessTracker
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserDashboard));
-            this.menuAdmin = new System.Windows.Forms.MenuStrip();
+            this.menuUser = new System.Windows.Forms.MenuStrip();
             this.activityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trackerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.walkingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.swimmingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuAdmin.SuspendLayout();
+            this.trackerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuUser.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuAdmin
+            // menuUser
             // 
-            this.menuAdmin.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.menuAdmin.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuAdmin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuUser.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.menuUser.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuUser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.activityToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.trackerToolStripMenuItem,
             this.searchToolStripMenuItem});
-            this.menuAdmin.Location = new System.Drawing.Point(0, 0);
-            this.menuAdmin.Name = "menuAdmin";
-            this.menuAdmin.Padding = new System.Windows.Forms.Padding(12);
-            this.menuAdmin.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuAdmin.Size = new System.Drawing.Size(800, 44);
-            this.menuAdmin.TabIndex = 1;
-            this.menuAdmin.Text = "menuAdmin";
+            this.menuUser.Location = new System.Drawing.Point(0, 0);
+            this.menuUser.Name = "menuUser";
+            this.menuUser.Padding = new System.Windows.Forms.Padding(12);
+            this.menuUser.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.menuUser.Size = new System.Drawing.Size(800, 44);
+            this.menuUser.TabIndex = 1;
+            this.menuUser.Text = "menuAdmin";
             // 
             // activityToolStripMenuItem
             // 
@@ -72,18 +72,6 @@ namespace FitnessTracker
             this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.activitiesToolStripMenuItem.Text = "Activities";
             // 
-            // trackerToolStripMenuItem
-            // 
-            this.trackerToolStripMenuItem.Name = "trackerToolStripMenuItem";
-            this.trackerToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.trackerToolStripMenuItem.Text = "Tracker";
-            // 
-            // searchToolStripMenuItem
-            // 
-            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.searchToolStripMenuItem.Text = "Search";
-            // 
             // walkingToolStripMenuItem
             // 
             this.walkingToolStripMenuItem.Name = "walkingToolStripMenuItem";
@@ -96,17 +84,32 @@ namespace FitnessTracker
             this.swimmingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.swimmingToolStripMenuItem.Text = "Swimming";
             // 
+            // trackerToolStripMenuItem
+            // 
+            this.trackerToolStripMenuItem.Name = "trackerToolStripMenuItem";
+            this.trackerToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.trackerToolStripMenuItem.Text = "Tracker";
+            this.trackerToolStripMenuItem.Click += new System.EventHandler(this.trackerToolStripMenuItem_Click);
+            // 
+            // searchToolStripMenuItem
+            // 
+            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.searchToolStripMenuItem.Text = "Search";
+            // 
             // UserDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.menuAdmin);
+            this.Controls.Add(this.menuUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "UserDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
-            this.menuAdmin.ResumeLayout(false);
-            this.menuAdmin.PerformLayout();
+            this.menuUser.ResumeLayout(false);
+            this.menuUser.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,7 +117,7 @@ namespace FitnessTracker
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuAdmin;
+        private System.Windows.Forms.MenuStrip menuUser;
         private System.Windows.Forms.ToolStripMenuItem activityToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem activitiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trackerToolStripMenuItem;

@@ -17,7 +17,7 @@ namespace FitnessTracker
 
         int loginCount = 0;
         public static string loginUsername;
-        public static string loginMemberID;
+        public static string loginTrainerID;
 
         public Login()
         {
@@ -63,13 +63,14 @@ namespace FitnessTracker
                         if (trainerDta.Rows.Count > 0)
                         {
                             loginUsername = trainerDta.Rows[0][1].ToString();
-                            loginMemberID = trainerDta.Rows[0][0].ToString();
+                            loginTrainerID = trainerDta.Rows[0][0].ToString();
                             this.Hide();
                             AdminDashboard admin = new AdminDashboard();
                             admin.Show();
                         }
                         else
                         {
+                            loginCount += 1;
                             MessageBox.Show("Incorrect username or password!", "Login in Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             txtUsername.Focus();
                         }

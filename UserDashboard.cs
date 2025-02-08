@@ -16,5 +16,12 @@ namespace FitnessTracker
         {
             InitializeComponent();
         }
+
+        private void trackerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Goal goal = new Goal();
+            this.Hide();
+            goal.ShowDialog();
+        }
     }
 }

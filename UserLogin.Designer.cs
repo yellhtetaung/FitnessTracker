@@ -127,6 +127,7 @@ namespace FitnessTracker
             this.chkPassword.TabIndex = 56;
             this.chkPassword.Text = "Show Password";
             this.chkPassword.UseVisualStyleBackColor = true;
+            this.chkPassword.CheckedChanged += new System.EventHandler(this.chkPassword_CheckedChanged);
             // 
             // label1
             // 
@@ -153,6 +154,7 @@ namespace FitnessTracker
             this.linkRegister.TabStop = true;
             this.linkRegister.Text = "Register";
             this.linkRegister.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRegister_LinkClicked);
             // 
             // lblPassword
             // 

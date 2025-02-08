@@ -17,18 +17,11 @@ namespace FitnessTracker
 
         int loginCount = 0;
         public static string loginUsername;
-        public static string loginMemberID;
+        public static string loginUserID;
 
         public UserLogin()
         {
             InitializeComponent();
-        }
-
-        private void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Register register = new Register();
-            this.Hide();
-            register.Show();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -63,13 +56,14 @@ namespace FitnessTracker
                         if (userDta.Rows.Count > 0)
                         {
                             loginUsername = userDta.Rows[0][1].ToString();
-                            loginMemberID = userDta.Rows[0][0].ToString();
+                            loginUserID = userDta.Rows[0][0].ToString();
                             this.Hide();
                             UserDashboard dashboard = new UserDashboard();
                             dashboard.Show();
                         }
                         else
                         {
+                            loginCount += 1;
                             MessageBox.Show("Incorrect username or password!", "Login in Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             txtUsername.Focus();
                         }
@@ -80,6 +74,13 @@ namespace FitnessTracker
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            UserRegister register = new UserRegister();
+            this.Hide();
+            register.Show();
         }
 
         private void chkPassword_CheckedChanged(object sender, EventArgs e)

@@ -8,12 +8,18 @@ namespace FitnessTracker
 {
     class clsUser
     {
-        private string _ID, _Username, _Email, _Password, _Phone;
+        private string _ID, _Fullname, _Username, _Email, _Password, _Phone;
 
         public string ID
         {
             get { return _ID; }
             set { _ID = value; }
+        }
+
+        public string Fullname
+        {
+            get { return _Fullname; }
+            set { _Fullname = value; }
         }
 
         public string Username

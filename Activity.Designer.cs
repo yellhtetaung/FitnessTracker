@@ -136,9 +136,9 @@ namespace FitnessTracker
             this.lblMetricOne.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMetricOne.Location = new System.Drawing.Point(15, 119);
             this.lblMetricOne.Name = "lblMetricOne";
-            this.lblMetricOne.Size = new System.Drawing.Size(77, 16);
+            this.lblMetricOne.Size = new System.Drawing.Size(58, 16);
             this.lblMetricOne.TabIndex = 41;
-            this.lblMetricOne.Text = "Metric One";
+            this.lblMetricOne.Text = "Metric 1";
             // 
             // lblActivityName
             // 
@@ -180,9 +180,9 @@ namespace FitnessTracker
             this.lblMetricTwo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMetricTwo.Location = new System.Drawing.Point(261, 107);
             this.lblMetricTwo.Name = "lblMetricTwo";
-            this.lblMetricTwo.Size = new System.Drawing.Size(77, 16);
+            this.lblMetricTwo.Size = new System.Drawing.Size(58, 16);
             this.lblMetricTwo.TabIndex = 43;
-            this.lblMetricTwo.Text = "Metric Two";
+            this.lblMetricTwo.Text = "Metric 2";
             // 
             // panel2
             // 
@@ -212,9 +212,9 @@ namespace FitnessTracker
             this.lblMetricThree.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMetricThree.Location = new System.Drawing.Point(519, 107);
             this.lblMetricThree.Name = "lblMetricThree";
-            this.lblMetricThree.Size = new System.Drawing.Size(88, 16);
+            this.lblMetricThree.Size = new System.Drawing.Size(58, 16);
             this.lblMetricThree.TabIndex = 45;
-            this.lblMetricThree.Text = "Metric Three";
+            this.lblMetricThree.Text = "Metric 3";
             // 
             // panel3
             // 

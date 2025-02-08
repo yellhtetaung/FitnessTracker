@@ -26,7 +26,7 @@ namespace FitnessTracker
 
             if (trainerDta.Rows.Count == 0)
             {
-                lblID.Text = "M0001";
+                lblID.Text = "T0001";
             }
             else
             {
@@ -36,19 +36,19 @@ namespace FitnessTracker
 
                 if (newID >= 1 && newID < 9)
                 {
-                    lblID.Text = "M000" + (newID + 1);
+                    lblID.Text = "T000" + (newID + 1);
                 }
                 else if (newID >= 9 && newID < 99)
                 {
-                    lblID.Text = "M00" + (newID + 1);
+                    lblID.Text = "T00" + (newID + 1);
                 }
                 else if (newID >= 99 && newID < 999)
                 {
-                    lblID.Text = "M0" + (newID + 1);
+                    lblID.Text = "T0" + (newID + 1);
                 }
                 else if (newID >= 999 && newID < 9999)
                 {
-                    lblID.Text = "M" + (newID + 1);
+                    lblID.Text = "T" + (newID + 1);
                 }
             }
         }
@@ -129,22 +129,37 @@ namespace FitnessTracker
                     trainerData.Address = txtAddress.Text;
                     trainerData.Phone = txtPhone.Text;
 
-                    int insertTrainer = objTraniner.InsertTrainerData(trainerData.ID, trainerData.Fullname, trainerData.Username, trainerData.Email, trainerData.Password, trainerData.DateOfBirth, trainerData.Gender.ToString(), trainerData.Phone, trainerData.Address);
+                    DataTable getTrainerDataByUsername = objTraniner.GetTrainerByUsername(trainerData.Username);
+                    DataTable getTrainerDataByEmail = objTraniner.GetTrainerByEmail(trainerData.Email);
 
-                    if (insertTrainer > 0)
+                    if (getTrainerDataByUsername.Rows.Count > 0)
                     {
-                        MessageBox.Show("Trainer has been added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        AutoID();
-
-                        Login login = new Login();
-                        this.Hide();
-                        login.ShowDialog();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Something Wrong!", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        throw new Exception("Username already exists.");
                     }
 
+                    if(getTrainerDataByEmail.Rows.Count > 0)
+                    {
+                        throw new Exception("Email already exists.");
+                    }
+
+                    if (getTrainerDataByUsername.Rows.Count == 0 && getTrainerDataByEmail.Rows.Count == 0)
+                    {
+                        int insertTrainer = objTraniner.InsertTrainerData(trainerData.ID, trainerData.Fullname, trainerData.Username, trainerData.Email, trainerData.Password, trainerData.DateOfBirth, trainerData.Gender.ToString(), trainerData.Phone, trainerData.Address);
+
+                        if (insertTrainer > 0)
+                        {
+                            MessageBox.Show("Trainer has been added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            AutoID();
+
+                            Login login = new Login();
+                            this.Hide();
+                            login.ShowDialog();
+                        }
+                        else
+                        {
+                            throw new Exception("Something Wrong!");
+                        }
+                    }
                 }
             }
             catch (Exception ex)

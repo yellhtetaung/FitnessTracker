@@ -65,7 +65,7 @@ namespace FitnessTracker
         {
             try
             {
-                ClsActivity activity = new ClsActivity();
+                clsActivity activity = new clsActivity();
                 activity.ActivityID = id;
                 activity.ActivityName = name;
                 activity.MetricOne = metricOne;
@@ -130,7 +130,7 @@ namespace FitnessTracker
                 }
                 else
                 {
-                    ClsActivity activity = new ClsActivity();
+                    clsActivity activity = new clsActivity();
                     activity.ActivityID = lblID.Text;
                     activity.ActivityName = txtActivityName.Text;
                     activity.MetricOne = txtMetricOne.Text;

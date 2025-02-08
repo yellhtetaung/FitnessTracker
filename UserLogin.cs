@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace FitnessTracker
 {
-    public partial class Login : Form
+    public partial class UserLogin : Form
     {
-        FitnessTrackerDatasetTableAdapters.TrainersTableAdapter objTrainer = new FitnessTrackerDatasetTableAdapters.TrainersTableAdapter();
-        DataTable trainerDta = new DataTable();
+        FitnessTrackerDatasetTableAdapters.UsersTableAdapter objUser = new FitnessTrackerDatasetTableAdapters.UsersTableAdapter();
+        DataTable userDta = new DataTable();
 
         int loginCount = 0;
         public static string loginUsername;
         public static string loginMemberID;
 
-        public Login()
+        public UserLogin()
         {
             InitializeComponent();
         }
@@ -54,19 +54,19 @@ namespace FitnessTracker
                     }
                     else
                     {
-                        clsTrainer trainerData = new clsTrainer();
-                        trainerData.Username = txtUsername.Text;
-                        trainerData.Password = txtPassword.Text;
+                        clsUser userData = new clsUser();
+                        userData.Username = txtUsername.Text;
+                        userData.Password = txtPassword.Text;
 
-                        trainerDta = objTrainer.LoginTrainer(trainerData.Username, trainerData.Password);
+                        userDta = objUser.LoginUser(userData.Username, userData.Password);
 
-                        if (trainerDta.Rows.Count > 0)
+                        if (userDta.Rows.Count > 0)
                         {
-                            loginUsername = trainerDta.Rows[0][1].ToString();
-                            loginMemberID = trainerDta.Rows[0][0].ToString();
+                            loginUsername = userDta.Rows[0][1].ToString();
+                            loginMemberID = userDta.Rows[0][0].ToString();
                             this.Hide();
-                            AdminDashboard admin = new AdminDashboard();
-                            admin.Show();
+                            UserDashboard dashboard = new UserDashboard();
+                            dashboard.Show();
                         }
                         else
                         {

@@ -12,8 +12,8 @@ namespace FitnessTracker
 {
     public partial class Register : Form
     {
-        FitnessTrackerDatasetTableAdapters.MembersTableAdapter objMember = new FitnessTrackerDatasetTableAdapters.MembersTableAdapter();
-        DataTable memberDta = new DataTable();
+        FitnessTrackerDatasetTableAdapters.TrainersTableAdapter objTraniner = new FitnessTrackerDatasetTableAdapters.TrainersTableAdapter();
+        DataTable trainerDta = new DataTable();
 
         public Register()
         {
@@ -22,16 +22,16 @@ namespace FitnessTracker
 
         public void AutoID()
         {
-            memberDta = objMember.GetData();
+            trainerDta = objTraniner.GetData();
 
-            if (memberDta.Rows.Count == 0)
+            if (trainerDta.Rows.Count == 0)
             {
                 lblID.Text = "M0001";
             }
             else
             {
-                int size = memberDta.Rows.Count - 1;
-                string oldID = memberDta.Rows[size][0].ToString();
+                int size = trainerDta.Rows.Count - 1;
+                string oldID = trainerDta.Rows[size][0].ToString();
                 int newID = Convert.ToInt32(oldID.Substring(1, 4));
 
                 if (newID >= 1 && newID < 9)
@@ -118,22 +118,22 @@ namespace FitnessTracker
                 }
                 else
                 {
-                    ClsMember memberData = new ClsMember();
-                    memberData.MemberID = lblID.Text;
-                    memberData.MemberFullName = txtFullName.Text;
-                    memberData.MemberUsername = txtUsername.Text;
-                    memberData.MemberEmail = txtEmail.Text;
-                    memberData.MemberPassword = txtPassword.Text;
-                    memberData.MemberDOB = dtpDOB.Value;
-                    memberData.MemberGender = rdoMale.Checked ? 'M' : rdoFemale.Checked ? 'F' : 'O';
-                    memberData.MemberAddress = txtAddress.Text;
-                    memberData.MemberPhone = txtPhone.Text;
+                    clsTrainer trainerData = new clsTrainer();
+                    trainerData.ID = lblID.Text;
+                    trainerData.Fullname = txtFullName.Text;
+                    trainerData.Username = txtUsername.Text;
+                    trainerData.Email = txtEmail.Text;
+                    trainerData.Password = txtPassword.Text;
+                    trainerData.DateOfBirth = dtpDOB.Value;
+                    trainerData.Gender = rdoMale.Checked ? 'M' : rdoFemale.Checked ? 'F' : 'O';
+                    trainerData.Address = txtAddress.Text;
+                    trainerData.Phone = txtPhone.Text;
 
-                    int insertMember = objMember.InsertMemberData(memberData.MemberID, memberData.MemberFullName, memberData.MemberUsername, memberData.MemberEmail, memberData.MemberPassword, memberData.MemberDOB, memberData.MemberGender.ToString(), memberData.MemberPhone, memberData.MemberAddress);
+                    int insertTrainer = objTraniner.InsertTrainerData(trainerData.ID, trainerData.Fullname, trainerData.Username, trainerData.Email, trainerData.Password, trainerData.DateOfBirth, trainerData.Gender.ToString(), trainerData.Phone, trainerData.Address);
 
-                    if (insertMember > 0)
+                    if (insertTrainer > 0)
                     {
-                        MessageBox.Show("Member added successfully.");
+                        MessageBox.Show("Trainer has been added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         AutoID();
 
                         Login login = new Login();
@@ -158,6 +158,18 @@ namespace FitnessTracker
             Login login = new Login();
             this.Hide();
             login.ShowDialog();
+        }
+
+        private void chkPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkPassword.Checked)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+            } 
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true;
+            }
         }
     }
 }

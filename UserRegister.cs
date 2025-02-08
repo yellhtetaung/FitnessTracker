@@ -12,9 +12,18 @@ namespace FitnessTracker
 {
     public partial class UserRegister : Form
     {
+        FitnessTrackerDatasetTableAdapters.UsersTableAdapter objUser = new FitnessTrackerDatasetTableAdapters.UsersTableAdapter();
+        DataTable userDta = new DataTable();
+
+
         public UserRegister()
         {
             InitializeComponent();
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

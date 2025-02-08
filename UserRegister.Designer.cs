@@ -118,6 +118,7 @@ namespace FitnessTracker
             this.btnRegister.TabIndex = 61;
             this.btnRegister.Text = "REGISTER";
             this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // btnClear
             // 

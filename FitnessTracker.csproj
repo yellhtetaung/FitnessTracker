@@ -66,6 +66,7 @@
     </Compile>
     <Compile Include="clsActivity.cs" />
     <Compile Include="clsTrainer.cs" />
+    <Compile Include="clsUser.cs" />
     <Compile Include="FitnessTrackerDataset.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,6 +104,12 @@
     <Compile Include="UserLogin.Designer.cs">
       <DependentUpon>UserLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserRegister.Designer.cs">
+      <DependentUpon>UserRegister.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Activity.resx">
       <DependentUpon>Activity.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +136,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserDashboard.resx">
       <DependentUpon>UserDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserLogin.resx">
+      <DependentUpon>UserLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserRegister.resx">
+      <DependentUpon>UserRegister.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="FitnessTrackerDataset.xsc">
       <DependentUpon>FitnessTrackerDataset.xsd</DependentUpon>

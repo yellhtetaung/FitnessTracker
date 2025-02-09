@@ -56,6 +56,9 @@ namespace FitnessTracker
             this.activitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
             this.activitiesTableAdapter = new FitnessTracker.FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter();
+            this.menuAdmin = new System.Windows.Forms.MenuStrip();
+            this.activityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activityToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panelUsername.SuspendLayout();
             this.panelPassword.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -64,13 +67,14 @@ namespace FitnessTracker
             ((System.ComponentModel.ISupportInitialize)(this.dgvActData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).BeginInit();
+            this.menuAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblActivity
             // 
             this.lblActivity.AutoSize = true;
             this.lblActivity.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActivity.Location = new System.Drawing.Point(15, 26);
+            this.lblActivity.Location = new System.Drawing.Point(15, 61);
             this.lblActivity.Name = "lblActivity";
             this.lblActivity.Size = new System.Drawing.Size(79, 16);
             this.lblActivity.TabIndex = 0;
@@ -80,7 +84,7 @@ namespace FitnessTracker
             // 
             this.lblID.AutoSize = true;
             this.lblID.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(100, 26);
+            this.lblID.Location = new System.Drawing.Point(100, 61);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(30, 16);
             this.lblID.TabIndex = 1;
@@ -91,7 +95,7 @@ namespace FitnessTracker
             this.panelUsername.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panelUsername.Controls.Add(this.txtActivityName);
             this.panelUsername.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelUsername.Location = new System.Drawing.Point(18, 77);
+            this.panelUsername.Location = new System.Drawing.Point(18, 112);
             this.panelUsername.Name = "panelUsername";
             this.panelUsername.Size = new System.Drawing.Size(295, 30);
             this.panelUsername.TabIndex = 1;
@@ -113,7 +117,7 @@ namespace FitnessTracker
             this.panelPassword.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panelPassword.Controls.Add(this.txtMetricOne);
             this.panelPassword.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelPassword.Location = new System.Drawing.Point(18, 138);
+            this.panelPassword.Location = new System.Drawing.Point(18, 173);
             this.panelPassword.Name = "panelPassword";
             this.panelPassword.Size = new System.Drawing.Size(250, 30);
             this.panelPassword.TabIndex = 2;
@@ -134,7 +138,7 @@ namespace FitnessTracker
             // 
             this.lblMetricOne.AutoSize = true;
             this.lblMetricOne.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMetricOne.Location = new System.Drawing.Point(15, 119);
+            this.lblMetricOne.Location = new System.Drawing.Point(15, 154);
             this.lblMetricOne.Name = "lblMetricOne";
             this.lblMetricOne.Size = new System.Drawing.Size(58, 16);
             this.lblMetricOne.TabIndex = 41;
@@ -145,7 +149,7 @@ namespace FitnessTracker
             this.lblActivityName.AutoSize = true;
             this.lblActivityName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblActivityName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblActivityName.Location = new System.Drawing.Point(15, 56);
+            this.lblActivityName.Location = new System.Drawing.Point(15, 91);
             this.lblActivityName.Name = "lblActivityName";
             this.lblActivityName.Size = new System.Drawing.Size(95, 16);
             this.lblActivityName.TabIndex = 40;
@@ -223,7 +227,7 @@ namespace FitnessTracker
             this.panel3.Controls.Add(this.lblMetricThree);
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Controls.Add(this.btnSave);
-            this.panel3.Location = new System.Drawing.Point(12, 12);
+            this.panel3.Location = new System.Drawing.Point(12, 47);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(813, 229);
             this.panel3.TabIndex = 46;
@@ -258,11 +262,11 @@ namespace FitnessTracker
             this.metricTwoDataGridViewTextBoxColumn,
             this.metricThreeDataGridViewTextBoxColumn});
             this.dgvActData.DataSource = this.activitiesBindingSource;
-            this.dgvActData.Location = new System.Drawing.Point(12, 244);
+            this.dgvActData.Location = new System.Drawing.Point(12, 279);
             this.dgvActData.Margin = new System.Windows.Forms.Padding(0);
             this.dgvActData.Name = "dgvActData";
             this.dgvActData.ReadOnly = true;
-            this.dgvActData.Size = new System.Drawing.Size(813, 197);
+            this.dgvActData.Size = new System.Drawing.Size(813, 276);
             this.dgvActData.TabIndex = 47;
             this.dgvActData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvActData_CellDoubleClick);
             // 
@@ -322,11 +326,40 @@ namespace FitnessTracker
             // 
             this.activitiesTableAdapter.ClearBeforeFill = true;
             // 
+            // menuAdmin
+            // 
+            this.menuAdmin.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.menuAdmin.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuAdmin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.activityToolStripMenuItem,
+            this.activityToolStripMenuItem1});
+            this.menuAdmin.Location = new System.Drawing.Point(0, 0);
+            this.menuAdmin.Name = "menuAdmin";
+            this.menuAdmin.Padding = new System.Windows.Forms.Padding(12);
+            this.menuAdmin.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.menuAdmin.Size = new System.Drawing.Size(834, 44);
+            this.menuAdmin.TabIndex = 48;
+            this.menuAdmin.Text = "menuAdmin";
+            // 
+            // activityToolStripMenuItem
+            // 
+            this.activityToolStripMenuItem.Name = "activityToolStripMenuItem";
+            this.activityToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.activityToolStripMenuItem.Text = "Home";
+            this.activityToolStripMenuItem.Click += new System.EventHandler(this.activityToolStripMenuItem_Click);
+            // 
+            // activityToolStripMenuItem1
+            // 
+            this.activityToolStripMenuItem1.Name = "activityToolStripMenuItem1";
+            this.activityToolStripMenuItem1.Size = new System.Drawing.Size(62, 20);
+            this.activityToolStripMenuItem1.Text = "Activity";
+            // 
             // Activity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 450);
+            this.ClientSize = new System.Drawing.Size(834, 564);
+            this.Controls.Add(this.menuAdmin);
             this.Controls.Add(this.dgvActData);
             this.Controls.Add(this.panelUsername);
             this.Controls.Add(this.panelPassword);
@@ -354,6 +387,8 @@ namespace FitnessTracker
             ((System.ComponentModel.ISupportInitialize)(this.dgvActData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).EndInit();
+            this.menuAdmin.ResumeLayout(false);
+            this.menuAdmin.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,5 +421,8 @@ namespace FitnessTracker
         private System.Windows.Forms.DataGridViewTextBoxColumn metricOneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn metricTwoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn metricThreeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.MenuStrip menuAdmin;
+        private System.Windows.Forms.ToolStripMenuItem activityToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem activityToolStripMenuItem1;
     }
 }

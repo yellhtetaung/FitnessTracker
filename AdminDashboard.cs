@@ -21,7 +21,7 @@ namespace FitnessTracker
         {
             Activity activity = new Activity();
             this.Hide();
-            activity.ShowDialog();
+            activity.Show();
         }
     }
 }

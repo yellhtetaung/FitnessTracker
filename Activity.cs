@@ -172,5 +172,12 @@ namespace FitnessTracker
 
             activityDetail.Show();
         }
+
+        private void activityToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdminDashboard dashboard = new AdminDashboard();
+            this.Hide();
+            dashboard.Show();
+        }
     }
 }

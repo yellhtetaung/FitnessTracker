@@ -98,6 +98,12 @@
     <Compile Include="Starter.Designer.cs">
       <DependentUpon>Starter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Track.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Track.Designer.cs">
+      <DependentUpon>Track.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Starter.resx">
       <DependentUpon>Starter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Track.resx">
+      <DependentUpon>Track.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserDashboard.resx">
       <DependentUpon>UserDashboard.cs</DependentUpon>

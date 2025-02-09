@@ -19,9 +19,9 @@ namespace FitnessTracker
 
         private void trackerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Goal goal = new Goal();
             this.Hide();
-            goal.ShowDialog();
+            Track track = new Track();
+            track.Show();
         }
     }
 }

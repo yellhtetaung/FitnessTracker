@@ -2658,7 +2658,7 @@ SELECT ActID, ActName, MetricOne, MetricTwo, MetricThree FROM Activities WHERE (
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        Activities.*\r\nFROM            Activities";
@@ -2670,26 +2670,31 @@ SELECT ActID, ActName, MetricOne, MetricTwo, MetricThree FROM Activities WHERE (
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ActivityID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "ActID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "INSERT INTO [Activities] ([ActID], [ActName], [MetricOne], [MetricTwo], [MetricTh" +
+            this._commandCollection[2].CommandText = "SELECT        Activities.*\r\nFROM            Activities\r\nWHERE ActID=@activityID";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@activityID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "ActID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "INSERT INTO [Activities] ([ActID], [ActName], [MetricOne], [MetricTwo], [MetricTh" +
                 "ree]) VALUES (@ActID, @ActName, @MetricOne, @MetricTwo, @MetricThree);\r\nSELECT A" +
                 "ctID, ActName, MetricOne, MetricTwo, MetricThree FROM Activities WHERE (ActID = " +
                 "@ActID)";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ActID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "ActID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ActName", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "ActName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MetricOne", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "MetricOne", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MetricTwo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "MetricTwo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MetricThree", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "MetricThree", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "UPDATE Activities SET\r\nActName=@ActivityName, Metricone=@MetricOne, MetricTwo=@Me" +
-                "tricTwo, MetricThree=@MetricThree\r\nWHERE ActID=@ActivityID";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ActivityName", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "ActName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ActID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "ActID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ActName", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "ActName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MetricOne", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "MetricOne", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MetricTwo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "MetricTwo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MetricThree", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "MetricThree", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ActivityID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "ActID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "UPDATE Activities SET\r\nActName=@ActivityName, Metricone=@MetricOne, MetricTwo=@Me" +
+                "tricTwo, MetricThree=@MetricThree\r\nWHERE ActID=@ActivityID";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ActivityName", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "ActName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MetricOne", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "MetricOne", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MetricTwo", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "MetricTwo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MetricThree", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "MetricThree", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ActivityID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "ActID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2711,6 +2716,23 @@ SELECT ActID, ActName, MetricOne, MetricTwo, MetricThree FROM Activities WHERE (
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual FitnessTrackerDataset.ActivitiesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            FitnessTrackerDataset.ActivitiesDataTable dataTable = new FitnessTrackerDataset.ActivitiesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FitnessTrackerDataset.ActivitiesDataTable GetActivityByID(string activityID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((activityID == null)) {
+                throw new global::System.ArgumentNullException("activityID");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(activityID));
+            }
             FitnessTrackerDataset.ActivitiesDataTable dataTable = new FitnessTrackerDataset.ActivitiesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -2982,7 +3004,7 @@ SELECT ActID, ActName, MetricOne, MetricTwo, MetricThree FROM Activities WHERE (
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertActivity(string ActID, string ActName, string MetricOne, string MetricTwo, string MetricThree) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             if ((ActID == null)) {
                 throw new global::System.ArgumentNullException("ActID");
             }
@@ -3035,7 +3057,7 @@ SELECT ActID, ActName, MetricOne, MetricTwo, MetricThree FROM Activities WHERE (
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateActivity(string ActivityName, string MetricOne, string MetricTwo, string MetricThree, string ActivityID) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             if ((ActivityName == null)) {
                 throw new global::System.ArgumentNullException("ActivityName");
             }
@@ -3995,11 +4017,35 @@ SELECT TrackerID, ActivityID, UserID, TrackerName, SetGoal, TotalCalBurn, TrackD
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        Tracker.*\r\nFROM            Tracker";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        Tracker.*\r\nFROM            Tracker\r\nWHERE UserID=@uid";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@uid", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "UserID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"INSERT INTO [Tracker] ([TrackerID], [ActivityID], [UserID], [TrackerName], [SetGoal], [TrackDate]) VALUES (@TrackerID, @ActivityID, @UserID, @TrackerName, @SetGoal, @TrackDate);
+SELECT TrackerID, ActivityID, UserID, TrackerName, SetGoal, TrackDate FROM Tracker WHERE (TrackerID = @TrackerID)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrackerID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "TrackerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ActivityID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "ActivityID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "UserID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrackerName", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "TrackerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SetGoal", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SetGoal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrackDate", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "TrackDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "UPDATE Tracker \r\nSET TrackStatus=(@trackStatus), TotalCalBurn=(@totalCalBurn)\r\nWH" +
+                "ERE TrackerID=(@tid)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@trackStatus", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "TrackStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@totalCalBurn", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TotalCalBurn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tid", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "TrackerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4021,6 +4067,23 @@ SELECT TrackerID, ActivityID, UserID, TrackerName, SetGoal, TotalCalBurn, TrackD
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual FitnessTrackerDataset.TrackerDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            FitnessTrackerDataset.TrackerDataTable dataTable = new FitnessTrackerDataset.TrackerDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FitnessTrackerDataset.TrackerDataTable GetTrackerDataByUserID(string uid) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((uid == null)) {
+                throw new global::System.ArgumentNullException("uid");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(uid));
+            }
             FitnessTrackerDataset.TrackerDataTable dataTable = new FitnessTrackerDataset.TrackerDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -4348,6 +4411,106 @@ SELECT TrackerID, ActivityID, UserID, TrackerName, SetGoal, TotalCalBurn, TrackD
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string ActivityID, string UserID, string TrackerName, global::System.Nullable<int> SetGoal, global::System.Nullable<int> TotalCalBurn, global::System.Nullable<global::System.DateTime> TrackDate, string TrackStatus, string Original_TrackerID, string Original_ActivityID, string Original_UserID, string Original_TrackerName, global::System.Nullable<int> Original_SetGoal, global::System.Nullable<int> Original_TotalCalBurn, global::System.Nullable<global::System.DateTime> Original_TrackDate, string Original_TrackStatus) {
             return this.Update(Original_TrackerID, ActivityID, UserID, TrackerName, SetGoal, TotalCalBurn, TrackDate, TrackStatus, Original_TrackerID, Original_ActivityID, Original_UserID, Original_TrackerName, Original_SetGoal, Original_TotalCalBurn, Original_TrackDate, Original_TrackStatus);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertTrackerData(string TrackerID, string ActivityID, string UserID, string TrackerName, global::System.Nullable<int> SetGoal, string TrackDate) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((TrackerID == null)) {
+                throw new global::System.ArgumentNullException("TrackerID");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(TrackerID));
+            }
+            if ((ActivityID == null)) {
+                throw new global::System.ArgumentNullException("ActivityID");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(ActivityID));
+            }
+            if ((UserID == null)) {
+                throw new global::System.ArgumentNullException("UserID");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(UserID));
+            }
+            if ((TrackerName == null)) {
+                throw new global::System.ArgumentNullException("TrackerName");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(TrackerName));
+            }
+            if ((SetGoal.HasValue == true)) {
+                command.Parameters[4].Value = ((int)(SetGoal.Value));
+            }
+            else {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((TrackDate == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[5].Value = ((string)(TrackDate));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateTrackerData(string trackStatus, global::System.Nullable<int> totalCalBurn, string tid) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            if ((trackStatus == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(trackStatus));
+            }
+            if ((totalCalBurn.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(totalCalBurn.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((tid == null)) {
+                throw new global::System.ArgumentNullException("tid");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(tid));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

@@ -21,9 +21,12 @@ namespace FitnessTracker
         FitnessTrackerDatasetTableAdapters.TrackerTableAdapter objTracker = new FitnessTrackerDatasetTableAdapters.TrackerTableAdapter();
         DataTable trackerDta = new DataTable();
 
-        public Goal()
+        private readonly Track trackForm;
+
+        public Goal(Track track)
         {
             InitializeComponent();
+            trackForm = track;
         }
 
         public void AutoID()
@@ -59,6 +62,31 @@ namespace FitnessTracker
             }
         }
 
+        public void ActivityChangeHandler()
+        {
+            try
+            {
+               if (cboAct.SelectedValue != null)
+                {
+                    string id = cboAct.SelectedValue.ToString();
+                    lblActID.Text = id;
+
+                    activityDta = objActivity.GetActivityByID(id);
+
+                    if (activityDta.Rows.Count > 0)
+                    {
+                        lblMetricOne.Text = activityDta.Rows[0]["MetricOne"].ToString();
+                        lblMetricTwo.Text = activityDta.Rows[0]["MetricTwo"].ToString();
+                        lblMetricThree.Text = activityDta.Rows[0]["MetricThree"].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void Goal_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'fitnessTrackerDataset1.Activities' table. You can move, or remove it, as needed.
@@ -68,17 +96,34 @@ namespace FitnessTracker
             lblUserID.Text = UserLogin.loginUserID;
             lblUsername.Text = UserLogin.loginUsername;
             AutoID();
-            string id = cboAct.SelectedValue.ToString();
-            lblActID.Text = id;
+            ActivityChangeHandler();
         }
 
         private void cboAct_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ActivityChangeHandler();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
             try
             {
-                string id = cboAct.SelectedValue.ToString();
-                lblActID.Text = id;
+                if (txtSetGoal.Text == "")
+                {
+                    MessageBox.Show("Please enter your full name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtSetGoal.Focus();
+                }
+
+                int countRecord = objTracker.InsertTrackerData(lblTrackID.Text, lblActID.Text, lblUserID.Text, lblUsername.Text, Convert.ToInt32(txtSetGoal.Text), dtpGoalDate.Value.ToString());
+
+                if (countRecord > 0)
+                {
+                    MessageBox.Show("Goal has been defined successfully!","Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+                    trackForm.RefreshDataGridView();
+                }
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

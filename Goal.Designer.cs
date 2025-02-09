@@ -31,9 +31,6 @@ namespace FitnessTracker
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Goal));
-            this.menuAdmin = new System.Windows.Forms.MenuStrip();
-            this.activityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblUserIDLabel = new System.Windows.Forms.Label();
             this.lblUserID = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
@@ -50,7 +47,7 @@ namespace FitnessTracker
             this.dtpGoalDate = new System.Windows.Forms.DateTimePicker();
             this.lblSetGoalLabel = new System.Windows.Forms.Label();
             this.panelFullName = new System.Windows.Forms.Panel();
-            this.txtFullName = new System.Windows.Forms.TextBox();
+            this.txtSetGoal = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -64,7 +61,6 @@ namespace FitnessTracker
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.menuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).BeginInit();
@@ -74,33 +70,6 @@ namespace FitnessTracker
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuAdmin
-            // 
-            this.menuAdmin.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.menuAdmin.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuAdmin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.activityToolStripMenuItem,
-            this.activitiesToolStripMenuItem});
-            this.menuAdmin.Location = new System.Drawing.Point(0, 0);
-            this.menuAdmin.Name = "menuAdmin";
-            this.menuAdmin.Padding = new System.Windows.Forms.Padding(12);
-            this.menuAdmin.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuAdmin.Size = new System.Drawing.Size(725, 44);
-            this.menuAdmin.TabIndex = 1;
-            this.menuAdmin.Text = "menuAdmin";
-            // 
-            // activityToolStripMenuItem
-            // 
-            this.activityToolStripMenuItem.Name = "activityToolStripMenuItem";
-            this.activityToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.activityToolStripMenuItem.Text = "Home";
-            // 
-            // activitiesToolStripMenuItem
-            // 
-            this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
-            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.activitiesToolStripMenuItem.Text = "Activities";
             // 
             // lblUserIDLabel
             // 
@@ -243,25 +212,25 @@ namespace FitnessTracker
             // panelFullName
             // 
             this.panelFullName.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panelFullName.Controls.Add(this.txtFullName);
+            this.panelFullName.Controls.Add(this.txtSetGoal);
             this.panelFullName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelFullName.Location = new System.Drawing.Point(17, 147);
             this.panelFullName.Name = "panelFullName";
             this.panelFullName.Size = new System.Drawing.Size(291, 30);
             this.panelFullName.TabIndex = 15;
             // 
-            // txtFullName
+            // txtSetGoal
             // 
-            this.txtFullName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtFullName.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtFullName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFullName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFullName.ForeColor = System.Drawing.Color.Black;
-            this.txtFullName.Location = new System.Drawing.Point(14, 8);
-            this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new System.Drawing.Size(274, 15);
-            this.txtFullName.TabIndex = 1;
-            this.txtFullName.WordWrap = false;
+            this.txtSetGoal.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtSetGoal.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtSetGoal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSetGoal.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSetGoal.ForeColor = System.Drawing.Color.Black;
+            this.txtSetGoal.Location = new System.Drawing.Point(14, 8);
+            this.txtSetGoal.Name = "txtSetGoal";
+            this.txtSetGoal.Size = new System.Drawing.Size(274, 15);
+            this.txtSetGoal.TabIndex = 1;
+            this.txtSetGoal.WordWrap = false;
             // 
             // label1
             // 
@@ -328,15 +297,17 @@ namespace FitnessTracker
             // 
             // btnSave
             // 
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSave.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnSave.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(592, 415);
+            this.btnSave.Location = new System.Drawing.Point(593, 379);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 35);
             this.btnSave.TabIndex = 22;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label4
             // 
@@ -365,13 +336,14 @@ namespace FitnessTracker
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Controls.Add(this.lblUserIDLabel);
             this.groupBox1.Controls.Add(this.lblUserID);
             this.groupBox1.Controls.Add(this.lblUsernameLabel);
             this.groupBox1.Controls.Add(this.lblUsername);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(13, 48);
+            this.groupBox1.Location = new System.Drawing.Point(14, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(271, 195);
             this.groupBox1.TabIndex = 25;
@@ -380,6 +352,7 @@ namespace FitnessTracker
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.Controls.Add(this.cboAct);
             this.groupBox2.Controls.Add(this.lblActivity);
             this.groupBox2.Controls.Add(this.lblActIDLabel);
@@ -391,7 +364,7 @@ namespace FitnessTracker
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 249);
+            this.groupBox2.Location = new System.Drawing.Point(13, 213);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(699, 148);
             this.groupBox2.TabIndex = 26;
@@ -400,6 +373,7 @@ namespace FitnessTracker
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox3.Controls.Add(this.lblTrackID);
             this.groupBox3.Controls.Add(this.dtpGoalDate);
             this.groupBox3.Controls.Add(this.label4);
@@ -407,7 +381,7 @@ namespace FitnessTracker
             this.groupBox3.Controls.Add(this.lblSetGoalLabel);
             this.groupBox3.Controls.Add(this.panelFullName);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(311, 48);
+            this.groupBox3.Location = new System.Drawing.Point(312, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(401, 195);
             this.groupBox3.TabIndex = 27;
@@ -418,9 +392,8 @@ namespace FitnessTracker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(725, 462);
+            this.ClientSize = new System.Drawing.Size(725, 425);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.menuAdmin);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
@@ -429,8 +402,6 @@ namespace FitnessTracker
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Goal";
             this.Load += new System.EventHandler(this.Goal_Load);
-            this.menuAdmin.ResumeLayout(false);
-            this.menuAdmin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).EndInit();
@@ -444,15 +415,10 @@ namespace FitnessTracker
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuAdmin;
-        private System.Windows.Forms.ToolStripMenuItem activityToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem activitiesToolStripMenuItem;
         private System.Windows.Forms.Label lblUserIDLabel;
         private System.Windows.Forms.Label lblUserID;
         private System.Windows.Forms.Label lblUsername;
@@ -465,7 +431,7 @@ namespace FitnessTracker
         private System.Windows.Forms.DateTimePicker dtpGoalDate;
         private System.Windows.Forms.Label lblSetGoalLabel;
         private System.Windows.Forms.Panel panelFullName;
-        private System.Windows.Forms.TextBox txtFullName;
+        private System.Windows.Forms.TextBox txtSetGoal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

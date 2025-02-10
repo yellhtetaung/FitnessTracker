@@ -158,7 +158,7 @@ namespace FitnessTracker
             this.dgvTrack.ReadOnly = true;
             this.dgvTrack.Size = new System.Drawing.Size(865, 197);
             this.dgvTrack.TabIndex = 48;
-            this.dgvTrack.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrack_CellClick);
+            this.dgvTrack.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrack_CellDoubleClick);
             // 
             // trackerIDDataGridViewTextBoxColumn
             // 
@@ -436,9 +436,9 @@ namespace FitnessTracker
             // 
             // btnGoal
             // 
-            this.btnGoal.BackColor = System.Drawing.Color.Olive;
+            this.btnGoal.BackColor = System.Drawing.Color.Gold;
             this.btnGoal.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGoal.ForeColor = System.Drawing.Color.White;
+            this.btnGoal.ForeColor = System.Drawing.Color.Black;
             this.btnGoal.Location = new System.Drawing.Point(336, 302);
             this.btnGoal.Name = "btnGoal";
             this.btnGoal.Size = new System.Drawing.Size(120, 35);

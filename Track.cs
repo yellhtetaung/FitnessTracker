@@ -98,7 +98,13 @@ namespace FitnessTracker
             }
         }
 
-        private void dgvTrack_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnGoal_Click(object sender, EventArgs e)
+        {
+            Goal goal = new Goal(this);
+            goal.Show();
+        }
+
+        private void dgvTrack_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int row = dgvTrack.CurrentRow.Index;
 
@@ -106,12 +112,6 @@ namespace FitnessTracker
             lblGoal.Text = dgvTrack[4, row].Value.ToString();
 
             dgvTrack.Refresh();
-        }
-
-        private void btnGoal_Click(object sender, EventArgs e)
-        {
-            Goal goal = new Goal(this);
-            goal.Show();
         }
     }
 }

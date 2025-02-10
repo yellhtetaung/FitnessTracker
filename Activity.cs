@@ -173,11 +173,19 @@ namespace FitnessTracker
             activityDetail.Show();
         }
 
-        private void activityToolStripMenuItem_Click(object sender, EventArgs e)
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminDashboard dashboard = new AdminDashboard();
             this.Hide();
             dashboard.Show();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtActivityName.Text = "";
+            txtMetricOne.Text = "";
+            txtMetricTwo.Text = "";
+            txtMetricThree.Text = "";
         }
     }
 }

@@ -57,8 +57,9 @@ namespace FitnessTracker
             this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
             this.activitiesTableAdapter = new FitnessTracker.FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter();
             this.menuAdmin = new System.Windows.Forms.MenuStrip();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.activityToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnClear = new System.Windows.Forms.Button();
             this.panelUsername.SuspendLayout();
             this.panelPassword.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -222,6 +223,7 @@ namespace FitnessTracker
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnClear);
             this.panel3.Controls.Add(this.panel1);
             this.panel3.Controls.Add(this.lblMetricTwo);
             this.panel3.Controls.Add(this.lblMetricThree);
@@ -262,11 +264,11 @@ namespace FitnessTracker
             this.metricTwoDataGridViewTextBoxColumn,
             this.metricThreeDataGridViewTextBoxColumn});
             this.dgvActData.DataSource = this.activitiesBindingSource;
-            this.dgvActData.Location = new System.Drawing.Point(12, 279);
+            this.dgvActData.Location = new System.Drawing.Point(0, 279);
             this.dgvActData.Margin = new System.Windows.Forms.Padding(0);
             this.dgvActData.Name = "dgvActData";
             this.dgvActData.ReadOnly = true;
-            this.dgvActData.Size = new System.Drawing.Size(813, 276);
+            this.dgvActData.Size = new System.Drawing.Size(834, 286);
             this.dgvActData.TabIndex = 47;
             this.dgvActData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvActData_CellDoubleClick);
             // 
@@ -331,8 +333,8 @@ namespace FitnessTracker
             this.menuAdmin.BackColor = System.Drawing.Color.LightSeaGreen;
             this.menuAdmin.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuAdmin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.activityToolStripMenuItem,
-            this.activityToolStripMenuItem1});
+            this.homeToolStripMenuItem,
+            this.activityToolStripMenuItem});
             this.menuAdmin.Location = new System.Drawing.Point(0, 0);
             this.menuAdmin.Name = "menuAdmin";
             this.menuAdmin.Padding = new System.Windows.Forms.Padding(12);
@@ -341,18 +343,32 @@ namespace FitnessTracker
             this.menuAdmin.TabIndex = 48;
             this.menuAdmin.Text = "menuAdmin";
             // 
+            // homeToolStripMenuItem
+            // 
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.homeToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
+            // 
             // activityToolStripMenuItem
             // 
             this.activityToolStripMenuItem.Name = "activityToolStripMenuItem";
-            this.activityToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.activityToolStripMenuItem.Text = "Home";
-            this.activityToolStripMenuItem.Click += new System.EventHandler(this.activityToolStripMenuItem_Click);
+            this.activityToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.activityToolStripMenuItem.Text = "Activity";
             // 
-            // activityToolStripMenuItem1
+            // btnClear
             // 
-            this.activityToolStripMenuItem1.Name = "activityToolStripMenuItem1";
-            this.activityToolStripMenuItem1.Size = new System.Drawing.Size(62, 20);
-            this.activityToolStripMenuItem1.Text = "Activity";
+            this.btnClear.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnClear.BackColor = System.Drawing.Color.Red;
+            this.btnClear.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(507, 177);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(120, 35);
+            this.btnClear.TabIndex = 46;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // Activity
             // 
@@ -422,7 +438,8 @@ namespace FitnessTracker
         private System.Windows.Forms.DataGridViewTextBoxColumn metricTwoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn metricThreeDataGridViewTextBoxColumn;
         private System.Windows.Forms.MenuStrip menuAdmin;
+        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem activityToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem activityToolStripMenuItem1;
+        private System.Windows.Forms.Button btnClear;
     }
 }

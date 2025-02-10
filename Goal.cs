@@ -129,5 +129,11 @@ namespace FitnessTracker
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            dtpGoalDate.Value = DateTime.Today;
+            txtSetGoal.Text = "";
+        }
     }
 }

@@ -190,6 +190,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\icon.ico" />
+    <Content Include="assets\icons\tracker.png" />
+    <Content Include="assets\icons\home.png" />
+    <Content Include="assets\icons\search.png" />
+    <Content Include="assets\icons\activity.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

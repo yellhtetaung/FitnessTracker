@@ -54,14 +54,16 @@ namespace FitnessTracker
             // 
             // homeToolStripMenuItem
             // 
+            this.homeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("homeToolStripMenuItem.Image")));
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.homeToolStripMenuItem.Text = "Home";
             // 
             // activityToolStripMenuItem
             // 
+            this.activityToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("activityToolStripMenuItem.Image")));
             this.activityToolStripMenuItem.Name = "activityToolStripMenuItem";
-            this.activityToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.activityToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.activityToolStripMenuItem.Text = "Activity";
             this.activityToolStripMenuItem.Click += new System.EventHandler(this.activityToolStripMenuItem_Click);
             // 

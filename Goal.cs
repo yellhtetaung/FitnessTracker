@@ -66,7 +66,7 @@ namespace FitnessTracker
         {
             try
             {
-               if (cboAct.SelectedValue != null)
+                if (cboAct.SelectedValue != null)
                 {
                     string id = cboAct.SelectedValue.ToString();
                     lblActID.Text = id;
@@ -110,7 +110,7 @@ namespace FitnessTracker
             {
                 if (txtSetGoal.Text == "")
                 {
-                    MessageBox.Show("Please enter your full name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please enter your goal.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtSetGoal.Focus();
                 }
 
@@ -118,12 +118,11 @@ namespace FitnessTracker
 
                 if (countRecord > 0)
                 {
-                    MessageBox.Show("Goal has been defined successfully!","Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Goal has been defined successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
                     trackForm.RefreshDataGridView();
                 }
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -134,6 +133,7 @@ namespace FitnessTracker
         {
             dtpGoalDate.Value = DateTime.Today;
             txtSetGoal.Text = "";
+            cboAct.SelectedIndex = 0;
         }
     }
 }

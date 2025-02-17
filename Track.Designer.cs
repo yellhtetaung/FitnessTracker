@@ -32,11 +32,11 @@ namespace FitnessTracker
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Track));
             this.menuAdmin = new System.Windows.Forms.MenuStrip();
-            this.activityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.walkingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.swimmingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.activityToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.trackerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvTrack = new System.Windows.Forms.DataGridView();
             this.trackerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,9 +82,9 @@ namespace FitnessTracker
             this.menuAdmin.BackColor = System.Drawing.Color.LightSeaGreen;
             this.menuAdmin.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuAdmin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.activityToolStripMenuItem,
+            this.homeToolStripMenuItem,
             this.activitiesToolStripMenuItem,
-            this.activityToolStripMenuItem1,
+            this.trackerToolStripMenuItem,
             this.searchToolStripMenuItem});
             this.menuAdmin.Location = new System.Drawing.Point(0, 0);
             this.menuAdmin.Name = "menuAdmin";
@@ -94,19 +94,22 @@ namespace FitnessTracker
             this.menuAdmin.TabIndex = 2;
             this.menuAdmin.Text = "menuAdmin";
             // 
-            // activityToolStripMenuItem
+            // homeToolStripMenuItem
             // 
-            this.activityToolStripMenuItem.Name = "activityToolStripMenuItem";
-            this.activityToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.activityToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("homeToolStripMenuItem.Image")));
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.homeToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // activitiesToolStripMenuItem
             // 
             this.activitiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.walkingToolStripMenuItem,
             this.swimmingToolStripMenuItem});
+            this.activitiesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("activitiesToolStripMenuItem.Image")));
             this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
-            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.activitiesToolStripMenuItem.Text = "Activities";
             // 
             // walkingToolStripMenuItem
@@ -121,16 +124,18 @@ namespace FitnessTracker
             this.swimmingToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.swimmingToolStripMenuItem.Text = "Swimming";
             // 
-            // activityToolStripMenuItem1
+            // trackerToolStripMenuItem
             // 
-            this.activityToolStripMenuItem1.Name = "activityToolStripMenuItem1";
-            this.activityToolStripMenuItem1.Size = new System.Drawing.Size(63, 20);
-            this.activityToolStripMenuItem1.Text = "Tracker";
+            this.trackerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("trackerToolStripMenuItem.Image")));
+            this.trackerToolStripMenuItem.Name = "trackerToolStripMenuItem";
+            this.trackerToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.trackerToolStripMenuItem.Text = "Tracker";
             // 
             // searchToolStripMenuItem
             // 
+            this.searchToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("searchToolStripMenuItem.Image")));
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.searchToolStripMenuItem.Text = "Search";
             // 
             // dgvTrack
@@ -417,11 +422,11 @@ namespace FitnessTracker
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(626, 229);
+            this.label4.Location = new System.Drawing.Point(601, 228);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 16);
+            this.label4.Size = new System.Drawing.Size(140, 16);
             this.label4.TabIndex = 61;
-            this.label4.Text = "Total Cal Burned";
+            this.label4.Text = "Burned total calories";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtCalBurn
@@ -494,9 +499,9 @@ namespace FitnessTracker
         #endregion
 
         private System.Windows.Forms.MenuStrip menuAdmin;
-        private System.Windows.Forms.ToolStripMenuItem activityToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem activitiesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem activityToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem trackerToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgvTrack;
         private System.Windows.Forms.Label lblTrackIDLabel;
         private System.Windows.Forms.Label lblTrackID;

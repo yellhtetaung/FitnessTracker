@@ -113,5 +113,12 @@ namespace FitnessTracker
 
             dgvTrack.Refresh();
         }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserDashboard dashboard = new UserDashboard();
+            this.Hide();
+            dashboard.ShowDialog();
+        }
     }
 }

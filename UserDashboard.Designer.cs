@@ -31,7 +31,7 @@ namespace FitnessTracker
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserDashboard));
             this.menuUser = new System.Windows.Forms.MenuStrip();
-            this.activityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.walkingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.swimmingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,7 +45,7 @@ namespace FitnessTracker
             this.menuUser.BackColor = System.Drawing.Color.LightSeaGreen;
             this.menuUser.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuUser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.activityToolStripMenuItem,
+            this.homeToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.trackerToolStripMenuItem,
             this.searchToolStripMenuItem});
@@ -57,44 +57,49 @@ namespace FitnessTracker
             this.menuUser.TabIndex = 1;
             this.menuUser.Text = "menuAdmin";
             // 
-            // activityToolStripMenuItem
+            // homeToolStripMenuItem
             // 
-            this.activityToolStripMenuItem.Name = "activityToolStripMenuItem";
-            this.activityToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.activityToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("homeToolStripMenuItem.Image")));
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.homeToolStripMenuItem.Text = "Home";
             // 
             // activitiesToolStripMenuItem
             // 
             this.activitiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.walkingToolStripMenuItem,
             this.swimmingToolStripMenuItem});
+            this.activitiesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("activitiesToolStripMenuItem.Image")));
             this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
-            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.activitiesToolStripMenuItem.Text = "Activities";
             // 
             // walkingToolStripMenuItem
             // 
             this.walkingToolStripMenuItem.Name = "walkingToolStripMenuItem";
-            this.walkingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.walkingToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.walkingToolStripMenuItem.Text = "Walking";
             // 
             // swimmingToolStripMenuItem
             // 
             this.swimmingToolStripMenuItem.Name = "swimmingToolStripMenuItem";
-            this.swimmingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.swimmingToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.swimmingToolStripMenuItem.Text = "Swimming";
             // 
             // trackerToolStripMenuItem
             // 
+            this.trackerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("trackerToolStripMenuItem.Image")));
             this.trackerToolStripMenuItem.Name = "trackerToolStripMenuItem";
-            this.trackerToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.trackerToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.trackerToolStripMenuItem.Text = "Tracker";
             this.trackerToolStripMenuItem.Click += new System.EventHandler(this.trackerToolStripMenuItem_Click);
             // 
             // searchToolStripMenuItem
             // 
+            this.searchToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("searchToolStripMenuItem.Image")));
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.searchToolStripMenuItem.Text = "Search";
             // 
             // UserDashboard
@@ -118,7 +123,7 @@ namespace FitnessTracker
         #endregion
 
         private System.Windows.Forms.MenuStrip menuUser;
-        private System.Windows.Forms.ToolStripMenuItem activityToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem activitiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trackerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;

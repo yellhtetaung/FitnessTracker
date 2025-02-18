@@ -64,10 +64,15 @@ namespace FitnessTracker
             this.txtAHR = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCalculate = new System.Windows.Forms.Button();
-            this.trackerTableAdapter = new FitnessTracker.FitnessTrackerDatasetTableAdapters.TrackerTableAdapter();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCalBurn = new System.Windows.Forms.Label();
             this.btnGoal = new System.Windows.Forms.Button();
+            this.cmsTrack = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteCurrentTrackerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trackerTableAdapter = new FitnessTracker.FitnessTrackerDatasetTableAdapters.TrackerTableAdapter();
             this.menuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackerBindingSource)).BeginInit();
@@ -75,6 +80,7 @@ namespace FitnessTracker
             this.panelFullName.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.cmsTrack.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuAdmin
@@ -159,11 +165,13 @@ namespace FitnessTracker
             this.dgvTrack.DataSource = this.trackerBindingSource;
             this.dgvTrack.Location = new System.Drawing.Point(0, 381);
             this.dgvTrack.Margin = new System.Windows.Forms.Padding(0);
+            this.dgvTrack.MultiSelect = false;
             this.dgvTrack.Name = "dgvTrack";
             this.dgvTrack.ReadOnly = true;
             this.dgvTrack.Size = new System.Drawing.Size(865, 197);
             this.dgvTrack.TabIndex = 48;
             this.dgvTrack.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrack_CellDoubleClick);
+            this.dgvTrack.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTrack_CellMouseUp);
             // 
             // trackerIDDataGridViewTextBoxColumn
             // 
@@ -414,10 +422,6 @@ namespace FitnessTracker
             this.btnCalculate.UseVisualStyleBackColor = false;
             this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
             // 
-            // trackerTableAdapter
-            // 
-            this.trackerTableAdapter.ClearBeforeFill = true;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -451,6 +455,48 @@ namespace FitnessTracker
             this.btnGoal.Text = "Add Goal";
             this.btnGoal.UseVisualStyleBackColor = false;
             this.btnGoal.Click += new System.EventHandler(this.btnGoal_Click);
+            // 
+            // cmsTrack
+            // 
+            this.cmsTrack.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updateToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.cmsTrack.Name = "cmsTrack";
+            this.cmsTrack.Size = new System.Drawing.Size(181, 70);
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateToolStripMenuItem.Text = "Update";
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteCurrentTrackerToolStripMenuItem,
+            this.deleteAllToolStripMenuItem});
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            // 
+            // deleteCurrentTrackerToolStripMenuItem
+            // 
+            this.deleteCurrentTrackerToolStripMenuItem.Name = "deleteCurrentTrackerToolStripMenuItem";
+            this.deleteCurrentTrackerToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.deleteCurrentTrackerToolStripMenuItem.Text = "Delete Current Tracker";
+            this.deleteCurrentTrackerToolStripMenuItem.Click += new System.EventHandler(this.deleteCurrentTrackerToolStripMenuItem_Click);
+            // 
+            // deleteAllToolStripMenuItem
+            // 
+            this.deleteAllToolStripMenuItem.Name = "deleteAllToolStripMenuItem";
+            this.deleteAllToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.deleteAllToolStripMenuItem.Text = "Delete All Tracker";
+            this.deleteAllToolStripMenuItem.Click += new System.EventHandler(this.deleteAllToolStripMenuItem_Click);
+            // 
+            // trackerTableAdapter
+            // 
+            this.trackerTableAdapter.ClearBeforeFill = true;
             // 
             // Track
             // 
@@ -491,6 +537,7 @@ namespace FitnessTracker
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.cmsTrack.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -535,5 +582,10 @@ namespace FitnessTracker
         private System.Windows.Forms.ToolStripMenuItem walkingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem swimmingToolStripMenuItem;
         private System.Windows.Forms.Button btnGoal;
+        private System.Windows.Forms.ContextMenuStrip cmsTrack;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteCurrentTrackerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteAllToolStripMenuItem;
     }
 }

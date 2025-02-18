@@ -114,7 +114,7 @@ namespace FitnessTracker
                     txtSetGoal.Focus();
                 }
 
-                int countRecord = objTracker.InsertTrackerData(lblTrackID.Text, lblActID.Text, lblUserID.Text, lblUsername.Text, Convert.ToInt32(txtSetGoal.Text), dtpGoalDate.Value.ToString());
+                int countRecord = objTracker.InsertTrackerData(lblTrackID.Text, lblActID.Text, lblUserID.Text, cboAct.Text, Convert.ToInt32(txtSetGoal.Text), dtpGoalDate.Value.ToString());
 
                 if (countRecord > 0)
                 {

@@ -15,12 +15,14 @@ namespace FitnessTracker
         FitnessTrackerDatasetTableAdapters.TrackerTableAdapter objTracker = new FitnessTrackerDatasetTableAdapters.TrackerTableAdapter();
         DataTable trackerDta = new DataTable();
 
+        private int rowIndex = 0;
+
         public Track()
         {
             InitializeComponent();
         }
 
-        public void RefreshDataGridView ()
+        public void RefreshDataGridView()
         {
             dgvTrack.DataSource = objTracker.GetTrackerDataByUserID(UserLogin.loginUserID);
             dgvTrack.Refresh();
@@ -110,8 +112,6 @@ namespace FitnessTracker
 
             lblTrackID.Text = dgvTrack[0, row].Value.ToString();
             lblGoal.Text = dgvTrack[4, row].Value.ToString();
-
-            dgvTrack.Refresh();
         }
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -119,6 +119,73 @@ namespace FitnessTracker
             UserDashboard dashboard = new UserDashboard();
             this.Hide();
             dashboard.ShowDialog();
+        }
+
+        private void dgvTrack_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dgvTrack.Rows[e.RowIndex].Selected = true;
+            rowIndex = e.RowIndex;
+            dgvTrack.CurrentCell = dgvTrack.Rows[rowIndex].Cells[1];
+
+            if (e.Button == MouseButtons.Right)
+            {
+                dgvTrack.Rows[e.RowIndex].Selected = true;
+                rowIndex = e.RowIndex;
+                dgvTrack.CurrentCell = dgvTrack.Rows[rowIndex].Cells[1];
+                this.cmsTrack.Show(dgvTrack, e.Location);
+                this.cmsTrack.Show(Cursor.Position);
+            }
+        }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoalUpdate goalUpdate = new GoalUpdate(this);
+            goalUpdate.TrackerID = dgvTrack[0, rowIndex].Value.ToString();
+            goalUpdate.ActivityID = dgvTrack[1, rowIndex].Value.ToString();
+            goalUpdate.UserID = dgvTrack[2, rowIndex].Value.ToString();
+            goalUpdate.TrackerName = dgvTrack[3, rowIndex].Value.ToString();
+            goalUpdate.SetGoal = Convert.ToInt32(dgvTrack[4, rowIndex].Value.ToString());
+            goalUpdate.TrackDate = Convert.ToDateTime(dgvTrack[6, rowIndex].Value.ToString());
+
+            if (dgvTrack[5, rowIndex].Value is DBNull)
+            {
+                goalUpdate.TotalCalBurn = null;
+            }
+            else
+            {
+                goalUpdate.TotalCalBurn = Convert.ToInt32(dgvTrack[5, rowIndex].Value.ToString());
+            }
+
+            if (!(dgvTrack[7, rowIndex].Value is DBNull))
+            {
+                goalUpdate.TrackStatus = dgvTrack[7, rowIndex].Value.ToString();
+            }
+
+            goalUpdate.Show();
+        }
+
+        private void deleteCurrentTrackerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete all trackers?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                objTracker.DeleteTracker(dgvTrack[0, rowIndex].Value.ToString());
+                MessageBox.Show("Tracker has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.RefreshDataGridView();
+            }
+        }
+
+        private void deleteAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete all trackers?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                objTracker.DeleteAllTracker();
+                MessageBox.Show("All Trackers have been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.RefreshDataGridView();
+            }
         }
     }
 }

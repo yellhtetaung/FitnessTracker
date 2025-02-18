@@ -117,72 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="menuAdmin.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="activitiesTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1009, 17</value>
+  </metadata>
+  <metadata name="fitnessTrackerDataset.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="fitnessTrackerDataset1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>361, 56</value>
+  </metadata>
+  <metadata name="activitiesBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
+  <metadata name="activitiesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>535, 56</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="homeToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAAQRJREFUSEvtlWsNAjEQhE8CEpCABCQgAQfgAByAA3CABCQgAQlIgPkIe7lje0e7
-        KQk/mGRCru3u7KNdml/BXDyIZ/EkLsUqmIg4vIs3EYHr65vfqRjGTDRnaxY6IAPb27BQipVIxDhBKAWi
-        P4qIkFl2NjuxxIhsLJjR3uDsIuJ8z0IBurZcBnrnwAEiWTy/YtiKiHAxeiA1NmpcPxPhardAkRrWAOWh
-        EpSqBQ2FteD8/QXeERbghb+PjRTCAuFzYcMBuHNhwwG4c7kPjfrn9ICx0xPAyD3vIBh8buzwvMkAZs/1
-        BAjQ/LiJimM2ULcUS2i2H4MkNXqScjJGbCh18r/gS2iaBy5PamhJP/qCAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="activitiesToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAARZJREFUSEvNlQsNAkEMRE8CEpCABCQgAUfgAAngAAlIQAISoI9jyH6zv0tgkkmO
-        3bbTbbvL9CtsjQfj2XgtEBtsd8YiCHw3Po2Pz3cqqMubEXuIfVaIDYxwQKgV+Cu5pD+bcPX+1Qd8SZA4
-        HpR9VR0LIPvoFEcjiymQVasw/SPmF0wCRwuhIyPeUjpKdJk/Z2gihI2RwAq+NwLW1SuX2LklCeNFC2sj
-        jm5wwPopQ/aEogDAoWdcQZXACP5LoGdMqwV6x7QosPiYctEwFEbHFEHvonGtud4uRsaUxLyngkAs9gZ0
-        kX04VcuWZobAV32JoFOw2fNs46+hyPqzoeZCHDQROWJP/5RcVZkRokm1f/rYLtG/VkzTC4GEjGeZ7D01
-        AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="trackerToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAAXVJREFUSEvd1GFVxDAQBOCTgAOQgAQkIAEJOAAH4AAcHA6QgAQkIAH2u+vcS5v2
-        rj/6i3lvXpM02Z1sJtn9W9wVX4pvw/e+2OKqaOzcnFncFr+Lv8Wfoe2rry0xnptzU5yFH1kgSIs2aJus
-        xUMxyQjt4CcuKVCWr6I52nOwNnFGc2SnbFUdL8DOulj7oqxbQZkc/gmfA7dCF88O1HcrdAnei7a1FcR6
-        PTaPeCw6mOtDbz1y4TDW5CSxGOcEEw0+H3qXYb5DtKYlo2S8s7ua2dqSx4N43VyCKMdcNMFH9Q/iX+/K
-        OURhSkJQ1Gozy6JQB2Px9BkIUt/W43bRGiRzZsvdKph7TxxmBAgkiHIkYG6vGB/HZo+2xqPrXsiTwm0p
-        actYs7sHUySJRU8GBtiVsdaClBtrQdzoHiwhZyJZgk5fVOOtWoKsWTrHDlRnN5ShtkR2GkjIgf6tUj8F
-        RRZyUJyTRDGGvmdnE1DvicmBSr66LBtht/sDNs2EczhbVUQAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="searchToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAASRJREFUSEut1Q1xAjEQhmEkIAEJlYCESsABOCgOqJPiAAlIqIRKaPc52Mxdr3ek
-        R96Zb65Jky+7mx9WM6xD29Ap9BG63KX9GlrEW+gr9H3/XkNMffXRZ2gXqmITysmMRPwX+mWRC5g3iX8a
-        JMLaVEVs/Kx5mr50rXqMz3KNsLK0qmv2Cxmaf+xaPUR7vv25GHsicqepI1eb2qhazB/4vId0tEDE/Dry
-        fLaATykpY2rBwMtBbxlxMVYTtWmBvSo1Hu3mQtKn3FrnTsTP1llJ3YcBbsxgtX8ye3MVXuRL34pRtEn/
-        dat9M2SYplVPp7TUbGpD9dsT42Rq3j7kB2IWEecCOZlRlkufb/81O4T0PzSHVJ1LpiQLbRGXV6xHHgKL
-        NCfMV4cf5C5fJ98VJoQAAAAASUVORK5CYII=
-</value>
-  </data>
-  <metadata name="trackerBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>302, 17</value>
-  </metadata>
-  <metadata name="trackerBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>302, 17</value>
-  </metadata>
-  <metadata name="fitnessTrackerDataset.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>135, 17</value>
-  </metadata>
-  <metadata name="fitnessTrackerDataset.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>135, 17</value>
-  </metadata>
-  <metadata name="cmsTrack.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>632, 17</value>
-  </metadata>
-  <metadata name="trackerTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>470, 17</value>
-  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAMAEBAAAAEAIABoBAAANgAAACAgAAABACAAqBAAAJ4EAAAwMAAAAQAgAKglAABGFQAAKAAAABAA

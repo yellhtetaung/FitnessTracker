@@ -46,20 +46,28 @@ namespace FitnessTracker
             this.txtMetricThree = new System.Windows.Forms.TextBox();
             this.lblMetricThree = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.dgvActData = new System.Windows.Forms.DataGridView();
+            this.activitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
+            this.menuAdmin = new System.Windows.Forms.MenuStrip();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsActivity = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.activitiesTableAdapter = new FitnessTracker.FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter();
             this.actIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metricOneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metricTwoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metricThreeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
-            this.activitiesTableAdapter = new FitnessTracker.FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter();
-            this.menuAdmin = new System.Windows.Forms.MenuStrip();
-            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.activityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnClear = new System.Windows.Forms.Button();
             this.panelUsername.SuspendLayout();
             this.panelPassword.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -69,6 +77,7 @@ namespace FitnessTracker
             ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).BeginInit();
             this.menuAdmin.SuspendLayout();
+            this.cmsActivity.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblActivity
@@ -234,6 +243,20 @@ namespace FitnessTracker
             this.panel3.Size = new System.Drawing.Size(813, 229);
             this.panel3.TabIndex = 46;
             // 
+            // btnClear
+            // 
+            this.btnClear.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnClear.BackColor = System.Drawing.Color.Red;
+            this.btnClear.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(507, 177);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(120, 35);
+            this.btnClear.TabIndex = 46;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // btnSave
             // 
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -270,23 +293,129 @@ namespace FitnessTracker
             this.dgvActData.ReadOnly = true;
             this.dgvActData.Size = new System.Drawing.Size(834, 286);
             this.dgvActData.TabIndex = 47;
-            this.dgvActData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvActData_CellDoubleClick);
+            this.dgvActData.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvActData_CellMouseUp);
+            // 
+            // activitiesBindingSource
+            // 
+            this.activitiesBindingSource.DataMember = "Activities";
+            this.activitiesBindingSource.DataSource = this.fitnessTrackerDataset;
+            // 
+            // fitnessTrackerDataset
+            // 
+            this.fitnessTrackerDataset.DataSetName = "FitnessTrackerDataset";
+            this.fitnessTrackerDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // menuAdmin
+            // 
+            this.menuAdmin.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.menuAdmin.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuAdmin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.homeToolStripMenuItem,
+            this.activityToolStripMenuItem,
+            this.accountToolStripMenuItem});
+            this.menuAdmin.Location = new System.Drawing.Point(0, 0);
+            this.menuAdmin.Name = "menuAdmin";
+            this.menuAdmin.Padding = new System.Windows.Forms.Padding(12);
+            this.menuAdmin.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.menuAdmin.Size = new System.Drawing.Size(834, 44);
+            this.menuAdmin.TabIndex = 48;
+            this.menuAdmin.Text = "menuAdmin";
+            // 
+            // homeToolStripMenuItem
+            // 
+            this.homeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("homeToolStripMenuItem.Image")));
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.homeToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
+            // 
+            // activityToolStripMenuItem
+            // 
+            this.activityToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("activityToolStripMenuItem.Image")));
+            this.activityToolStripMenuItem.Name = "activityToolStripMenuItem";
+            this.activityToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.activityToolStripMenuItem.Text = "Activity";
+            // 
+            // accountToolStripMenuItem
+            // 
+            this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.accountListToolStripMenuItem,
+            this.addAccountToolStripMenuItem});
+            this.accountToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("accountToolStripMenuItem.Image")));
+            this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.accountToolStripMenuItem.Text = "Account";
+            // 
+            // accountListToolStripMenuItem
+            // 
+            this.accountListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("accountListToolStripMenuItem.Image")));
+            this.accountListToolStripMenuItem.Name = "accountListToolStripMenuItem";
+            this.accountListToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.accountListToolStripMenuItem.Text = "Account List";
+            this.accountListToolStripMenuItem.Click += new System.EventHandler(this.accountListToolStripMenuItem_Click);
+            // 
+            // addAccountToolStripMenuItem
+            // 
+            this.addAccountToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addAccountToolStripMenuItem.Image")));
+            this.addAccountToolStripMenuItem.Name = "addAccountToolStripMenuItem";
+            this.addAccountToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.addAccountToolStripMenuItem.Text = "Add Account";
+            this.addAccountToolStripMenuItem.Click += new System.EventHandler(this.addAccountToolStripMenuItem_Click);
+            // 
+            // cmsActivity
+            // 
+            this.cmsActivity.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updateToolStripMenuItem,
+            this.deleteToolStripMenuItem,
+            this.deleteAllToolStripMenuItem});
+            this.cmsActivity.Name = "contextMenuStrip1";
+            this.cmsActivity.Size = new System.Drawing.Size(135, 70);
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.updateToolStripMenuItem.Text = "Update";
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.deleteToolStripMenuItem.Text = "Remove";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // deleteAllToolStripMenuItem
+            // 
+            this.deleteAllToolStripMenuItem.Name = "deleteAllToolStripMenuItem";
+            this.deleteAllToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.deleteAllToolStripMenuItem.Text = "Remove All";
+            this.deleteAllToolStripMenuItem.Click += new System.EventHandler(this.deleteAllToolStripMenuItem_Click);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            // 
+            // activitiesTableAdapter
+            // 
+            this.activitiesTableAdapter.ClearBeforeFill = true;
             // 
             // actIDDataGridViewTextBoxColumn
             // 
             this.actIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.actIDDataGridViewTextBoxColumn.DataPropertyName = "ActID";
-            this.actIDDataGridViewTextBoxColumn.HeaderText = "ActID";
+            this.actIDDataGridViewTextBoxColumn.HeaderText = "ActivityID";
             this.actIDDataGridViewTextBoxColumn.Name = "actIDDataGridViewTextBoxColumn";
             this.actIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.actIDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.actIDDataGridViewTextBoxColumn.Width = 59;
+            this.actIDDataGridViewTextBoxColumn.Width = 77;
             // 
             // actNameDataGridViewTextBoxColumn
             // 
             this.actNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.actNameDataGridViewTextBoxColumn.DataPropertyName = "ActName";
-            this.actNameDataGridViewTextBoxColumn.HeaderText = "ActName";
+            this.actNameDataGridViewTextBoxColumn.HeaderText = "Activity Name";
             this.actNameDataGridViewTextBoxColumn.Name = "actNameDataGridViewTextBoxColumn";
             this.actNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -314,62 +443,6 @@ namespace FitnessTracker
             this.metricThreeDataGridViewTextBoxColumn.Name = "metricThreeDataGridViewTextBoxColumn";
             this.metricThreeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // activitiesBindingSource
-            // 
-            this.activitiesBindingSource.DataMember = "Activities";
-            this.activitiesBindingSource.DataSource = this.fitnessTrackerDataset;
-            // 
-            // fitnessTrackerDataset
-            // 
-            this.fitnessTrackerDataset.DataSetName = "FitnessTrackerDataset";
-            this.fitnessTrackerDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // activitiesTableAdapter
-            // 
-            this.activitiesTableAdapter.ClearBeforeFill = true;
-            // 
-            // menuAdmin
-            // 
-            this.menuAdmin.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.menuAdmin.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuAdmin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.homeToolStripMenuItem,
-            this.activityToolStripMenuItem});
-            this.menuAdmin.Location = new System.Drawing.Point(0, 0);
-            this.menuAdmin.Name = "menuAdmin";
-            this.menuAdmin.Padding = new System.Windows.Forms.Padding(12);
-            this.menuAdmin.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuAdmin.Size = new System.Drawing.Size(834, 44);
-            this.menuAdmin.TabIndex = 48;
-            this.menuAdmin.Text = "menuAdmin";
-            // 
-            // homeToolStripMenuItem
-            // 
-            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.homeToolStripMenuItem.Text = "Home";
-            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
-            // 
-            // activityToolStripMenuItem
-            // 
-            this.activityToolStripMenuItem.Name = "activityToolStripMenuItem";
-            this.activityToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.activityToolStripMenuItem.Text = "Activity";
-            // 
-            // btnClear
-            // 
-            this.btnClear.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnClear.BackColor = System.Drawing.Color.Red;
-            this.btnClear.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(507, 177);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(120, 35);
-            this.btnClear.TabIndex = 46;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // Activity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -385,7 +458,7 @@ namespace FitnessTracker
             this.Controls.Add(this.lblActivity);
             this.Controls.Add(this.panel3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(850, 489);
+            this.MinimumSize = new System.Drawing.Size(850, 603);
             this.Name = "Activity";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Activity";
@@ -405,6 +478,7 @@ namespace FitnessTracker
             ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).EndInit();
             this.menuAdmin.ResumeLayout(false);
             this.menuAdmin.PerformLayout();
+            this.cmsActivity.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,14 +506,22 @@ namespace FitnessTracker
         private FitnessTrackerDataset fitnessTrackerDataset;
         private FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter activitiesTableAdapter;
         private System.Windows.Forms.BindingSource activitiesBindingSource;
+        private System.Windows.Forms.MenuStrip menuAdmin;
+        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem activityToolStripMenuItem;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem accountListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addAccountToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip cmsActivity;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteAllToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.DataGridViewTextBoxColumn actIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn metricOneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn metricTwoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn metricThreeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.MenuStrip menuAdmin;
-        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem activityToolStripMenuItem;
-        private System.Windows.Forms.Button btnClear;
     }
 }

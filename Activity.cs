@@ -15,6 +15,8 @@ namespace FitnessTracker
         FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter objActivity = new FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter();
         DataTable activityDta = new DataTable();
 
+        private int rowIndex = 0;
+
         public Activity()
         {
             InitializeComponent();
@@ -75,21 +77,6 @@ namespace FitnessTracker
                 objActivity.UpdateActivity(activity.ActivityName, activity.MetricOne, activity.MetricTwo, activity.MetricThree, activity.ActivityID);
                 dgvActData.DataSource = objActivity.GetData();
                 dgvActData.Refresh();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public void DeleteActivity(string id)
-        {
-            try
-            {
-                objActivity.DeleteActivity(id);
-                dgvActData.DataSource = objActivity.GetData();
-                dgvActData.Refresh();
-                AutoID();
             }
             catch (Exception ex)
             {
@@ -159,20 +146,6 @@ namespace FitnessTracker
             }
         }
 
-        private void dgvActData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            ActivityDetail activityDetail = new ActivityDetail(this);
-            int row = dgvActData.CurrentRow.Index;
-
-            activityDetail.ActivityID = dgvActData[0, row].Value.ToString();
-            activityDetail.ActivityName = dgvActData[1, row].Value.ToString();
-            activityDetail.MetricOne = dgvActData[2, row].Value.ToString();
-            activityDetail.MetricTwo = dgvActData[3, row].Value.ToString();
-            activityDetail.MetricThree = dgvActData[4, row].Value.ToString();
-
-            activityDetail.Show();
-        }
-
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AdminDashboard dashboard = new AdminDashboard();
@@ -186,6 +159,98 @@ namespace FitnessTracker
             txtMetricOne.Text = "";
             txtMetricTwo.Text = "";
             txtMetricThree.Text = "";
+        }
+
+        private void accountListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Trainers trainers = new Trainers();
+            this.Hide();
+            trainers.Show();
+        }
+
+        private void addAccountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Register register = new Register();
+            register.Show();
+        }
+
+        private void dgvActData_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                dgvActData.Rows[e.RowIndex].Selected = true;
+                rowIndex = e.RowIndex;
+                dgvActData.CurrentCell = dgvActData.Rows[rowIndex].Cells[1];
+
+                if (e.Button == MouseButtons.Right)
+                {
+                    dgvActData.Rows[e.RowIndex].Selected = true;
+                    rowIndex = e.RowIndex;
+                    dgvActData.CurrentCell = dgvActData.Rows[rowIndex].Cells[1];
+                    this.cmsActivity.Show(dgvActData, e.Location);
+                    this.cmsActivity.Show(Cursor.Position);
+                }
+            }
+        }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ActivityDetail activityDetail = new ActivityDetail(this);
+            int row = dgvActData.CurrentRow.Index;
+
+            activityDetail.ActivityID = dgvActData[0, row].Value.ToString();
+            activityDetail.ActivityName = dgvActData[1, row].Value.ToString();
+            activityDetail.MetricOne = dgvActData[2, row].Value.ToString();
+            activityDetail.MetricTwo = dgvActData[3, row].Value.ToString();
+            activityDetail.MetricThree = dgvActData[4, row].Value.ToString();
+
+            activityDetail.Show();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this activity?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    objActivity.DeleteActivity(dgvActData[0, rowIndex].Value.ToString());
+
+                    MessageBox.Show("Activity has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    dgvActData.DataSource = objActivity.GetData();
+                    dgvActData.Refresh();
+                    AutoID();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void deleteAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to remove all activities?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    objActivity.DeleteAllActivity();
+
+                    MessageBox.Show("All Activities have been removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    dgvActData.DataSource = objActivity.GetData();
+                    dgvActData.Refresh();
+                    AutoID();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

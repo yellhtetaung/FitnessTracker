@@ -85,6 +85,7 @@ namespace FitnessTracker
             this.MinimumSize = new System.Drawing.Size(455, 430);
             this.Name = "Starter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Zen Fitness";
             this.ResumeLayout(false);
             this.PerformLayout();
 

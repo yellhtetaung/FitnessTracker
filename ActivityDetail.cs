@@ -72,14 +72,7 @@ namespace FitnessTracker
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to delete this activity?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                activityForm.DeleteActivity(lblID.Text);
-                MessageBox.Show("Activity has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
+            this.Hide();
         }
 
         private void ActivityDetail_Load(object sender, EventArgs e)

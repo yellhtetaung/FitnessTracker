@@ -1,7 +1,7 @@
 ﻿
 namespace FitnessTracker
 {
-    partial class UserDashboard
+    partial class UserSearch
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace FitnessTracker
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserDashboard));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserSearch));
             this.menuUser = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +54,7 @@ namespace FitnessTracker
             this.menuUser.Padding = new System.Windows.Forms.Padding(12);
             this.menuUser.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.menuUser.Size = new System.Drawing.Size(800, 44);
-            this.menuUser.TabIndex = 1;
+            this.menuUser.TabIndex = 2;
             this.menuUser.Text = "menuAdmin";
             // 
             // homeToolStripMenuItem
@@ -64,6 +64,7 @@ namespace FitnessTracker
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
             this.homeToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.homeToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // activitiesToolStripMenuItem
             // 
@@ -78,13 +79,13 @@ namespace FitnessTracker
             // walkingToolStripMenuItem
             // 
             this.walkingToolStripMenuItem.Name = "walkingToolStripMenuItem";
-            this.walkingToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.walkingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.walkingToolStripMenuItem.Text = "Walking";
             // 
             // swimmingToolStripMenuItem
             // 
             this.swimmingToolStripMenuItem.Name = "swimmingToolStripMenuItem";
-            this.swimmingToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.swimmingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.swimmingToolStripMenuItem.Text = "Swimming";
             // 
             // trackerToolStripMenuItem
@@ -101,9 +102,8 @@ namespace FitnessTracker
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
             this.searchToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.searchToolStripMenuItem.Text = "Search";
-            this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
-            // UserDashboard
+            // UserSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -111,9 +111,9 @@ namespace FitnessTracker
             this.Controls.Add(this.menuUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(816, 489);
-            this.Name = "UserDashboard";
+            this.Name = "UserSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Dashboard";
+            this.Text = "User Search";
             this.menuUser.ResumeLayout(false);
             this.menuUser.PerformLayout();
             this.ResumeLayout(false);
@@ -126,9 +126,9 @@ namespace FitnessTracker
         private System.Windows.Forms.MenuStrip menuUser;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem activitiesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem trackerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem walkingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem swimmingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem trackerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
     }
 }

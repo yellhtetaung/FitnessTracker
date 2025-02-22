@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace FitnessTracker
 {
-    public partial class UserDashboard : Form
+    public partial class UserSearch : Form
     {
-        public UserDashboard()
+        public UserSearch()
         {
             InitializeComponent();
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserDashboard dashboard = new UserDashboard();
+            this.Hide();
+            dashboard.Show();
         }
 
         private void trackerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -22,13 +29,6 @@ namespace FitnessTracker
             Track track = new Track();
             this.Hide();
             track.Show();
-        }
-
-        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            UserSearch userSearch = new UserSearch();
-            this.Hide();
-            userSearch.Show();
         }
     }
 }

@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace FitnessTracker
 {
-    public partial class AdminDashboard : Form
+    public partial class Trainers : Form
     {
-        public AdminDashboard()
+        public Trainers()
         {
             InitializeComponent();
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdminDashboard dashboard = new AdminDashboard();
+            this.Hide();
+            dashboard.Show();
         }
 
         private void activityToolStripMenuItem_Click(object sender, EventArgs e)
@@ -24,11 +31,11 @@ namespace FitnessTracker
             activity.Show();
         }
 
-        private void accountListToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Trainers_Load(object sender, EventArgs e)
         {
-            Trainers trainers = new Trainers();
-            this.Hide();
-            trainers.Show();
+            // TODO: This line of code loads data into the 'fitnessTrackerDataset.Trainers' table. You can move, or remove it, as needed.
+            this.trainersTableAdapter.Fill(this.fitnessTrackerDataset.Trainers);
+
         }
 
         private void addAccountToolStripMenuItem_Click(object sender, EventArgs e)

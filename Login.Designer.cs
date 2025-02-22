@@ -40,9 +40,9 @@ namespace FitnessTracker
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblDesc = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.linkRegister = new System.Windows.Forms.LinkLabel();
-            this.label1 = new System.Windows.Forms.Label();
             this.chkPassword = new System.Windows.Forms.CheckBox();
+            this.linkRegister = new System.Windows.Forms.LinkLabel();
+            this.lblRegisterAccountDesc = new System.Windows.Forms.Label();
             this.panelUsername.SuspendLayout();
             this.panelPassword.SuspendLayout();
             this.SuspendLayout();
@@ -165,6 +165,18 @@ namespace FitnessTracker
             this.lblTitle.TabIndex = 22;
             this.lblTitle.Text = "Zen Fitness";
             // 
+            // chkPassword
+            // 
+            this.chkPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chkPassword.AutoSize = true;
+            this.chkPassword.Location = new System.Drawing.Point(19, 250);
+            this.chkPassword.Name = "chkPassword";
+            this.chkPassword.Size = new System.Drawing.Size(102, 17);
+            this.chkPassword.TabIndex = 45;
+            this.chkPassword.Text = "Show Password";
+            this.chkPassword.UseVisualStyleBackColor = true;
+            this.chkPassword.CheckedChanged += new System.EventHandler(this.chkPassword_CheckedChanged);
+            // 
             // linkRegister
             // 
             this.linkRegister.ActiveLinkColor = System.Drawing.Color.Blue;
@@ -181,28 +193,16 @@ namespace FitnessTracker
             this.linkRegister.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linkRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRegister_LinkClicked);
             // 
-            // label1
+            // lblRegisterAccountDesc
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(105, 339);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 16);
-            this.label1.TabIndex = 41;
-            this.label1.Text = "Don\'t have an account yet?";
-            // 
-            // chkPassword
-            // 
-            this.chkPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chkPassword.AutoSize = true;
-            this.chkPassword.Location = new System.Drawing.Point(19, 250);
-            this.chkPassword.Name = "chkPassword";
-            this.chkPassword.Size = new System.Drawing.Size(102, 17);
-            this.chkPassword.TabIndex = 45;
-            this.chkPassword.Text = "Show Password";
-            this.chkPassword.UseVisualStyleBackColor = true;
-            this.chkPassword.CheckedChanged += new System.EventHandler(this.chkPassword_CheckedChanged);
+            this.lblRegisterAccountDesc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblRegisterAccountDesc.AutoSize = true;
+            this.lblRegisterAccountDesc.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegisterAccountDesc.Location = new System.Drawing.Point(105, 339);
+            this.lblRegisterAccountDesc.Name = "lblRegisterAccountDesc";
+            this.lblRegisterAccountDesc.Size = new System.Drawing.Size(164, 16);
+            this.lblRegisterAccountDesc.TabIndex = 41;
+            this.lblRegisterAccountDesc.Text = "Don\'t have an account yet?";
             // 
             // Login
             // 
@@ -210,7 +210,7 @@ namespace FitnessTracker
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(439, 391);
             this.Controls.Add(this.chkPassword);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblRegisterAccountDesc);
             this.Controls.Add(this.linkRegister);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.panDivider);
@@ -225,6 +225,7 @@ namespace FitnessTracker
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.panelUsername.ResumeLayout(false);
             this.panelUsername.PerformLayout();
             this.panelPassword.ResumeLayout(false);
@@ -246,9 +247,9 @@ namespace FitnessTracker
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblDesc;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.LinkLabel linkRegister;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox chkPassword;
+        private System.Windows.Forms.LinkLabel linkRegister;
+        private System.Windows.Forms.Label lblRegisterAccountDesc;
     }
 }
 

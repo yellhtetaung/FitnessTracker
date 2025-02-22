@@ -110,6 +110,12 @@
     <Compile Include="Track.Designer.cs">
       <DependentUpon>Track.cs</DependentUpon>
     </Compile>
+    <Compile Include="Trainers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Trainers.Designer.cs">
+      <DependentUpon>Trainers.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,12 @@
     </Compile>
     <Compile Include="UserRegister.Designer.cs">
       <DependentUpon>UserRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserSearch.Designer.cs">
+      <DependentUpon>UserSearch.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Activity.resx">
       <DependentUpon>Activity.cs</DependentUpon>
@@ -164,6 +176,9 @@
     <EmbeddedResource Include="Track.resx">
       <DependentUpon>Track.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Trainers.resx">
+      <DependentUpon>Trainers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserDashboard.resx">
       <DependentUpon>UserDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserRegister.resx">
       <DependentUpon>UserRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserSearch.resx">
+      <DependentUpon>UserSearch.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="FitnessTrackerDataset.xsc">
       <DependentUpon>FitnessTrackerDataset.xsd</DependentUpon>
@@ -199,6 +217,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\icon.ico" />
+    <Content Include="assets\icons\users.png" />
+    <Content Include="assets\icons\user-add.png" />
+    <Content Include="assets\icons\user.png" />
     <Content Include="assets\icons\tracker.png" />
     <Content Include="assets\icons\home.png" />
     <Content Include="assets\icons\search.png" />

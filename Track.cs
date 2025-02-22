@@ -82,7 +82,6 @@ namespace FitnessTracker
                 }
                 else
                 {
-
                     DialogResult result = MessageBox.Show("Your goal has not been reached. Are you sure you want to save with fail?", "Confirm Save", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
                     if (result == DialogResult.OK)
@@ -90,8 +89,6 @@ namespace FitnessTracker
                         objTracker.UpdateTrackerData("Fail", Convert.ToInt32(txtCalBurn.Text), lblTrackID.Text);
                         this.RefreshDataGridView();
                     }
-
-
                 }
             }
             catch (Exception ex)
@@ -123,17 +120,20 @@ namespace FitnessTracker
 
         private void dgvTrack_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-            dgvTrack.Rows[e.RowIndex].Selected = true;
-            rowIndex = e.RowIndex;
-            dgvTrack.CurrentCell = dgvTrack.Rows[rowIndex].Cells[1];
-
-            if (e.Button == MouseButtons.Right)
+            if (e.RowIndex >= 0)
             {
                 dgvTrack.Rows[e.RowIndex].Selected = true;
                 rowIndex = e.RowIndex;
                 dgvTrack.CurrentCell = dgvTrack.Rows[rowIndex].Cells[1];
-                this.cmsTrack.Show(dgvTrack, e.Location);
-                this.cmsTrack.Show(Cursor.Position);
+
+                if (e.Button == MouseButtons.Right)
+                {
+                    dgvTrack.Rows[e.RowIndex].Selected = true;
+                    rowIndex = e.RowIndex;
+                    dgvTrack.CurrentCell = dgvTrack.Rows[rowIndex].Cells[1];
+                    this.cmsTrack.Show(dgvTrack, e.Location);
+                    this.cmsTrack.Show(Cursor.Position);
+                }
             }
         }
 
@@ -164,19 +164,7 @@ namespace FitnessTracker
             goalUpdate.Show();
         }
 
-        private void deleteCurrentTrackerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure you want to delete all trackers?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                objTracker.DeleteTracker(dgvTrack[0, rowIndex].Value.ToString());
-                MessageBox.Show("Tracker has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.RefreshDataGridView();
-            }
-        }
-
-        private void deleteAllToolStripMenuItem_Click(object sender, EventArgs e)
+        private void removeAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to delete all trackers?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -184,6 +172,18 @@ namespace FitnessTracker
             {
                 objTracker.DeleteAllTracker();
                 MessageBox.Show("All Trackers have been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.RefreshDataGridView();
+            }
+        }
+
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete all trackers?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                objTracker.DeleteTracker(dgvTrack[0, rowIndex].Value.ToString());
+                MessageBox.Show("Tracker has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.RefreshDataGridView();
             }
         }

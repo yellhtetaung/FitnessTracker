@@ -131,7 +131,7 @@
         BAjQ/LiJimM2ULcUS2i2H4MkNXqScjJGbCh18r/gS2iaBy5PamhJP/qCAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="activitiesToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="activityToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         EwAACxMBAJqcGAAAARZJREFUSEvNlQsNAkEMRE8CEpCABCQgAUfgAAngAAlIQAISoI9jyH6zv0tgkkmO
@@ -142,40 +142,50 @@
         AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="trackerToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="accountsToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAAXVJREFUSEvd1GFVxDAQBOCTgAOQgAQkIAEJOAAH4AAcHA6QgAQkIAH2u+vcS5v2
-        rj/6i3lvXpM02Z1sJtn9W9wVX4pvw/e+2OKqaOzcnFncFr+Lv8Wfoe2rry0xnptzU5yFH1kgSIs2aJus
-        xUMxyQjt4CcuKVCWr6I52nOwNnFGc2SnbFUdL8DOulj7oqxbQZkc/gmfA7dCF88O1HcrdAnei7a1FcR6
-        PTaPeCw6mOtDbz1y4TDW5CSxGOcEEw0+H3qXYb5DtKYlo2S8s7ua2dqSx4N43VyCKMdcNMFH9Q/iX+/K
-        OURhSkJQ1Gozy6JQB2Px9BkIUt/W43bRGiRzZsvdKph7TxxmBAgkiHIkYG6vGB/HZo+2xqPrXsiTwm0p
-        actYs7sHUySJRU8GBtiVsdaClBtrQdzoHiwhZyJZgk5fVOOtWoKsWTrHDlRnN5ShtkR2GkjIgf6tUj8F
-        RRZyUJyTRDGGvmdnE1DvicmBSr66LBtht/sDNs2EczhbVUQAAAAASUVORK5CYII=
+        EwAACxMBAJqcGAAAATNJREFUSEvN1H1Rw0AQBfBIwEGRgAQk1AF1UBy0DqgDcICESqiESkAC7K90mQxN
+        Jne5/NE38yaXu8vu269094LH4C74GTwG3657i2Ab/Ap+B09BDqzxNdiEdZAhyh9sXEG9PWfPNuaC4vPv
+        8gYcOhPRLDAwlQZn7qwub5V4CvpYmsawCbrjbjUygv3lbRgZQb8+VZBfeR4yoNBNNYBME0P9NOgcDeCs
+        eR7UgAPGzEPOhGdTi/ZBpYIegu9BuZ+d9yFQyqiCJ0XW5MTH/j+ZkjGKqLoO2SEM6JIhtaL6CLpHxEuw
+        GPlRSRGJ0VHuF0XCKOWKWgrRcaAJJpHjX/t/kcqioZsTgdSIQMGLQEltDYgqqgG4mF1E1f8usuY82xhr
+        Iv6DgUpHYxRtsfIxULv4JC+ArvsBzMZfOL5QNtEAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="searchToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="accountListToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAASRJREFUSEut1Q1xAjEQhmEkIAEJlYCESsABOCgOqJPiAAlIqIRKaPc52Mxdr3ek
-        R96Zb65Jky+7mx9WM6xD29Ap9BG63KX9GlrEW+gr9H3/XkNMffXRZ2gXqmITysmMRPwX+mWRC5g3iX8a
-        JMLaVEVs/Kx5mr50rXqMz3KNsLK0qmv2Cxmaf+xaPUR7vv25GHsicqepI1eb2qhazB/4vId0tEDE/Dry
-        fLaATykpY2rBwMtBbxlxMVYTtWmBvSo1Hu3mQtKn3FrnTsTP1llJ3YcBbsxgtX8ye3MVXuRL34pRtEn/
-        dat9M2SYplVPp7TUbGpD9dsT42Rq3j7kB2IWEecCOZlRlkufb/81O4T0PzSHVJ1LpiQLbRGXV6xHHgKL
-        NCfMV4cf5C5fJ98VJoQAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAZVJREFUSEvF1Q1NA0EQBeBKwAFIQAISkIADcAAOwAE4AAdIQAISkADzXfuavesu
+        bUMTXvKS2dnZ2fm7vdV/4Kb4WnzfyPtwX2SPe+0Zfxc/ix8b+bk4wmORDVtnyHfFLi6KS4dPRbqraTUH
+        nb2HabUG+6/i2bRaIAdaZ7m0lzqdvfNptcZ1cRTQ1pm0g9vi6EAC4jRIyfjq4qXIQMOUiqy+I6RPGQqy
+        Mv0KNU3TyN16biBSQbX2e8Gh9LF1Tr4sLss1st8Bg6QZvhWBY9MRvWhT5+UZ650epMFJU+NcyLE9emWg
+        Nz3WCPZj7xug58vZLTTJRi/FjF57ICM6c7KBC2U7+0BdMPpAjp13PgSb8k5g6IANaVqjaBxwuRKJmJ4d
+        ApvYtyWin4FB5jpMFMkidGHKI/t2T5P5GqKNqC0ZfZq81Md+J+pD4bBnQHRIpjsJMufpgzWZzqT0BuNg
+        aBpHvTc+ewc9DyNooKhHsDcbx2MhOlH607VQlvz9etkdhTzh6q7+ok4PZHgSmBjvfKaIfLIp+gNWqx87
+        E5AONh2TAQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="trackerBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>302, 17</value>
-  </metadata>
+  <data name="addAccountToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAV1JREFUSEvN1GtRxEAQBOBIQAISkIAEJCABB4cDcIAEcIAEJCDhJMB8Rfoq3CXZ
+        PPhBV3Vls9ntme2ZTfdfcFt8Kr4W3/vxdfFPQOyreCx+FAXwjofiLhAg9Fy8MtFD9o9F3ySwCUQIEJqC
+        wNawcDWyec5rp2KdtavBa2xBXd5+huugY2xuYWkiF3Bsxx8W9xyp0yaLFK7VJemyzXcihSY0FHGq3I+5
+        LluE9DvyWl1Y532TNWOQPTEBFN94U++vBavYt+sfJdOH4ksxLUnQXKwa/qM+izfFJghnUzYmgHHmZOwk
+        nmiu1d6nDrFYpueL012xQ9DcZnO+TXZXxIlMZZGTEGOXjNGcPZO/j/vibPQe+Y0QI5oA5gVNAhdgCbaQ
+        uxGL0kUQi1j7Cyrvg1O0IHMZp8hozjNJJvgJd0UBFrVYwTpC9sieZcYCj2qYdNSpwo5BlsMbzro1+/ei
+        674BKvV07ufrnMoAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="fitnessTrackerDataset.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>135, 17</value>
   </metadata>
-  <metadata name="cmsTrack.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>632, 17</value>
+  <metadata name="trainersBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>302, 17</value>
   </metadata>
-  <metadata name="trackerTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>470, 17</value>
+  <metadata name="trainersTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>473, 17</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

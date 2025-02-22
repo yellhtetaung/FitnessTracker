@@ -57,18 +57,19 @@ namespace FitnessTracker
             this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
             this.fitnessTrackerDataset1 = new FitnessTracker.FitnessTrackerDataset();
             this.cboAct = new System.Windows.Forms.ComboBox();
+            this.activitiesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.activitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.activitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.activitiesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panelFullName.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -339,6 +340,16 @@ namespace FitnessTracker
             this.cboAct.TabIndex = 7;
             this.cboAct.ValueMember = "ActID";
             // 
+            // activitiesBindingSource1
+            // 
+            this.activitiesBindingSource1.DataMember = "Activities";
+            this.activitiesBindingSource1.DataSource = this.fitnessTrackerDataset;
+            // 
+            // activitiesBindingSource
+            // 
+            this.activitiesBindingSource.DataMember = "Activities";
+            this.activitiesBindingSource.DataSource = this.fitnessTrackerDataset;
+            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -377,21 +388,26 @@ namespace FitnessTracker
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Track Info";
             // 
-            // activitiesBindingSource
+            // btnCancel
             // 
-            this.activitiesBindingSource.DataMember = "Activities";
-            this.activitiesBindingSource.DataSource = this.fitnessTrackerDataset;
-            // 
-            // activitiesBindingSource1
-            // 
-            this.activitiesBindingSource1.DataMember = "Activities";
-            this.activitiesBindingSource1.DataSource = this.fitnessTrackerDataset;
+            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCancel.BackColor = System.Drawing.Color.Red;
+            this.btnCancel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(450, 378);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(120, 35);
+            this.btnCancel.TabIndex = 33;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // GoalUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 425);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.groupBox2);
@@ -408,12 +424,12 @@ namespace FitnessTracker
             this.panelFullName.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -449,5 +465,6 @@ namespace FitnessTracker
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.BindingSource activitiesBindingSource1;
         private System.Windows.Forms.BindingSource activitiesBindingSource;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

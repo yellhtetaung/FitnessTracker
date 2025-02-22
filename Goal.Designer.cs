@@ -195,9 +195,11 @@ namespace FitnessTracker
             this.dtpGoalDate.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpGoalDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpGoalDate.Location = new System.Drawing.Point(17, 83);
+            this.dtpGoalDate.MinDate = new System.DateTime(2025, 2, 22, 0, 0, 0, 0);
             this.dtpGoalDate.Name = "dtpGoalDate";
             this.dtpGoalDate.Size = new System.Drawing.Size(129, 22);
             this.dtpGoalDate.TabIndex = 13;
+            this.dtpGoalDate.Value = new System.DateTime(2025, 2, 22, 21, 22, 7, 0);
             // 
             // lblSetGoalLabel
             // 

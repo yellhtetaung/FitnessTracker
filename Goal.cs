@@ -113,14 +113,16 @@ namespace FitnessTracker
                     MessageBox.Show("Please enter your goal.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtSetGoal.Focus();
                 }
-
-                int countRecord = objTracker.InsertTrackerData(lblTrackID.Text, lblActID.Text, lblUserID.Text, cboAct.Text, Convert.ToInt32(txtSetGoal.Text), dtpGoalDate.Value.ToString());
-
-                if (countRecord > 0)
+                else
                 {
-                    MessageBox.Show("Goal has been defined successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Hide();
-                    trackForm.RefreshDataGridView();
+                    int countRecord = objTracker.InsertTrackerData(lblTrackID.Text, lblActID.Text, lblUserID.Text, cboAct.Text, Convert.ToInt32(txtSetGoal.Text), dtpGoalDate.Value.ToString());
+
+                    if (countRecord > 0)
+                    {
+                        MessageBox.Show("Goal has been defined successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Hide();
+                        trackForm.RefreshDataGridView();
+                    }
                 }
             }
             catch (Exception ex)

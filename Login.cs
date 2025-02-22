@@ -94,5 +94,20 @@ namespace FitnessTracker
                 txtPassword.UseSystemPasswordChar = true;
             }
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            trainerDta = objTrainer.GetData();
+            if (trainerDta.Rows.Count > 0)
+            {
+                lblRegisterAccountDesc.Hide();
+                linkRegister.Hide();
+            }
+            else
+            {
+                lblRegisterAccountDesc.Show();
+                linkRegister.Show();
+            }
+        }
     }
 }

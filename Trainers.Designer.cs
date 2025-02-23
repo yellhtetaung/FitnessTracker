@@ -50,6 +50,7 @@ namespace FitnessTracker
             this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainersBindingSource)).BeginInit();
@@ -63,7 +64,8 @@ namespace FitnessTracker
             this.menuAdmin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.homeToolStripMenuItem,
             this.activityToolStripMenuItem,
-            this.accountsToolStripMenuItem});
+            this.accountsToolStripMenuItem,
+            this.logOutToolStripMenuItem});
             this.menuAdmin.Location = new System.Drawing.Point(0, 0);
             this.menuAdmin.Name = "menuAdmin";
             this.menuAdmin.Padding = new System.Windows.Forms.Padding(12);
@@ -102,14 +104,14 @@ namespace FitnessTracker
             // 
             this.accountListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("accountListToolStripMenuItem.Image")));
             this.accountListToolStripMenuItem.Name = "accountListToolStripMenuItem";
-            this.accountListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.accountListToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.accountListToolStripMenuItem.Text = "Account List";
             // 
             // addAccountToolStripMenuItem
             // 
             this.addAccountToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addAccountToolStripMenuItem.Image")));
             this.addAccountToolStripMenuItem.Name = "addAccountToolStripMenuItem";
-            this.addAccountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addAccountToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.addAccountToolStripMenuItem.Text = "Add Account";
             this.addAccountToolStripMenuItem.Click += new System.EventHandler(this.addAccountToolStripMenuItem_Click);
             // 
@@ -217,6 +219,14 @@ namespace FitnessTracker
             this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
             this.addressDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logOutToolStripMenuItem.Image")));
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.logOutToolStripMenuItem.Text = "Log out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            // 
             // Trainers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,5 +271,6 @@ namespace FitnessTracker
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripMenuItem accountListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addAccountToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
     }
 }

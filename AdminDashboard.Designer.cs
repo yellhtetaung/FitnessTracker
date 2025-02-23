@@ -37,6 +37,7 @@ namespace FitnessTracker
             this.accountListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +48,8 @@ namespace FitnessTracker
             this.menuAdmin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.homeToolStripMenuItem,
             this.activityToolStripMenuItem,
-            this.accountsToolStripMenuItem});
+            this.accountsToolStripMenuItem,
+            this.logOutToolStripMenuItem});
             this.menuAdmin.Location = new System.Drawing.Point(0, 0);
             this.menuAdmin.Name = "menuAdmin";
             this.menuAdmin.Padding = new System.Windows.Forms.Padding(12);
@@ -108,6 +110,14 @@ namespace FitnessTracker
             this.label1.TabIndex = 2;
             this.label1.Text = "Admin Dashboard";
             // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logOutToolStripMenuItem.Image")));
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.logOutToolStripMenuItem.Text = "Log out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -137,5 +147,6 @@ namespace FitnessTracker
         private System.Windows.Forms.ToolStripMenuItem accountsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accountListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addAccountToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
     }
 }

@@ -15,6 +15,9 @@ namespace FitnessTracker
         FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter objActivity = new FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter();
         DataTable activityDta = new DataTable();
 
+        FitnessTrackerDatasetTableAdapters.TrackerTableAdapter objTracker = new FitnessTrackerDatasetTableAdapters.TrackerTableAdapter();
+        DataTable trackerDta = new DataTable();
+
         private int rowIndex = 0;
 
         public Activity()
@@ -95,22 +98,22 @@ namespace FitnessTracker
         {
             try
             {
-                if (txtActivityName.Text == "")
+                if (txtActivityName.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter activity name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtActivityName.Focus();
                 }
-                else if (txtMetricOne.Text == "")
+                else if (txtMetricOne.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter Metric One.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMetricOne.Focus();
                 }
-                else if (txtMetricTwo.Text == "")
+                else if (txtMetricTwo.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter Metric Two.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMetricTwo.Focus();
                 }
-                else if (txtMetricThree.Text == "")
+                else if (txtMetricThree.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter Metric Three.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMetricThree.Focus();
@@ -119,10 +122,10 @@ namespace FitnessTracker
                 {
                     clsActivity activity = new clsActivity();
                     activity.ActivityID = lblID.Text;
-                    activity.ActivityName = txtActivityName.Text;
-                    activity.MetricOne = txtMetricOne.Text;
-                    activity.MetricTwo = txtMetricTwo.Text;
-                    activity.MetricThree = txtMetricThree.Text;
+                    activity.ActivityName = txtActivityName.Text.Trim();
+                    activity.MetricOne = txtMetricOne.Text.Trim();
+                    activity.MetricTwo = txtMetricTwo.Text.Trim();
+                    activity.MetricThree = txtMetricThree.Text.Trim();
 
                     int insertActivity = objActivity.InsertActivity(activity.ActivityID, activity.ActivityName, activity.MetricOne, activity.MetricTwo, activity.MetricThree);
 
@@ -215,13 +218,22 @@ namespace FitnessTracker
 
                 if (result == DialogResult.Yes)
                 {
-                    objActivity.DeleteActivity(dgvActData[0, rowIndex].Value.ToString());
+                    trackerDta = objTracker.GetTrackerByActivityID(dgvActData[0, rowIndex].Value.ToString());
 
-                    MessageBox.Show("Activity has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (trackerDta.Rows.Count == 0)
+                    {
+                        objActivity.DeleteActivity(dgvActData[0, rowIndex].Value.ToString());
 
-                    dgvActData.DataSource = objActivity.GetData();
-                    dgvActData.Refresh();
-                    AutoID();
+                        MessageBox.Show("Activity has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        dgvActData.DataSource = objActivity.GetData();
+                        dgvActData.Refresh();
+                        AutoID();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Users already use this activity. You cannot delete this activity.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
             catch (Exception ex)
@@ -251,6 +263,13 @@ namespace FitnessTracker
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Starter starter = new Starter();
+            this.Hide();
+            starter.Show();
         }
     }
 }

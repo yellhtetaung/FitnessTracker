@@ -36,5 +36,12 @@ namespace FitnessTracker
             Register register = new Register();
             register.Show();
         }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Starter starter = new Starter();
+            this.Hide();
+            starter.Show();
+        }
     }
 }

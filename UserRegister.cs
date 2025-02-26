@@ -58,12 +58,12 @@ namespace FitnessTracker
         {
             try
             {
-                if (txtFullName.Text == "")
+                if (txtFullName.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter your full name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtFullName.Focus();
                 }
-                else if (txtUsername.Text == "")
+                else if (txtUsername.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter your username.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtUsername.Focus();
@@ -73,20 +73,45 @@ namespace FitnessTracker
                     MessageBox.Show("Username must be more than 3 characters.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtUsername.Focus();
                 }
-                else if (txtEmail.Text == "")
+                else if (txtEmail.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter your email address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtEmail.Focus();
                 }
-                else if (txtPassword.Text == "")
+                else if (txtPassword.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter your password.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPassword.Focus();
                 }
-                else if (txtPhone.Text == "")
+                else if (dtpDOB.Value == null)
+                {
+                    MessageBox.Show("Please choose you date of birth.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dtpDOB.Focus();
+                }
+                else if (txtNationalID.Text.Trim() == "")
+                {
+                    MessageBox.Show("Please enter your national registration card number.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtNationalID.Focus();
+                }
+                else if (txtWeight.Text.Trim() == "")
+                {
+                    MessageBox.Show("Please enter your weight.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtWeight.Focus();
+                }
+                else if (txtHeight.Text.Trim() == "")
+                {
+                    MessageBox.Show("Please enter your height.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtHeight.Focus();
+                }
+                else if (txtPhone.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter your phone number.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPhone.Focus();
+                }
+                else if (txtAddress.Text.Trim() == "")
+                {
+                    MessageBox.Show("Please enter your address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtAddress.Focus();
                 }
                 else
                 {
@@ -96,10 +121,16 @@ namespace FitnessTracker
                     userData.Username = txtUsername.Text;
                     userData.Email = txtEmail.Text;
                     userData.Password = txtPassword.Text;
+                    userData.DOB = dtpDOB.Value;
+                    userData.NationalID = txtNationalID.Text;
+                    userData.Weight = Convert.ToDecimal(txtWeight.Text);
+                    userData.Height = Convert.ToDecimal(txtHeight.Text);
                     userData.Phone = txtPhone.Text;
+                    userData.Address = txtAddress.Text;
 
                     DataTable getUserDataByUsername = objUser.GetUserByUsername(userData.Username);
                     DataTable getUserDataByEmail = objUser.GetUserByEmail(userData.Email);
+                    DataTable getUserDataByNationalID = objUser.GetUserByNationalID(userData.NationalID);
 
                     if (getUserDataByUsername.Rows.Count > 0)
                     {
@@ -111,9 +142,15 @@ namespace FitnessTracker
                         throw new Exception("Email already exists.");
                     }
 
-                    if (getUserDataByUsername.Rows.Count == 0 && getUserDataByEmail.Rows.Count == 0)
+                    if (getUserDataByNationalID.Rows.Count > 0)
                     {
-                        int insertUser = objUser.InsertUserData(userData.ID, userData.Fullname, userData.Username, userData.Email, userData.Password, userData.Phone);
+                        throw new Exception("National ID already exists.");
+                    }
+
+
+                    if (getUserDataByUsername.Rows.Count == 0 && getUserDataByEmail.Rows.Count == 0 && getUserDataByNationalID.Rows.Count == 0)
+                    {
+                        int insertUser = objUser.InsertUserData(userData.ID, userData.Fullname, userData.Username, userData.Email, userData.Password, userData.DOB, userData.NationalID, userData.Weight, userData.Height, userData.Phone, userData.Address);
 
                         if (insertUser > 0)
                         {

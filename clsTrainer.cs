@@ -10,7 +10,7 @@ namespace FitnessTracker
     {
         private string _ID, _Fullname, _Username, _Email, _Password, _Phone, _Address;
         private char _Gender;
-        private DateTime _DOB;
+        private DateTime _DOB, _CreatedDate;
 
         public string ID
         {
@@ -64,6 +64,12 @@ namespace FitnessTracker
         {
             get { return _DOB; }
             set { _DOB = value; }
+        }
+
+        public DateTime CreatedDate
+        {
+            get { return _CreatedDate; }
+            set { _CreatedDate = value; }
         }
     }
 }

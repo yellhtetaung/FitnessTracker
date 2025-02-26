@@ -54,22 +54,20 @@ namespace FitnessTracker
             this.lblActivity = new System.Windows.Forms.Label();
             this.lblActIDLabel = new System.Windows.Forms.Label();
             this.lblActID = new System.Windows.Forms.Label();
-            this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
-            this.fitnessTrackerDataset1 = new FitnessTracker.FitnessTrackerDataset();
             this.cboAct = new System.Windows.Forms.ComboBox();
-            this.activitiesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.activitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
+            this.activitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.activitiesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.panelFullName.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -317,16 +315,6 @@ namespace FitnessTracker
             this.lblActID.TabIndex = 10;
             this.lblActID.Text = "-";
             // 
-            // fitnessTrackerDataset
-            // 
-            this.fitnessTrackerDataset.DataSetName = "FitnessTrackerDataset";
-            this.fitnessTrackerDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // fitnessTrackerDataset1
-            // 
-            this.fitnessTrackerDataset1.DataSetName = "FitnessTrackerDataset";
-            this.fitnessTrackerDataset1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // cboAct
             // 
             this.cboAct.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.activitiesBindingSource1, "ActID", true));
@@ -339,16 +327,6 @@ namespace FitnessTracker
             this.cboAct.Size = new System.Drawing.Size(182, 22);
             this.cboAct.TabIndex = 7;
             this.cboAct.ValueMember = "ActID";
-            // 
-            // activitiesBindingSource1
-            // 
-            this.activitiesBindingSource1.DataMember = "Activities";
-            this.activitiesBindingSource1.DataSource = this.fitnessTrackerDataset;
-            // 
-            // activitiesBindingSource
-            // 
-            this.activitiesBindingSource.DataMember = "Activities";
-            this.activitiesBindingSource.DataSource = this.fitnessTrackerDataset;
             // 
             // groupBox2
             // 
@@ -402,6 +380,21 @@ namespace FitnessTracker
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // fitnessTrackerDataset
+            // 
+            this.fitnessTrackerDataset.DataSetName = "FitnessTrackerDataset";
+            this.fitnessTrackerDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // activitiesBindingSource
+            // 
+            this.activitiesBindingSource.DataMember = "Activities";
+            this.activitiesBindingSource.DataSource = this.fitnessTrackerDataset;
+            // 
+            // activitiesBindingSource1
+            // 
+            this.activitiesBindingSource1.DataMember = "Activities";
+            this.activitiesBindingSource1.DataSource = this.fitnessTrackerDataset;
+            // 
             // GoalUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -422,14 +415,13 @@ namespace FitnessTracker
             this.groupBox1.PerformLayout();
             this.panelFullName.ResumeLayout(false);
             this.panelFullName.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -458,13 +450,12 @@ namespace FitnessTracker
         private System.Windows.Forms.Label lblActivity;
         private System.Windows.Forms.Label lblActIDLabel;
         private System.Windows.Forms.Label lblActID;
-        private FitnessTrackerDataset fitnessTrackerDataset;
-        private FitnessTrackerDataset fitnessTrackerDataset1;
         private System.Windows.Forms.ComboBox cboAct;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.BindingSource activitiesBindingSource1;
-        private System.Windows.Forms.BindingSource activitiesBindingSource;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.BindingSource activitiesBindingSource1;
+        private FitnessTrackerDataset fitnessTrackerDataset;
+        private System.Windows.Forms.BindingSource activitiesBindingSource;
     }
 }

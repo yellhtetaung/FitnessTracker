@@ -12,6 +12,9 @@ namespace FitnessTracker
 {
     public partial class Trainers : Form
     {
+        FitnessTrackerDatasetTableAdapters.TrainersTableAdapter objTrainer = new FitnessTrackerDatasetTableAdapters.TrainersTableAdapter();
+        DataTable trainerDta = new DataTable();
+
         public Trainers()
         {
             InitializeComponent();
@@ -33,9 +36,12 @@ namespace FitnessTracker
 
         private void Trainers_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'fitnessTrackerDataset1.Trainers' table. You can move, or remove it, as needed.
+            this.trainersTableAdapter.Fill(this.fitnessTrackerDataset1.Trainers);
             // TODO: This line of code loads data into the 'fitnessTrackerDataset.Trainers' table. You can move, or remove it, as needed.
             this.trainersTableAdapter.Fill(this.fitnessTrackerDataset.Trainers);
-
+            trainerDta = objTrainer.GetTrainerDataNotIncludeCurrentUser(Login.loginTrainerID);
+            dgvTrainer.DataSource = trainerDta;
         }
 
         private void addAccountToolStripMenuItem_Click(object sender, EventArgs e)

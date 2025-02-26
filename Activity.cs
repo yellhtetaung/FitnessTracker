@@ -25,7 +25,7 @@ namespace FitnessTracker
             InitializeComponent();
         }
 
-        public void AutoID()
+        private void AutoID()
         {
             activityDta = objActivity.GetData();
 
@@ -58,12 +58,24 @@ namespace FitnessTracker
             }
         }
 
-        public void ClearAll()
+        private void ClearAll()
         {
             txtActivityName.Clear();
             txtMetricOne.Clear();
             txtMetricTwo.Clear();
             txtMetricThree.Clear();
+        }
+
+        private void TextBoxController(TextBox textBox, string placeholder)
+        {
+            textBox.Text = placeholder;
+            textBox.ForeColor = Color.Gray;
+        }
+
+        private void TextBoxController(TextBox textBox, string placeholder, Color color)
+        {
+            textBox.Text = placeholder;
+            textBox.ForeColor = color;
         }
 
         public void UpdateActivity(string id, string name, string metricOne, string metricTwo, string metricThree)
@@ -87,11 +99,20 @@ namespace FitnessTracker
             }
         }
 
+        private void ShowAllTextBoxPlaceholder()
+        {
+            TextBoxController(txtActivityName, "Enter Activity Name");
+            TextBoxController(txtMetricOne, "Enter Metric One");
+            TextBoxController(txtMetricTwo, "Enter Metric Two");
+            TextBoxController(txtMetricThree, "Enter Metric Three");
+        }
+
         private void Activity_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'fitnessTrackerDataset.Activities' table. You can move, or remove it, as needed.
             this.activitiesTableAdapter.Fill(this.fitnessTrackerDataset.Activities);
             AutoID();
+            ShowAllTextBoxPlaceholder();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -137,8 +158,7 @@ namespace FitnessTracker
                         dgvActData.Refresh();
 
                         ClearAll();
-                        txtActivityName.Focus();
-
+                        ShowAllTextBoxPlaceholder();
                         AutoID();
                     }
                 }
@@ -232,31 +252,8 @@ namespace FitnessTracker
                     }
                     else
                     {
-                        MessageBox.Show("Users already use this activity. You cannot delete this activity.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Users are already using this activity. You cannot delete this activity.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void deleteAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DialogResult result = MessageBox.Show("Are you sure you want to remove all activities?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    objActivity.DeleteAllActivity();
-
-                    MessageBox.Show("All Activities have been removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    dgvActData.DataSource = objActivity.GetData();
-                    dgvActData.Refresh();
-                    AutoID();
                 }
             }
             catch (Exception ex)
@@ -270,6 +267,70 @@ namespace FitnessTracker
             Starter starter = new Starter();
             this.Hide();
             starter.Show();
+        }
+
+        private void txtActivityName_Enter(object sender, EventArgs e)
+        {
+            if (txtActivityName.Text == "Enter Activity Name")
+            {
+                TextBoxController(txtActivityName, "", Color.Black);
+            }
+        }
+
+        private void txtActivityName_Leave(object sender, EventArgs e)
+        {
+            if (txtActivityName.Text.Trim() == "")
+            {
+                TextBoxController(txtActivityName, "Enter Activity Name");
+            }
+        }
+
+        private void txtMetricOne_Enter(object sender, EventArgs e)
+        {
+            if (txtMetricOne.Text == "Enter Metric One")
+            {
+                TextBoxController(txtMetricOne, "", Color.Black);
+            }
+        }
+
+        private void txtMetricOne_Leave(object sender, EventArgs e)
+        {
+            if (txtMetricOne.Text.Trim() == "")
+            {
+                TextBoxController(txtMetricOne, "Enter Metric One");
+            }
+        }
+
+        private void txtMetricTwo_Enter(object sender, EventArgs e)
+        {
+            if (txtMetricTwo.Text == "Enter Metric Two")
+            {
+                TextBoxController(txtMetricTwo, "", Color.Black);
+            }
+        }
+
+        private void txtMetricTwo_Leave(object sender, EventArgs e)
+        {
+            if (txtMetricTwo.Text.Trim() == "")
+            {
+                TextBoxController(txtMetricTwo, "Enter Metric Two");
+            }
+        }
+
+        private void txtMetricThree_Enter(object sender, EventArgs e)
+        {
+            if (txtMetricThree.Text == "Enter Metric Three")
+            {
+                TextBoxController(txtMetricThree, "", Color.Black);
+            }
+        }
+
+        private void txtMetricThree_Leave(object sender, EventArgs e)
+        {
+            if (txtMetricThree.Text.Trim() == "")
+            {
+                TextBoxController(txtMetricThree, "Enter Metric Three");
+            }
         }
     }
 }

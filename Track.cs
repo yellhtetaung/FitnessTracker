@@ -33,6 +33,7 @@ namespace FitnessTracker
             // TODO: This line of code loads data into the 'fitnessTrackerDataset.Tracker' table. You can move, or remove it, as needed.
             this.trackerTableAdapter.Fill(this.fitnessTrackerDataset.Tracker);
 
+
             trackerDta = objTracker.GetData();
             dgvTrack.DataSource = trackerDta;
 
@@ -75,7 +76,7 @@ namespace FitnessTracker
             {
                 if (Convert.ToInt32(txtCalBurn.Text) >= goal)
                 {
-                    objTracker.UpdateTrackerData("Complete", Convert.ToInt32(txtCalBurn.Text), lblTrackID.Text);
+                    objTracker.UpdateTrackerStatusAndTotalCal("Complete", Convert.ToInt32(txtCalBurn.Text), lblTrackID.Text);
                     MessageBox.Show("Your goal has been reached.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     this.RefreshDataGridView();
@@ -86,7 +87,7 @@ namespace FitnessTracker
 
                     if (result == DialogResult.OK)
                     {
-                        objTracker.UpdateTrackerData("Fail", Convert.ToInt32(txtCalBurn.Text), lblTrackID.Text);
+                        objTracker.UpdateTrackerStatusAndTotalCal("Fail", Convert.ToInt32(txtCalBurn.Text), lblTrackID.Text);
                         this.RefreshDataGridView();
                     }
                 }

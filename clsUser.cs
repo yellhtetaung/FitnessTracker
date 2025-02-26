@@ -8,7 +8,9 @@ namespace FitnessTracker
 {
     class clsUser
     {
-        private string _ID, _Fullname, _Username, _Email, _Password, _Phone;
+        private string _ID, _Fullname, _Username, _Email, _Password, _Phone, _Address, _NationalID;
+        private DateTime _DOB;
+        private decimal _Weight, _Height;
 
         public string ID
         {
@@ -44,6 +46,36 @@ namespace FitnessTracker
         {
             get { return _Phone; }
             set { _Phone = value; }
+        }
+
+        public string Address
+        {
+            get { return _Address; }
+            set { _Address = value; }
+        }
+
+        public string NationalID
+        {
+            get { return _NationalID; }
+            set { _NationalID = value; }
+        }
+
+        public DateTime DOB
+        {
+            get { return _DOB; }
+            set { _DOB = value; }
+        }
+
+        public decimal Weight
+        {
+            get { return _Weight; }
+            set { _Weight = value; }
+        }
+
+        public decimal Height
+        {
+            get { return _Height; }
+            set { _Height = value; }
         }
     }
 }

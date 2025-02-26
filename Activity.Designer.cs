@@ -62,13 +62,12 @@ namespace FitnessTracker
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsActivity = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.activitiesTableAdapter = new FitnessTracker.FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelUsername.SuspendLayout();
             this.panelPassword.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -122,6 +121,8 @@ namespace FitnessTracker
             this.txtActivityName.Size = new System.Drawing.Size(280, 15);
             this.txtActivityName.TabIndex = 2;
             this.txtActivityName.WordWrap = false;
+            this.txtActivityName.Enter += new System.EventHandler(this.txtActivityName_Enter);
+            this.txtActivityName.Leave += new System.EventHandler(this.txtActivityName_Leave);
             // 
             // panelPassword
             // 
@@ -144,6 +145,8 @@ namespace FitnessTracker
             this.txtMetricOne.Size = new System.Drawing.Size(236, 15);
             this.txtMetricOne.TabIndex = 4;
             this.txtMetricOne.WordWrap = false;
+            this.txtMetricOne.Enter += new System.EventHandler(this.txtMetricOne_Enter);
+            this.txtMetricOne.Leave += new System.EventHandler(this.txtMetricOne_Leave);
             // 
             // lblMetricOne
             // 
@@ -188,6 +191,8 @@ namespace FitnessTracker
             this.txtMetricTwo.Size = new System.Drawing.Size(236, 15);
             this.txtMetricTwo.TabIndex = 4;
             this.txtMetricTwo.WordWrap = false;
+            this.txtMetricTwo.Enter += new System.EventHandler(this.txtMetricTwo_Enter);
+            this.txtMetricTwo.Leave += new System.EventHandler(this.txtMetricTwo_Leave);
             // 
             // lblMetricTwo
             // 
@@ -220,6 +225,8 @@ namespace FitnessTracker
             this.txtMetricThree.Size = new System.Drawing.Size(236, 15);
             this.txtMetricThree.TabIndex = 4;
             this.txtMetricThree.WordWrap = false;
+            this.txtMetricThree.Enter += new System.EventHandler(this.txtMetricThree_Enter);
+            this.txtMetricThree.Leave += new System.EventHandler(this.txtMetricThree_Leave);
             // 
             // lblMetricThree
             // 
@@ -406,35 +413,35 @@ namespace FitnessTracker
             this.addAccountToolStripMenuItem.Text = "Add Account";
             this.addAccountToolStripMenuItem.Click += new System.EventHandler(this.addAccountToolStripMenuItem_Click);
             // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logOutToolStripMenuItem.Image")));
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.logOutToolStripMenuItem.Text = "Log out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            // 
             // cmsActivity
             // 
             this.cmsActivity.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.updateToolStripMenuItem,
-            this.deleteToolStripMenuItem,
-            this.deleteAllToolStripMenuItem});
+            this.deleteToolStripMenuItem});
             this.cmsActivity.Name = "contextMenuStrip1";
-            this.cmsActivity.Size = new System.Drawing.Size(135, 70);
+            this.cmsActivity.Size = new System.Drawing.Size(118, 48);
             // 
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.updateToolStripMenuItem.Text = "Update";
             this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.deleteToolStripMenuItem.Text = "Remove";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
-            // 
-            // deleteAllToolStripMenuItem
-            // 
-            this.deleteAllToolStripMenuItem.Name = "deleteAllToolStripMenuItem";
-            this.deleteAllToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
-            this.deleteAllToolStripMenuItem.Text = "Remove All";
-            this.deleteAllToolStripMenuItem.Click += new System.EventHandler(this.deleteAllToolStripMenuItem_Click);
             // 
             // contextMenuStrip2
             // 
@@ -444,14 +451,6 @@ namespace FitnessTracker
             // activitiesTableAdapter
             // 
             this.activitiesTableAdapter.ClearBeforeFill = true;
-            // 
-            // logOutToolStripMenuItem
-            // 
-            this.logOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logOutToolStripMenuItem.Image")));
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.logOutToolStripMenuItem.Text = "Log out";
-            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // Activity
             // 
@@ -526,7 +525,6 @@ namespace FitnessTracker
         private System.Windows.Forms.ContextMenuStrip cmsActivity;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteAllToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.DataGridViewTextBoxColumn actIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actNameDataGridViewTextBoxColumn;

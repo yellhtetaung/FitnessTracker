@@ -108,14 +108,19 @@ namespace FitnessTracker
         {
             try
             {
-                if (txtSetGoal.Text == "")
+                if (txtTrackName.Text.Trim() == "")
+                {
+                    MessageBox.Show("Please enter track name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtTrackName.Focus();
+                }
+                else if (txtSetGoal.Text == "")
                 {
                     MessageBox.Show("Please enter your goal.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtSetGoal.Focus();
                 }
                 else
                 {
-                    int countRecord = objTracker.InsertTrackerData(lblTrackID.Text, lblActID.Text, lblUserID.Text, cboAct.Text, Convert.ToInt32(txtSetGoal.Text), dtpGoalDate.Value.ToString());
+                    int countRecord = objTracker.InsertTracker(lblTrackID.Text, lblActID.Text, lblUserID.Text, txtTrackName.Text, Convert.ToInt32(txtSetGoal.Text), dtpGoalDate.Value.ToString());
 
                     if (countRecord > 0)
                     {

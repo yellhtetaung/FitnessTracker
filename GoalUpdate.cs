@@ -92,10 +92,6 @@ namespace FitnessTracker
 
         private void GoalUpdate_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'fitnessTrackerDataset1.Activities' table. You can move, or remove it, as needed.
-            this.activitiesTableAdapter.Fill(this.fitnessTrackerDataset1.Activities);
-            // TODO: This line of code loads data into the 'fitnessTrackerDataset.Activities' table. You can move, or remove it, as needed.
-            this.activitiesTableAdapter.Fill(this.fitnessTrackerDataset.Activities);
 
             lblUserID.Text = UserLogin.loginUserID;
             lblUsername.Text = UserLogin.loginUsername;

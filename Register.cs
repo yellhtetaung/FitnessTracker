@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace FitnessTracker
 {
@@ -14,6 +15,13 @@ namespace FitnessTracker
     {
         FitnessTrackerDatasetTableAdapters.TrainersTableAdapter objTraniner = new FitnessTrackerDatasetTableAdapters.TrainersTableAdapter();
         DataTable trainerDta = new DataTable();
+
+        private readonly string enterYourFullName = "Enter your full name";
+        private readonly string enterUsername = "Enter username";
+        private readonly string enterEmail = "Enter your email address";
+        private readonly string enterYourPassword = "Enter your password";
+        private readonly string enterPhoneNumber = "Enter your phone number";
+        private readonly string enterAddress = "Enter your address";
 
         public Register()
         {
@@ -23,91 +31,92 @@ namespace FitnessTracker
         public void AutoID()
         {
             trainerDta = objTraniner.GetData();
-
-            if (trainerDta.Rows.Count == 0)
-            {
-                lblID.Text = "T0001";
-            }
-            else
-            {
-                int size = trainerDta.Rows.Count - 1;
-                string oldID = trainerDta.Rows[size][0].ToString();
-                int newID = Convert.ToInt32(oldID.Substring(1, 4));
-
-                if (newID >= 1 && newID < 9)
-                {
-                    lblID.Text = "T000" + (newID + 1);
-                }
-                else if (newID >= 9 && newID < 99)
-                {
-                    lblID.Text = "T00" + (newID + 1);
-                }
-                else if (newID >= 99 && newID < 999)
-                {
-                    lblID.Text = "T0" + (newID + 1);
-                }
-                else if (newID >= 999 && newID < 9999)
-                {
-                    lblID.Text = "T" + (newID + 1);
-                }
-            }
+            lblID.Text = Constant.AutoID(trainerDta, 'T');
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtFullName.Text = "";
-            txtUsername.Text = "";
-            txtEmail.Text = "";
-            txtPassword.Text = "";
-            txtPhone.Text = "";
-            txtAddress.Text = "";
+            this.ShowAllPlaceholder();
             dtpDOB.Value = DateTime.Today;
             rdoMale.Checked = false;
             rdoFemale.Checked = false;
             rdoOther.Checked = false;
-            txtFullName.Focus();
+            chkPassword.Checked = false;
+            chkPassword.Enabled = false;
+            txtPassword.UseSystemPasswordChar = false;
+        }
+
+        private void ShowAllPlaceholder()
+        {
+            TextBoxController.Placeholder(txtFullName, enterYourFullName);
+            TextBoxController.Placeholder(txtUsername, enterUsername);
+            TextBoxController.Placeholder(txtEmail, enterEmail);
+            TextBoxController.Placeholder(txtPassword, enterYourPassword);
+            TextBoxController.Placeholder(txtPhone, enterPhoneNumber);
+            TextBoxController.Placeholder(txtAddress, enterAddress);
         }
 
         private void Register_Load(object sender, EventArgs e)
         {
             AutoID();
+            ShowAllPlaceholder();
+            chkPassword.Enabled = false;
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            string usernamePattern = @"^[a-z][a-zA-Z0-9]*\d[a-zA-Z0-9]*$";
+            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+
             try
             {
-                if (txtFullName.Text == "")
+                if (txtFullName.Text == enterYourFullName || txtFullName.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter your full name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtFullName.Focus();
                 }
-                else if (txtUsername.Text == "")
+                else if (txtUsername.Text == enterUsername || txtUsername.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter your username.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtUsername.Focus();
                 }
-                else if (txtUsername.Text.Length < 3)
+                else if (txtUsername.Text.Trim().Length < 3)
                 {
                     MessageBox.Show("Username must be more than 3 characters.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtUsername.Focus();
                 }
-                else if (txtEmail.Text == "")
+                else if (!Regex.IsMatch(txtUsername.Text, usernamePattern))
+                {
+                    string errorMessageFirstUpperCase = new Regex(@"^[A-Z]").IsMatch(txtUsername.Text) ? "Username must be start with lower character.\n" : "";
+                    string errorMessageFirstCharacter = new Regex(@"^[0-9]").IsMatch(txtUsername.Text) ? "Username must be start with character.\n" : "";
+                    string errorMessageContainerNumber = !new Regex(@"^(?=.*\d)[a-z0-9]").IsMatch(txtUsername.Text) ? "Username must be contain at least one number.\n" : "";
+
+                    string errorMessage = $"{errorMessageFirstUpperCase}{errorMessageFirstCharacter}{errorMessageContainerNumber}";
+                    MessageBox.Show(errorMessage, "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtUsername.Focus();
+                }
+                else if (txtEmail.Text == enterEmail || txtEmail.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter your email address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtEmail.Focus();
                 }
-                else if (txtPassword.Text == "")
+                else if (!Regex.IsMatch(txtEmail.Text, emailPattern))
+                {
+                    MessageBox.Show("Invalid your email address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtEmail.Focus();
+                }
+                else if (txtPassword.Text == enterYourPassword || txtPassword.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter your password.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPassword.Focus();
                 }
-                else if (txtPhone.Text == "")
+                else if (txtPhone.Text == enterPhoneNumber || txtPhone.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter your phone number.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPhone.Focus();
                 }
-                else if (txtAddress.Text == "")
+                else if (txtAddress.Text == enterAddress || txtAddress.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter your address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtAddress.Focus();
@@ -137,7 +146,7 @@ namespace FitnessTracker
                         throw new Exception("Username already exists.");
                     }
 
-                    if(getTrainerDataByEmail.Rows.Count > 0)
+                    if (getTrainerDataByEmail.Rows.Count > 0)
                     {
                         throw new Exception("Email already exists.");
                     }
@@ -180,10 +189,120 @@ namespace FitnessTracker
             if (chkPassword.Checked)
             {
                 txtPassword.UseSystemPasswordChar = false;
-            } 
+            }
             else
             {
                 txtPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void txtFullName_Enter(object sender, EventArgs e)
+        {
+            if (txtFullName.Text == enterYourFullName)
+            {
+                TextBoxController.Placeholder(txtFullName, "", Color.Black);
+            }
+        }
+
+        private void txtFullName_Leave(object sender, EventArgs e)
+        {
+            if (txtFullName.Text.Trim() == "")
+            {
+                TextBoxController.Placeholder(txtFullName, enterYourFullName);
+            }
+        }
+
+        private void txtUsername_Enter(object sender, EventArgs e)
+        {
+            if (txtUsername.Text == enterUsername)
+            {
+                TextBoxController.Placeholder(txtUsername, "", Color.Black);
+            }
+        }
+
+        private void txtUsername_Leave(object sender, EventArgs e)
+        {
+            if (txtUsername.Text.Trim() == "")
+            {
+                TextBoxController.Placeholder(txtUsername, enterUsername);
+            }
+        }
+
+        private void txtEmail_Enter(object sender, EventArgs e)
+        {
+            if (txtEmail.Text == enterEmail)
+            {
+                TextBoxController.Placeholder(txtEmail, "", Color.Black);
+            }
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if (txtEmail.Text.Trim() == "")
+            {
+                TextBoxController.Placeholder(txtEmail, enterEmail);
+            }
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == enterYourPassword)
+            {
+                TextBoxController.Placeholder(txtPassword, "", Color.Black);
+            }
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            if (txtPassword.Text.Trim() == "")
+            {
+                TextBoxController.Placeholder(txtPassword, enterYourPassword);
+            }
+        }
+
+        private void txtPassword_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtPassword.Text == enterYourPassword || txtPassword.Text.Trim() == "")
+            {
+                chkPassword.Enabled = false;
+            }
+            else
+            {
+                chkPassword.Enabled = true;
+            }
+
+            txtPassword.UseSystemPasswordChar = !chkPassword.Checked;
+        }
+
+        private void txtPhone_Enter(object sender, EventArgs e)
+        {
+            if (txtPhone.Text == enterPhoneNumber)
+            {
+                TextBoxController.Placeholder(txtPhone, "", Color.Black);
+            }
+        }
+
+        private void txtPhone_Leave(object sender, EventArgs e)
+        {
+            if (txtPhone.Text.Trim() == "")
+            {
+                TextBoxController.Placeholder(txtPhone, enterPhoneNumber);
+            }
+        }
+
+        private void txtAddress_Enter(object sender, EventArgs e)
+        {
+            if (txtAddress.Text == enterAddress)
+            {
+                TextBoxController.Placeholder(txtAddress, "", Color.Black);
+            }
+        }
+
+        private void txtAddress_Leave(object sender, EventArgs e)
+        {
+            if (txtAddress.Text.Trim() == "")
+            {
+                TextBoxController.Placeholder(txtAddress, enterAddress);
             }
         }
     }

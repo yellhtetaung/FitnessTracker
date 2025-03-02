@@ -39,6 +39,17 @@ namespace FitnessTracker
             this.trackerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvTrack = new System.Windows.Forms.DataGridView();
+            this.trackerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trackerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activityIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.setGoalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalCalBurnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trackDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trackStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trackerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
             this.lblTrackIDLabel = new System.Windows.Forms.Label();
             this.lblTrackID = new System.Windows.Forms.Label();
             this.lblGoalLabel = new System.Windows.Forms.Label();
@@ -61,26 +72,16 @@ namespace FitnessTracker
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
-            this.trackerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.trackerTableAdapter = new FitnessTracker.FitnessTrackerDatasetTableAdapters.TrackerTableAdapter();
-            this.trackerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activityIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trackerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.setGoalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalCalBurnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trackDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trackStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).BeginInit();
             this.panelFullName.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.cmsTrack.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuAdmin
@@ -91,7 +92,8 @@ namespace FitnessTracker
             this.homeToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.trackerToolStripMenuItem,
-            this.searchToolStripMenuItem});
+            this.searchToolStripMenuItem,
+            this.logOutToolStripMenuItem});
             this.menuAdmin.Location = new System.Drawing.Point(0, 0);
             this.menuAdmin.Name = "menuAdmin";
             this.menuAdmin.Padding = new System.Windows.Forms.Padding(12);
@@ -155,9 +157,9 @@ namespace FitnessTracker
             this.dgvTrack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTrack.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.trackerIDDataGridViewTextBoxColumn,
+            this.trackerNameDataGridViewTextBoxColumn,
             this.activityIDDataGridViewTextBoxColumn,
             this.userIDDataGridViewTextBoxColumn,
-            this.trackerNameDataGridViewTextBoxColumn,
             this.setGoalDataGridViewTextBoxColumn,
             this.totalCalBurnDataGridViewTextBoxColumn,
             this.trackDateDataGridViewTextBoxColumn,
@@ -173,6 +175,83 @@ namespace FitnessTracker
             this.dgvTrack.TabIndex = 48;
             this.dgvTrack.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrack_CellDoubleClick);
             this.dgvTrack.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTrack_CellMouseUp);
+            // 
+            // trackerIDDataGridViewTextBoxColumn
+            // 
+            this.trackerIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.trackerIDDataGridViewTextBoxColumn.DataPropertyName = "TrackerID";
+            this.trackerIDDataGridViewTextBoxColumn.HeaderText = "Tracker ID";
+            this.trackerIDDataGridViewTextBoxColumn.Name = "trackerIDDataGridViewTextBoxColumn";
+            this.trackerIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.trackerIDDataGridViewTextBoxColumn.Width = 83;
+            // 
+            // trackerNameDataGridViewTextBoxColumn
+            // 
+            this.trackerNameDataGridViewTextBoxColumn.DataPropertyName = "TrackerName";
+            this.trackerNameDataGridViewTextBoxColumn.HeaderText = "Track Name";
+            this.trackerNameDataGridViewTextBoxColumn.Name = "trackerNameDataGridViewTextBoxColumn";
+            this.trackerNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // activityIDDataGridViewTextBoxColumn
+            // 
+            this.activityIDDataGridViewTextBoxColumn.DataPropertyName = "ActivityID";
+            this.activityIDDataGridViewTextBoxColumn.HeaderText = "ActivityID";
+            this.activityIDDataGridViewTextBoxColumn.Name = "activityIDDataGridViewTextBoxColumn";
+            this.activityIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // userIDDataGridViewTextBoxColumn
+            // 
+            this.userIDDataGridViewTextBoxColumn.DataPropertyName = "UserID";
+            this.userIDDataGridViewTextBoxColumn.HeaderText = "UserID";
+            this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
+            this.userIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // setGoalDataGridViewTextBoxColumn
+            // 
+            this.setGoalDataGridViewTextBoxColumn.DataPropertyName = "SetGoal";
+            this.setGoalDataGridViewTextBoxColumn.HeaderText = "Set Goal";
+            this.setGoalDataGridViewTextBoxColumn.Name = "setGoalDataGridViewTextBoxColumn";
+            this.setGoalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalCalBurnDataGridViewTextBoxColumn
+            // 
+            this.totalCalBurnDataGridViewTextBoxColumn.DataPropertyName = "TotalCalBurn";
+            this.totalCalBurnDataGridViewTextBoxColumn.HeaderText = "Total Cal Burn";
+            this.totalCalBurnDataGridViewTextBoxColumn.Name = "totalCalBurnDataGridViewTextBoxColumn";
+            this.totalCalBurnDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // trackDateDataGridViewTextBoxColumn
+            // 
+            this.trackDateDataGridViewTextBoxColumn.DataPropertyName = "TrackDate";
+            this.trackDateDataGridViewTextBoxColumn.HeaderText = "Track Date";
+            this.trackDateDataGridViewTextBoxColumn.Name = "trackDateDataGridViewTextBoxColumn";
+            this.trackDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.trackDateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // trackStatusDataGridViewTextBoxColumn
+            // 
+            this.trackStatusDataGridViewTextBoxColumn.DataPropertyName = "TrackStatus";
+            this.trackStatusDataGridViewTextBoxColumn.HeaderText = "Track Status";
+            this.trackStatusDataGridViewTextBoxColumn.Name = "trackStatusDataGridViewTextBoxColumn";
+            this.trackStatusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // createdDateDataGridViewTextBoxColumn
+            // 
+            this.createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
+            this.createdDateDataGridViewTextBoxColumn.HeaderText = "Created Date";
+            this.createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
+            this.createdDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.createdDateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // trackerBindingSource
+            // 
+            this.trackerBindingSource.DataMember = "Tracker";
+            this.trackerBindingSource.DataSource = this.fitnessTrackerDataset;
+            // 
+            // fitnessTrackerDataset
+            // 
+            this.fitnessTrackerDataset.DataSetName = "FitnessTrackerDataset";
+            this.fitnessTrackerDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblTrackIDLabel
             // 
@@ -410,82 +489,16 @@ namespace FitnessTracker
             this.removeAllToolStripMenuItem.Text = "Remove All";
             this.removeAllToolStripMenuItem.Click += new System.EventHandler(this.removeAllToolStripMenuItem_Click);
             // 
-            // fitnessTrackerDataset
-            // 
-            this.fitnessTrackerDataset.DataSetName = "FitnessTrackerDataset";
-            this.fitnessTrackerDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // trackerBindingSource
-            // 
-            this.trackerBindingSource.DataMember = "Tracker";
-            this.trackerBindingSource.DataSource = this.fitnessTrackerDataset;
-            // 
             // trackerTableAdapter
             // 
             this.trackerTableAdapter.ClearBeforeFill = true;
             // 
-            // trackerIDDataGridViewTextBoxColumn
+            // logOutToolStripMenuItem
             // 
-            this.trackerIDDataGridViewTextBoxColumn.DataPropertyName = "TrackerID";
-            this.trackerIDDataGridViewTextBoxColumn.HeaderText = "TrackerID";
-            this.trackerIDDataGridViewTextBoxColumn.Name = "trackerIDDataGridViewTextBoxColumn";
-            this.trackerIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // activityIDDataGridViewTextBoxColumn
-            // 
-            this.activityIDDataGridViewTextBoxColumn.DataPropertyName = "ActivityID";
-            this.activityIDDataGridViewTextBoxColumn.HeaderText = "ActivityID";
-            this.activityIDDataGridViewTextBoxColumn.Name = "activityIDDataGridViewTextBoxColumn";
-            this.activityIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // userIDDataGridViewTextBoxColumn
-            // 
-            this.userIDDataGridViewTextBoxColumn.DataPropertyName = "UserID";
-            this.userIDDataGridViewTextBoxColumn.HeaderText = "UserID";
-            this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
-            this.userIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // trackerNameDataGridViewTextBoxColumn
-            // 
-            this.trackerNameDataGridViewTextBoxColumn.DataPropertyName = "TrackerName";
-            this.trackerNameDataGridViewTextBoxColumn.HeaderText = "TrackerName";
-            this.trackerNameDataGridViewTextBoxColumn.Name = "trackerNameDataGridViewTextBoxColumn";
-            this.trackerNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // setGoalDataGridViewTextBoxColumn
-            // 
-            this.setGoalDataGridViewTextBoxColumn.DataPropertyName = "SetGoal";
-            this.setGoalDataGridViewTextBoxColumn.HeaderText = "SetGoal";
-            this.setGoalDataGridViewTextBoxColumn.Name = "setGoalDataGridViewTextBoxColumn";
-            this.setGoalDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalCalBurnDataGridViewTextBoxColumn
-            // 
-            this.totalCalBurnDataGridViewTextBoxColumn.DataPropertyName = "TotalCalBurn";
-            this.totalCalBurnDataGridViewTextBoxColumn.HeaderText = "TotalCalBurn";
-            this.totalCalBurnDataGridViewTextBoxColumn.Name = "totalCalBurnDataGridViewTextBoxColumn";
-            this.totalCalBurnDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // trackDateDataGridViewTextBoxColumn
-            // 
-            this.trackDateDataGridViewTextBoxColumn.DataPropertyName = "TrackDate";
-            this.trackDateDataGridViewTextBoxColumn.HeaderText = "TrackDate";
-            this.trackDateDataGridViewTextBoxColumn.Name = "trackDateDataGridViewTextBoxColumn";
-            this.trackDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // trackStatusDataGridViewTextBoxColumn
-            // 
-            this.trackStatusDataGridViewTextBoxColumn.DataPropertyName = "TrackStatus";
-            this.trackStatusDataGridViewTextBoxColumn.HeaderText = "TrackStatus";
-            this.trackStatusDataGridViewTextBoxColumn.Name = "trackStatusDataGridViewTextBoxColumn";
-            this.trackStatusDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // createdDateDataGridViewTextBoxColumn
-            // 
-            this.createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
-            this.createdDateDataGridViewTextBoxColumn.HeaderText = "CreatedDate";
-            this.createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
-            this.createdDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.logOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logOutToolStripMenuItem.Image")));
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.logOutToolStripMenuItem.Text = "Log out";
             // 
             // Track
             // 
@@ -515,9 +528,12 @@ namespace FitnessTracker
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Track";
             this.Load += new System.EventHandler(this.Track_Load);
+            this.Resize += new System.EventHandler(this.Track_Resize);
             this.menuAdmin.ResumeLayout(false);
             this.menuAdmin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).EndInit();
             this.panelFullName.ResumeLayout(false);
             this.panelFullName.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -525,8 +541,6 @@ namespace FitnessTracker
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.cmsTrack.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -568,13 +582,14 @@ namespace FitnessTracker
         private System.Windows.Forms.BindingSource trackerBindingSource;
         private FitnessTrackerDatasetTableAdapters.TrackerTableAdapter trackerTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn trackerIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn trackerNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn activityIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn userIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn trackerNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn setGoalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalCalBurnDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn trackDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn trackStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
     }
 }

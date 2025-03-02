@@ -33,7 +33,6 @@ namespace FitnessTracker
             // TODO: This line of code loads data into the 'fitnessTrackerDataset.Tracker' table. You can move, or remove it, as needed.
             this.trackerTableAdapter.Fill(this.fitnessTrackerDataset.Tracker);
 
-
             trackerDta = objTracker.GetData();
             dgvTrack.DataSource = trackerDta;
 
@@ -42,17 +41,17 @@ namespace FitnessTracker
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-            if (txtMet.Text == "")
+            if (txtMet.Text.Trim() == "")
             {
                 MessageBox.Show("Please enter met.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMet.Focus();
             }
-            else if (txtTime.Text == "")
+            else if (txtTime.Text.Trim() == "")
             {
                 MessageBox.Show("Please enter time.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTime.Focus();
             }
-            else if (txtAHR.Text == "")
+            else if (txtAHR.Text.Trim() == "")
             {
                 MessageBox.Show("Please enter average heart rate.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtAHR.Focus();
@@ -142,9 +141,9 @@ namespace FitnessTracker
         {
             GoalUpdate goalUpdate = new GoalUpdate(this);
             goalUpdate.TrackerID = dgvTrack[0, rowIndex].Value.ToString();
-            goalUpdate.ActivityID = dgvTrack[1, rowIndex].Value.ToString();
-            goalUpdate.UserID = dgvTrack[2, rowIndex].Value.ToString();
-            goalUpdate.TrackerName = dgvTrack[3, rowIndex].Value.ToString();
+            goalUpdate.TrackerName = dgvTrack[1, rowIndex].Value.ToString();
+            goalUpdate.ActivityID = dgvTrack[2, rowIndex].Value.ToString();
+            goalUpdate.UserID = dgvTrack[3, rowIndex].Value.ToString();
             goalUpdate.SetGoal = Convert.ToInt32(dgvTrack[4, rowIndex].Value.ToString());
             goalUpdate.TrackDate = Convert.ToDateTime(dgvTrack[6, rowIndex].Value.ToString());
 
@@ -186,6 +185,29 @@ namespace FitnessTracker
                 objTracker.DeleteTracker(dgvTrack[0, rowIndex].Value.ToString());
                 MessageBox.Show("Tracker has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.RefreshDataGridView();
+            }
+        }
+
+        private void Track_Resize(object sender, EventArgs e)
+        {
+            for (int key = 0; key < dgvTrack.ColumnCount; key++)
+            {
+                if (key > 0)
+                {
+                    if (WindowState == FormWindowState.Maximized)
+                    {
+                        dgvTrack.Columns[key].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    }
+                    else
+                    {
+                        dgvTrack.Columns[key].AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
+                        dgvTrack.Columns[key].Width = key == 6 || key == 8 ? 150 : 100;
+                    }
+                }
+                else
+                {
+                    dgvTrack.Columns[key].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                }
             }
         }
     }

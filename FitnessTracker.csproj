@@ -67,6 +67,7 @@
     <Compile Include="clsActivity.cs" />
     <Compile Include="clsTrainer.cs" />
     <Compile Include="clsUser.cs" />
+    <Compile Include="Constant.cs" />
     <Compile Include="FitnessTrackerDataset.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -104,6 +105,7 @@
     <Compile Include="Starter.Designer.cs">
       <DependentUpon>Starter.cs</DependentUpon>
     </Compile>
+    <Compile Include="TextBoxController.cs" />
     <Compile Include="Track.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +228,7 @@
     <Content Include="assets\icons\home.png" />
     <Content Include="assets\icons\search.png" />
     <Content Include="assets\icons\activity.png" />
+    <Content Include="assets\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -65,17 +65,48 @@ namespace FitnessTracker
             }
         }
 
+        private void GoalUpdate_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'fitnessTrackerDataset.Activities' table. You can move, or remove it, as needed.
+            this.activitiesTableAdapter.Fill(this.fitnessTrackerDataset.Activities);
+            // TODO: This line of code loads data into the 'fitnessTrackerDataset.Activities' table. You can move, or remove it, as needed.
+            this.activitiesTableAdapter.Fill(this.fitnessTrackerDataset.Activities);
+            lblUserID.Text = UserLogin.loginUserID;
+            lblUsername.Text = UserLogin.loginUsername;
+            lblActID.Text = ActivityID;
+            txtSetGoal.Text = SetGoal.ToString();
+            txtTrackName.Text = TrackerName;
+            dtpGoalDate.Value = TrackDate;
+
+            DataTable activityDta = objActivity.GetData();
+
+            for (int index = 0; index < activityDta.Rows.Count; index++)
+            {
+                if (String.Equals(activityDta.Rows[index]["ActID"], ActivityID))
+                {
+                    Console.WriteLine(index);
+                    cboAct.SelectedIndex = index;
+                }
+            }
+            ActivityChangeHandler();
+        }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
             {
-                if (txtSetGoal.Text == "")
+                if (txtTrackName.Text.Trim() == "")
+                {
+                    MessageBox.Show("Please enter track name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtTrackName.Focus();
+                }
+                else if (txtSetGoal.Text == "")
                 {
                     MessageBox.Show("Please enter your goal.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtSetGoal.Focus();
                 }
 
-                int countRecord = objTracker.UpdateTracker(ActivityID, UserID, TrackerName, Convert.ToInt32(txtSetGoal.Text), TotalCalBurn, dtpGoalDate.Value.ToString(), TrackStatus, TrackerID);
+                int countRecord = objTracker.UpdateTracker(lblActID.Text, UserID, txtTrackName.Text, Convert.ToInt32(txtSetGoal.Text), TotalCalBurn, dtpGoalDate.Value.ToString(), TrackStatus, TrackerID);
 
                 if (countRecord > 0)
                 {
@@ -90,29 +121,14 @@ namespace FitnessTracker
             }
         }
 
-        private void GoalUpdate_Load(object sender, EventArgs e)
-        {
-
-            lblUserID.Text = UserLogin.loginUserID;
-            lblUsername.Text = UserLogin.loginUsername;
-            lblActID.Text = ActivityID;
-            txtSetGoal.Text = SetGoal.ToString();
-
-            DataTable activityDta = objActivity.GetData();
-
-            for (int index = 0; index < activityDta.Rows.Count; index++)
-            {
-                if (String.Equals(activityDta.Rows[index]["ActID"], ActivityID))
-                {
-                    cboAct.SelectedIndex = index;
-                }
-            }
-            ActivityChangeHandler();
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void cboAct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ActivityChangeHandler();
         }
     }
 }

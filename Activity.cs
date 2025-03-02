@@ -19,6 +19,10 @@ namespace FitnessTracker
         DataTable trackerDta = new DataTable();
 
         private int rowIndex = 0;
+        private readonly string enterActivityName = "Enter Activity Name";
+        private readonly string enterMetricOne = "Enter Metric One";
+        private readonly string enterMetricTwo = "Enter Metric Two";
+        private readonly string enterMetricThree = "Enter Metric Three";
 
         public Activity()
         {
@@ -29,53 +33,13 @@ namespace FitnessTracker
         {
             activityDta = objActivity.GetData();
 
-            if (activityDta.Rows.Count == 0)
-            {
-                lblID.Text = "A0001";
-            }
-            else
-            {
-                int size = activityDta.Rows.Count - 1;
-                string oldID = activityDta.Rows[size][0].ToString();
-                int newID = Convert.ToInt32(oldID.Substring(1, 4));
-
-                if (newID >= 1 && newID < 9)
-                {
-                    lblID.Text = "A000" + (newID + 1);
-                }
-                else if (newID >= 9 && newID < 99)
-                {
-                    lblID.Text = "A00" + (newID + 1);
-                }
-                else if (newID >= 99 && newID < 999)
-                {
-                    lblID.Text = "A0" + (newID + 1);
-                }
-                else if (newID >= 999 && newID < 9999)
-                {
-                    lblID.Text = "A" + (newID + 1);
-                }
-            }
+            lblID.Text = Constant.AutoID(activityDta, 'A');
         }
 
         private void ClearAll()
         {
-            txtActivityName.Clear();
-            txtMetricOne.Clear();
-            txtMetricTwo.Clear();
-            txtMetricThree.Clear();
-        }
-
-        private void TextBoxController(TextBox textBox, string placeholder)
-        {
-            textBox.Text = placeholder;
-            textBox.ForeColor = Color.Gray;
-        }
-
-        private void TextBoxController(TextBox textBox, string placeholder, Color color)
-        {
-            textBox.Text = placeholder;
-            textBox.ForeColor = color;
+            this.ShowAllTextBoxPlaceholder();
+            txtActivityName.Focus();
         }
 
         public void UpdateActivity(string id, string name, string metricOne, string metricTwo, string metricThree)
@@ -90,7 +54,7 @@ namespace FitnessTracker
                 activity.MetricThree = metricThree;
 
                 objActivity.UpdateActivity(activity.ActivityName, activity.MetricOne, activity.MetricTwo, activity.MetricThree, activity.ActivityID);
-                dgvActData.DataSource = objActivity.GetData();
+                dgvActData.DataSource = objActivity.GetAllActivities();
                 dgvActData.Refresh();
             }
             catch (Exception ex)
@@ -101,10 +65,10 @@ namespace FitnessTracker
 
         private void ShowAllTextBoxPlaceholder()
         {
-            TextBoxController(txtActivityName, "Enter Activity Name");
-            TextBoxController(txtMetricOne, "Enter Metric One");
-            TextBoxController(txtMetricTwo, "Enter Metric Two");
-            TextBoxController(txtMetricThree, "Enter Metric Three");
+            TextBoxController.Placeholder(txtActivityName, enterActivityName);
+            TextBoxController.Placeholder(txtMetricOne, enterMetricOne);
+            TextBoxController.Placeholder(txtMetricTwo, enterMetricTwo);
+            TextBoxController.Placeholder(txtMetricThree, enterMetricThree);
         }
 
         private void Activity_Load(object sender, EventArgs e)
@@ -113,28 +77,30 @@ namespace FitnessTracker
             this.activitiesTableAdapter.Fill(this.fitnessTrackerDataset.Activities);
             AutoID();
             ShowAllTextBoxPlaceholder();
+
+            dgvActData.DataSource = objActivity.GetAllActivities();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                if (txtActivityName.Text.Trim() == "")
+                if (txtActivityName.Text == enterActivityName || txtActivityName.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter activity name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtActivityName.Focus();
                 }
-                else if (txtMetricOne.Text.Trim() == "")
+                else if (txtMetricOne.Text == enterMetricOne || txtMetricOne.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter Metric One.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMetricOne.Focus();
                 }
-                else if (txtMetricTwo.Text.Trim() == "")
+                else if (txtMetricTwo.Text == enterMetricTwo || txtMetricTwo.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter Metric Two.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMetricTwo.Focus();
                 }
-                else if (txtMetricThree.Text.Trim() == "")
+                else if (txtMetricThree.Text == enterMetricThree || txtMetricThree.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter Metric Three.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMetricThree.Focus();
@@ -154,7 +120,7 @@ namespace FitnessTracker
                     {
                         MessageBox.Show("Activity has been added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        dgvActData.DataSource = objActivity.GetData();
+                        dgvActData.DataSource = objActivity.GetAllActivities();
                         dgvActData.Refresh();
 
                         ClearAll();
@@ -178,10 +144,7 @@ namespace FitnessTracker
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtActivityName.Text = "";
-            txtMetricOne.Text = "";
-            txtMetricTwo.Text = "";
-            txtMetricThree.Text = "";
+            this.ClearAll();
         }
 
         private void accountListToolStripMenuItem_Click(object sender, EventArgs e)
@@ -246,7 +209,7 @@ namespace FitnessTracker
 
                         MessageBox.Show("Activity has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        dgvActData.DataSource = objActivity.GetData();
+                        dgvActData.DataSource = objActivity.GetAllActivities();
                         dgvActData.Refresh();
                         AutoID();
                     }
@@ -271,9 +234,9 @@ namespace FitnessTracker
 
         private void txtActivityName_Enter(object sender, EventArgs e)
         {
-            if (txtActivityName.Text == "Enter Activity Name")
+            if (txtActivityName.Text == enterActivityName)
             {
-                TextBoxController(txtActivityName, "", Color.Black);
+                TextBoxController.Placeholder(txtActivityName, "", Color.Black);
             }
         }
 
@@ -281,15 +244,15 @@ namespace FitnessTracker
         {
             if (txtActivityName.Text.Trim() == "")
             {
-                TextBoxController(txtActivityName, "Enter Activity Name");
+                TextBoxController.Placeholder(txtActivityName, enterActivityName);
             }
         }
 
         private void txtMetricOne_Enter(object sender, EventArgs e)
         {
-            if (txtMetricOne.Text == "Enter Metric One")
+            if (txtMetricOne.Text == enterMetricOne)
             {
-                TextBoxController(txtMetricOne, "", Color.Black);
+                TextBoxController.Placeholder(txtMetricOne, "", Color.Black);
             }
         }
 
@@ -297,15 +260,15 @@ namespace FitnessTracker
         {
             if (txtMetricOne.Text.Trim() == "")
             {
-                TextBoxController(txtMetricOne, "Enter Metric One");
+                TextBoxController.Placeholder(txtMetricOne, enterMetricOne);
             }
         }
 
         private void txtMetricTwo_Enter(object sender, EventArgs e)
         {
-            if (txtMetricTwo.Text == "Enter Metric Two")
+            if (txtMetricTwo.Text == enterMetricTwo)
             {
-                TextBoxController(txtMetricTwo, "", Color.Black);
+                TextBoxController.Placeholder(txtMetricTwo, "", Color.Black);
             }
         }
 
@@ -313,15 +276,15 @@ namespace FitnessTracker
         {
             if (txtMetricTwo.Text.Trim() == "")
             {
-                TextBoxController(txtMetricTwo, "Enter Metric Two");
+                TextBoxController.Placeholder(txtMetricTwo, enterMetricTwo);
             }
         }
 
         private void txtMetricThree_Enter(object sender, EventArgs e)
         {
-            if (txtMetricThree.Text == "Enter Metric Three")
+            if (txtMetricThree.Text == enterMetricThree)
             {
-                TextBoxController(txtMetricThree, "", Color.Black);
+                TextBoxController.Placeholder(txtMetricThree, "", Color.Black);
             }
         }
 
@@ -329,7 +292,30 @@ namespace FitnessTracker
         {
             if (txtMetricThree.Text.Trim() == "")
             {
-                TextBoxController(txtMetricThree, "Enter Metric Three");
+                TextBoxController.Placeholder(txtMetricThree, enterMetricThree);
+            }
+        }
+
+        private void Activity_Resize(object sender, EventArgs e)
+        {
+            for (int key = 0; key < dgvActData.ColumnCount; key++)
+            {
+                if (key > 0)
+                {
+                    if (WindowState == FormWindowState.Maximized)
+                    {
+                        dgvActData.Columns[key].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    }
+                    else
+                    {
+                        dgvActData.Columns[key].AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
+                        dgvActData.Columns[key].Width = 154;
+                    }
+                }
+                else
+                {
+                    dgvActData.Columns[key].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                }
             }
         }
     }

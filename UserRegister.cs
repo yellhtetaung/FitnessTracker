@@ -24,34 +24,7 @@ namespace FitnessTracker
         public void AutoID()
         {
             userDta = objUser.GetData();
-
-            if (userDta.Rows.Count == 0)
-            {
-                lblID.Text = "U0001";
-            }
-            else
-            {
-                int size = userDta.Rows.Count - 1;
-                string oldID = userDta.Rows[size][0].ToString();
-                int newID = Convert.ToInt32(oldID.Substring(1, 4));
-
-                if (newID >= 1 && newID < 9)
-                {
-                    lblID.Text = "U000" + (newID + 1);
-                }
-                else if (newID >= 9 && newID < 99)
-                {
-                    lblID.Text = "U00" + (newID + 1);
-                }
-                else if (newID >= 99 && newID < 999)
-                {
-                    lblID.Text = "U0" + (newID + 1);
-                }
-                else if (newID >= 999 && newID < 9999)
-                {
-                    lblID.Text = "U" + (newID + 1);
-                }
-            }
+            lblID.Text = Constant.AutoID(userDta, 'U');
         }
 
         private void btnRegister_Click(object sender, EventArgs e)

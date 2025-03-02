@@ -162,8 +162,10 @@ namespace FitnessTracker
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(383, 15);
             this.txtPassword.TabIndex = 4;
-            this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.WordWrap = false;
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyUp);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // panelPassword
             // 
@@ -188,6 +190,8 @@ namespace FitnessTracker
             this.txtFullName.Size = new System.Drawing.Size(383, 15);
             this.txtFullName.TabIndex = 1;
             this.txtFullName.WordWrap = false;
+            this.txtFullName.Enter += new System.EventHandler(this.txtFullName_Enter);
+            this.txtFullName.Leave += new System.EventHandler(this.txtFullName_Leave);
             // 
             // panelFullName
             // 
@@ -212,6 +216,8 @@ namespace FitnessTracker
             this.txtUsername.Size = new System.Drawing.Size(383, 15);
             this.txtUsername.TabIndex = 2;
             this.txtUsername.WordWrap = false;
+            this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
+            this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
             // 
             // panelUsername
             // 
@@ -236,6 +242,8 @@ namespace FitnessTracker
             this.txtEmail.Size = new System.Drawing.Size(383, 15);
             this.txtEmail.TabIndex = 3;
             this.txtEmail.WordWrap = false;
+            this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // panelEmail
             // 
@@ -282,6 +290,8 @@ namespace FitnessTracker
             this.txtPhone.Size = new System.Drawing.Size(383, 15);
             this.txtPhone.TabIndex = 4;
             this.txtPhone.WordWrap = false;
+            this.txtPhone.Enter += new System.EventHandler(this.txtPhone_Enter);
+            this.txtPhone.Leave += new System.EventHandler(this.txtPhone_Leave);
             // 
             // panelPhone
             // 
@@ -317,6 +327,8 @@ namespace FitnessTracker
             this.txtAddress.Size = new System.Drawing.Size(383, 15);
             this.txtAddress.TabIndex = 4;
             this.txtAddress.WordWrap = false;
+            this.txtAddress.Enter += new System.EventHandler(this.txtAddress_Enter);
+            this.txtAddress.Leave += new System.EventHandler(this.txtAddress_Leave);
             // 
             // panelAddress
             // 

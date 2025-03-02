@@ -19,6 +19,9 @@ namespace FitnessTracker
         public static string loginUsername;
         public static string loginTrainerID;
 
+        private readonly string enterUsername = "Enter username";
+        private readonly string enterPassword = "Enter password";
+
         public Login()
         {
             InitializeComponent();
@@ -42,12 +45,12 @@ namespace FitnessTracker
                 }
                 else
                 {
-                    if (txtUsername.Text == "")
+                    if (txtUsername.Text == enterUsername || txtUsername.Text.Trim() == "")
                     {
                         MessageBox.Show("Username must be provide.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtUsername.Focus();
                     }
-                    else if (txtPassword.Text == "")
+                    else if (txtPassword.Text == enterPassword || txtUsername.Text.Trim() == "")
                     {
                         MessageBox.Show("Password must be provide.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtPassword.Focus();
@@ -108,6 +111,55 @@ namespace FitnessTracker
                 lblRegisterAccountDesc.Show();
                 linkRegister.Show();
             }
+            TextBoxController.Placeholder(txtUsername, enterUsername);
+            TextBoxController.Placeholder(txtPassword, enterPassword);
+            chkPassword.Enabled = false;
+        }
+
+        private void txtUsername_Enter(object sender, EventArgs e)
+        {
+            if (txtUsername.Text == enterUsername)
+            {
+                TextBoxController.Placeholder(txtUsername, "", Color.Black);
+            }
+        }
+
+        private void txtUsername_Leave(object sender, EventArgs e)
+        {
+            if (txtUsername.Text.Trim() == "")
+            {
+                TextBoxController.Placeholder(txtUsername, enterUsername);
+            }
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == enterPassword)
+            {
+                TextBoxController.Placeholder(txtPassword, "", Color.Black);
+            }
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            if (txtPassword.Text.Trim() == "")
+            {
+                TextBoxController.Placeholder(txtPassword, enterPassword);
+            }
+        }
+
+        private void txtPassword_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtPassword.Text == enterPassword || txtPassword.Text.Trim() == "")
+            {
+                chkPassword.Enabled = false;
+            }
+            else
+            {
+                chkPassword.Enabled = true;
+            }
+
+            txtPassword.UseSystemPasswordChar = !chkPassword.Checked;
         }
     }
 }

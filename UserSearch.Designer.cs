@@ -37,6 +37,7 @@ namespace FitnessTracker
             this.swimmingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuUser.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +49,8 @@ namespace FitnessTracker
             this.homeToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.trackerToolStripMenuItem,
-            this.searchToolStripMenuItem});
+            this.searchToolStripMenuItem,
+            this.logOutToolStripMenuItem});
             this.menuUser.Location = new System.Drawing.Point(0, 0);
             this.menuUser.Name = "menuUser";
             this.menuUser.Padding = new System.Windows.Forms.Padding(12);
@@ -79,13 +81,13 @@ namespace FitnessTracker
             // walkingToolStripMenuItem
             // 
             this.walkingToolStripMenuItem.Name = "walkingToolStripMenuItem";
-            this.walkingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.walkingToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.walkingToolStripMenuItem.Text = "Walking";
             // 
             // swimmingToolStripMenuItem
             // 
             this.swimmingToolStripMenuItem.Name = "swimmingToolStripMenuItem";
-            this.swimmingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.swimmingToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.swimmingToolStripMenuItem.Text = "Swimming";
             // 
             // trackerToolStripMenuItem
@@ -102,6 +104,13 @@ namespace FitnessTracker
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
             this.searchToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.searchToolStripMenuItem.Text = "Search";
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logOutToolStripMenuItem.Image")));
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.logOutToolStripMenuItem.Text = "Log out";
             // 
             // UserSearch
             // 
@@ -130,5 +139,6 @@ namespace FitnessTracker
         private System.Windows.Forms.ToolStripMenuItem swimmingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trackerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
     }
 }

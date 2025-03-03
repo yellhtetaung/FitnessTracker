@@ -39,14 +39,6 @@ namespace FitnessTracker
             this.addAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvTrainer = new System.Windows.Forms.DataGridView();
-            this.cmsTrainers = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.createAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trainersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.fitnessTrackerDataset1 = new FitnessTracker.FitnessTrackerDataset();
-            this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
-            this.trainersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.trainersTableAdapter = new FitnessTracker.FitnessTrackerDatasetTableAdapters.TrainersTableAdapter();
             this.trainerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,13 +48,29 @@ namespace FitnessTracker
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trainersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
+            this.cmsTrainers = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.createAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.dtpDOB = new System.Windows.Forms.DateTimePicker();
+            this.cboFilterBy = new System.Windows.Forms.ComboBox();
+            this.panelSearchText = new System.Windows.Forms.Panel();
+            this.txtFilter = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.fitnessTrackerDataset1 = new FitnessTracker.FitnessTrackerDataset();
+            this.trainersTableAdapter = new FitnessTracker.FitnessTrackerDatasetTableAdapters.TrainersTableAdapter();
             this.menuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrainer)).BeginInit();
-            this.cmsTrainers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trainersBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).BeginInit();
+            this.cmsTrainers.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.panelSearchText.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuAdmin
@@ -150,13 +158,97 @@ namespace FitnessTracker
             this.phoneDataGridViewTextBoxColumn,
             this.addressDataGridViewTextBoxColumn,
             this.CreatedDate});
-            this.dgvTrainer.DataSource = this.trainersBindingSource1;
+            this.dgvTrainer.DataSource = this.trainersBindingSource;
             this.dgvTrainer.Location = new System.Drawing.Point(0, 186);
             this.dgvTrainer.Margin = new System.Windows.Forms.Padding(0);
             this.dgvTrainer.Name = "dgvTrainer";
             this.dgvTrainer.ReadOnly = true;
             this.dgvTrainer.Size = new System.Drawing.Size(944, 378);
             this.dgvTrainer.TabIndex = 48;
+            // 
+            // trainerIDDataGridViewTextBoxColumn
+            // 
+            this.trainerIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.trainerIDDataGridViewTextBoxColumn.DataPropertyName = "TrainerID";
+            this.trainerIDDataGridViewTextBoxColumn.HeaderText = "Trainer ID";
+            this.trainerIDDataGridViewTextBoxColumn.Name = "trainerIDDataGridViewTextBoxColumn";
+            this.trainerIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.trainerIDDataGridViewTextBoxColumn.Width = 79;
+            // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.HeaderText = "Full Name";
+            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            this.fullNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fullNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
+            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.usernameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.emailDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // dOBDataGridViewTextBoxColumn
+            // 
+            this.dOBDataGridViewTextBoxColumn.DataPropertyName = "DOB";
+            this.dOBDataGridViewTextBoxColumn.HeaderText = "Date of Birth";
+            this.dOBDataGridViewTextBoxColumn.Name = "dOBDataGridViewTextBoxColumn";
+            this.dOBDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dOBDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // genderDataGridViewTextBoxColumn
+            // 
+            this.genderDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
+            this.genderDataGridViewTextBoxColumn.HeaderText = "Gender";
+            this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
+            this.genderDataGridViewTextBoxColumn.ReadOnly = true;
+            this.genderDataGridViewTextBoxColumn.Width = 67;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
+            this.phoneDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
+            this.addressDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // CreatedDate
+            // 
+            this.CreatedDate.DataPropertyName = "CreatedDate";
+            this.CreatedDate.HeaderText = "Created Date";
+            this.CreatedDate.Name = "CreatedDate";
+            this.CreatedDate.ReadOnly = true;
+            this.CreatedDate.Width = 150;
+            // 
+            // trainersBindingSource
+            // 
+            this.trainersBindingSource.DataMember = "Trainers";
+            this.trainersBindingSource.DataSource = this.fitnessTrackerDataset;
+            // 
+            // fitnessTrackerDataset
+            // 
+            this.fitnessTrackerDataset.DataSetName = "FitnessTrackerDataset";
+            this.fitnessTrackerDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cmsTrainers
             // 
@@ -178,102 +270,117 @@ namespace FitnessTracker
             this.deleteAccountToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.deleteAccountToolStripMenuItem.Text = "Delete Account";
             // 
-            // trainersBindingSource1
+            // groupBox1
             // 
-            this.trainersBindingSource1.DataMember = "Trainers";
-            this.trainersBindingSource1.DataSource = this.fitnessTrackerDataset1;
+            this.groupBox1.Controls.Add(this.btnReset);
+            this.groupBox1.Controls.Add(this.btnSearch);
+            this.groupBox1.Controls.Add(this.dtpDOB);
+            this.groupBox1.Controls.Add(this.cboFilterBy);
+            this.groupBox1.Controls.Add(this.panelSearchText);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold);
+            this.groupBox1.Location = new System.Drawing.Point(13, 48);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(554, 135);
+            this.groupBox1.TabIndex = 50;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Filter";
+            // 
+            // btnReset
+            // 
+            this.btnReset.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnReset.BackColor = System.Drawing.Color.Red;
+            this.btnReset.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.Location = new System.Drawing.Point(279, 77);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(120, 35);
+            this.btnReset.TabIndex = 55;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSearch.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnSearch.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(416, 77);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(120, 35);
+            this.btnSearch.TabIndex = 54;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // dtpDOB
+            // 
+            this.dtpDOB.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dtpDOB.CustomFormat = "dd/MMM/yyyy";
+            this.dtpDOB.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDOB.Location = new System.Drawing.Point(146, 26);
+            this.dtpDOB.Name = "dtpDOB";
+            this.dtpDOB.Size = new System.Drawing.Size(253, 22);
+            this.dtpDOB.TabIndex = 53;
+            // 
+            // cboFilterBy
+            // 
+            this.cboFilterBy.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboFilterBy.FormattingEnabled = true;
+            this.cboFilterBy.Items.AddRange(new object[] {
+            "Full Name",
+            "Username",
+            "Email",
+            "Date of Birth",
+            "Phone",
+            "Address"});
+            this.cboFilterBy.Location = new System.Drawing.Point(19, 25);
+            this.cboFilterBy.Name = "cboFilterBy";
+            this.cboFilterBy.Size = new System.Drawing.Size(121, 24);
+            this.cboFilterBy.TabIndex = 52;
+            this.cboFilterBy.Text = "Choose";
+            // 
+            // panelSearchText
+            // 
+            this.panelSearchText.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelSearchText.Controls.Add(this.txtFilter);
+            this.panelSearchText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelSearchText.Location = new System.Drawing.Point(146, 22);
+            this.panelSearchText.Name = "panelSearchText";
+            this.panelSearchText.Size = new System.Drawing.Size(390, 30);
+            this.panelSearchText.TabIndex = 56;
+            // 
+            // txtFilter
+            // 
+            this.txtFilter.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFilter.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFilter.ForeColor = System.Drawing.Color.Black;
+            this.txtFilter.Location = new System.Drawing.Point(12, 8);
+            this.txtFilter.Name = "txtFilter";
+            this.txtFilter.Size = new System.Drawing.Size(375, 15);
+            this.txtFilter.TabIndex = 2;
+            this.txtFilter.WordWrap = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(7, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.TabIndex = 50;
             // 
             // fitnessTrackerDataset1
             // 
             this.fitnessTrackerDataset1.DataSetName = "FitnessTrackerDataset";
             this.fitnessTrackerDataset1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // fitnessTrackerDataset
-            // 
-            this.fitnessTrackerDataset.DataSetName = "FitnessTrackerDataset";
-            this.fitnessTrackerDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // trainersBindingSource
-            // 
-            this.trainersBindingSource.DataMember = "Trainers";
-            this.trainersBindingSource.DataSource = this.fitnessTrackerDataset;
-            // 
             // trainersTableAdapter
             // 
             this.trainersTableAdapter.ClearBeforeFill = true;
-            // 
-            // trainerIDDataGridViewTextBoxColumn
-            // 
-            this.trainerIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.trainerIDDataGridViewTextBoxColumn.DataPropertyName = "TrainerID";
-            this.trainerIDDataGridViewTextBoxColumn.HeaderText = "TrainerID";
-            this.trainerIDDataGridViewTextBoxColumn.Name = "trainerIDDataGridViewTextBoxColumn";
-            this.trainerIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.trainerIDDataGridViewTextBoxColumn.Width = 76;
-            // 
-            // fullNameDataGridViewTextBoxColumn
-            // 
-            this.fullNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            this.fullNameDataGridViewTextBoxColumn.HeaderText = "Full Name";
-            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
-            this.fullNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // usernameDataGridViewTextBoxColumn
-            // 
-            this.usernameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
-            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
-            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dOBDataGridViewTextBoxColumn
-            // 
-            this.dOBDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dOBDataGridViewTextBoxColumn.DataPropertyName = "DOB";
-            this.dOBDataGridViewTextBoxColumn.HeaderText = "Date of Birth";
-            this.dOBDataGridViewTextBoxColumn.Name = "dOBDataGridViewTextBoxColumn";
-            this.dOBDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // genderDataGridViewTextBoxColumn
-            // 
-            this.genderDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
-            this.genderDataGridViewTextBoxColumn.HeaderText = "Gender";
-            this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
-            this.genderDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // CreatedDate
-            // 
-            this.CreatedDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CreatedDate.DataPropertyName = "CreatedDate";
-            this.CreatedDate.HeaderText = "Created Date";
-            this.CreatedDate.Name = "CreatedDate";
-            this.CreatedDate.ReadOnly = true;
             // 
             // Trainers
             // 
@@ -282,6 +389,7 @@ namespace FitnessTracker
             this.ClientSize = new System.Drawing.Size(944, 564);
             this.Controls.Add(this.dgvTrainer);
             this.Controls.Add(this.menuAdmin);
+            this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(850, 603);
             this.Name = "Trainers";
@@ -291,11 +399,14 @@ namespace FitnessTracker
             this.menuAdmin.ResumeLayout(false);
             this.menuAdmin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrainer)).EndInit();
-            this.cmsTrainers.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.trainersBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).EndInit();
+            this.cmsTrainers.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.panelSearchText.ResumeLayout(false);
+            this.panelSearchText.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,7 +429,6 @@ namespace FitnessTracker
         private System.Windows.Forms.ToolStripMenuItem createAccountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteAccountToolStripMenuItem;
         private FitnessTrackerDataset fitnessTrackerDataset1;
-        private System.Windows.Forms.BindingSource trainersBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn trainerIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
@@ -328,5 +438,13 @@ namespace FitnessTracker
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatedDate;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.DateTimePicker dtpDOB;
+        private System.Windows.Forms.ComboBox cboFilterBy;
+        private System.Windows.Forms.Panel panelSearchText;
+        private System.Windows.Forms.TextBox txtFilter;
     }
 }

@@ -30,5 +30,10 @@ namespace FitnessTracker
             this.Hide();
             userSearch.Show();
         }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Constant.Logout(this);
+        }
     }
 }

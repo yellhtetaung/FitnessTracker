@@ -142,17 +142,6 @@
         AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="accountsToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAATNJREFUSEvN1H1Rw0AQBfBIwEGRgAQk1AF1UBy0DqgDcICESqiESkAC7K90mQxN
-        Jne5/NE38yaXu8vu269094LH4C74GTwG3657i2Ab/Ap+B09BDqzxNdiEdZAhyh9sXEG9PWfPNuaC4vPv
-        8gYcOhPRLDAwlQZn7qwub5V4CvpYmsawCbrjbjUygv3lbRgZQb8+VZBfeR4yoNBNNYBME0P9NOgcDeCs
-        eR7UgAPGzEPOhGdTi/ZBpYIegu9BuZ+d9yFQyqiCJ0XW5MTH/j+ZkjGKqLoO2SEM6JIhtaL6CLpHxEuw
-        GPlRSRGJ0VHuF0XCKOWKWgrRcaAJJpHjX/t/kcqioZsTgdSIQMGLQEltDYgqqgG4mF1E1f8usuY82xhr
-        Iv6DgUpHYxRtsfIxULv4JC+ArvsBzMZfOL5QNtEAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="accountListToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -178,6 +167,17 @@
         674BKvV07ufrnMoAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="accountsToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAATNJREFUSEvN1H1Rw0AQBfBIwEGRgAQk1AF1UBy0DqgDcICESqiESkAC7K90mQxN
+        Jne5/NE38yaXu8vu269094LH4C74GTwG3657i2Ab/Ap+B09BDqzxNdiEdZAhyh9sXEG9PWfPNuaC4vPv
+        8gYcOhPRLDAwlQZn7qwub5V4CvpYmsawCbrjbjUygv3lbRgZQb8+VZBfeR4yoNBNNYBME0P9NOgcDeCs
+        eR7UgAPGzEPOhGdTi/ZBpYIegu9BuZ+d9yFQyqiCJ0XW5MTH/j+ZkjGKqLoO2SEM6JIhtaL6CLpHxEuw
+        GPlRSRGJ0VHuF0XCKOWKWgrRcaAJJpHjX/t/kcqioZsTgdSIQMGLQEltDYgqqgG4mF1E1f8usuY82xhr
+        Iv6DgUpHYxRtsfIxULv4JC+ArvsBzMZfOL5QNtEAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="logOutToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -192,23 +192,17 @@
   <metadata name="CreatedDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="trainersBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>928, 17</value>
+  <metadata name="trainersBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>302, 17</value>
   </metadata>
-  <metadata name="fitnessTrackerDataset1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>754, 17</value>
+  <metadata name="fitnessTrackerDataset.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>135, 17</value>
   </metadata>
   <metadata name="cmsTrainers.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>638, 17</value>
   </metadata>
   <metadata name="fitnessTrackerDataset1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>754, 17</value>
-  </metadata>
-  <metadata name="fitnessTrackerDataset.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>135, 17</value>
-  </metadata>
-  <metadata name="trainersBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>302, 17</value>
   </metadata>
   <metadata name="trainersTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>473, 17</value>

@@ -58,7 +58,7 @@ namespace FitnessTracker
             this.panelUsername.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panelUsername.Controls.Add(this.txtActivityName);
             this.panelUsername.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelUsername.Location = new System.Drawing.Point(15, 59);
+            this.panelUsername.Location = new System.Drawing.Point(15, 79);
             this.panelUsername.Name = "panelUsername";
             this.panelUsername.Size = new System.Drawing.Size(372, 30);
             this.panelUsername.TabIndex = 1;
@@ -81,7 +81,7 @@ namespace FitnessTracker
             this.lblActivityName.AutoSize = true;
             this.lblActivityName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblActivityName.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblActivityName.Location = new System.Drawing.Point(12, 34);
+            this.lblActivityName.Location = new System.Drawing.Point(12, 54);
             this.lblActivityName.Name = "lblActivityName";
             this.lblActivityName.Size = new System.Drawing.Size(95, 16);
             this.lblActivityName.TabIndex = 44;
@@ -93,7 +93,7 @@ namespace FitnessTracker
             this.lblID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblID.AutoSize = true;
             this.lblID.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(97, 9);
+            this.lblID.Location = new System.Drawing.Point(97, 21);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(45, 16);
             this.lblID.TabIndex = 43;
@@ -104,7 +104,7 @@ namespace FitnessTracker
             this.lblActivity.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblActivity.AutoSize = true;
             this.lblActivity.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActivity.Location = new System.Drawing.Point(12, 9);
+            this.lblActivity.Location = new System.Drawing.Point(12, 21);
             this.lblActivity.Name = "lblActivity";
             this.lblActivity.Size = new System.Drawing.Size(79, 16);
             this.lblActivity.TabIndex = 41;
@@ -116,7 +116,7 @@ namespace FitnessTracker
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.Controls.Add(this.txtMetricOne);
             this.panel1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(15, 123);
+            this.panel1.Location = new System.Drawing.Point(15, 143);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(372, 30);
             this.panel1.TabIndex = 2;
@@ -139,7 +139,7 @@ namespace FitnessTracker
             this.lblMetricOne.AutoSize = true;
             this.lblMetricOne.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMetricOne.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblMetricOne.Location = new System.Drawing.Point(12, 98);
+            this.lblMetricOne.Location = new System.Drawing.Point(12, 118);
             this.lblMetricOne.Name = "lblMetricOne";
             this.lblMetricOne.Size = new System.Drawing.Size(77, 16);
             this.lblMetricOne.TabIndex = 46;
@@ -152,7 +152,7 @@ namespace FitnessTracker
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel2.Controls.Add(this.txtMetricTwo);
             this.panel2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(15, 187);
+            this.panel2.Location = new System.Drawing.Point(15, 207);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(372, 30);
             this.panel2.TabIndex = 3;
@@ -175,7 +175,7 @@ namespace FitnessTracker
             this.lblMetricTwo.AutoSize = true;
             this.lblMetricTwo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMetricTwo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblMetricTwo.Location = new System.Drawing.Point(12, 162);
+            this.lblMetricTwo.Location = new System.Drawing.Point(12, 182);
             this.lblMetricTwo.Name = "lblMetricTwo";
             this.lblMetricTwo.Size = new System.Drawing.Size(77, 16);
             this.lblMetricTwo.TabIndex = 48;
@@ -188,7 +188,7 @@ namespace FitnessTracker
             this.panel3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel3.Controls.Add(this.txtMetricThree);
             this.panel3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(15, 251);
+            this.panel3.Location = new System.Drawing.Point(15, 271);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(369, 30);
             this.panel3.TabIndex = 4;
@@ -211,7 +211,7 @@ namespace FitnessTracker
             this.lblMetricThree.AutoSize = true;
             this.lblMetricThree.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMetricThree.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblMetricThree.Location = new System.Drawing.Point(12, 226);
+            this.lblMetricThree.Location = new System.Drawing.Point(12, 246);
             this.lblMetricThree.Name = "lblMetricThree";
             this.lblMetricThree.Size = new System.Drawing.Size(88, 16);
             this.lblMetricThree.TabIndex = 50;
@@ -224,7 +224,7 @@ namespace FitnessTracker
             this.btnUpdate.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnUpdate.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(209, 319);
+            this.btnUpdate.Location = new System.Drawing.Point(209, 339);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(120, 35);
             this.btnUpdate.TabIndex = 5;
@@ -238,7 +238,7 @@ namespace FitnessTracker
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(68, 319);
+            this.btnCancel.Location = new System.Drawing.Point(68, 339);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 35);
             this.btnCancel.TabIndex = 6;

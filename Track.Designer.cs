@@ -38,6 +38,7 @@ namespace FitnessTracker
             this.swimmingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvTrack = new System.Windows.Forms.DataGridView();
             this.trackerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trackerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,7 +74,6 @@ namespace FitnessTracker
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackerTableAdapter = new FitnessTracker.FitnessTrackerDatasetTableAdapters.TrackerTableAdapter();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackerBindingSource)).BeginInit();
@@ -145,6 +145,14 @@ namespace FitnessTracker
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
             this.searchToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.searchToolStripMenuItem.Text = "Search";
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logOutToolStripMenuItem.Image")));
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.logOutToolStripMenuItem.Text = "Log out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // dgvTrack
             // 
@@ -492,13 +500,6 @@ namespace FitnessTracker
             // trackerTableAdapter
             // 
             this.trackerTableAdapter.ClearBeforeFill = true;
-            // 
-            // logOutToolStripMenuItem
-            // 
-            this.logOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logOutToolStripMenuItem.Image")));
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.logOutToolStripMenuItem.Text = "Log out";
             // 
             // Track
             // 

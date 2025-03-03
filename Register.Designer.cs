@@ -61,8 +61,6 @@ namespace FitnessTracker
             this.lblMemberID = new System.Windows.Forms.Label();
             this.dtpDOB = new System.Windows.Forms.DateTimePicker();
             this.lblID = new System.Windows.Forms.Label();
-            this.linkLogin = new System.Windows.Forms.LinkLabel();
-            this.label1 = new System.Windows.Forms.Label();
             this.chkPassword = new System.Windows.Forms.CheckBox();
             this.panelPassword.SuspendLayout();
             this.panelFullName.SuspendLayout();
@@ -452,33 +450,6 @@ namespace FitnessTracker
             this.lblID.TabIndex = 20;
             this.lblID.Text = "M0001";
             // 
-            // linkLogin
-            // 
-            this.linkLogin.ActiveLinkColor = System.Drawing.Color.Blue;
-            this.linkLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.linkLogin.AutoSize = true;
-            this.linkLogin.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLogin.LinkColor = System.Drawing.Color.Blue;
-            this.linkLogin.Location = new System.Drawing.Point(268, 695);
-            this.linkLogin.Name = "linkLogin";
-            this.linkLogin.Size = new System.Drawing.Size(39, 16);
-            this.linkLogin.TabIndex = 42;
-            this.linkLogin.TabStop = true;
-            this.linkLogin.Text = "Login";
-            this.linkLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.linkLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLogin_LinkClicked);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(113, 695);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 16);
-            this.label1.TabIndex = 43;
-            this.label1.Text = "Already have an account?";
-            // 
             // chkPassword
             // 
             this.chkPassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -498,10 +469,8 @@ namespace FitnessTracker
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 30);
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(439, 749);
+            this.ClientSize = new System.Drawing.Size(439, 708);
             this.Controls.Add(this.chkPassword);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.linkLogin);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.dtpDOB);
             this.Controls.Add(this.lblMemberID);
@@ -583,8 +552,6 @@ namespace FitnessTracker
         private System.Windows.Forms.Label lblMemberID;
         private System.Windows.Forms.DateTimePicker dtpDOB;
         private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.LinkLabel linkLogin;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox chkPassword;
     }
 }

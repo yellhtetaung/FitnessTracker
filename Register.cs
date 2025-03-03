@@ -265,13 +265,14 @@ namespace FitnessTracker
             if (txtPassword.Text == enterYourPassword || txtPassword.Text.Trim() == "")
             {
                 chkPassword.Enabled = false;
+                txtPassword.UseSystemPasswordChar = false;
             }
             else
             {
                 chkPassword.Enabled = true;
+                txtPassword.UseSystemPasswordChar = !chkPassword.Checked;
             }
 
-            txtPassword.UseSystemPasswordChar = !chkPassword.Checked;
         }
 
         private void txtPhone_Enter(object sender, EventArgs e)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Windows.Forms;
 
 namespace FitnessTracker
 {
@@ -42,6 +43,13 @@ namespace FitnessTracker
                     return null;
                 }
             }
+        }
+
+        public static void Logout(Form form)
+        {
+            Starter starter = new Starter();
+            form.Hide();
+            starter.Show();
         }
     }
 }

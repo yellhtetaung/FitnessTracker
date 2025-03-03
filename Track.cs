@@ -210,5 +210,10 @@ namespace FitnessTracker
                 }
             }
         }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Constant.Logout(this);
+        }
     }
 }

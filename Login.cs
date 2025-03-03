@@ -153,13 +153,14 @@ namespace FitnessTracker
             if (txtPassword.Text == enterPassword || txtPassword.Text.Trim() == "")
             {
                 chkPassword.Enabled = false;
+                txtPassword.UseSystemPasswordChar = false;
             }
             else
             {
                 chkPassword.Enabled = true;
+                txtPassword.UseSystemPasswordChar = !chkPassword.Checked;
             }
 
-            txtPassword.UseSystemPasswordChar = !chkPassword.Checked;
         }
     }
 }

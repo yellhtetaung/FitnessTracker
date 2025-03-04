@@ -63,9 +63,15 @@ namespace FitnessTracker
             }
         }
 
+        public void DataGridViewReload()
+        {
+            dgvTrainer.DataSource = objTrainer.GetTrainerDataNotIncludeCurrentUser(Login.loginTrainerID);
+            dgvTrainer.Refresh();
+        }
+
         private void addAccountToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Register register = new Register();
+            Register register = new Register(this);
             register.Show();
         }
 
@@ -193,13 +199,38 @@ namespace FitnessTracker
                     }
                     else
                     {
-
+                        trainerDta = objTrainer.FilterTrainerByDOB(dtpDOB.Value, Login.loginTrainerID);
+                        dgvTrainer.DataSource = trainerDta;
+                        dgvTrainer.Refresh();
                     }
                 }
             }
             catch (Exception error)
             {
                 MessageBox.Show(error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Trainers_Resize(object sender, EventArgs e)
+        {
+            for (int key = 0; key < dgvTrainer.ColumnCount; key++)
+            {
+                if (key > 0)
+                {
+                    if (WindowState == FormWindowState.Maximized)
+                    {
+                        dgvTrainer.Columns[key].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    }
+                    else
+                    {
+                        dgvTrainer.Columns[key].AutoSizeMode = key == 5 ? DataGridViewAutoSizeColumnMode.DisplayedCells : DataGridViewAutoSizeColumnMode.NotSet;
+                        dgvTrainer.Columns[key].Width = key == 5 ? 67 : 150;
+                    }
+                }
+                else
+                {
+                    dgvTrainer.Columns[key].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                }
             }
         }
     }

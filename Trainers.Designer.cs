@@ -54,8 +54,8 @@ namespace FitnessTracker
             this.createAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.dtpDOB = new System.Windows.Forms.DateTimePicker();
             this.cboFilterBy = new System.Windows.Forms.ComboBox();
             this.panelSearchText = new System.Windows.Forms.Panel();
@@ -272,8 +272,8 @@ namespace FitnessTracker
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnReset);
-            this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.dtpDOB);
             this.groupBox1.Controls.Add(this.cboFilterBy);
             this.groupBox1.Controls.Add(this.panelSearchText);
@@ -286,33 +286,33 @@ namespace FitnessTracker
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter";
             // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(416, 76);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 35);
+            this.button1.TabIndex = 57;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // btnReset
             // 
             this.btnReset.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnReset.BackColor = System.Drawing.Color.Red;
             this.btnReset.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(279, 77);
+            this.btnReset.Location = new System.Drawing.Point(278, 76);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(120, 35);
             this.btnReset.TabIndex = 55;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSearch.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnSearch.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(416, 77);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(120, 35);
-            this.btnSearch.TabIndex = 54;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // dtpDOB
             // 
@@ -321,12 +321,15 @@ namespace FitnessTracker
             this.dtpDOB.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDOB.Location = new System.Drawing.Point(146, 26);
+            this.dtpDOB.MaxDate = new System.DateTime(2025, 3, 4, 0, 0, 0, 0);
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(253, 22);
             this.dtpDOB.TabIndex = 53;
+            this.dtpDOB.Value = new System.DateTime(2025, 3, 4, 0, 0, 0, 0);
             // 
             // cboFilterBy
             // 
+            this.cboFilterBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFilterBy.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboFilterBy.FormattingEnabled = true;
             this.cboFilterBy.Items.AddRange(new object[] {
@@ -340,7 +343,7 @@ namespace FitnessTracker
             this.cboFilterBy.Name = "cboFilterBy";
             this.cboFilterBy.Size = new System.Drawing.Size(121, 24);
             this.cboFilterBy.TabIndex = 52;
-            this.cboFilterBy.Text = "Choose";
+            this.cboFilterBy.SelectedIndexChanged += new System.EventHandler(this.cboFilterBy_SelectedIndexChanged);
             // 
             // panelSearchText
             // 
@@ -363,6 +366,8 @@ namespace FitnessTracker
             this.txtFilter.Size = new System.Drawing.Size(375, 15);
             this.txtFilter.TabIndex = 2;
             this.txtFilter.WordWrap = false;
+            this.txtFilter.Enter += new System.EventHandler(this.txtFilter_Enter);
+            this.txtFilter.Leave += new System.EventHandler(this.txtFilter_Leave);
             // 
             // label1
             // 
@@ -396,6 +401,7 @@ namespace FitnessTracker
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trainers";
             this.Load += new System.EventHandler(this.Trainers_Load);
+            this.Resize += new System.EventHandler(this.Trainers_Resize);
             this.menuAdmin.ResumeLayout(false);
             this.menuAdmin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrainer)).EndInit();
@@ -441,10 +447,10 @@ namespace FitnessTracker
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DateTimePicker dtpDOB;
         private System.Windows.Forms.ComboBox cboFilterBy;
         private System.Windows.Forms.Panel panelSearchText;
         private System.Windows.Forms.TextBox txtFilter;
+        private System.Windows.Forms.Button button1;
     }
 }

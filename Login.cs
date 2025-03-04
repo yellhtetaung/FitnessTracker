@@ -29,7 +29,7 @@ namespace FitnessTracker
 
         private void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Register register = new Register();
+            Register register = new Register(true);
             this.Hide();
             register.Show();
         }

@@ -23,9 +23,25 @@ namespace FitnessTracker
         private readonly string enterPhoneNumber = "Enter your phone number";
         private readonly string enterAddress = "Enter your address";
 
+        private readonly bool isFromLogin = false;
+        private readonly Trainers trainerForm;
+
         public Register()
         {
             InitializeComponent();
+            isFromLogin = false;
+        }
+
+        public Register(bool fromLogin)
+        {
+            InitializeComponent();
+            isFromLogin = fromLogin;
+        }
+
+        public Register(Trainers trainers)
+        {
+            InitializeComponent();
+            trainerForm = trainers;
         }
 
         public void AutoID()
@@ -160,9 +176,28 @@ namespace FitnessTracker
                             MessageBox.Show("Trainer has been added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             AutoID();
 
-                            Login login = new Login();
-                            this.Hide();
-                            login.ShowDialog();
+                            if (this.isFromLogin)
+                            {
+                                Login login = new Login();
+                                this.Hide();
+                                login.ShowDialog();
+                            }
+                            else
+                            {
+                                if (trainerForm != null)
+                                {
+                                    trainerForm.DataGridViewReload();
+                                }
+
+                                this.ShowAllPlaceholder();
+                                dtpDOB.Value = DateTime.Today;
+                                rdoMale.Checked = false;
+                                rdoFemale.Checked = false;
+                                rdoOther.Checked = false;
+                                chkPassword.Checked = false;
+                                chkPassword.Enabled = false;
+                                txtPassword.UseSystemPasswordChar = false;
+                            }
                         }
                         else
                         {

@@ -119,6 +119,7 @@ namespace FitnessTracker
             this.cboAct.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.activitiesBindingSource1, "ActID", true));
             this.cboAct.DataSource = this.activitiesBindingSource;
             this.cboAct.DisplayMember = "ActName";
+            this.cboAct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAct.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboAct.FormattingEnabled = true;
             this.cboAct.Location = new System.Drawing.Point(109, 19);

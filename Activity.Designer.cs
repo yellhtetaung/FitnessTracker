@@ -49,6 +49,14 @@ namespace FitnessTracker
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.dgvActData = new System.Windows.Forms.DataGridView();
+            this.actIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metricOneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metricTwoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metricThreeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
             this.menuAdmin = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,25 +68,17 @@ namespace FitnessTracker
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
             this.activitiesTableAdapter = new FitnessTracker.FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter();
-            this.activitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.actIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.actNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metricOneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metricTwoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metricThreeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelUsername.SuspendLayout();
             this.panelPassword.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).BeginInit();
             this.menuAdmin.SuspendLayout();
             this.cmsActivity.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblActivity
@@ -249,7 +249,7 @@ namespace FitnessTracker
             this.panel3.Controls.Add(this.btnSave);
             this.panel3.Location = new System.Drawing.Point(12, 47);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(813, 229);
+            this.panel3.Size = new System.Drawing.Size(920, 229);
             this.panel3.TabIndex = 46;
             // 
             // btnClear
@@ -258,7 +258,7 @@ namespace FitnessTracker
             this.btnClear.BackColor = System.Drawing.Color.Red;
             this.btnClear.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(507, 177);
+            this.btnClear.Location = new System.Drawing.Point(510, 176);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(120, 35);
             this.btnClear.TabIndex = 46;
@@ -272,7 +272,7 @@ namespace FitnessTracker
             this.btnSave.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnSave.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(652, 177);
+            this.btnSave.Location = new System.Drawing.Point(655, 176);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 35);
             this.btnSave.TabIndex = 5;
@@ -301,9 +301,68 @@ namespace FitnessTracker
             this.dgvActData.Margin = new System.Windows.Forms.Padding(0);
             this.dgvActData.Name = "dgvActData";
             this.dgvActData.ReadOnly = true;
-            this.dgvActData.Size = new System.Drawing.Size(834, 286);
+            this.dgvActData.Size = new System.Drawing.Size(944, 286);
             this.dgvActData.TabIndex = 47;
-            this.dgvActData.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvActData_CellMouseUp);
+            this.dgvActData.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvActData_CellMouseClick);
+            // 
+            // actIDDataGridViewTextBoxColumn
+            // 
+            this.actIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.actIDDataGridViewTextBoxColumn.DataPropertyName = "ActID";
+            this.actIDDataGridViewTextBoxColumn.HeaderText = "Activity ID";
+            this.actIDDataGridViewTextBoxColumn.Name = "actIDDataGridViewTextBoxColumn";
+            this.actIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.actIDDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // actNameDataGridViewTextBoxColumn
+            // 
+            this.actNameDataGridViewTextBoxColumn.DataPropertyName = "ActName";
+            this.actNameDataGridViewTextBoxColumn.HeaderText = "Activity Name";
+            this.actNameDataGridViewTextBoxColumn.Name = "actNameDataGridViewTextBoxColumn";
+            this.actNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.actNameDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // metricOneDataGridViewTextBoxColumn
+            // 
+            this.metricOneDataGridViewTextBoxColumn.DataPropertyName = "MetricOne";
+            this.metricOneDataGridViewTextBoxColumn.HeaderText = "Metric One";
+            this.metricOneDataGridViewTextBoxColumn.Name = "metricOneDataGridViewTextBoxColumn";
+            this.metricOneDataGridViewTextBoxColumn.ReadOnly = true;
+            this.metricOneDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // metricTwoDataGridViewTextBoxColumn
+            // 
+            this.metricTwoDataGridViewTextBoxColumn.DataPropertyName = "MetricTwo";
+            this.metricTwoDataGridViewTextBoxColumn.HeaderText = "Metric Two";
+            this.metricTwoDataGridViewTextBoxColumn.Name = "metricTwoDataGridViewTextBoxColumn";
+            this.metricTwoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.metricTwoDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // metricThreeDataGridViewTextBoxColumn
+            // 
+            this.metricThreeDataGridViewTextBoxColumn.DataPropertyName = "MetricThree";
+            this.metricThreeDataGridViewTextBoxColumn.HeaderText = "Metric Three";
+            this.metricThreeDataGridViewTextBoxColumn.Name = "metricThreeDataGridViewTextBoxColumn";
+            this.metricThreeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.metricThreeDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // createdDateDataGridViewTextBoxColumn
+            // 
+            this.createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
+            this.createdDateDataGridViewTextBoxColumn.HeaderText = "Created Date";
+            this.createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
+            this.createdDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.createdDateDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // activitiesBindingSource
+            // 
+            this.activitiesBindingSource.DataMember = "Activities";
+            this.activitiesBindingSource.DataSource = this.fitnessTrackerDataset;
+            // 
+            // fitnessTrackerDataset
+            // 
+            this.fitnessTrackerDataset.DataSetName = "FitnessTrackerDataset";
+            this.fitnessTrackerDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // menuAdmin
             // 
@@ -318,7 +377,7 @@ namespace FitnessTracker
             this.menuAdmin.Name = "menuAdmin";
             this.menuAdmin.Padding = new System.Windows.Forms.Padding(12);
             this.menuAdmin.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuAdmin.Size = new System.Drawing.Size(834, 44);
+            this.menuAdmin.Size = new System.Drawing.Size(944, 44);
             this.menuAdmin.TabIndex = 48;
             this.menuAdmin.Text = "menuAdmin";
             // 
@@ -398,74 +457,15 @@ namespace FitnessTracker
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
-            // fitnessTrackerDataset
-            // 
-            this.fitnessTrackerDataset.DataSetName = "FitnessTrackerDataset";
-            this.fitnessTrackerDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // activitiesTableAdapter
             // 
             this.activitiesTableAdapter.ClearBeforeFill = true;
-            // 
-            // activitiesBindingSource
-            // 
-            this.activitiesBindingSource.DataMember = "Activities";
-            this.activitiesBindingSource.DataSource = this.fitnessTrackerDataset;
-            // 
-            // actIDDataGridViewTextBoxColumn
-            // 
-            this.actIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.actIDDataGridViewTextBoxColumn.DataPropertyName = "ActID";
-            this.actIDDataGridViewTextBoxColumn.HeaderText = "Activity ID";
-            this.actIDDataGridViewTextBoxColumn.Name = "actIDDataGridViewTextBoxColumn";
-            this.actIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.actIDDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // actNameDataGridViewTextBoxColumn
-            // 
-            this.actNameDataGridViewTextBoxColumn.DataPropertyName = "ActName";
-            this.actNameDataGridViewTextBoxColumn.HeaderText = "Activity Name";
-            this.actNameDataGridViewTextBoxColumn.Name = "actNameDataGridViewTextBoxColumn";
-            this.actNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.actNameDataGridViewTextBoxColumn.Width = 154;
-            // 
-            // metricOneDataGridViewTextBoxColumn
-            // 
-            this.metricOneDataGridViewTextBoxColumn.DataPropertyName = "MetricOne";
-            this.metricOneDataGridViewTextBoxColumn.HeaderText = "Metric One";
-            this.metricOneDataGridViewTextBoxColumn.Name = "metricOneDataGridViewTextBoxColumn";
-            this.metricOneDataGridViewTextBoxColumn.ReadOnly = true;
-            this.metricOneDataGridViewTextBoxColumn.Width = 154;
-            // 
-            // metricTwoDataGridViewTextBoxColumn
-            // 
-            this.metricTwoDataGridViewTextBoxColumn.DataPropertyName = "MetricTwo";
-            this.metricTwoDataGridViewTextBoxColumn.HeaderText = "Metric Two";
-            this.metricTwoDataGridViewTextBoxColumn.Name = "metricTwoDataGridViewTextBoxColumn";
-            this.metricTwoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.metricTwoDataGridViewTextBoxColumn.Width = 154;
-            // 
-            // metricThreeDataGridViewTextBoxColumn
-            // 
-            this.metricThreeDataGridViewTextBoxColumn.DataPropertyName = "MetricThree";
-            this.metricThreeDataGridViewTextBoxColumn.HeaderText = "Metric Three";
-            this.metricThreeDataGridViewTextBoxColumn.Name = "metricThreeDataGridViewTextBoxColumn";
-            this.metricThreeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.metricThreeDataGridViewTextBoxColumn.Width = 154;
-            // 
-            // createdDateDataGridViewTextBoxColumn
-            // 
-            this.createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
-            this.createdDateDataGridViewTextBoxColumn.HeaderText = "Created Date";
-            this.createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
-            this.createdDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.createdDateDataGridViewTextBoxColumn.Width = 154;
             // 
             // Activity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 564);
+            this.ClientSize = new System.Drawing.Size(944, 564);
             this.Controls.Add(this.menuAdmin);
             this.Controls.Add(this.dgvActData);
             this.Controls.Add(this.panelUsername);
@@ -476,7 +476,7 @@ namespace FitnessTracker
             this.Controls.Add(this.lblActivity);
             this.Controls.Add(this.panel3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(850, 603);
+            this.MinimumSize = new System.Drawing.Size(960, 603);
             this.Name = "Activity";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Activity";
@@ -493,11 +493,11 @@ namespace FitnessTracker
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).EndInit();
             this.menuAdmin.ResumeLayout(false);
             this.menuAdmin.PerformLayout();
             this.cmsActivity.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -536,12 +536,12 @@ namespace FitnessTracker
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+        private System.Windows.Forms.BindingSource activitiesBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn actIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn metricOneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn metricTwoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn metricThreeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource activitiesBindingSource;
     }
 }

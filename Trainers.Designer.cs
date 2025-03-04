@@ -63,6 +63,9 @@ namespace FitnessTracker
             this.label1 = new System.Windows.Forms.Label();
             this.fitnessTrackerDataset1 = new FitnessTracker.FitnessTrackerDataset();
             this.trainersTableAdapter = new FitnessTracker.FitnessTrackerDatasetTableAdapters.TrainersTableAdapter();
+            this.cmsTrainer = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrainer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainersBindingSource)).BeginInit();
@@ -71,6 +74,7 @@ namespace FitnessTracker
             this.groupBox1.SuspendLayout();
             this.panelSearchText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset1)).BeginInit();
+            this.cmsTrainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuAdmin
@@ -120,15 +124,15 @@ namespace FitnessTracker
             // 
             this.accountListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("accountListToolStripMenuItem.Image")));
             this.accountListToolStripMenuItem.Name = "accountListToolStripMenuItem";
-            this.accountListToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.accountListToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.accountListToolStripMenuItem.Text = "Account List";
             // 
             // addAccountToolStripMenuItem
             // 
             this.addAccountToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addAccountToolStripMenuItem.Image")));
             this.addAccountToolStripMenuItem.Name = "addAccountToolStripMenuItem";
-            this.addAccountToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.addAccountToolStripMenuItem.Text = "Create Account";
+            this.addAccountToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.addAccountToolStripMenuItem.Text = "Add Account";
             this.addAccountToolStripMenuItem.Click += new System.EventHandler(this.addAccountToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
@@ -165,6 +169,7 @@ namespace FitnessTracker
             this.dgvTrainer.ReadOnly = true;
             this.dgvTrainer.Size = new System.Drawing.Size(944, 378);
             this.dgvTrainer.TabIndex = 48;
+            this.dgvTrainer.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTrainer_CellMouseClick);
             // 
             // trainerIDDataGridViewTextBoxColumn
             // 
@@ -387,6 +392,27 @@ namespace FitnessTracker
             // 
             this.trainersTableAdapter.ClearBeforeFill = true;
             // 
+            // cmsTrainer
+            // 
+            this.cmsTrainer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updateToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.cmsTrainer.Name = "cmsTrainer";
+            this.cmsTrainer.Size = new System.Drawing.Size(113, 48);
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateToolStripMenuItem.Text = "Update";
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            // 
             // Trainers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -396,7 +422,7 @@ namespace FitnessTracker
             this.Controls.Add(this.menuAdmin);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(850, 603);
+            this.MinimumSize = new System.Drawing.Size(960, 603);
             this.Name = "Trainers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trainers";
@@ -413,6 +439,7 @@ namespace FitnessTracker
             this.panelSearchText.ResumeLayout(false);
             this.panelSearchText.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset1)).EndInit();
+            this.cmsTrainer.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -452,5 +479,8 @@ namespace FitnessTracker
         private System.Windows.Forms.Panel panelSearchText;
         private System.Windows.Forms.TextBox txtFilter;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ContextMenuStrip cmsTrainer;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }

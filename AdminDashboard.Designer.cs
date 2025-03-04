@@ -36,8 +36,8 @@ namespace FitnessTracker
             this.accountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +54,7 @@ namespace FitnessTracker
             this.menuAdmin.Name = "menuAdmin";
             this.menuAdmin.Padding = new System.Windows.Forms.Padding(12);
             this.menuAdmin.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuAdmin.Size = new System.Drawing.Size(834, 44);
+            this.menuAdmin.Size = new System.Drawing.Size(944, 44);
             this.menuAdmin.TabIndex = 0;
             this.menuAdmin.Text = "menuAdmin";
             // 
@@ -99,17 +99,6 @@ namespace FitnessTracker
             this.addAccountToolStripMenuItem.Text = "Add Account";
             this.addAccountToolStripMenuItem.Click += new System.EventHandler(this.addAccountToolStripMenuItem_Click);
             // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(346, 259);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 24);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Admin Dashboard";
-            // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("logOutToolStripMenuItem.Image")));
@@ -118,16 +107,27 @@ namespace FitnessTracker
             this.logOutToolStripMenuItem.Text = "Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(401, 259);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(174, 24);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Admin Dashboard";
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 564);
+            this.ClientSize = new System.Drawing.Size(944, 564);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuAdmin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuAdmin;
-            this.MinimumSize = new System.Drawing.Size(850, 603);
+            this.MinimumSize = new System.Drawing.Size(960, 603);
             this.Name = "AdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin Dashboard";

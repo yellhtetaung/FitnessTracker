@@ -31,6 +31,8 @@ namespace FitnessTracker
         private readonly string enterPhone = "Enter phone number";
         private readonly string enterAddress = "Enter address";
 
+        private int rowIndex = 0;
+
         public Trainers()
         {
             InitializeComponent();
@@ -230,6 +232,44 @@ namespace FitnessTracker
                 else
                 {
                     dgvTrainer.Columns[key].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                }
+            }
+        }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateTrainer updateTrainer = new UpdateTrainer();
+            trainerDta = objTrainer.GetTrainerByTrainerID(dgvTrainer[0, rowIndex].Value.ToString());
+            if (trainerDta.Rows.Count > 0)
+            {
+                updateTrainer.TrainerID = trainerDta.Rows[0]["TrainerID"].ToString();
+                updateTrainer.FullName = trainerDta.Rows[0]["FullName"].ToString();
+                updateTrainer.Username = trainerDta.Rows[0]["Username"].ToString();
+                updateTrainer.Email = trainerDta.Rows[0]["Email"].ToString();
+                updateTrainer.Password = trainerDta.Rows[0]["Password"].ToString();
+                updateTrainer.DOB = Convert.ToDateTime(trainerDta.Rows[0]["DOB"].ToString());
+                updateTrainer.Gender = Convert.ToChar(trainerDta.Rows[0]["Gender"].ToString());
+                updateTrainer.PhoneNumber = trainerDta.Rows[0]["Phone"].ToString();
+                updateTrainer.Address = trainerDta.Rows[0]["Address"].ToString();
+            }
+            updateTrainer.Show();
+        }
+
+        private void dgvTrainer_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                dgvTrainer.Rows[e.RowIndex].Selected = true;
+                rowIndex = e.RowIndex;
+                dgvTrainer.CurrentCell = dgvTrainer.Rows[rowIndex].Cells[1];
+
+                if (e.Button == MouseButtons.Right)
+                {
+                    dgvTrainer.Rows[e.RowIndex].Selected = true;
+                    rowIndex = e.RowIndex;
+                    dgvTrainer.CurrentCell = dgvTrainer.Rows[rowIndex].Cells[1];
+                    this.cmsTrainer.Show(dgvTrainer, e.Location);
+                    this.cmsTrainer.Show(Cursor.Position);
                 }
             }
         }

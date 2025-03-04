@@ -160,25 +160,6 @@ namespace FitnessTracker
             register.Show();
         }
 
-        private void dgvActData_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                dgvActData.Rows[e.RowIndex].Selected = true;
-                rowIndex = e.RowIndex;
-                dgvActData.CurrentCell = dgvActData.Rows[rowIndex].Cells[1];
-
-                if (e.Button == MouseButtons.Right)
-                {
-                    dgvActData.Rows[e.RowIndex].Selected = true;
-                    rowIndex = e.RowIndex;
-                    dgvActData.CurrentCell = dgvActData.Rows[rowIndex].Cells[1];
-                    this.cmsActivity.Show(dgvActData, e.Location);
-                    this.cmsActivity.Show(Cursor.Position);
-                }
-            }
-        }
-
         private void updateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ActivityDetail activityDetail = new ActivityDetail(this);
@@ -307,12 +288,31 @@ namespace FitnessTracker
                     else
                     {
                         dgvActData.Columns[key].AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
-                        dgvActData.Columns[key].Width = 154;
+                        dgvActData.Columns[key].Width = 180;
                     }
                 }
                 else
                 {
                     dgvActData.Columns[key].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                }
+            }
+        }
+
+        private void dgvActData_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                dgvActData.Rows[e.RowIndex].Selected = true;
+                rowIndex = e.RowIndex;
+                dgvActData.CurrentCell = dgvActData.Rows[rowIndex].Cells[1];
+
+                if (e.Button == MouseButtons.Right)
+                {
+                    dgvActData.Rows[e.RowIndex].Selected = true;
+                    rowIndex = e.RowIndex;
+                    dgvActData.CurrentCell = dgvActData.Rows[rowIndex].Cells[1];
+                    this.cmsActivity.Show(dgvActData, e.Location);
+                    this.cmsActivity.Show(Cursor.Position);
                 }
             }
         }

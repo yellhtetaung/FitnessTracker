@@ -67,7 +67,6 @@ namespace FitnessTracker
             this.cmsActivity = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.activitiesTableAdapter = new FitnessTracker.FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter();
             this.panelUsername.SuspendLayout();
             this.panelPassword.SuspendLayout();
@@ -452,11 +451,6 @@ namespace FitnessTracker
             this.deleteToolStripMenuItem.Text = "Remove";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
-            // 
             // activitiesTableAdapter
             // 
             this.activitiesTableAdapter.ClearBeforeFill = true;
@@ -534,7 +528,6 @@ namespace FitnessTracker
         private System.Windows.Forms.ContextMenuStrip cmsActivity;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.BindingSource activitiesBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn actIDDataGridViewTextBoxColumn;

@@ -2945,105 +2945,125 @@ SELECT TrainerID, FullName, Username, Email, Password, DOB, Gender, Phone, Addre
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[13];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[15];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        Trainers.*\r\nFROM            Trainers";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Address, CreatedDate, DOB, Email, FullName, Gender, Password, Phone, Train" +
-                "erID, Username FROM Trainers WHERE (Address LIKE @FilterValue) AND (TrainerID <>" +
-                " @CurrentUsernameID) ORDER BY CreatedDate DESC";
+            this._commandCollection[1].CommandText = "DELETE FROM Trainers\r\nWHERE [TrainerID]=@TrainerID";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FilterValue", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CurrentUsernameID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "TrainerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrainerID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "TrainerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT Address, CreatedDate, DOB, Email, FullName, Gender, Password, Phone, Train" +
-                "erID, Username FROM Trainers WHERE (DOB = @FilterValue) AND (TrainerID <> @Curre" +
-                "ntUsernameID) ORDER BY CreatedDate DESC";
+                "erID, Username FROM Trainers WHERE (Address LIKE @FilterValue) AND (TrainerID <>" +
+                " @CurrentUsernameID) ORDER BY CreatedDate DESC";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FilterValue", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "DOB", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FilterValue", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CurrentUsernameID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "TrainerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "SELECT Address, CreatedDate, DOB, Email, FullName, Gender, Password, Phone, Train" +
-                "erID, Username FROM Trainers WHERE (Email LIKE @FilterValue) AND (TrainerID <> @" +
-                "CurrentUsernameID) ORDER BY CreatedDate DESC";
+                "erID, Username FROM Trainers WHERE (DOB = @FilterValue) AND (TrainerID <> @Curre" +
+                "ntUsernameID) ORDER BY CreatedDate DESC";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FilterValue", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FilterValue", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "DOB", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CurrentUsernameID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "TrainerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "SELECT Address, CreatedDate, DOB, Email, FullName, Gender, Password, Phone, Train" +
-                "erID, Username FROM Trainers WHERE (FullName LIKE @FilterValue) AND (TrainerID <" +
-                "> @CurrentUsernameID) ORDER BY CreatedDate DESC";
+                "erID, Username FROM Trainers WHERE (Email LIKE @FilterValue) AND (TrainerID <> @" +
+                "CurrentUsernameID) ORDER BY CreatedDate DESC";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FilterValue", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "FullName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FilterValue", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CurrentUsernameID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "TrainerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
             this._commandCollection[5].CommandText = "SELECT Address, CreatedDate, DOB, Email, FullName, Gender, Password, Phone, Train" +
-                "erID, Username FROM Trainers WHERE (Phone LIKE @FilterValue) AND (TrainerID <> @" +
-                "CurrentUsernameID) ORDER BY CreatedDate DESC";
+                "erID, Username FROM Trainers WHERE (FullName LIKE @FilterValue) AND (TrainerID <" +
+                "> @CurrentUsernameID) ORDER BY CreatedDate DESC";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FilterValue", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FilterValue", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "FullName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CurrentUsernameID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "TrainerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
             this._commandCollection[6].CommandText = "SELECT Address, CreatedDate, DOB, Email, FullName, Gender, Password, Phone, Train" +
-                "erID, Username FROM Trainers WHERE (Username LIKE @FilterValue) AND (TrainerID <" +
-                "> @CurrentUsernameID) ORDER BY CreatedDate DESC";
+                "erID, Username FROM Trainers WHERE (Phone LIKE @FilterValue) AND (TrainerID <> @" +
+                "CurrentUsernameID) ORDER BY CreatedDate DESC";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FilterValue", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FilterValue", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CurrentUsernameID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "TrainerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
             this._commandCollection[7].CommandText = "SELECT Address, CreatedDate, DOB, Email, FullName, Gender, Password, Phone, Train" +
-                "erID, Username FROM Trainers WHERE (Email = @email)";
+                "erID, Username FROM Trainers WHERE (Username LIKE @FilterValue) AND (TrainerID <" +
+                "> @CurrentUsernameID) ORDER BY CreatedDate DESC";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FilterValue", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CurrentUsernameID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "TrainerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[8].Connection = this.Connection;
-            this._commandCollection[8].CommandText = "SELECT        Trainers.*\r\nFROM            Trainers\r\nWHERE TrainerID=@TrainerID";
+            this._commandCollection[8].CommandText = "SELECT Address, CreatedDate, DOB, Email, FullName, Gender, Password, Phone, Train" +
+                "erID, Username FROM Trainers WHERE (Email = @Email)";
             this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrainerID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "TrainerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[9].Connection = this.Connection;
-            this._commandCollection[9].CommandText = "SELECT Address, CreatedDate, DOB, Email, FullName, Gender, Password, Phone, Train" +
-                "erID, Username FROM Trainers WHERE (Username = @username)";
+            this._commandCollection[9].CommandText = "SELECT        Trainers.*\r\nFROM            Trainers\r\nWHERE TrainerID=@TrainerID";
             this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrainerID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "TrainerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[10] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[10].Connection = this.Connection;
             this._commandCollection[10].CommandText = "SELECT Address, CreatedDate, DOB, Email, FullName, Gender, Password, Phone, Train" +
-                "erID, Username FROM Trainers WHERE (TrainerID <> @TrainerID) ORDER BY CreatedDat" +
-                "e DESC";
+                "erID, Username FROM Trainers WHERE (Username = @Username)";
             this._commandCollection[10].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrainerID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "TrainerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[11] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[11].Connection = this.Connection;
-            this._commandCollection[11].CommandText = @"INSERT INTO [Trainers] ([TrainerID], [FullName], [Username], [Email], [Password], [DOB], [Gender], [Phone], [Address]) VALUES (@TrainerID, @FullName, @Username, @Email, @Password, @DOB, @Gender, @Phone, @Address);
-SELECT TrainerID, FullName, Username, Email, Password, DOB, Gender, Phone, Address FROM Trainers WHERE (TrainerID = @TrainerID)";
+            this._commandCollection[11].CommandText = "SELECT Address, CreatedDate, DOB, Email, FullName, Gender, Password, Phone, Train" +
+                "erID, Username FROM Trainers WHERE (TrainerID <> @TrainerID) ORDER BY CreatedDat" +
+                "e DESC";
             this._commandCollection[11].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrainerID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "TrainerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FullName", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "FullName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DOB", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "DOB", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[12] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[12].Connection = this.Connection;
-            this._commandCollection[12].CommandText = "SELECT Address, CreatedDate, DOB, Email, FullName, Gender, Password, Phone, Train" +
-                "erID, Username FROM Trainers WHERE (Username = @username) AND (Password = @passw" +
-                "ord)";
+            this._commandCollection[12].CommandText = @"INSERT INTO [Trainers] ([TrainerID], [FullName], [Username], [Email], [Password], [DOB], [Gender], [Phone], [Address]) VALUES (@TrainerID, @FullName, @Username, @Email, @Password, @DOB, @Gender, @Phone, @Address);
+SELECT TrainerID, FullName, Username, Email, Password, DOB, Gender, Phone, Address FROM Trainers WHERE (TrainerID = @TrainerID)";
             this._commandCollection[12].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrainerID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "TrainerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FullName", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "FullName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DOB", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "DOB", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[12].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[13] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[13].Connection = this.Connection;
+            this._commandCollection[13].CommandText = "SELECT Address, CreatedDate, DOB, Email, FullName, Gender, Password, Phone, Train" +
+                "erID, Username FROM Trainers WHERE (Username = @Username) AND (Password = @Passw" +
+                "ord)";
+            this._commandCollection[13].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[13].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[13].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[14].Connection = this.Connection;
+            this._commandCollection[14].CommandText = "UPDATE Trainers SET\r\n[FullName]=@FullName, [Username]=@Username, [Email]=@Email, " +
+                "[Password]=@Password, [DOB]=@DOB, [Gender]=@Gender, [Phone]=@Phone, [Address]=@A" +
+                "ddress\r\nWHERE [TrainerID]=@TrainerID;";
+            this._commandCollection[14].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FullName", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "FullName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DOB", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "DOB", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[14].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TrainerID", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "TrainerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3075,7 +3095,7 @@ SELECT TrainerID, FullName, Username, Email, Password, DOB, Gender, Phone, Addre
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual FitnessTrackerDataset.TrainersDataTable FilterTrainerByAddress(string FilterValue, string CurrentUsernameID) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((FilterValue == null)) {
                 throw new global::System.ArgumentNullException("FilterValue");
             }
@@ -3098,7 +3118,7 @@ SELECT TrainerID, FullName, Username, Email, Password, DOB, Gender, Phone, Addre
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual FitnessTrackerDataset.TrainersDataTable FilterTrainerByDOB(System.DateTime FilterValue, string CurrentUsernameID) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(FilterValue));
             if ((CurrentUsernameID == null)) {
                 throw new global::System.ArgumentNullException("CurrentUsernameID");
@@ -3116,29 +3136,6 @@ SELECT TrainerID, FullName, Username, Email, Password, DOB, Gender, Phone, Addre
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual FitnessTrackerDataset.TrainersDataTable FilterTrainerByEmail(string FilterValue, string CurrentUsernameID) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((FilterValue == null)) {
-                throw new global::System.ArgumentNullException("FilterValue");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(FilterValue));
-            }
-            if ((CurrentUsernameID == null)) {
-                throw new global::System.ArgumentNullException("CurrentUsernameID");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(CurrentUsernameID));
-            }
-            FitnessTrackerDataset.TrainersDataTable dataTable = new FitnessTrackerDataset.TrainersDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FitnessTrackerDataset.TrainersDataTable FilterTrainerByFullName(string FilterValue, string CurrentUsernameID) {
             this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((FilterValue == null)) {
                 throw new global::System.ArgumentNullException("FilterValue");
@@ -3161,7 +3158,7 @@ SELECT TrainerID, FullName, Username, Email, Password, DOB, Gender, Phone, Addre
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FitnessTrackerDataset.TrainersDataTable FilterTrainerByPhone(string FilterValue, string CurrentUsernameID) {
+        public virtual FitnessTrackerDataset.TrainersDataTable FilterTrainerByFullName(string FilterValue, string CurrentUsernameID) {
             this.Adapter.SelectCommand = this.CommandCollection[5];
             if ((FilterValue == null)) {
                 throw new global::System.ArgumentNullException("FilterValue");
@@ -3184,7 +3181,7 @@ SELECT TrainerID, FullName, Username, Email, Password, DOB, Gender, Phone, Addre
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FitnessTrackerDataset.TrainersDataTable FilterTrainerByUsername(string FilterValue, string CurrentUsernameID) {
+        public virtual FitnessTrackerDataset.TrainersDataTable FilterTrainerByPhone(string FilterValue, string CurrentUsernameID) {
             this.Adapter.SelectCommand = this.CommandCollection[6];
             if ((FilterValue == null)) {
                 throw new global::System.ArgumentNullException("FilterValue");
@@ -3207,13 +3204,36 @@ SELECT TrainerID, FullName, Username, Email, Password, DOB, Gender, Phone, Addre
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FitnessTrackerDataset.TrainersDataTable GetTrainerByEmail(string email) {
+        public virtual FitnessTrackerDataset.TrainersDataTable FilterTrainerByUsername(string FilterValue, string CurrentUsernameID) {
             this.Adapter.SelectCommand = this.CommandCollection[7];
-            if ((email == null)) {
-                throw new global::System.ArgumentNullException("email");
+            if ((FilterValue == null)) {
+                throw new global::System.ArgumentNullException("FilterValue");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(email));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(FilterValue));
+            }
+            if ((CurrentUsernameID == null)) {
+                throw new global::System.ArgumentNullException("CurrentUsernameID");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(CurrentUsernameID));
+            }
+            FitnessTrackerDataset.TrainersDataTable dataTable = new FitnessTrackerDataset.TrainersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FitnessTrackerDataset.TrainersDataTable GetTrainerByEmail(string Email) {
+            this.Adapter.SelectCommand = this.CommandCollection[8];
+            if ((Email == null)) {
+                throw new global::System.ArgumentNullException("Email");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Email));
             }
             FitnessTrackerDataset.TrainersDataTable dataTable = new FitnessTrackerDataset.TrainersDataTable();
             this.Adapter.Fill(dataTable);
@@ -3225,7 +3245,7 @@ SELECT TrainerID, FullName, Username, Email, Password, DOB, Gender, Phone, Addre
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual FitnessTrackerDataset.TrainersDataTable GetTrainerByTrainerID(string TrainerID) {
-            this.Adapter.SelectCommand = this.CommandCollection[8];
+            this.Adapter.SelectCommand = this.CommandCollection[9];
             if ((TrainerID == null)) {
                 throw new global::System.ArgumentNullException("TrainerID");
             }
@@ -3241,13 +3261,13 @@ SELECT TrainerID, FullName, Username, Email, Password, DOB, Gender, Phone, Addre
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FitnessTrackerDataset.TrainersDataTable GetTrainerByUsername(string username) {
-            this.Adapter.SelectCommand = this.CommandCollection[9];
-            if ((username == null)) {
-                throw new global::System.ArgumentNullException("username");
+        public virtual FitnessTrackerDataset.TrainersDataTable GetTrainerByUsername(string Username) {
+            this.Adapter.SelectCommand = this.CommandCollection[10];
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(username));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Username));
             }
             FitnessTrackerDataset.TrainersDataTable dataTable = new FitnessTrackerDataset.TrainersDataTable();
             this.Adapter.Fill(dataTable);
@@ -3259,7 +3279,7 @@ SELECT TrainerID, FullName, Username, Email, Password, DOB, Gender, Phone, Addre
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual FitnessTrackerDataset.TrainersDataTable GetTrainerDataNotIncludeCurrentUser(string TrainerID) {
-            this.Adapter.SelectCommand = this.CommandCollection[10];
+            this.Adapter.SelectCommand = this.CommandCollection[11];
             if ((TrainerID == null)) {
                 throw new global::System.ArgumentNullException("TrainerID");
             }
@@ -3275,19 +3295,19 @@ SELECT TrainerID, FullName, Username, Email, Password, DOB, Gender, Phone, Addre
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual FitnessTrackerDataset.TrainersDataTable LoginTrainer(string username, string password) {
-            this.Adapter.SelectCommand = this.CommandCollection[12];
-            if ((username == null)) {
-                throw new global::System.ArgumentNullException("username");
+        public virtual FitnessTrackerDataset.TrainersDataTable LoginTrainer(string Username, string Password) {
+            this.Adapter.SelectCommand = this.CommandCollection[13];
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(username));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Username));
             }
-            if ((password == null)) {
-                throw new global::System.ArgumentNullException("password");
+            if ((Password == null)) {
+                throw new global::System.ArgumentNullException("Password");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(password));
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Password));
             }
             FitnessTrackerDataset.TrainersDataTable dataTable = new FitnessTrackerDataset.TrainersDataTable();
             this.Adapter.Fill(dataTable);
@@ -3660,9 +3680,38 @@ SELECT TrainerID, FullName, Username, Email, Password, DOB, Gender, Phone, Addre
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteTrainerByID(string TrainerID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((TrainerID == null)) {
+                throw new global::System.ArgumentNullException("TrainerID");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(TrainerID));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertTrainerData(string TrainerID, string FullName, string Username, string Email, string Password, System.DateTime DOB, string Gender, string Phone, string Address) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[11];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[12];
             if ((TrainerID == null)) {
                 throw new global::System.ArgumentNullException("TrainerID");
             }
@@ -3711,6 +3760,83 @@ SELECT TrainerID, FullName, Username, Email, Password, DOB, Gender, Phone, Addre
             }
             else {
                 command.Parameters[8].Value = ((string)(Address));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateTrainer(string FullName, string Username, string Email, string Password, string DOB, string Gender, string Phone, string Address, string TrainerID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[14];
+            if ((FullName == null)) {
+                throw new global::System.ArgumentNullException("FullName");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(FullName));
+            }
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Username));
+            }
+            if ((Email == null)) {
+                throw new global::System.ArgumentNullException("Email");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(Email));
+            }
+            if ((Password == null)) {
+                throw new global::System.ArgumentNullException("Password");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(Password));
+            }
+            if ((DOB == null)) {
+                throw new global::System.ArgumentNullException("DOB");
+            }
+            else {
+                command.Parameters[4].Value = ((string)(DOB));
+            }
+            if ((Gender == null)) {
+                throw new global::System.ArgumentNullException("Gender");
+            }
+            else {
+                command.Parameters[5].Value = ((string)(Gender));
+            }
+            if ((Phone == null)) {
+                throw new global::System.ArgumentNullException("Phone");
+            }
+            else {
+                command.Parameters[6].Value = ((string)(Phone));
+            }
+            if ((Address == null)) {
+                throw new global::System.ArgumentNullException("Address");
+            }
+            else {
+                command.Parameters[7].Value = ((string)(Address));
+            }
+            if ((TrainerID == null)) {
+                throw new global::System.ArgumentNullException("TrainerID");
+            }
+            else {
+                command.Parameters[8].Value = ((string)(TrainerID));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 

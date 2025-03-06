@@ -93,6 +93,7 @@ namespace FitnessTracker
                     case (int)FilterByValues.DOB:
                         panelSearchText.Hide();
                         dtpDOB.Show();
+                        dtpDOB.MaxDate = DateTime.Today;
                         dtpDOB.Value = DateTime.Today;
                         break;
                     case (int)FilterByValues.Username:
@@ -238,7 +239,7 @@ namespace FitnessTracker
 
         private void updateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UpdateTrainer updateTrainer = new UpdateTrainer();
+            UpdateTrainer updateTrainer = new UpdateTrainer(this);
             trainerDta = objTrainer.GetTrainerByTrainerID(dgvTrainer[0, rowIndex].Value.ToString());
             if (trainerDta.Rows.Count > 0)
             {
@@ -271,6 +272,25 @@ namespace FitnessTracker
                     this.cmsTrainer.Show(dgvTrainer, e.Location);
                     this.cmsTrainer.Show(Cursor.Position);
                 }
+            }
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show($"Are you sure you want to delete Trainer ID {dgvTrainer[0, rowIndex].Value.ToString()} account?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    objTrainer.DeleteTrainerByID(dgvTrainer[0, rowIndex].Value.ToString());
+                    MessageBox.Show($"Trainer ID {dgvTrainer[0, rowIndex].Value.ToString()} account has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DataGridViewReload();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

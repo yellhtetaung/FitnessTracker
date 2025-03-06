@@ -68,6 +68,7 @@ namespace FitnessTracker
             lblUsername.Text = UserLogin.loginUsername;
             AutoID();
             ActivityChangeHandler();
+            dtpGoalDate.MinDate = DateTime.Today;
         }
 
         private void cboAct_SelectedIndexChanged(object sender, EventArgs e)

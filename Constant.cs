@@ -51,5 +51,12 @@ namespace FitnessTracker
             form.Hide();
             starter.Show();
         }
+
+        public enum Gender
+        {
+            Male = 'M',
+            Female = 'F',
+            Other = 'O'
+        }
     }
 }

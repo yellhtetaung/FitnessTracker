@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitnessTracker
 {
-    class clsTrainer
+    class ClsTrainer
     {
         private string _ID, _Fullname, _Username, _Email, _Password, _Phone, _Address;
         private char _Gender;

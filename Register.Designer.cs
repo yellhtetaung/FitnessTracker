@@ -424,9 +424,9 @@ namespace FitnessTracker
             this.lblMemberID.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMemberID.Location = new System.Drawing.Point(16, 108);
             this.lblMemberID.Name = "lblMemberID";
-            this.lblMemberID.Size = new System.Drawing.Size(85, 16);
+            this.lblMemberID.Size = new System.Drawing.Size(78, 16);
             this.lblMemberID.TabIndex = 7;
-            this.lblMemberID.Text = "Member ID :";
+            this.lblMemberID.Text = "Trainer ID :";
             // 
             // dtpDOB
             // 
@@ -446,9 +446,9 @@ namespace FitnessTracker
             this.lblID.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblID.Location = new System.Drawing.Point(98, 108);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(47, 16);
+            this.lblID.Size = new System.Drawing.Size(42, 16);
             this.lblID.TabIndex = 20;
-            this.lblID.Text = "M0001";
+            this.lblID.Text = "NULL";
             // 
             // chkPassword
             // 

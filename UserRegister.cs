@@ -88,7 +88,7 @@ namespace FitnessTracker
                 }
                 else
                 {
-                    clsUser userData = new clsUser();
+                    ClsUser userData = new ClsUser();
                     userData.ID = lblID.Text;
                     userData.Fullname = txtFullName.Text;
                     userData.Username = txtUsername.Text;

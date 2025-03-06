@@ -77,6 +77,7 @@ namespace FitnessTracker
             AutoID();
             ShowAllPlaceholder();
             chkPassword.Enabled = false;
+            dtpDOB.MaxDate = DateTime.Today;
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -127,6 +128,10 @@ namespace FitnessTracker
                     MessageBox.Show("Please enter your password.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPassword.Focus();
                 }
+                else if (rdoMale.Checked == false && rdoFemale.Checked == false && rdoOther.Checked == false)
+                {
+                    MessageBox.Show("Please choose your gender!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 else if (txtPhone.Text == enterPhoneNumber || txtPhone.Text.Trim() == "")
                 {
                     MessageBox.Show("Please enter your phone number.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -137,20 +142,16 @@ namespace FitnessTracker
                     MessageBox.Show("Please enter your address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtAddress.Focus();
                 }
-                else if (rdoMale.Checked == false && rdoFemale.Checked == false && rdoOther.Checked == false)
-                {
-                    MessageBox.Show("Please choose your gender!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
                 else
                 {
-                    clsTrainer trainerData = new clsTrainer();
+                    ClsTrainer trainerData = new ClsTrainer();
                     trainerData.ID = lblID.Text;
                     trainerData.Fullname = txtFullName.Text;
                     trainerData.Username = txtUsername.Text;
                     trainerData.Email = txtEmail.Text;
                     trainerData.Password = txtPassword.Text;
                     trainerData.DateOfBirth = dtpDOB.Value;
-                    trainerData.Gender = rdoMale.Checked ? 'M' : rdoFemale.Checked ? 'F' : 'O';
+                    trainerData.Gender = rdoMale.Checked ? (char)Constant.Gender.Male : rdoFemale.Checked ? (char)Constant.Gender.Female : (char)Constant.Gender.Other;
                     trainerData.Address = txtAddress.Text;
                     trainerData.Phone = txtPhone.Text;
 

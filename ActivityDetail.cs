@@ -52,7 +52,7 @@ namespace FitnessTracker
                 }
                 else
                 {
-                    clsActivity activity = new clsActivity();
+                    ClsActivity activity = new ClsActivity();
                     activity.ActivityID = lblID.Text;
                     activity.ActivityName = txtActivityName.Text;
                     activity.MetricOne = txtMetricOne.Text;

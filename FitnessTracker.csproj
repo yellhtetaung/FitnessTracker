@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,9 +65,9 @@
     <Compile Include="AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="clsActivity.cs" />
-    <Compile Include="clsTrainer.cs" />
-    <Compile Include="clsUser.cs" />
+    <Compile Include="ClsActivity.cs" />
+    <Compile Include="ClsTrainer.cs" />
+    <Compile Include="ClsUser.cs" />
     <Compile Include="Constant.cs" />
     <Compile Include="FitnessTrackerDataset.Designer.cs">
       <AutoGen>True</AutoGen>

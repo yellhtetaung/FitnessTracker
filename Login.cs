@@ -57,7 +57,7 @@ namespace FitnessTracker
                     }
                     else
                     {
-                        clsTrainer trainerData = new clsTrainer();
+                        ClsTrainer trainerData = new ClsTrainer();
                         trainerData.Username = txtUsername.Text;
                         trainerData.Password = txtPassword.Text;
 

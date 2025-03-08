@@ -8,13 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-enum Gender
-{
-    Male = 'M',
-    Female = 'F',
-    Other = 'O'
-}
-
 namespace FitnessTracker
 {
     public partial class AdminDashboard : Form
@@ -70,14 +63,17 @@ namespace FitnessTracker
 
                 switch (Convert.ToChar(trainerDta.Rows[0]["Gender"].ToString()))
                 {
-                    case (char)Gender.Female:
+                    case (char)Constant.Gender.Female:
                         lblGender.Text = "Female";
                         break;
-                    case (char)Gender.Male:
+                    case (char)Constant.Gender.Male:
                         lblGender.Text = "Male";
                         break;
-                    default:
+                    case (char)Constant.Gender.Other:
                         lblGender.Text = "Other";
+                        break;
+                    default:
+                        lblGender.Text = "";
                         break;
                 }
             }

@@ -231,6 +231,7 @@
     <Content Include="assets\icon.ico" />
     <Content Include="assets\icons\login.png" />
     <Content Include="assets\icons\logout.png" />
+    <Content Include="assets\icons\activity-white.png" />
     <Content Include="assets\icons\users.png" />
     <Content Include="assets\icons\user-add.png" />
     <Content Include="assets\icons\user.png" />

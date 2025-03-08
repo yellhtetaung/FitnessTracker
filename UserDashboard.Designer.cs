@@ -55,7 +55,7 @@ namespace FitnessTracker
             this.menuUser.Name = "menuUser";
             this.menuUser.Padding = new System.Windows.Forms.Padding(12);
             this.menuUser.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuUser.Size = new System.Drawing.Size(800, 44);
+            this.menuUser.Size = new System.Drawing.Size(865, 44);
             this.menuUser.TabIndex = 1;
             this.menuUser.Text = "menuAdmin";
             // 
@@ -117,10 +117,10 @@ namespace FitnessTracker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(865, 587);
             this.Controls.Add(this.menuUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(816, 489);
+            this.MinimumSize = new System.Drawing.Size(881, 626);
             this.Name = "UserDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";

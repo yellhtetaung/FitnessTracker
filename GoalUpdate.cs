@@ -69,8 +69,6 @@ namespace FitnessTracker
         {
             // TODO: This line of code loads data into the 'fitnessTrackerDataset.Activities' table. You can move, or remove it, as needed.
             this.activitiesTableAdapter.Fill(this.fitnessTrackerDataset.Activities);
-            // TODO: This line of code loads data into the 'fitnessTrackerDataset.Activities' table. You can move, or remove it, as needed.
-            this.activitiesTableAdapter.Fill(this.fitnessTrackerDataset.Activities);
             lblUserID.Text = UserLogin.loginUserID;
             lblUsername.Text = UserLogin.loginUsername;
             lblActID.Text = ActivityID;
@@ -106,7 +104,7 @@ namespace FitnessTracker
                     txtSetGoal.Focus();
                 }
 
-                int countRecord = objTracker.UpdateTracker(lblActID.Text, UserID, txtTrackName.Text, Convert.ToInt32(txtSetGoal.Text), TotalCalBurn, dtpGoalDate.Value.ToString(), TrackStatus, TrackerID);
+                int countRecord = objTracker.UpdateTracker(lblActID.Text, UserID, txtTrackName.Text, Convert.ToInt32(txtSetGoal.Text), TotalCalBurn, dtpGoalDate.Value.ToString(), TrackStatus == "Complete" || TrackStatus == "Fail" ? TrackStatus : null, TrackerID);
 
                 if (countRecord > 0)
                 {

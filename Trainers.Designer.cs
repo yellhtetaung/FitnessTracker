@@ -265,7 +265,7 @@ namespace FitnessTracker
             this.groupBox1.Size = new System.Drawing.Size(554, 135);
             this.groupBox1.TabIndex = 50;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filter";
+            this.groupBox1.Text = "Filter Trainers";
             // 
             // button1
             // 

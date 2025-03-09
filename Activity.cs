@@ -75,8 +75,8 @@ namespace FitnessTracker
         {
             // TODO: This line of code loads data into the 'fitnessTrackerDataset.Activities' table. You can move, or remove it, as needed.
             this.activitiesTableAdapter.Fill(this.fitnessTrackerDataset.Activities);
-            AutoID();
-            ShowAllTextBoxPlaceholder();
+            this.AutoID();
+            this.ShowAllTextBoxPlaceholder();
 
             dgvActData.DataSource = objActivity.GetAllActivities();
         }
@@ -123,9 +123,8 @@ namespace FitnessTracker
                         dgvActData.DataSource = objActivity.GetAllActivities();
                         dgvActData.Refresh();
 
-                        ClearAll();
-                        ShowAllTextBoxPlaceholder();
-                        AutoID();
+                        this.ClearAll();
+                        this.AutoID();
                     }
                 }
             }
@@ -192,7 +191,7 @@ namespace FitnessTracker
 
                         dgvActData.DataSource = objActivity.GetAllActivities();
                         dgvActData.Refresh();
-                        AutoID();
+                        this.AutoID();
                     }
                     else
                     {

@@ -18,6 +18,9 @@ namespace FitnessTracker
         FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter objActivity = new FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter();
         DataTable activityDta = new DataTable();
 
+        FitnessTrackerDatasetTableAdapters.UsersTableAdapter objUser = new FitnessTrackerDatasetTableAdapters.UsersTableAdapter();
+        DataTable userDta = new DataTable();
+
         public AdminDashboard()
         {
             InitializeComponent();
@@ -99,6 +102,9 @@ namespace FitnessTracker
 
             trainerDta = objTrainer.GetData();
             lblTrainerCount.Text = trainerDta.Rows.Count.ToString();
+
+            userDta = objUser.GetData();
+            lblUserCount.Text = userDta.Rows.Count.ToString();
         }
     }
 }

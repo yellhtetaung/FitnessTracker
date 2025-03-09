@@ -175,9 +175,9 @@ namespace FitnessTracker
             this.lblTrackID.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTrackID.Location = new System.Drawing.Point(90, 67);
             this.lblTrackID.Name = "lblTrackID";
-            this.lblTrackID.Size = new System.Drawing.Size(30, 16);
+            this.lblTrackID.Size = new System.Drawing.Size(12, 16);
             this.lblTrackID.TabIndex = 50;
-            this.lblTrackID.Text = "Null";
+            this.lblTrackID.Text = "-";
             this.lblTrackID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblGoalLabel
@@ -371,27 +371,27 @@ namespace FitnessTracker
             this.removeToolStripMenuItem,
             this.removeAllToolStripMenuItem});
             this.cmsTrack.Name = "cmsTrack";
-            this.cmsTrack.Size = new System.Drawing.Size(181, 92);
+            this.cmsTrack.Size = new System.Drawing.Size(135, 70);
             this.cmsTrack.Opened += new System.EventHandler(this.cmsTrack_Opened);
             // 
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.updateToolStripMenuItem.Text = "Update";
             this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // removeAllToolStripMenuItem
             // 
             this.removeAllToolStripMenuItem.Name = "removeAllToolStripMenuItem";
-            this.removeAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeAllToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.removeAllToolStripMenuItem.Text = "Remove All";
             this.removeAllToolStripMenuItem.Click += new System.EventHandler(this.removeAllToolStripMenuItem_Click);
             // 

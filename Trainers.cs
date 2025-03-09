@@ -56,7 +56,7 @@ namespace FitnessTracker
         {
             // TODO: This line of code loads data into the 'fitnessTrackerDataset.Trainers' table. You can move, or remove it, as needed.
             this.trainersTableAdapter.Fill(this.fitnessTrackerDataset.Trainers);
-            trainerDta = objTrainer.GetTrainerDataNotIncludeCurrentUser(Login.loginTrainerID);
+            trainerDta = objTrainer.GetTrainerDataNotIncludeCurrentUser();
             dgvTrainer.DataSource = trainerDta;
             cboFilterBy.SelectedIndex = 0;
             if (cboFilterBy.SelectedIndex != ((int)FilterByValues.DOB))
@@ -67,7 +67,7 @@ namespace FitnessTracker
 
         public void DataGridViewReload()
         {
-            dgvTrainer.DataSource = objTrainer.GetTrainerDataNotIncludeCurrentUser(Login.loginTrainerID);
+            dgvTrainer.DataSource = objTrainer.GetTrainerDataNotIncludeCurrentUser();
             dgvTrainer.Refresh();
         }
 
@@ -132,7 +132,7 @@ namespace FitnessTracker
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            dgvTrainer.DataSource = objTrainer.GetTrainerDataNotIncludeCurrentUser(Login.loginTrainerID);
+            dgvTrainer.DataSource = objTrainer.GetTrainerDataNotIncludeCurrentUser();
             dgvTrainer.Refresh();
             cboFilterBy.SelectedIndex = 0;
             filterValueChangedHandler(0);
@@ -173,27 +173,27 @@ namespace FitnessTracker
                             switch (cboFilterBy.SelectedIndex)
                             {
                                 case (int)FilterByValues.Username:
-                                    trainerDta = objTrainer.FilterTrainerByUsername(txtFilter.Text + "%", Login.loginTrainerID);
+                                    trainerDta = objTrainer.FilterTrainerByUsername(txtFilter.Text + "%");
                                     dgvTrainer.DataSource = trainerDta;
                                     dgvTrainer.Refresh();
                                     break;
                                 case (int)FilterByValues.Email:
-                                    trainerDta = objTrainer.FilterTrainerByEmail(txtFilter.Text + "%", Login.loginTrainerID);
+                                    trainerDta = objTrainer.FilterTrainerByEmail(txtFilter.Text + "%");
                                     dgvTrainer.DataSource = trainerDta;
                                     dgvTrainer.Refresh();
                                     break;
                                 case (int)FilterByValues.Phone:
-                                    trainerDta = objTrainer.FilterTrainerByPhone(txtFilter.Text + "%", Login.loginTrainerID);
+                                    trainerDta = objTrainer.FilterTrainerByPhone(txtFilter.Text + "%");
                                     dgvTrainer.DataSource = trainerDta;
                                     dgvTrainer.Refresh();
                                     break;
                                 case (int)FilterByValues.Address:
-                                    trainerDta = objTrainer.FilterTrainerByAddress(txtFilter.Text + "%", Login.loginTrainerID);
+                                    trainerDta = objTrainer.FilterTrainerByAddress(txtFilter.Text + "%");
                                     dgvTrainer.DataSource = trainerDta;
                                     dgvTrainer.Refresh();
                                     break;
                                 default:
-                                    trainerDta = objTrainer.FilterTrainerByFullName(txtFilter.Text + "%", Login.loginTrainerID);
+                                    trainerDta = objTrainer.FilterTrainerByFullName(txtFilter.Text + "%");
                                     dgvTrainer.DataSource = trainerDta;
                                     dgvTrainer.Refresh();
                                     break;
@@ -202,7 +202,7 @@ namespace FitnessTracker
                     }
                     else
                     {
-                        trainerDta = objTrainer.FilterTrainerByDOB(dtpDOB.Value, Login.loginTrainerID);
+                        trainerDta = objTrainer.FilterTrainerByDOB(dtpDOB.Value.ToString());
                         dgvTrainer.DataSource = trainerDta;
                         dgvTrainer.Refresh();
                     }

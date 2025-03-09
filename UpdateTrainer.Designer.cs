@@ -248,9 +248,9 @@ namespace FitnessTracker
             this.lblID.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblID.Location = new System.Drawing.Point(99, 108);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(47, 16);
+            this.lblID.Size = new System.Drawing.Size(12, 16);
             this.lblID.TabIndex = 69;
-            this.lblID.Text = "M0001";
+            this.lblID.Text = "-";
             // 
             // lblPhone
             // 
@@ -481,7 +481,7 @@ namespace FitnessTracker
             this.Controls.Add(this.lblDesc);
             this.Controls.Add(this.lblTitle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(455, 747);
+            this.MinimumSize = new System.Drawing.Size(455, 726);
             this.Name = "UpdateTrainer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Trainer";

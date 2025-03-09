@@ -443,12 +443,11 @@ namespace FitnessTracker
             // 
             this.lblID.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblID.Location = new System.Drawing.Point(98, 108);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(42, 16);
+            this.lblID.Size = new System.Drawing.Size(0, 16);
             this.lblID.TabIndex = 20;
-            this.lblID.Text = "NULL";
             // 
             // chkPassword
             // 

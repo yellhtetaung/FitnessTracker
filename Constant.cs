@@ -58,5 +58,17 @@ namespace FitnessTracker
             Female = 'F',
             Other = 'O'
         }
+
+        public enum TableColumnName
+        {
+            TrackerID,
+            TrackerName,
+            ActivityName,
+            SetGoal,
+            TrackDate,
+            TotalCalBurn,
+            TrackStatus,
+            CreatedDate
+        }
     }
 }

@@ -229,9 +229,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\icon.ico" />
+    <Content Include="assets\icons\failed.png" />
     <Content Include="assets\icons\login.png" />
     <Content Include="assets\icons\logout.png" />
     <Content Include="assets\icons\activity-white.png" />
+    <Content Include="assets\icons\complete.png" />
     <Content Include="assets\icons\users-white.png" />
     <Content Include="assets\icons\users.png" />
     <Content Include="assets\icons\user-add.png" />
@@ -240,6 +242,7 @@
     <Content Include="assets\icons\home.png" />
     <Content Include="assets\icons\search.png" />
     <Content Include="assets\icons\activity.png" />
+    <Content Include="assets\icons\progress.png" />
     <Content Include="assets\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

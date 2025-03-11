@@ -8,18 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-enum TableColumnName
-{
-    TrackerID,
-    TrackerName,
-    ActivityName,
-    SetGoal,
-    TrackDate,
-    TotalCalBurn,
-    TrackStatus,
-    CreatedDate
-}
-
 namespace FitnessTracker
 {
     public partial class Track : Form
@@ -39,16 +27,16 @@ namespace FitnessTracker
             try
             {
                 trackerDta = objTracker.GetTrackerDataByUserID(UserLogin.loginUserID);
-                DataTable filterDataTable = trackerDta.DefaultView.ToTable(false, TableColumnName.TrackerID.ToString(), TableColumnName.TrackerName.ToString(), TableColumnName.ActivityName.ToString(), TableColumnName.SetGoal.ToString(), TableColumnName.TrackDate.ToString(), TableColumnName.TotalCalBurn.ToString(), TableColumnName.TrackStatus.ToString(), TableColumnName.CreatedDate.ToString());
+                DataTable filterDataTable = trackerDta.DefaultView.ToTable(false, Constant.TableColumnName.TrackerID.ToString(), Constant.TableColumnName.TrackerName.ToString(), Constant.TableColumnName.ActivityName.ToString(), Constant.TableColumnName.SetGoal.ToString(), Constant.TableColumnName.TrackDate.ToString(), Constant.TableColumnName.TotalCalBurn.ToString(), Constant.TableColumnName.TrackStatus.ToString(), Constant.TableColumnName.CreatedDate.ToString());
                 dgvTrack.DataSource = filterDataTable;
-                dgvTrack.Columns[(int)TableColumnName.TrackerID].HeaderText = "Tracker ID";
-                dgvTrack.Columns[(int)TableColumnName.TrackerName].HeaderText = "Tracker Name";
-                dgvTrack.Columns[(int)TableColumnName.ActivityName].HeaderText = "Activity Name";
-                dgvTrack.Columns[(int)TableColumnName.SetGoal].HeaderText = "Set Goal";
-                dgvTrack.Columns[(int)TableColumnName.TrackDate].HeaderText = "Track Date";
-                dgvTrack.Columns[(int)TableColumnName.TotalCalBurn].HeaderText = "Total Cal Burn";
-                dgvTrack.Columns[(int)TableColumnName.TrackStatus].HeaderText = "Track Status";
-                dgvTrack.Columns[(int)TableColumnName.CreatedDate].HeaderText = "Created Date";
+                dgvTrack.Columns[(int)Constant.TableColumnName.TrackerID].HeaderText = "Tracker ID";
+                dgvTrack.Columns[(int)Constant.TableColumnName.TrackerName].HeaderText = "Tracker Name";
+                dgvTrack.Columns[(int)Constant.TableColumnName.ActivityName].HeaderText = "Activity Name";
+                dgvTrack.Columns[(int)Constant.TableColumnName.SetGoal].HeaderText = "Set Goal";
+                dgvTrack.Columns[(int)Constant.TableColumnName.TrackDate].HeaderText = "Track Date";
+                dgvTrack.Columns[(int)Constant.TableColumnName.TotalCalBurn].HeaderText = "Total Cal Burn";
+                dgvTrack.Columns[(int)Constant.TableColumnName.TrackStatus].HeaderText = "Track Status";
+                dgvTrack.Columns[(int)Constant.TableColumnName.CreatedDate].HeaderText = "Created Date";
             }
             catch (Exception ex)
             {
@@ -71,7 +59,7 @@ namespace FitnessTracker
                 if (key > 0)
                 {
                     dgvTrack.Columns[key].AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
-                    dgvTrack.Columns[key].Width = key == (int)TableColumnName.TrackDate || key == (int)TableColumnName.CreatedDate || key == (int)TableColumnName.TrackerName || key == (int)TableColumnName.ActivityName ? 150 : 100;
+                    dgvTrack.Columns[key].Width = key == (int)Constant.TableColumnName.TrackDate || key == (int)Constant.TableColumnName.CreatedDate || key == (int)Constant.TableColumnName.TrackerName || key == (int)Constant.TableColumnName.ActivityName ? 150 : 100;
                 }
                 else
                 {
@@ -148,8 +136,8 @@ namespace FitnessTracker
         {
             int row = dgvTrack.CurrentRow.Index;
 
-            lblTrackID.Text = dgvTrack[(int)TableColumnName.TrackerID, row].Value.ToString();
-            lblGoal.Text = dgvTrack[(int)TableColumnName.SetGoal, row].Value.ToString();
+            lblTrackID.Text = dgvTrack[(int)Constant.TableColumnName.TrackerID, row].Value.ToString();
+            lblGoal.Text = dgvTrack[(int)Constant.TableColumnName.SetGoal, row].Value.ToString();
         }
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -164,7 +152,7 @@ namespace FitnessTracker
             try
             {
                 GoalUpdate goalUpdate = new GoalUpdate(this);
-                DataTable trackerData = objTracker.GetTrackerDataByTrackerID(dgvTrack[(int)TableColumnName.TrackerID, rowIndex].Value.ToString());
+                DataTable trackerData = objTracker.GetTrackerDataByTrackerID(dgvTrack[(int)Constant.TableColumnName.TrackerID, rowIndex].Value.ToString());
 
                 if (trackerData.Rows.Count > 0)
                 {
@@ -236,7 +224,7 @@ namespace FitnessTracker
                     else
                     {
                         dgvTrack.Columns[key].AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
-                        dgvTrack.Columns[key].Width = key == (int)TableColumnName.TrackDate || key == (int)TableColumnName.CreatedDate || key == (int)TableColumnName.TrackerName || key == (int)TableColumnName.ActivityName ? 150 : 100;
+                        dgvTrack.Columns[key].Width = key == (int)Constant.TableColumnName.TrackDate || key == (int)Constant.TableColumnName.CreatedDate || key == (int)Constant.TableColumnName.TrackerName || key == (int)Constant.TableColumnName.ActivityName ? 150 : 100;
                     }
                 }
                 else
@@ -272,7 +260,7 @@ namespace FitnessTracker
 
         private void cmsTrack_Opened(object sender, EventArgs e)
         {
-            switch (dgvTrack[(int)TableColumnName.TrackStatus, rowIndex].Value.ToString())
+            switch (dgvTrack[(int)Constant.TableColumnName.TrackStatus, rowIndex].Value.ToString())
             {
                 case "Complete":
                     updateToolStripMenuItem.Enabled = false;

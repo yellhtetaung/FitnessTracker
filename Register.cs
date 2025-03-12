@@ -181,7 +181,6 @@ namespace FitnessTracker
                             {
                                 Login login = new Login();
                                 this.Hide();
-                                login.ShowDialog();
                             }
                             else
                             {

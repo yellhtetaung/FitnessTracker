@@ -12,9 +12,6 @@ namespace FitnessTracker
 {
     public partial class Goal : Form
     {
-        FitnessTrackerDatasetTableAdapters.UsersTableAdapter objUser = new FitnessTrackerDatasetTableAdapters.UsersTableAdapter();
-        DataTable userDta = new DataTable();
-
         FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter objActivity = new FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter();
         DataTable activityDta = new DataTable();
 
@@ -42,6 +39,7 @@ namespace FitnessTracker
                 if (cboAct.SelectedValue != null)
                 {
                     string id = cboAct.SelectedValue.ToString();
+                    Console.WriteLine(id);
                     lblActID.Text = id;
 
                     activityDta = objActivity.GetActivityByID(id);
@@ -62,12 +60,17 @@ namespace FitnessTracker
 
         private void Goal_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'fitnessTrackerDataset.Activities' table. You can move, or remove it, as needed.
-            this.activitiesTableAdapter.Fill(this.fitnessTrackerDataset.Activities);
+            activityDta = objActivity.GetData();
+            cboAct.DataSource = activityDta;
+            cboAct.ValueMember = "ActID";
+            cboAct.DisplayMember = "ActName";
+
             lblUserID.Text = UserLogin.loginUserID;
             lblUsername.Text = UserLogin.loginUsername;
+
             AutoID();
             ActivityChangeHandler();
+
             dtpGoalDate.MinDate = DateTime.Today;
         }
 
@@ -80,12 +83,12 @@ namespace FitnessTracker
         {
             try
             {
-                if (txtTrackName.Text.Trim() == "")
+                if (string.IsNullOrWhiteSpace(txtTrackName.Text))
                 {
                     MessageBox.Show("Please enter track name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtTrackName.Focus();
                 }
-                else if (txtSetGoal.Text == "")
+                else if (string.IsNullOrWhiteSpace(txtSetGoal.Text))
                 {
                     MessageBox.Show("Please enter your goal.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtSetGoal.Focus();

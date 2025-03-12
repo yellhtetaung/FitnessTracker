@@ -107,11 +107,14 @@ namespace FitnessTracker
 
         private void UserSearch_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'fitnessTrackerDataset.Activities' table. You can move, or remove it, as needed.
-            this.activitiesTableAdapter.Fill(this.fitnessTrackerDataset.Activities);
             this.FetchDataGridView();
             cboFilterBy.SelectedIndex = 0;
             cboTrackStatus.SelectedIndex = 0;
+
+            activityDta = objActivity.GetData();
+            cboActivity.DataSource = activityDta;
+            cboActivity.ValueMember = "ActID";
+            cboActivity.DisplayMember = "ActName";
 
             for (int key = 0; key < dgvTrack.ColumnCount; key++)
             {
@@ -223,10 +226,8 @@ namespace FitnessTracker
                     }
                     else if (cboFilterBy.SelectedIndex == (int)FilterByValues.ActivityName)
                     {
-                        //trackerDta = objTracker.FilterTrackerByActivityID(UserLogin.loginUserID, cboActivity.SelectedValue.ToString());
-                        //this.FetchDataGridView(trackerDta);
-
-                        Console.WriteLine(cboActivity.SelectedValue);
+                        trackerDta = objTracker.FilterTrackerByActivityID(UserLogin.loginUserID, cboActivity.SelectedValue.ToString());
+                        this.FetchDataGridView(trackerDta);
                     }
                     else if (cboFilterBy.SelectedIndex == (int)FilterByValues.CreatedDate)
                     {

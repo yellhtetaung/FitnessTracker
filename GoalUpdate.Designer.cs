@@ -29,7 +29,6 @@ namespace FitnessTracker
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoalUpdate));
             this.label1 = new System.Windows.Forms.Label();
             this.dtpGoalDate = new System.Windows.Forms.DateTimePicker();
@@ -44,9 +43,7 @@ namespace FitnessTracker
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cboAct = new System.Windows.Forms.ComboBox();
-            this.activitiesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
-            this.activitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblActivity = new System.Windows.Forms.Label();
             this.lblActIDLabel = new System.Windows.Forms.Label();
             this.lblActID = new System.Windows.Forms.Label();
@@ -63,11 +60,8 @@ namespace FitnessTracker
             this.lblUsernameLabel = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.activitiesTableAdapter = new FitnessTracker.FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelFullName.SuspendLayout();
@@ -218,9 +212,6 @@ namespace FitnessTracker
             // 
             // cboAct
             // 
-            this.cboAct.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.activitiesBindingSource1, "ActID", true));
-            this.cboAct.DataSource = this.activitiesBindingSource;
-            this.cboAct.DisplayMember = "ActName";
             this.cboAct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAct.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboAct.FormattingEnabled = true;
@@ -231,20 +222,10 @@ namespace FitnessTracker
             this.cboAct.ValueMember = "ActID";
             this.cboAct.SelectedIndexChanged += new System.EventHandler(this.cboAct_SelectedIndexChanged);
             // 
-            // activitiesBindingSource1
-            // 
-            this.activitiesBindingSource1.DataMember = "Activities";
-            this.activitiesBindingSource1.DataSource = this.fitnessTrackerDataset;
-            // 
             // fitnessTrackerDataset
             // 
             this.fitnessTrackerDataset.DataSetName = "FitnessTrackerDataset";
             this.fitnessTrackerDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // activitiesBindingSource
-            // 
-            this.activitiesBindingSource.DataMember = "Activities";
-            this.activitiesBindingSource.DataSource = this.fitnessTrackerDataset;
             // 
             // lblActivity
             // 
@@ -435,10 +416,6 @@ namespace FitnessTracker
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User Info";
             // 
-            // activitiesTableAdapter
-            // 
-            this.activitiesTableAdapter.ClearBeforeFill = true;
-            // 
             // GoalUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -457,9 +434,7 @@ namespace FitnessTracker
             this.Load += new System.EventHandler(this.GoalUpdate_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.activitiesBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -504,8 +479,5 @@ namespace FitnessTracker
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.GroupBox groupBox1;
         private FitnessTrackerDataset fitnessTrackerDataset;
-        private System.Windows.Forms.BindingSource activitiesBindingSource;
-        private FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter activitiesTableAdapter;
-        private System.Windows.Forms.BindingSource activitiesBindingSource1;
     }
 }

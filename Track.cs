@@ -273,5 +273,12 @@ namespace FitnessTracker
                     break;
             }
         }
+
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserSearch userSearch = new UserSearch();
+            this.Hide();
+            userSearch.Show();
+        }
     }
 }

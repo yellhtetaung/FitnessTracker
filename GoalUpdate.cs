@@ -67,8 +67,6 @@ namespace FitnessTracker
 
         private void GoalUpdate_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'fitnessTrackerDataset.Activities' table. You can move, or remove it, as needed.
-            this.activitiesTableAdapter.Fill(this.fitnessTrackerDataset.Activities);
             lblUserID.Text = UserLogin.loginUserID;
             lblUsername.Text = UserLogin.loginUsername;
             lblActID.Text = ActivityID;
@@ -77,14 +75,18 @@ namespace FitnessTracker
             dtpGoalDate.Value = TrackDate;
 
             DataTable activityDta = objActivity.GetData();
+            cboAct.DataSource = activityDta;
+            cboAct.ValueMember = "ActID";
+            cboAct.DisplayMember = "ActName";
 
             for (int index = 0; index < activityDta.Rows.Count; index++)
             {
-                if (String.Equals(activityDta.Rows[index]["ActID"], ActivityID))
+                if (string.Equals(activityDta.Rows[index]["ActID"], ActivityID))
                 {
                     cboAct.SelectedIndex = index;
                 }
             }
+
             ActivityChangeHandler();
         }
 

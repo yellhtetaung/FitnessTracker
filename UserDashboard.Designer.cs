@@ -71,6 +71,7 @@ namespace FitnessTracker
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.addGoalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuUser.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -89,6 +90,7 @@ namespace FitnessTracker
             this.homeToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.trackerToolStripMenuItem,
+            this.addGoalToolStripMenuItem,
             this.searchToolStripMenuItem,
             this.logOutToolStripMenuItem});
             this.menuUser.Location = new System.Drawing.Point(0, 0);
@@ -520,6 +522,14 @@ namespace FitnessTracker
             this.label1.Size = new System.Drawing.Size(0, 19);
             this.label1.TabIndex = 0;
             // 
+            // addGoalToolStripMenuItem
+            // 
+            this.addGoalToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addGoalToolStripMenuItem.Image")));
+            this.addGoalToolStripMenuItem.Name = "addGoalToolStripMenuItem";
+            this.addGoalToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.addGoalToolStripMenuItem.Text = "Add Goal";
+            this.addGoalToolStripMenuItem.Click += new System.EventHandler(this.addGoalToolStripMenuItem_Click);
+            // 
             // UserDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -597,5 +607,6 @@ namespace FitnessTracker
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem addGoalToolStripMenuItem;
     }
 }

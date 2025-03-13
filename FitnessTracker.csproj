@@ -229,6 +229,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\icon.ico" />
+    <Content Include="assets\icons\add-circle.png" />
     <Content Include="assets\icons\failed.png" />
     <Content Include="assets\icons\login.png" />
     <Content Include="assets\icons\logout.png" />

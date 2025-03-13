@@ -85,15 +85,14 @@ namespace FitnessTracker
             string usernamePattern = @"^[a-z][a-zA-Z0-9]*\d[a-zA-Z0-9]*$";
             string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
 
-
             try
             {
-                if (txtFullName.Text == enterYourFullName || txtFullName.Text.Trim() == "")
+                if (string.Equals(txtFullName.Text, enterYourFullName) || string.IsNullOrWhiteSpace(txtFullName.Text))
                 {
                     MessageBox.Show("Please enter your full name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtFullName.Focus();
                 }
-                else if (txtUsername.Text == enterUsername || txtUsername.Text.Trim() == "")
+                else if (string.Equals(txtUsername.Text, enterUsername) || string.IsNullOrWhiteSpace(txtUsername.Text))
                 {
                     MessageBox.Show("Please enter your username.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtUsername.Focus();
@@ -113,7 +112,7 @@ namespace FitnessTracker
                     MessageBox.Show(errorMessage, "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtUsername.Focus();
                 }
-                else if (txtEmail.Text == enterEmail || txtEmail.Text.Trim() == "")
+                else if (string.Equals(txtEmail.Text, enterEmail) || string.IsNullOrWhiteSpace(txtEmail.Text))
                 {
                     MessageBox.Show("Please enter your email address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtEmail.Focus();
@@ -123,7 +122,7 @@ namespace FitnessTracker
                     MessageBox.Show("Invalid your email address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtEmail.Focus();
                 }
-                else if (txtPassword.Text == enterYourPassword || txtPassword.Text.Trim() == "")
+                else if (string.Equals(txtPassword.Text, enterYourPassword) || string.IsNullOrWhiteSpace(txtPassword.Text))
                 {
                     MessageBox.Show("Please enter your password.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPassword.Focus();
@@ -132,12 +131,12 @@ namespace FitnessTracker
                 {
                     MessageBox.Show("Please choose your gender!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if (txtPhone.Text == enterPhoneNumber || txtPhone.Text.Trim() == "")
+                else if (string.Equals(txtPhone.Text, enterPhoneNumber) || string.IsNullOrWhiteSpace(txtPhone.Text))
                 {
                     MessageBox.Show("Please enter your phone number.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPhone.Focus();
                 }
-                else if (txtAddress.Text == enterAddress || txtAddress.Text.Trim() == "")
+                else if (string.Equals(txtAddress.Text, enterAddress) || string.IsNullOrWhiteSpace(txtAddress.Text))
                 {
                     MessageBox.Show("Please enter your address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtAddress.Focus();
@@ -233,7 +232,7 @@ namespace FitnessTracker
 
         private void txtFullName_Enter(object sender, EventArgs e)
         {
-            if (txtFullName.Text == enterYourFullName)
+            if (string.Equals(txtFullName.Text, enterYourFullName))
             {
                 TextBoxController.Placeholder(txtFullName, "", Color.Black);
             }
@@ -241,7 +240,7 @@ namespace FitnessTracker
 
         private void txtFullName_Leave(object sender, EventArgs e)
         {
-            if (txtFullName.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txtFullName.Text))
             {
                 TextBoxController.Placeholder(txtFullName, enterYourFullName);
             }
@@ -249,7 +248,7 @@ namespace FitnessTracker
 
         private void txtUsername_Enter(object sender, EventArgs e)
         {
-            if (txtUsername.Text == enterUsername)
+            if (string.Equals(txtUsername.Text, enterUsername))
             {
                 TextBoxController.Placeholder(txtUsername, "", Color.Black);
             }
@@ -257,7 +256,7 @@ namespace FitnessTracker
 
         private void txtUsername_Leave(object sender, EventArgs e)
         {
-            if (txtUsername.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
             {
                 TextBoxController.Placeholder(txtUsername, enterUsername);
             }
@@ -265,7 +264,7 @@ namespace FitnessTracker
 
         private void txtEmail_Enter(object sender, EventArgs e)
         {
-            if (txtEmail.Text == enterEmail)
+            if (string.Equals(txtEmail.Text, enterEmail))
             {
                 TextBoxController.Placeholder(txtEmail, "", Color.Black);
             }
@@ -273,7 +272,7 @@ namespace FitnessTracker
 
         private void txtEmail_Leave(object sender, EventArgs e)
         {
-            if (txtEmail.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
             {
                 TextBoxController.Placeholder(txtEmail, enterEmail);
             }
@@ -281,7 +280,7 @@ namespace FitnessTracker
 
         private void txtPassword_Enter(object sender, EventArgs e)
         {
-            if (txtPassword.Text == enterYourPassword)
+            if (string.Equals(txtPassword.Text, enterYourPassword))
             {
                 TextBoxController.Placeholder(txtPassword, "", Color.Black);
             }
@@ -289,7 +288,7 @@ namespace FitnessTracker
 
         private void txtPassword_Leave(object sender, EventArgs e)
         {
-            if (txtPassword.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
             {
                 TextBoxController.Placeholder(txtPassword, enterYourPassword);
             }
@@ -297,7 +296,7 @@ namespace FitnessTracker
 
         private void txtPassword_KeyUp(object sender, KeyEventArgs e)
         {
-            if (txtPassword.Text == enterYourPassword || txtPassword.Text.Trim() == "")
+            if (string.Equals(txtPassword.Text, enterYourPassword) || string.IsNullOrWhiteSpace(txtPassword.Text))
             {
                 chkPassword.Enabled = false;
                 txtPassword.UseSystemPasswordChar = false;
@@ -312,7 +311,7 @@ namespace FitnessTracker
 
         private void txtPhone_Enter(object sender, EventArgs e)
         {
-            if (txtPhone.Text == enterPhoneNumber)
+            if (string.Equals(txtPhone.Text, enterPhoneNumber))
             {
                 TextBoxController.Placeholder(txtPhone, "", Color.Black);
             }
@@ -320,7 +319,7 @@ namespace FitnessTracker
 
         private void txtPhone_Leave(object sender, EventArgs e)
         {
-            if (txtPhone.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txtPhone.Text))
             {
                 TextBoxController.Placeholder(txtPhone, enterPhoneNumber);
             }
@@ -328,7 +327,7 @@ namespace FitnessTracker
 
         private void txtAddress_Enter(object sender, EventArgs e)
         {
-            if (txtAddress.Text == enterAddress)
+            if (string.Equals(txtAddress.Text, enterAddress))
             {
                 TextBoxController.Placeholder(txtAddress, "", Color.Black);
             }
@@ -336,7 +335,7 @@ namespace FitnessTracker
 
         private void txtAddress_Leave(object sender, EventArgs e)
         {
-            if (txtAddress.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txtAddress.Text))
             {
                 TextBoxController.Placeholder(txtAddress, enterAddress);
             }

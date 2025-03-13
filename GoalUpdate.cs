@@ -12,15 +12,10 @@ namespace FitnessTracker
 {
     public partial class GoalUpdate : Form
     {
-        FitnessTrackerDatasetTableAdapters.UsersTableAdapter objUser = new FitnessTrackerDatasetTableAdapters.UsersTableAdapter();
-        DataTable userDta = new DataTable();
-
         FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter objActivity = new FitnessTrackerDatasetTableAdapters.ActivitiesTableAdapter();
         DataTable activityDta = new DataTable();
 
         FitnessTrackerDatasetTableAdapters.TrackerTableAdapter objTracker = new FitnessTrackerDatasetTableAdapters.TrackerTableAdapter();
-        DataTable trackerDta = new DataTable();
-
 
         public string TrackerID { set; get; }
         public string UserID { set; get; }
@@ -74,7 +69,7 @@ namespace FitnessTracker
             txtTrackName.Text = TrackerName;
             dtpGoalDate.Value = TrackDate;
 
-            DataTable activityDta = objActivity.GetData();
+            activityDta = objActivity.GetData();
             cboAct.DataSource = activityDta;
             cboAct.ValueMember = "ActID";
             cboAct.DisplayMember = "ActName";

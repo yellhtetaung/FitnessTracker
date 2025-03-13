@@ -48,7 +48,7 @@ namespace FitnessTracker
 
         private void UpdateTrainer_Load(object sender, EventArgs e)
         {
-            if (TrainerID != null)
+            if (!string.IsNullOrEmpty(TrainerID))
             {
                 lblID.Text = TrainerID;
             }
@@ -57,7 +57,7 @@ namespace FitnessTracker
                 lblID.Text = "";
             }
 
-            if (FullName != null)
+            if (!string.IsNullOrEmpty(FullName))
             {
                 txtFullName.Text = FullName;
             }
@@ -66,7 +66,7 @@ namespace FitnessTracker
                 TextBoxController.Placeholder(txtFullName, enterYourFullName);
             }
 
-            if (Username != null)
+            if (!string.IsNullOrEmpty(Username))
             {
                 txtUsername.Text = Username;
             }
@@ -75,7 +75,7 @@ namespace FitnessTracker
                 TextBoxController.Placeholder(txtUsername, enterUsername);
             }
 
-            if (Email != null)
+            if (!string.IsNullOrEmpty(Email))
             {
                 txtEmail.Text = Email;
             }
@@ -84,7 +84,7 @@ namespace FitnessTracker
                 TextBoxController.Placeholder(txtEmail, enterEmail);
             }
 
-            if (Password != null)
+            if (!string.IsNullOrEmpty(Password))
             {
                 txtPassword.Text = Password;
                 txtPassword.UseSystemPasswordChar = !chkPassword.Checked;
@@ -94,7 +94,7 @@ namespace FitnessTracker
                 TextBoxController.Placeholder(txtPassword, enterYourPassword);
             }
 
-            if (PhoneNumber != null)
+            if (!string.IsNullOrEmpty(PhoneNumber))
             {
                 txtPhone.Text = PhoneNumber;
             }
@@ -103,7 +103,7 @@ namespace FitnessTracker
                 TextBoxController.Placeholder(txtPhone, enterPhoneNumber);
             }
 
-            if (Address != null)
+            if (!string.IsNullOrEmpty(Address))
             {
                 txtAddress.Text = Address;
             }
@@ -157,12 +157,12 @@ namespace FitnessTracker
 
             try
             {
-                if (txtFullName.Text == enterYourFullName || txtFullName.Text.Trim() == "")
+                if (string.Equals(txtFullName.Text, enterYourFullName) || string.IsNullOrWhiteSpace(txtFullName.Text))
                 {
                     MessageBox.Show("Please enter your full name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtFullName.Focus();
                 }
-                else if (txtUsername.Text == enterUsername || txtUsername.Text.Trim() == "")
+                else if (string.Equals(txtUsername.Text, enterUsername) || string.IsNullOrWhiteSpace(txtUsername.Text))
                 {
                     MessageBox.Show("Please enter your username.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtUsername.Focus();
@@ -182,7 +182,7 @@ namespace FitnessTracker
                     MessageBox.Show(errorMessage, "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtUsername.Focus();
                 }
-                else if (txtEmail.Text == enterEmail || txtEmail.Text.Trim() == "")
+                else if (string.Equals(txtEmail.Text, enterEmail) || string.IsNullOrWhiteSpace(txtEmail.Text))
                 {
                     MessageBox.Show("Please enter your email address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtEmail.Focus();
@@ -192,17 +192,17 @@ namespace FitnessTracker
                     MessageBox.Show("Invalid your email address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtEmail.Focus();
                 }
-                else if (txtPassword.Text == enterYourPassword || txtPassword.Text.Trim() == "")
+                else if (string.Equals(txtPassword.Text, enterYourPassword) || string.IsNullOrWhiteSpace(txtPassword.Text))
                 {
                     MessageBox.Show("Please enter your password.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPassword.Focus();
                 }
-                else if (txtPhone.Text == enterPhoneNumber || txtPhone.Text.Trim() == "")
+                else if (string.Equals(txtPhone.Text, enterPhoneNumber) || string.IsNullOrWhiteSpace(txtPhone.Text))
                 {
                     MessageBox.Show("Please enter your phone number.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPhone.Focus();
                 }
-                else if (txtAddress.Text == enterAddress || txtAddress.Text.Trim() == "")
+                else if (string.Equals(txtAddress.Text, enterAddress) || string.IsNullOrWhiteSpace(txtAddress.Text))
                 {
                     MessageBox.Show("Please enter your address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtAddress.Focus();

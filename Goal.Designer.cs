@@ -110,6 +110,7 @@ namespace FitnessTracker
             // 
             // cboAct
             // 
+            this.cboAct.DisplayMember = "ActID";
             this.cboAct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAct.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboAct.FormattingEnabled = true;
@@ -213,6 +214,8 @@ namespace FitnessTracker
             this.txtSetGoal.Size = new System.Drawing.Size(274, 15);
             this.txtSetGoal.TabIndex = 1;
             this.txtSetGoal.WordWrap = false;
+            this.txtSetGoal.Enter += new System.EventHandler(this.txtSetGoal_Enter);
+            this.txtSetGoal.Leave += new System.EventHandler(this.txtSetGoal_Leave);
             // 
             // label1
             // 
@@ -401,6 +404,8 @@ namespace FitnessTracker
             this.txtTrackName.Size = new System.Drawing.Size(274, 15);
             this.txtTrackName.TabIndex = 1;
             this.txtTrackName.WordWrap = false;
+            this.txtTrackName.Enter += new System.EventHandler(this.txtTrackName_Enter);
+            this.txtTrackName.Leave += new System.EventHandler(this.txtTrackName_Leave);
             // 
             // btnClear
             // 

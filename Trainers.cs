@@ -140,7 +140,8 @@ namespace FitnessTracker
 
         private void txtFilter_Enter(object sender, EventArgs e)
         {
-            if (txtFilter.Text == enterFullName || txtFilter.Text == enterUsername || txtFilter.Text == enterEmail || txtFilter.Text == enterPhone || txtFilter.Text == enterAddress)
+            bool isShowingPlaceholder = string.Equals(txtFilter.Text, enterFullName) || string.Equals(txtFilter.Text, enterUsername) || string.Equals(txtFilter.Text, enterEmail) || string.Equals(txtFilter.Text, enterPhone) || string.Equals(txtFilter.Text, enterAddress);
+            if (isShowingPlaceholder)
             {
                 TextBoxController.Placeholder(txtFilter, "", Color.Black);
             }
@@ -148,7 +149,7 @@ namespace FitnessTracker
 
         private void txtFilter_Leave(object sender, EventArgs e)
         {
-            if (txtFilter.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txtFilter.Text))
             {
                 filterValueChangedHandler(cboFilterBy.SelectedIndex);
             }
@@ -162,8 +163,8 @@ namespace FitnessTracker
                 {
                     if (cboFilterBy.SelectedIndex != ((int)FilterByValues.DOB))
                     {
-                        bool isShowingPlaceholder = txtFilter.Text == enterFullName || txtFilter.Text == enterUsername || txtFilter.Text == enterEmail || txtFilter.Text == enterPhone || txtFilter.Text == enterAddress;
-                        if (isShowingPlaceholder || txtFilter.Text.Trim() == "")
+                        bool isShowingPlaceholder = string.Equals(txtFilter.Text, enterFullName) || string.Equals(txtFilter.Text, enterUsername) || string.Equals(txtFilter.Text, enterEmail) || string.Equals(txtFilter.Text, enterPhone) || string.Equals(txtFilter.Text, enterAddress);
+                        if (isShowingPlaceholder || string.IsNullOrWhiteSpace(txtFilter.Text))
                         {
                             MessageBox.Show("Please enter filter value", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             txtFilter.Focus();

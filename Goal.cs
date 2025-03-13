@@ -19,6 +19,13 @@ namespace FitnessTracker
         DataTable trackerDta = new DataTable();
 
         private readonly Track trackForm;
+        private readonly string enterTrackName = "Enter track name";
+        private readonly string enterSetGoal = "Enter set goal";
+
+        public Goal()
+        {
+            InitializeComponent();
+        }
 
         public Goal(Track track)
         {
@@ -72,6 +79,9 @@ namespace FitnessTracker
             ActivityChangeHandler();
 
             dtpGoalDate.MinDate = DateTime.Today;
+
+            TextBoxController.Placeholder(txtTrackName, enterTrackName);
+            TextBoxController.Placeholder(txtSetGoal, enterSetGoal);
         }
 
         private void cboAct_SelectedIndexChanged(object sender, EventArgs e)
@@ -83,12 +93,12 @@ namespace FitnessTracker
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtTrackName.Text))
+                if (string.Equals(txtTrackName.Text, enterTrackName) || string.IsNullOrWhiteSpace(txtTrackName.Text))
                 {
                     MessageBox.Show("Please enter track name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtTrackName.Focus();
                 }
-                else if (string.IsNullOrWhiteSpace(txtSetGoal.Text))
+                else if (string.Equals(txtSetGoal.Text, enterSetGoal) || string.IsNullOrWhiteSpace(txtSetGoal.Text))
                 {
                     MessageBox.Show("Please enter your goal.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtSetGoal.Focus();
@@ -101,7 +111,10 @@ namespace FitnessTracker
                     {
                         MessageBox.Show("Goal has been defined successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Hide();
-                        trackForm.RefreshDataGridView();
+                        if (trackForm != null)
+                        {
+                            trackForm.RefreshDataGridView();
+                        }
                     }
                 }
             }
@@ -116,6 +129,38 @@ namespace FitnessTracker
             dtpGoalDate.Value = DateTime.Today;
             txtSetGoal.Text = "";
             cboAct.SelectedIndex = 0;
+        }
+
+        private void txtTrackName_Enter(object sender, EventArgs e)
+        {
+            if (string.Equals(txtTrackName.Text, enterTrackName))
+            {
+                TextBoxController.Placeholder(txtTrackName, "", Color.Black);
+            }
+        }
+
+        private void txtTrackName_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtTrackName.Text))
+            {
+                TextBoxController.Placeholder(txtTrackName, enterTrackName);
+            }
+        }
+
+        private void txtSetGoal_Enter(object sender, EventArgs e)
+        {
+            if (string.Equals(txtSetGoal.Text, enterSetGoal))
+            {
+                TextBoxController.Placeholder(txtSetGoal, "", Color.Black);
+            }
+        }
+
+        private void txtSetGoal_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSetGoal.Text))
+            {
+                TextBoxController.Placeholder(txtSetGoal, enterSetGoal);
+            }
         }
     }
 }

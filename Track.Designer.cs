@@ -37,6 +37,7 @@ namespace FitnessTracker
             this.walkingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.swimmingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addGoalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvTrack = new System.Windows.Forms.DataGridView();
@@ -56,12 +57,12 @@ namespace FitnessTracker
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCalculate = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtCalBurn = new System.Windows.Forms.Label();
-            this.btnGoal = new System.Windows.Forms.Button();
+            this.lblCalBurn = new System.Windows.Forms.Label();
             this.cmsTrack = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnClear = new System.Windows.Forms.Button();
             this.menuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrack)).BeginInit();
             this.panelFullName.SuspendLayout();
@@ -78,6 +79,7 @@ namespace FitnessTracker
             this.homeToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.trackerToolStripMenuItem,
+            this.addGoalToolStripMenuItem,
             this.searchToolStripMenuItem,
             this.logOutToolStripMenuItem});
             this.menuAdmin.Location = new System.Drawing.Point(0, 0);
@@ -124,6 +126,14 @@ namespace FitnessTracker
             this.trackerToolStripMenuItem.Name = "trackerToolStripMenuItem";
             this.trackerToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.trackerToolStripMenuItem.Text = "Tracker";
+            // 
+            // addGoalToolStripMenuItem
+            // 
+            this.addGoalToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addGoalToolStripMenuItem.Image")));
+            this.addGoalToolStripMenuItem.Name = "addGoalToolStripMenuItem";
+            this.addGoalToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.addGoalToolStripMenuItem.Text = "Add Goal";
+            this.addGoalToolStripMenuItem.Click += new System.EventHandler(this.addGoalToolStripMenuItem_Click);
             // 
             // searchToolStripMenuItem
             // 
@@ -229,11 +239,11 @@ namespace FitnessTracker
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(285, 174);
+            this.label3.Location = new System.Drawing.Point(297, 174);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 16);
+            this.label3.Size = new System.Drawing.Size(132, 16);
             this.label3.TabIndex = 55;
-            this.label3.Text = "Average Heart Range";
+            this.label3.Text = "Average Heart Rate";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelFullName
@@ -258,6 +268,8 @@ namespace FitnessTracker
             this.txtMet.Size = new System.Drawing.Size(274, 15);
             this.txtMet.TabIndex = 1;
             this.txtMet.WordWrap = false;
+            this.txtMet.Enter += new System.EventHandler(this.txtMet_Enter);
+            this.txtMet.Leave += new System.EventHandler(this.txtMet_Leave);
             // 
             // panel1
             // 
@@ -281,6 +293,8 @@ namespace FitnessTracker
             this.txtTime.Size = new System.Drawing.Size(274, 15);
             this.txtTime.TabIndex = 1;
             this.txtTime.WordWrap = false;
+            this.txtTime.Enter += new System.EventHandler(this.txtTime_Enter);
+            this.txtTime.Leave += new System.EventHandler(this.txtTime_Leave);
             // 
             // panel2
             // 
@@ -304,13 +318,15 @@ namespace FitnessTracker
             this.txtAHR.Size = new System.Drawing.Size(274, 15);
             this.txtAHR.TabIndex = 1;
             this.txtAHR.WordWrap = false;
+            this.txtAHR.Enter += new System.EventHandler(this.txtAHR_Enter);
+            this.txtAHR.Leave += new System.EventHandler(this.txtAHR_Leave);
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnSave.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(620, 297);
+            this.btnSave.Location = new System.Drawing.Point(619, 297);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 35);
             this.btnSave.TabIndex = 59;
@@ -323,7 +339,7 @@ namespace FitnessTracker
             this.btnCalculate.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnCalculate.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalculate.ForeColor = System.Drawing.Color.White;
-            this.btnCalculate.Location = new System.Drawing.Point(478, 297);
+            this.btnCalculate.Location = new System.Drawing.Point(476, 297);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(120, 35);
             this.btnCalculate.TabIndex = 60;
@@ -342,28 +358,15 @@ namespace FitnessTracker
             this.label4.Text = "Burned total calories";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txtCalBurn
+            // lblCalBurn
             // 
-            this.txtCalBurn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCalBurn.Location = new System.Drawing.Point(440, 250);
-            this.txtCalBurn.Name = "txtCalBurn";
-            this.txtCalBurn.Size = new System.Drawing.Size(300, 16);
-            this.txtCalBurn.TabIndex = 62;
-            this.txtCalBurn.Text = "0";
-            this.txtCalBurn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // btnGoal
-            // 
-            this.btnGoal.BackColor = System.Drawing.Color.Gold;
-            this.btnGoal.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGoal.ForeColor = System.Drawing.Color.Black;
-            this.btnGoal.Location = new System.Drawing.Point(336, 297);
-            this.btnGoal.Name = "btnGoal";
-            this.btnGoal.Size = new System.Drawing.Size(120, 35);
-            this.btnGoal.TabIndex = 63;
-            this.btnGoal.Text = "Add Goal";
-            this.btnGoal.UseVisualStyleBackColor = false;
-            this.btnGoal.Click += new System.EventHandler(this.btnGoal_Click);
+            this.lblCalBurn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCalBurn.Location = new System.Drawing.Point(440, 250);
+            this.lblCalBurn.Name = "lblCalBurn";
+            this.lblCalBurn.Size = new System.Drawing.Size(300, 16);
+            this.lblCalBurn.TabIndex = 62;
+            this.lblCalBurn.Text = "0";
+            this.lblCalBurn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cmsTrack
             // 
@@ -396,13 +399,26 @@ namespace FitnessTracker
             this.removeAllToolStripMenuItem.Text = "Remove All";
             this.removeAllToolStripMenuItem.Click += new System.EventHandler(this.removeAllToolStripMenuItem_Click);
             // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.Red;
+            this.btnClear.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(333, 297);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(120, 35);
+            this.btnClear.TabIndex = 63;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // Track
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 587);
-            this.Controls.Add(this.btnGoal);
-            this.Controls.Add(this.txtCalBurn);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.lblCalBurn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.btnSave);
@@ -463,16 +479,17 @@ namespace FitnessTracker
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCalculate;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label txtCalBurn;
+        private System.Windows.Forms.Label lblCalBurn;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem walkingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem swimmingToolStripMenuItem;
-        private System.Windows.Forms.Button btnGoal;
         private System.Windows.Forms.ContextMenuStrip cmsTrack;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeAllToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn activityIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addGoalToolStripMenuItem;
+        private System.Windows.Forms.Button btnClear;
     }
 }

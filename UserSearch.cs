@@ -116,6 +116,9 @@ namespace FitnessTracker
             cboActivity.ValueMember = "ActID";
             cboActivity.DisplayMember = "ActName";
 
+            dtpStartDate.Value = DateTime.Today;
+            dtpEndDate.Value = DateTime.Today;
+
             for (int key = 0; key < dgvTrack.ColumnCount; key++)
             {
                 if (key > 0)
@@ -184,8 +187,8 @@ namespace FitnessTracker
                 {
                     if (cboFilterBy.SelectedIndex == (int)FilterByValues.Goal || cboFilterBy.SelectedIndex == (int)FilterByValues.TrackName)
                     {
-                        var isShowingPlaceholder = txtFilter.Text == enterGoal || txtFilter.Text == enterTrackName;
-                        if (txtFilter.Text.Trim() == "" || isShowingPlaceholder)
+                        var isShowingPlaceholder = string.Equals(txtFilter.Text, enterTrackName) || string.Equals(txtFilter.Text, enterGoal);
+                        if (string.IsNullOrWhiteSpace(txtFilter.Text) || isShowingPlaceholder)
                         {
                             if (cboFilterBy.SelectedIndex == (int)FilterByValues.Goal)
                             {
@@ -262,6 +265,21 @@ namespace FitnessTracker
             TextBoxController.Placeholder(txtFilter, enterTrackName);
             cboActivity.SelectedIndex = 0;
             cboTrackStatus.SelectedIndex = 0;
+            dtpStartDate.Value = DateTime.Today;
+            dtpStartDate.MinDate = new DateTime(1753, 1, 1);
+            dtpEndDate.Value = DateTime.Today;
+            dtpEndDate.MinDate = new DateTime(1753, 1, 1);
+        }
+
+        private void dtpStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            dtpEndDate.MinDate = dtpStartDate.Value;
+        }
+
+        private void addGoalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Goal goal = new Goal();
+            goal.Show();
         }
     }
 }

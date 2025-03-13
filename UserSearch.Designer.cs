@@ -40,10 +40,7 @@ namespace FitnessTracker
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvTrack = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panelSearchText = new System.Windows.Forms.Panel();
-            this.txtFilter = new System.Windows.Forms.TextBox();
             this.cboActivity = new System.Windows.Forms.ComboBox();
-            this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.cboFilterBy = new System.Windows.Forms.ComboBox();
@@ -54,12 +51,16 @@ namespace FitnessTracker
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.panelSearchText = new System.Windows.Forms.Panel();
+            this.txtFilter = new System.Windows.Forms.TextBox();
+            this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
+            this.addGoalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrack)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.panelDate.SuspendLayout();
             this.panelSearchText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).BeginInit();
-            this.panelDate.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuUser
@@ -70,6 +71,7 @@ namespace FitnessTracker
             this.homeToolStripMenuItem,
             this.activitiesToolStripMenuItem,
             this.trackerToolStripMenuItem,
+            this.addGoalToolStripMenuItem,
             this.searchToolStripMenuItem,
             this.logOutToolStripMenuItem});
             this.menuUser.Location = new System.Drawing.Point(0, 0);
@@ -152,7 +154,6 @@ namespace FitnessTracker
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.panelSearchText);
             this.groupBox1.Controls.Add(this.cboActivity);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.btnReset);
@@ -160,6 +161,7 @@ namespace FitnessTracker
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cboTrackStatus);
             this.groupBox1.Controls.Add(this.panelDate);
+            this.groupBox1.Controls.Add(this.panelSearchText);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold);
             this.groupBox1.Location = new System.Drawing.Point(12, 47);
             this.groupBox1.Name = "groupBox1";
@@ -168,31 +170,9 @@ namespace FitnessTracker
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search Tracker";
             // 
-            // panelSearchText
-            // 
-            this.panelSearchText.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panelSearchText.Controls.Add(this.txtFilter);
-            this.panelSearchText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelSearchText.Location = new System.Drawing.Point(146, 22);
-            this.panelSearchText.Name = "panelSearchText";
-            this.panelSearchText.Size = new System.Drawing.Size(390, 30);
-            this.panelSearchText.TabIndex = 56;
-            // 
-            // txtFilter
-            // 
-            this.txtFilter.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFilter.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFilter.ForeColor = System.Drawing.Color.Black;
-            this.txtFilter.Location = new System.Drawing.Point(12, 8);
-            this.txtFilter.Name = "txtFilter";
-            this.txtFilter.Size = new System.Drawing.Size(375, 15);
-            this.txtFilter.TabIndex = 2;
-            this.txtFilter.WordWrap = false;
-            this.txtFilter.Enter += new System.EventHandler(this.txtFilter_Enter);
-            // 
             // cboActivity
             // 
+            this.cboActivity.DisplayMember = "ActID";
             this.cboActivity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboActivity.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboActivity.FormattingEnabled = true;
@@ -201,11 +181,6 @@ namespace FitnessTracker
             this.cboActivity.Size = new System.Drawing.Size(121, 24);
             this.cboActivity.TabIndex = 59;
             this.cboActivity.ValueMember = "ActID";
-            // 
-            // fitnessTrackerDataset
-            // 
-            this.fitnessTrackerDataset.DataSetName = "FitnessTrackerDataset";
-            this.fitnessTrackerDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnSearch
             // 
@@ -304,6 +279,7 @@ namespace FitnessTracker
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(136, 22);
             this.dtpStartDate.TabIndex = 62;
+            this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
             // 
             // label2
             // 
@@ -325,6 +301,42 @@ namespace FitnessTracker
             this.label3.TabIndex = 61;
             this.label3.Text = "End Date";
             // 
+            // panelSearchText
+            // 
+            this.panelSearchText.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelSearchText.Controls.Add(this.txtFilter);
+            this.panelSearchText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelSearchText.Location = new System.Drawing.Point(146, 22);
+            this.panelSearchText.Name = "panelSearchText";
+            this.panelSearchText.Size = new System.Drawing.Size(390, 30);
+            this.panelSearchText.TabIndex = 56;
+            // 
+            // txtFilter
+            // 
+            this.txtFilter.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtFilter.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtFilter.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFilter.ForeColor = System.Drawing.Color.Black;
+            this.txtFilter.Location = new System.Drawing.Point(12, 8);
+            this.txtFilter.Name = "txtFilter";
+            this.txtFilter.Size = new System.Drawing.Size(375, 15);
+            this.txtFilter.TabIndex = 2;
+            this.txtFilter.WordWrap = false;
+            this.txtFilter.Enter += new System.EventHandler(this.txtFilter_Enter);
+            // 
+            // fitnessTrackerDataset
+            // 
+            this.fitnessTrackerDataset.DataSetName = "FitnessTrackerDataset";
+            this.fitnessTrackerDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // addGoalToolStripMenuItem
+            // 
+            this.addGoalToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addGoalToolStripMenuItem.Image")));
+            this.addGoalToolStripMenuItem.Name = "addGoalToolStripMenuItem";
+            this.addGoalToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.addGoalToolStripMenuItem.Text = "Add Goal";
+            this.addGoalToolStripMenuItem.Click += new System.EventHandler(this.addGoalToolStripMenuItem_Click);
+            // 
             // UserSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -344,11 +356,11 @@ namespace FitnessTracker
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrack)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panelDate.ResumeLayout(false);
+            this.panelDate.PerformLayout();
             this.panelSearchText.ResumeLayout(false);
             this.panelSearchText.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessTrackerDataset)).EndInit();
-            this.panelDate.ResumeLayout(false);
-            this.panelDate.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -380,5 +392,6 @@ namespace FitnessTracker
         private System.Windows.Forms.ComboBox cboActivity;
         private System.Windows.Forms.DateTimePicker dtpEndDate;
         private System.Windows.Forms.DateTimePicker dtpStartDate;
+        private System.Windows.Forms.ToolStripMenuItem addGoalToolStripMenuItem;
     }
 }

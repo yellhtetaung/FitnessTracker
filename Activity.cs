@@ -85,22 +85,22 @@ namespace FitnessTracker
         {
             try
             {
-                if (txtActivityName.Text == enterActivityName || txtActivityName.Text.Trim() == "")
+                if (string.Equals(txtActivityName.Text, enterActivityName) || string.IsNullOrWhiteSpace(txtActivityName.Text))
                 {
                     MessageBox.Show("Please enter activity name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtActivityName.Focus();
                 }
-                else if (txtMetricOne.Text == enterMetricOne || txtMetricOne.Text.Trim() == "")
+                else if (string.Equals(txtMetricOne.Text, enterMetricOne) || string.IsNullOrWhiteSpace(txtMetricOne.Text))
                 {
                     MessageBox.Show("Please enter Metric One.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMetricOne.Focus();
                 }
-                else if (txtMetricTwo.Text == enterMetricTwo || txtMetricTwo.Text.Trim() == "")
+                else if (string.Equals(txtMetricTwo.Text, enterMetricTwo) || string.IsNullOrWhiteSpace(txtMetricTwo.Text))
                 {
                     MessageBox.Show("Please enter Metric Two.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMetricTwo.Focus();
                 }
-                else if (txtMetricThree.Text == enterMetricThree || txtMetricThree.Text.Trim() == "")
+                else if (string.Equals(txtMetricThree.Text, enterMetricThree) || string.IsNullOrWhiteSpace(txtMetricThree.Text))
                 {
                     MessageBox.Show("Please enter Metric Three.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMetricThree.Focus();
@@ -212,7 +212,7 @@ namespace FitnessTracker
 
         private void txtActivityName_Enter(object sender, EventArgs e)
         {
-            if (txtActivityName.Text == enterActivityName)
+            if (string.Equals(txtActivityName.Text, enterActivityName))
             {
                 TextBoxController.Placeholder(txtActivityName, "", Color.Black);
             }
@@ -220,7 +220,7 @@ namespace FitnessTracker
 
         private void txtActivityName_Leave(object sender, EventArgs e)
         {
-            if (txtActivityName.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txtActivityName.Text))
             {
                 TextBoxController.Placeholder(txtActivityName, enterActivityName);
             }
@@ -228,7 +228,7 @@ namespace FitnessTracker
 
         private void txtMetricOne_Enter(object sender, EventArgs e)
         {
-            if (txtMetricOne.Text == enterMetricOne)
+            if (string.Equals(txtMetricOne.Text, enterMetricOne))
             {
                 TextBoxController.Placeholder(txtMetricOne, "", Color.Black);
             }
@@ -236,7 +236,7 @@ namespace FitnessTracker
 
         private void txtMetricOne_Leave(object sender, EventArgs e)
         {
-            if (txtMetricOne.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txtMetricOne.Text))
             {
                 TextBoxController.Placeholder(txtMetricOne, enterMetricOne);
             }
@@ -244,7 +244,7 @@ namespace FitnessTracker
 
         private void txtMetricTwo_Enter(object sender, EventArgs e)
         {
-            if (txtMetricTwo.Text == enterMetricTwo)
+            if (string.Equals(txtMetricTwo.Text, enterMetricTwo))
             {
                 TextBoxController.Placeholder(txtMetricTwo, "", Color.Black);
             }
@@ -252,7 +252,7 @@ namespace FitnessTracker
 
         private void txtMetricTwo_Leave(object sender, EventArgs e)
         {
-            if (txtMetricTwo.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txtMetricTwo.Text))
             {
                 TextBoxController.Placeholder(txtMetricTwo, enterMetricTwo);
             }
@@ -260,7 +260,7 @@ namespace FitnessTracker
 
         private void txtMetricThree_Enter(object sender, EventArgs e)
         {
-            if (txtMetricThree.Text == enterMetricThree)
+            if (string.Equals(txtMetricThree.Text, enterMetricThree))
             {
                 TextBoxController.Placeholder(txtMetricThree, "", Color.Black);
             }
@@ -268,7 +268,7 @@ namespace FitnessTracker
 
         private void txtMetricThree_Leave(object sender, EventArgs e)
         {
-            if (txtMetricThree.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txtMetricThree.Text))
             {
                 TextBoxController.Placeholder(txtMetricThree, enterMetricThree);
             }

@@ -93,6 +93,8 @@ namespace FitnessTracker
             this.txtUsername.Size = new System.Drawing.Size(383, 15);
             this.txtUsername.TabIndex = 2;
             this.txtUsername.WordWrap = false;
+            this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
+            this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
             // 
             // panelPassword
             // 
@@ -115,8 +117,10 @@ namespace FitnessTracker
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(383, 15);
             this.txtPassword.TabIndex = 4;
-            this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.WordWrap = false;
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyUp);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // chkPassword
             // 
@@ -226,6 +230,7 @@ namespace FitnessTracker
             this.Name = "UserLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.UserLogin_Load);
             this.panelUsername.ResumeLayout(false);
             this.panelUsername.PerformLayout();
             this.panelPassword.ResumeLayout(false);

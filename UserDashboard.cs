@@ -85,5 +85,11 @@ namespace FitnessTracker
             this.FetchUserInformation();
             this.FetchTrackStatus();
         }
+
+        private void addGoalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Goal goal = new Goal();
+            goal.Show();
+        }
     }
 }

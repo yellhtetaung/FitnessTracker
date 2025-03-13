@@ -74,6 +74,8 @@ namespace FitnessTracker
             this.txtActivityName.Size = new System.Drawing.Size(357, 15);
             this.txtActivityName.TabIndex = 2;
             this.txtActivityName.WordWrap = false;
+            this.txtActivityName.Enter += new System.EventHandler(this.txtActivityName_Enter);
+            this.txtActivityName.Leave += new System.EventHandler(this.txtActivityName_Leave);
             // 
             // lblActivityName
             // 
@@ -131,6 +133,8 @@ namespace FitnessTracker
             this.txtMetricOne.Size = new System.Drawing.Size(354, 15);
             this.txtMetricOne.TabIndex = 2;
             this.txtMetricOne.WordWrap = false;
+            this.txtMetricOne.Enter += new System.EventHandler(this.txtMetricOne_Enter);
+            this.txtMetricOne.Leave += new System.EventHandler(this.txtMetricOne_Leave);
             // 
             // lblMetricOne
             // 
@@ -167,6 +171,8 @@ namespace FitnessTracker
             this.txtMetricTwo.Size = new System.Drawing.Size(354, 15);
             this.txtMetricTwo.TabIndex = 2;
             this.txtMetricTwo.WordWrap = false;
+            this.txtMetricTwo.Enter += new System.EventHandler(this.txtMetricTwo_Enter);
+            this.txtMetricTwo.Leave += new System.EventHandler(this.txtMetricTwo_Leave);
             // 
             // lblMetricTwo
             // 
@@ -203,6 +209,8 @@ namespace FitnessTracker
             this.txtMetricThree.Size = new System.Drawing.Size(354, 15);
             this.txtMetricThree.TabIndex = 2;
             this.txtMetricThree.WordWrap = false;
+            this.txtMetricThree.Enter += new System.EventHandler(this.txtMetricThree_Enter);
+            this.txtMetricThree.Leave += new System.EventHandler(this.txtMetricThree_Leave);
             // 
             // lblMetricThree
             // 

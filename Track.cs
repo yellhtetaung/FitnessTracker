@@ -16,6 +16,9 @@ namespace FitnessTracker
         DataTable trackerDta = new DataTable();
 
         private int rowIndex = 0;
+        private readonly string enterMet = "Enter met";
+        private readonly string enterTime = "Enter time";
+        private readonly string enterAHR = "Enter average heart rate";
 
         public Track()
         {
@@ -50,6 +53,13 @@ namespace FitnessTracker
             dgvTrack.Refresh();
         }
 
+        private void ShowAllPlaceholder()
+        {
+            TextBoxController.Placeholder(txtMet, enterMet);
+            TextBoxController.Placeholder(txtTime, enterTime);
+            TextBoxController.Placeholder(txtTime, enterAHR);
+        }
+
         private void Track_Load(object sender, EventArgs e)
         {
             this.FetchDataGridView();
@@ -70,17 +80,17 @@ namespace FitnessTracker
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-            if (txtMet.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txtMet.Text))
             {
                 MessageBox.Show("Please enter met.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMet.Focus();
             }
-            else if (txtTime.Text.Trim() == "")
+            else if (string.IsNullOrWhiteSpace(txtTime.Text))
             {
                 MessageBox.Show("Please enter time.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTime.Focus();
             }
-            else if (txtAHR.Text.Trim() == "")
+            else if (string.IsNullOrWhiteSpace(txtAHR.Text))
             {
                 MessageBox.Show("Please enter average heart rate.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtAHR.Focus();
@@ -88,11 +98,11 @@ namespace FitnessTracker
             else
             {
                 int met = Convert.ToInt32(txtMet.Text);
-                int AvgHeartRange = Convert.ToInt32(txtAHR.Text);
+                int AvgHeartRate = Convert.ToInt32(txtAHR.Text);
                 int time = Convert.ToInt32(txtTime.Text);
 
-                int result = met * AvgHeartRange * time;
-                txtCalBurn.Text = Convert.ToString(result);
+                int result = met * AvgHeartRate * time;
+                lblCalBurn.Text = Convert.ToString(result);
             }
         }
 
@@ -102,9 +112,9 @@ namespace FitnessTracker
 
             try
             {
-                if (Convert.ToInt32(txtCalBurn.Text) >= goal)
+                if (Convert.ToInt32(lblCalBurn.Text) >= goal)
                 {
-                    objTracker.UpdateTrackerStatusAndTotalCal("Complete", Convert.ToInt32(txtCalBurn.Text), lblTrackID.Text);
+                    objTracker.UpdateTrackerStatusAndTotalCal("Complete", Convert.ToInt32(lblCalBurn.Text), lblTrackID.Text);
                     MessageBox.Show("Your goal has been reached.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     this.RefreshDataGridView();
@@ -115,7 +125,7 @@ namespace FitnessTracker
 
                     if (result == DialogResult.OK)
                     {
-                        objTracker.UpdateTrackerStatusAndTotalCal("Fail", Convert.ToInt32(txtCalBurn.Text), lblTrackID.Text);
+                        objTracker.UpdateTrackerStatusAndTotalCal("Fail", Convert.ToInt32(lblCalBurn.Text), lblTrackID.Text);
                         this.RefreshDataGridView();
                     }
                 }
@@ -124,12 +134,6 @@ namespace FitnessTracker
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void btnGoal_Click(object sender, EventArgs e)
-        {
-            Goal goal = new Goal(this);
-            goal.Show();
         }
 
         private void dgvTrack_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -279,6 +283,68 @@ namespace FitnessTracker
             UserSearch userSearch = new UserSearch();
             this.Hide();
             userSearch.Show();
+        }
+
+        private void txtMet_Enter(object sender, EventArgs e)
+        {
+            if (string.Equals(txtMet.Text, enterMet))
+            {
+                TextBoxController.Placeholder(txtMet, "", Color.Black);
+            }
+        }
+
+        private void txtMet_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMet.Text))
+            {
+                TextBoxController.Placeholder(txtMet, enterMet);
+            }
+        }
+
+        private void txtTime_Enter(object sender, EventArgs e)
+        {
+            if (string.Equals(txtTime.Text, enterTime))
+            {
+                TextBoxController.Placeholder(txtTime, "", Color.Black);
+            }
+        }
+
+        private void txtTime_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtTime.Text))
+            {
+                TextBoxController.Placeholder(txtTime, enterTime);
+            }
+        }
+
+        private void txtAHR_Enter(object sender, EventArgs e)
+        {
+            if (string.Equals(txtAHR.Text, enterAHR))
+            {
+                TextBoxController.Placeholder(txtAHR, "", Color.Black);
+            }
+        }
+
+        private void txtAHR_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtAHR.Text))
+            {
+                TextBoxController.Placeholder(txtAHR, enterAHR);
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            lblTrackID.Text = "-";
+            lblGoal.Text = "0";
+            lblCalBurn.Text = "0";
+            this.ShowAllPlaceholder();
+        }
+
+        private void addGoalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Goal goal = new Goal(this);
+            goal.Show();
         }
     }
 }

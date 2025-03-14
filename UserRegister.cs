@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FitnessTracker
@@ -37,7 +32,7 @@ namespace FitnessTracker
             lblID.Text = Constant.AutoID(userDta, 'U');
         }
 
-        private void ShowAllPlaceholder ()
+        private void ShowAllPlaceholder()
         {
             TextBoxController.Placeholder(txtFullName, enterYourFullName);
             TextBoxController.Placeholder(txtUsername, enterUsername);

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FitnessTracker
@@ -78,6 +72,7 @@ namespace FitnessTracker
             {
                 if (string.Equals(activityDta.Rows[index]["ActID"], ActivityID))
                 {
+                    Console.WriteLine(index);
                     cboAct.SelectedIndex = index;
                 }
             }

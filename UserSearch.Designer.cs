@@ -36,6 +36,7 @@ namespace FitnessTracker
             this.walkingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.swimmingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addGoalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvTrack = new System.Windows.Forms.DataGridView();
@@ -54,7 +55,6 @@ namespace FitnessTracker
             this.panelSearchText = new System.Windows.Forms.Panel();
             this.txtFilter = new System.Windows.Forms.TextBox();
             this.fitnessTrackerDataset = new FitnessTracker.FitnessTrackerDataset();
-            this.addGoalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrack)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -120,6 +120,14 @@ namespace FitnessTracker
             this.trackerToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.trackerToolStripMenuItem.Text = "Tracker";
             this.trackerToolStripMenuItem.Click += new System.EventHandler(this.trackerToolStripMenuItem_Click);
+            // 
+            // addGoalToolStripMenuItem
+            // 
+            this.addGoalToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addGoalToolStripMenuItem.Image")));
+            this.addGoalToolStripMenuItem.Name = "addGoalToolStripMenuItem";
+            this.addGoalToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.addGoalToolStripMenuItem.Text = "Add Goal";
+            this.addGoalToolStripMenuItem.Click += new System.EventHandler(this.addGoalToolStripMenuItem_Click);
             // 
             // searchToolStripMenuItem
             // 
@@ -329,14 +337,6 @@ namespace FitnessTracker
             this.fitnessTrackerDataset.DataSetName = "FitnessTrackerDataset";
             this.fitnessTrackerDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // addGoalToolStripMenuItem
-            // 
-            this.addGoalToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addGoalToolStripMenuItem.Image")));
-            this.addGoalToolStripMenuItem.Name = "addGoalToolStripMenuItem";
-            this.addGoalToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.addGoalToolStripMenuItem.Text = "Add Goal";
-            this.addGoalToolStripMenuItem.Click += new System.EventHandler(this.addGoalToolStripMenuItem_Click);
-            // 
             // UserSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -351,6 +351,7 @@ namespace FitnessTracker
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Search";
             this.Load += new System.EventHandler(this.UserSearch_Load);
+            this.Resize += new System.EventHandler(this.UserSearch_Resize);
             this.menuUser.ResumeLayout(false);
             this.menuUser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrack)).EndInit();

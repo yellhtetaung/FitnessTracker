@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FitnessTracker
@@ -280,6 +275,29 @@ namespace FitnessTracker
         {
             Goal goal = new Goal();
             goal.Show();
+        }
+
+        private void UserSearch_Resize(object sender, EventArgs e)
+        {
+            for (int key = 0; key < dgvTrack.ColumnCount; key++)
+            {
+                if (key > 0)
+                {
+                    if (WindowState == FormWindowState.Maximized)
+                    {
+                        dgvTrack.Columns[key].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    }
+                    else
+                    {
+                        dgvTrack.Columns[key].AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
+                        dgvTrack.Columns[key].Width = key == (int)Constant.TableColumnName.TrackDate || key == (int)Constant.TableColumnName.CreatedDate || key == (int)Constant.TableColumnName.TrackerName || key == (int)Constant.TableColumnName.ActivityName ? 150 : 100;
+                    }
+                }
+                else
+                {
+                    dgvTrack.Columns[key].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                }
+            }
         }
     }
 }

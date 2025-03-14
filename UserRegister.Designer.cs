@@ -165,6 +165,8 @@ namespace FitnessTracker
             this.txtPhone.Size = new System.Drawing.Size(383, 15);
             this.txtPhone.TabIndex = 10;
             this.txtPhone.WordWrap = false;
+            this.txtPhone.Enter += new System.EventHandler(this.txtPhone_Enter);
+            this.txtPhone.Leave += new System.EventHandler(this.txtPhone_Leave);
             // 
             // linkLogin
             // 
@@ -224,8 +226,10 @@ namespace FitnessTracker
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(383, 15);
             this.txtPassword.TabIndex = 4;
-            this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.WordWrap = false;
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyUp);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // panelEmail
             // 
@@ -250,6 +254,8 @@ namespace FitnessTracker
             this.txtEmail.Size = new System.Drawing.Size(383, 15);
             this.txtEmail.TabIndex = 3;
             this.txtEmail.WordWrap = false;
+            this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // panelUsername
             // 
@@ -274,6 +280,8 @@ namespace FitnessTracker
             this.txtUsername.Size = new System.Drawing.Size(383, 15);
             this.txtUsername.TabIndex = 2;
             this.txtUsername.WordWrap = false;
+            this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
+            this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
             // 
             // panelFullName
             // 
@@ -298,6 +306,8 @@ namespace FitnessTracker
             this.txtFullName.Size = new System.Drawing.Size(383, 15);
             this.txtFullName.TabIndex = 1;
             this.txtFullName.WordWrap = false;
+            this.txtFullName.Enter += new System.EventHandler(this.txtFullName_Enter);
+            this.txtFullName.Leave += new System.EventHandler(this.txtFullName_Leave);
             // 
             // panelPassword
             // 
@@ -425,6 +435,8 @@ namespace FitnessTracker
             this.txtNationalID.Size = new System.Drawing.Size(383, 15);
             this.txtNationalID.TabIndex = 7;
             this.txtNationalID.WordWrap = false;
+            this.txtNationalID.Enter += new System.EventHandler(this.txtNationalID_Enter);
+            this.txtNationalID.Leave += new System.EventHandler(this.txtNationalID_Leave);
             // 
             // lblNationalID
             // 
@@ -460,6 +472,8 @@ namespace FitnessTracker
             this.txtWeight.Size = new System.Drawing.Size(383, 15);
             this.txtWeight.TabIndex = 8;
             this.txtWeight.WordWrap = false;
+            this.txtWeight.Enter += new System.EventHandler(this.txtWeight_Enter);
+            this.txtWeight.Leave += new System.EventHandler(this.txtWeight_Leave);
             // 
             // lblWeight
             // 
@@ -468,9 +482,9 @@ namespace FitnessTracker
             this.lblWeight.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWeight.Location = new System.Drawing.Point(472, 190);
             this.lblWeight.Name = "lblWeight";
-            this.lblWeight.Size = new System.Drawing.Size(53, 16);
+            this.lblWeight.Size = new System.Drawing.Size(91, 16);
             this.lblWeight.TabIndex = 70;
-            this.lblWeight.Text = "Weight";
+            this.lblWeight.Text = "Weight ( lbs )";
             // 
             // panel1
             // 
@@ -495,6 +509,8 @@ namespace FitnessTracker
             this.txtHeight.Size = new System.Drawing.Size(383, 15);
             this.txtHeight.TabIndex = 9;
             this.txtHeight.WordWrap = false;
+            this.txtHeight.Enter += new System.EventHandler(this.txtHeight_Enter);
+            this.txtHeight.Leave += new System.EventHandler(this.txtHeight_Leave);
             // 
             // lblHeight
             // 
@@ -503,9 +519,9 @@ namespace FitnessTracker
             this.lblHeight.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeight.Location = new System.Drawing.Point(472, 250);
             this.lblHeight.Name = "lblHeight";
-            this.lblHeight.Size = new System.Drawing.Size(49, 16);
+            this.lblHeight.Size = new System.Drawing.Size(88, 16);
             this.lblHeight.TabIndex = 72;
-            this.lblHeight.Text = "Height";
+            this.lblHeight.Text = "Height ( cm )";
             // 
             // panel2
             // 
@@ -530,6 +546,8 @@ namespace FitnessTracker
             this.txtAddress.Size = new System.Drawing.Size(383, 15);
             this.txtAddress.TabIndex = 11;
             this.txtAddress.WordWrap = false;
+            this.txtAddress.Enter += new System.EventHandler(this.txtAddress_Enter);
+            this.txtAddress.Leave += new System.EventHandler(this.txtAddress_Leave);
             // 
             // lblAddress
             // 

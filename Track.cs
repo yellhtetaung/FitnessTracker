@@ -52,11 +52,12 @@ namespace FitnessTracker
         {
             TextBoxController.Placeholder(txtMet, enterMet);
             TextBoxController.Placeholder(txtTime, enterTime);
-            TextBoxController.Placeholder(txtTime, enterAHR);
+            TextBoxController.Placeholder(txtAHR, enterAHR);
         }
 
         private void Track_Load(object sender, EventArgs e)
         {
+            this.ShowAllPlaceholder();
             this.FetchDataGridView();
 
             for (int key = 0; key < dgvTrack.ColumnCount; key++)

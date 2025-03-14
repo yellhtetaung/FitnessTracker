@@ -68,9 +68,10 @@ namespace FitnessTracker
             cboAct.ValueMember = "ActID";
             cboAct.DisplayMember = "ActName";
 
-            for (int index = 0; index < activityDta.Rows.Count; index++)
+            activityDta = objActivity.GetData();
+            for (var index = 0; index < activityDta.Rows.Count; index++)
             {
-                if (string.Equals(activityDta.Rows[index]["ActID"], ActivityID))
+                if (string.Equals(activityDta.Rows[index]["ActID"].ToString(), ActivityID))
                 {
                     Console.WriteLine(index);
                     cboAct.SelectedIndex = index;

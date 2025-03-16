@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace FitnessTracker
 {
@@ -65,6 +66,44 @@ namespace FitnessTracker
             TotalCalBurn,
             TrackStatus,
             CreatedDate
+        }
+
+        public static bool UsernameValidation(string username)
+        {
+            string pattern = @"^(?=[a-z])(?=.*\d)[a-z0-9]+$";
+            return !Regex.IsMatch(username, pattern);
+        }
+
+        public static void UsernameValidationAlert(string username)
+        {
+            string errorMessageFirstUpperCase = !new Regex(@"^[a-z]").IsMatch(username) ? "Username must be start with lower character.\n" : "";
+            string errorMessageContainNumber = !new Regex(@"(?=.*\d)").IsMatch(username) ? "Username must contain at least one number.\n" : "";
+            string errorMessageContainLowerCharAndNumber = !new Regex(@"^[a-z0-9]+$").IsMatch(username) ? "Username can only contain lowercase letters and numbers.\n" : "";
+
+            string errorMessage = $"{errorMessageFirstUpperCase}{errorMessageContainNumber}{errorMessageContainLowerCharAndNumber}";
+            MessageBox.Show(errorMessage, "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static bool PasswordValidation(string password)
+        {
+            string pattern = @"^(?=.*[a-z])(?=.*[A-Z]).{12}$";
+            return !Regex.IsMatch(password, pattern);
+        }
+
+        public static void PasswordValidationAlert(string password)
+        {
+            string errorMessageLowercase = !new Regex(@"^(?=.*[a-z]).*$").IsMatch(password) ? "Password must be contain at least one lowercase letter.\n" : "";
+            string errorMessageUppercase = !new Regex(@"^(?=.*[A-Z]).*$").IsMatch(password) ? "Password must be contain at least one uppercase letter.\n" : "";
+            string errorMessageLength = !new Regex(@"^.{12}$").IsMatch(password) ? "Password must be 12 characters." : "";
+
+            string errorMessage = $"{errorMessageLowercase}{errorMessageUppercase}{errorMessageLength}";
+            MessageBox.Show(errorMessage, "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static bool EmailValidation(string email)
+        {
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return !Regex.IsMatch(email, pattern);
         }
     }
 }

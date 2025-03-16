@@ -64,14 +64,29 @@ namespace FitnessTracker
                     MessageBox.Show("Username must be more than 3 characters.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtUsername.Focus();
                 }
+                else if (Constant.UsernameValidation(txtUsername.Text))
+                {
+                    Constant.UsernameValidationAlert(txtUsername.Text);
+                    txtUsername.Focus();
+                }
                 else if (string.IsNullOrWhiteSpace(txtEmail.Text) || string.Equals(txtEmail.Text, enterEmail))
                 {
                     MessageBox.Show("Please enter your email address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtEmail.Focus();
                 }
+                else if (Constant.EmailValidation(txtEmail.Text))
+                {
+                    MessageBox.Show("Invalid your email", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtEmail.Focus();
+                }
                 else if (string.IsNullOrWhiteSpace(txtPassword.Text) || string.Equals(txtPassword.Text, enterYourPassword))
                 {
                     MessageBox.Show("Please enter your password.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtPassword.Focus();
+                }
+                else if (Constant.PasswordValidation(txtPassword.Text))
+                {
+                    Constant.PasswordValidationAlert(txtPassword.Text);
                     txtPassword.Focus();
                 }
                 else if (dtpDOB.Value == null)

@@ -41,7 +41,6 @@ namespace FitnessTracker
                 if (cboAct.SelectedValue != null)
                 {
                     string id = cboAct.SelectedValue.ToString();
-                    Console.WriteLine(id);
                     lblActID.Text = id;
 
                     activityDta = objActivity.GetActivityByID(id);

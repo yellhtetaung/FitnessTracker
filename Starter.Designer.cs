@@ -86,7 +86,6 @@ namespace FitnessTracker
             this.Name = "Starter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Zen Fitness";
-            this.Load += new System.EventHandler(this.Starter_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

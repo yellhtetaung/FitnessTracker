@@ -25,10 +25,5 @@ namespace FitnessTracker
             UserLogin login = new UserLogin();
             login.ShowDialog();
         }
-
-        private void Starter_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

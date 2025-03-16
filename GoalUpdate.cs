@@ -73,7 +73,6 @@ namespace FitnessTracker
             {
                 if (string.Equals(activityDta.Rows[index]["ActID"].ToString(), ActivityID))
                 {
-                    Console.WriteLine(index);
                     cboAct.SelectedIndex = index;
                 }
             }

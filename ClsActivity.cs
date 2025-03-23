@@ -2,36 +2,14 @@
 {
     class ClsActivity
     {
-        private string _ActivityID, _ActivityName, _MetricOne, _MetricTwo, _MetricThree;
+        public string ActivityID { get; set; }
 
-        public string ActivityID
-        {
-            set { _ActivityID = value; }
-            get { return _ActivityID; }
-        }
+        public string ActivityName { get; set; }
 
-        public string ActivityName
-        {
-            set { _ActivityName = value; }
-            get { return _ActivityName; }
-        }
+        public string MetricOne { get; set; }
 
-        public string MetricOne
-        {
-            set { _MetricOne = value; }
-            get { return _MetricOne; }
-        }
+        public string MetricTwo { get; set; }
 
-        public string MetricTwo
-        {
-            set { _MetricTwo = value; }
-            get { return _MetricTwo; }
-        }
-
-        public string MetricThree
-        {
-            set { _MetricThree = value; }
-            get { return _MetricThree; }
-        }
+        public string MetricThree { get; set; }
     }
 }

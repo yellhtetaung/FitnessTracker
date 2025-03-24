@@ -126,7 +126,7 @@ namespace FitnessTracker
                         {
                             if (Convert.ToInt32(lblCalBurn.Text) >= goal)
                             {
-                                objTracker.UpdateTrackerStatusAndTotalCal("Complete", Convert.ToInt32(lblCalBurn.Text), lblTrackID.Text);
+                                objTracker.UpdateTrackerStatusAndTotalCal(Constant.TrackStatus.Complete.ToString(), Convert.ToInt32(lblCalBurn.Text), lblTrackID.Text);
                                 MessageBox.Show("Your goal has been reached.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 this.RefreshDataGridView();
@@ -137,7 +137,7 @@ namespace FitnessTracker
 
                                 if (result == DialogResult.OK)
                                 {
-                                    objTracker.UpdateTrackerStatusAndTotalCal("Fail", Convert.ToInt32(lblCalBurn.Text), lblTrackID.Text);
+                                    objTracker.UpdateTrackerStatusAndTotalCal(Constant.TrackStatus.Fail.ToString(), Convert.ToInt32(lblCalBurn.Text), lblTrackID.Text);
                                     this.RefreshDataGridView();
                                 }
                             }
@@ -283,17 +283,15 @@ namespace FitnessTracker
 
         private void cmsTrack_Opened(object sender, EventArgs e)
         {
-            switch (dgvTrack[(int)Constant.TableColumnName.TrackStatus, rowIndex].Value.ToString())
+            var trackStatus = dgvTrack[(int)Constant.TableColumnName.TrackStatus, rowIndex].Value.ToString();
+
+            if (string.Equals(trackStatus, Constant.TrackStatus.Complete.ToString()) || string.Equals(trackStatus, Constant.TrackStatus.Fail.ToString()))
             {
-                case "Complete":
-                    updateToolStripMenuItem.Enabled = false;
-                    break;
-                case "Fail":
-                    updateToolStripMenuItem.Enabled = false;
-                    break;
-                default:
-                    updateToolStripMenuItem.Enabled = true;
-                    break;
+                updateToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                updateToolStripMenuItem.Enabled = true;
             }
         }
 

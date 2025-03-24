@@ -218,7 +218,7 @@ namespace FitnessTracker
                         }
                         else
                         {
-                            trackerDta = objTracker.FilterTrackerByTrackStatus(UserLogin.loginUserID, cboTrackStatus.SelectedIndex == (int)FilterByTrackStatus.Completed ? "Complete" : "Fail");
+                            trackerDta = objTracker.FilterTrackerByTrackStatus(UserLogin.loginUserID, cboTrackStatus.SelectedIndex == (int)FilterByTrackStatus.Completed ? Constant.TrackStatus.Complete.ToString() : Constant.TrackStatus.Fail.ToString());
                             this.FetchDataGridView(trackerDta);
                         }
                     }

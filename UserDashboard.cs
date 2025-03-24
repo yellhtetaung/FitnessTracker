@@ -64,8 +64,8 @@ namespace FitnessTracker
         {
             try
             {
-                lblCompleteCount.Text = objTracker.GetTotalCountByTrackStatus("Complete").ToString();
-                lblFailedCount.Text = objTracker.GetTotalCountByTrackStatus("Fail").ToString();
+                lblCompleteCount.Text = objTracker.GetTotalCountByTrackStatus(Constant.TrackStatus.Complete.ToString()).ToString();
+                lblFailedCount.Text = objTracker.GetTotalCountByTrackStatus(Constant.TrackStatus.Fail.ToString()).ToString();
                 lblProgressCount.Text = objTracker.GetTotalCountByProgress().ToString();
             }
             catch (Exception ex)

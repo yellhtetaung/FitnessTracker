@@ -74,9 +74,7 @@ namespace FitnessTracker
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Starter starter = new Starter();
-            this.Hide();
-            starter.Show();
+            Constant.Logout(this, Constant.Authorization.Admin);
         }
 
         private void filterValueChangedHandler(int selectedIndex)

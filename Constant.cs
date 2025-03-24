@@ -42,11 +42,27 @@ namespace FitnessTracker
             }
         }
 
-        public static void Logout(Form form)
+        public enum Authorization
         {
-            Starter starter = new Starter();
+            Admin,
+            User
+        }
+
+        public static void Logout(Form form, Authorization authorization)
+        {
+            Login adminLogin = new Login();
+            UserLogin userLogin = new UserLogin();
             form.Hide();
-            starter.Show();
+
+            switch (authorization)
+            {
+                case Authorization.Admin:
+                    adminLogin.Show();
+                    break;
+                case Authorization.User:
+                    userLogin.Show();
+                    break;
+            }
         }
 
         public enum Gender

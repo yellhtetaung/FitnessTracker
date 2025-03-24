@@ -76,8 +76,11 @@ namespace FitnessTracker
 
         public static bool UsernameValidation(string username)
         {
+            /*
+             * The username must start with a string, lower character, and contain at least one number
+             */
             string pattern = @"^(?=[a-z])(?=.*\d)[a-z0-9]+$";
-            return !Regex.IsMatch(username, pattern);
+            return Regex.IsMatch(username, pattern);
         }
 
         public static void UsernameValidationAlert(string username)
@@ -92,15 +95,18 @@ namespace FitnessTracker
 
         public static bool PasswordValidation(string password)
         {
+            /*
+             * The password must be of length TWELVE (12) characters and contain at least ONE (1) lowercase and ONE (1) uppercase letter
+             */
             string pattern = @"^(?=.*[a-z])(?=.*[A-Z]).{12}$";
-            return !Regex.IsMatch(password, pattern);
+            return Regex.IsMatch(password, pattern);
         }
 
         public static void PasswordValidationAlert(string password)
         {
             string errorMessageLowercase = !new Regex(@"^(?=.*[a-z]).*$").IsMatch(password) ? "Password must be contain at least one lowercase letter.\n" : "";
             string errorMessageUppercase = !new Regex(@"^(?=.*[A-Z]).*$").IsMatch(password) ? "Password must be contain at least one uppercase letter.\n" : "";
-            string errorMessageLength = !new Regex(@"^.{12}$").IsMatch(password) ? "Password must be 12 characters." : "";
+            string errorMessageLength = !new Regex(@"^.{12}$").IsMatch(password) ? "Password must be of length 12 characters." : "";
 
             string errorMessage = $"{errorMessageLowercase}{errorMessageUppercase}{errorMessageLength}";
             MessageBox.Show(errorMessage, "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -109,7 +115,7 @@ namespace FitnessTracker
         public static bool EmailValidation(string email)
         {
             string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-            return !Regex.IsMatch(email, pattern);
+            return Regex.IsMatch(email, pattern);
         }
 
         public static bool IDValidation(string id, char specialID)

@@ -63,12 +63,14 @@ namespace FitnessTracker
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnClear = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrack)).BeginInit();
             this.panelFullName.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.cmsTrack.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuAdmin
@@ -173,7 +175,7 @@ namespace FitnessTracker
             // 
             this.lblTrackIDLabel.AutoSize = true;
             this.lblTrackIDLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrackIDLabel.Location = new System.Drawing.Point(12, 62);
+            this.lblTrackIDLabel.Location = new System.Drawing.Point(6, 28);
             this.lblTrackIDLabel.Name = "lblTrackIDLabel";
             this.lblTrackIDLabel.Size = new System.Drawing.Size(59, 16);
             this.lblTrackIDLabel.TabIndex = 49;
@@ -184,18 +186,19 @@ namespace FitnessTracker
             // 
             this.lblTrackID.AutoSize = true;
             this.lblTrackID.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrackID.Location = new System.Drawing.Point(90, 62);
+            this.lblTrackID.Location = new System.Drawing.Point(84, 28);
             this.lblTrackID.Name = "lblTrackID";
             this.lblTrackID.Size = new System.Drawing.Size(12, 16);
             this.lblTrackID.TabIndex = 50;
             this.lblTrackID.Text = "-";
             this.lblTrackID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTrackID.TextChanged += new System.EventHandler(this.lblTrackID_TextChanged);
             // 
             // lblGoalLabel
             // 
             this.lblGoalLabel.AutoSize = true;
             this.lblGoalLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGoalLabel.Location = new System.Drawing.Point(33, 114);
+            this.lblGoalLabel.Location = new System.Drawing.Point(27, 80);
             this.lblGoalLabel.Name = "lblGoalLabel";
             this.lblGoalLabel.Size = new System.Drawing.Size(38, 16);
             this.lblGoalLabel.TabIndex = 51;
@@ -206,7 +209,7 @@ namespace FitnessTracker
             // 
             this.lblGoal.AutoSize = true;
             this.lblGoal.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGoal.Location = new System.Drawing.Point(90, 114);
+            this.lblGoal.Location = new System.Drawing.Point(84, 80);
             this.lblGoal.Name = "lblGoal";
             this.lblGoal.Size = new System.Drawing.Size(15, 16);
             this.lblGoal.TabIndex = 52;
@@ -217,7 +220,7 @@ namespace FitnessTracker
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(398, 69);
+            this.label1.Location = new System.Drawing.Point(372, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 16);
             this.label1.TabIndex = 53;
@@ -228,7 +231,7 @@ namespace FitnessTracker
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(389, 122);
+            this.label2.Location = new System.Drawing.Point(363, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 16);
             this.label2.TabIndex = 54;
@@ -239,7 +242,7 @@ namespace FitnessTracker
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(297, 174);
+            this.label3.Location = new System.Drawing.Point(271, 133);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(132, 16);
             this.label3.TabIndex = 55;
@@ -251,7 +254,7 @@ namespace FitnessTracker
             this.panelFullName.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panelFullName.Controls.Add(this.txtMet);
             this.panelFullName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelFullName.Location = new System.Drawing.Point(449, 62);
+            this.panelFullName.Location = new System.Drawing.Point(423, 21);
             this.panelFullName.Name = "panelFullName";
             this.panelFullName.Size = new System.Drawing.Size(291, 30);
             this.panelFullName.TabIndex = 56;
@@ -276,7 +279,7 @@ namespace FitnessTracker
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.Controls.Add(this.txtTime);
             this.panel1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(449, 115);
+            this.panel1.Location = new System.Drawing.Point(423, 74);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(291, 30);
             this.panel1.TabIndex = 57;
@@ -301,7 +304,7 @@ namespace FitnessTracker
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel2.Controls.Add(this.txtAHR);
             this.panel2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(449, 167);
+            this.panel2.Location = new System.Drawing.Point(423, 126);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(291, 30);
             this.panel2.TabIndex = 58;
@@ -351,7 +354,7 @@ namespace FitnessTracker
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(601, 223);
+            this.label4.Location = new System.Drawing.Point(575, 182);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(140, 16);
             this.label4.TabIndex = 61;
@@ -361,12 +364,13 @@ namespace FitnessTracker
             // lblCalBurn
             // 
             this.lblCalBurn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCalBurn.Location = new System.Drawing.Point(440, 250);
+            this.lblCalBurn.Location = new System.Drawing.Point(414, 209);
             this.lblCalBurn.Name = "lblCalBurn";
             this.lblCalBurn.Size = new System.Drawing.Size(300, 16);
             this.lblCalBurn.TabIndex = 62;
             this.lblCalBurn.Text = "0";
             this.lblCalBurn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCalBurn.TextChanged += new System.EventHandler(this.lblCalBurn_TextChanged);
             // 
             // cmsTrack
             // 
@@ -412,30 +416,41 @@ namespace FitnessTracker
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblTrackIDLabel);
+            this.groupBox1.Controls.Add(this.lblGoal);
+            this.groupBox1.Controls.Add(this.lblCalBurn);
+            this.groupBox1.Controls.Add(this.lblGoalLabel);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.lblTrackID);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.panel2);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Controls.Add(this.panelFullName);
+            this.groupBox1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold);
+            this.groupBox1.Location = new System.Drawing.Point(13, 48);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(744, 304);
+            this.groupBox1.TabIndex = 64;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tracker Information";
+            // 
             // Track
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 587);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.lblCalBurn);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panelFullName);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblTrackIDLabel);
-            this.Controls.Add(this.lblTrackID);
-            this.Controls.Add(this.lblGoalLabel);
-            this.Controls.Add(this.lblGoal);
             this.Controls.Add(this.dgvTrack);
             this.Controls.Add(this.menuAdmin);
+            this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(881, 626);
+            this.MinimumSize = new System.Drawing.Size(1010, 626);
             this.Name = "Track";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Track";
@@ -451,6 +466,8 @@ namespace FitnessTracker
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.cmsTrack.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -491,5 +508,6 @@ namespace FitnessTracker
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addGoalToolStripMenuItem;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

@@ -56,6 +56,12 @@ namespace FitnessTracker
             Other = 'O'
         }
 
+        public enum TrackStatus
+        {
+            Complete,
+            Fail
+        }
+
         public enum TableColumnName
         {
             TrackerID,
@@ -104,6 +110,12 @@ namespace FitnessTracker
         {
             string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             return !Regex.IsMatch(email, pattern);
+        }
+
+        public static bool IDValidation(string id, char specialID)
+        {
+            string pattern = $"^{specialID}\\d{{4}}$"; ;
+            return Regex.IsMatch(id, pattern);
         }
     }
 }

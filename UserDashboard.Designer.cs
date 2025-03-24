@@ -36,6 +36,7 @@ namespace FitnessTracker
             this.walkingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.swimmingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addGoalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -71,7 +72,6 @@ namespace FitnessTracker
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.addGoalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuUser.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -138,6 +138,14 @@ namespace FitnessTracker
             this.trackerToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.trackerToolStripMenuItem.Text = "Tracker";
             this.trackerToolStripMenuItem.Click += new System.EventHandler(this.trackerToolStripMenuItem_Click);
+            // 
+            // addGoalToolStripMenuItem
+            // 
+            this.addGoalToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addGoalToolStripMenuItem.Image")));
+            this.addGoalToolStripMenuItem.Name = "addGoalToolStripMenuItem";
+            this.addGoalToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.addGoalToolStripMenuItem.Text = "Add Goal";
+            this.addGoalToolStripMenuItem.Click += new System.EventHandler(this.addGoalToolStripMenuItem_Click);
             // 
             // searchToolStripMenuItem
             // 
@@ -522,14 +530,6 @@ namespace FitnessTracker
             this.label1.Size = new System.Drawing.Size(0, 19);
             this.label1.TabIndex = 0;
             // 
-            // addGoalToolStripMenuItem
-            // 
-            this.addGoalToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addGoalToolStripMenuItem.Image")));
-            this.addGoalToolStripMenuItem.Name = "addGoalToolStripMenuItem";
-            this.addGoalToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.addGoalToolStripMenuItem.Text = "Add Goal";
-            this.addGoalToolStripMenuItem.Click += new System.EventHandler(this.addGoalToolStripMenuItem_Click);
-            // 
             // UserDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -541,7 +541,7 @@ namespace FitnessTracker
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(881, 626);
+            this.MinimumSize = new System.Drawing.Size(1010, 626);
             this.Name = "UserDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";

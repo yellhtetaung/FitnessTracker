@@ -346,7 +346,7 @@ namespace FitnessTracker
             this.Controls.Add(this.dgvTrack);
             this.Controls.Add(this.menuUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(881, 626);
+            this.MinimumSize = new System.Drawing.Size(1010, 626);
             this.Name = "UserSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Search";

@@ -59,6 +59,9 @@ namespace FitnessTracker
         {
             this.ShowAllPlaceholder();
             this.FetchDataGridView();
+            btnClear.Enabled = false;
+            btnCalculate.Enabled = false;
+            btnSave.Enabled = false;
 
             for (int key = 0; key < dgvTrack.ColumnCount; key++)
             {
@@ -76,17 +79,17 @@ namespace FitnessTracker
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtMet.Text))
+            if (string.Equals(txtMet.Text, enterMet) || string.IsNullOrWhiteSpace(txtMet.Text))
             {
                 MessageBox.Show("Please enter met.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMet.Focus();
             }
-            else if (string.IsNullOrWhiteSpace(txtTime.Text))
+            else if (string.Equals(txtTime.Text, enterTime) || string.IsNullOrWhiteSpace(txtTime.Text))
             {
                 MessageBox.Show("Please enter time.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTime.Focus();
             }
-            else if (string.IsNullOrWhiteSpace(txtAHR.Text))
+            else if (string.Equals(txtAHR.Text, enterAHR) || string.IsNullOrWhiteSpace(txtAHR.Text))
             {
                 MessageBox.Show("Please enter average heart rate.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtAHR.Focus();
@@ -108,22 +111,42 @@ namespace FitnessTracker
 
             try
             {
-                if (Convert.ToInt32(lblCalBurn.Text) >= goal)
+                if (Constant.IDValidation(lblTrackID.Text, 'T'))
                 {
-                    objTracker.UpdateTrackerStatusAndTotalCal("Complete", Convert.ToInt32(lblCalBurn.Text), lblTrackID.Text);
-                    MessageBox.Show("Your goal has been reached.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    trackerDta = objTracker.GetTrackerDataByTrackerID(lblTrackID.Text);
 
-                    this.RefreshDataGridView();
+                    if (trackerDta.Rows.Count > 0)
+                    {
+                        var trackStatus = trackerDta.Rows[0]["TrackStatus"].ToString();
+                        if (string.Equals(trackStatus, Constant.TrackStatus.Complete.ToString()) || string.Equals(trackStatus, Constant.TrackStatus.Fail.ToString()))
+                        {
+                            MessageBox.Show($"You can't save this tracker because you already saved this tracker with the track status as {trackStatus}.", "Fail to save", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            if (Convert.ToInt32(lblCalBurn.Text) >= goal)
+                            {
+                                objTracker.UpdateTrackerStatusAndTotalCal("Complete", Convert.ToInt32(lblCalBurn.Text), lblTrackID.Text);
+                                MessageBox.Show("Your goal has been reached.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                this.RefreshDataGridView();
+                            }
+                            else
+                            {
+                                DialogResult result = MessageBox.Show("Your goal has not been reached. Are you sure you want to save with fail?", "Confirm Save", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                                if (result == DialogResult.OK)
+                                {
+                                    objTracker.UpdateTrackerStatusAndTotalCal("Fail", Convert.ToInt32(lblCalBurn.Text), lblTrackID.Text);
+                                    this.RefreshDataGridView();
+                                }
+                            }
+                        }
+                    }
                 }
                 else
                 {
-                    DialogResult result = MessageBox.Show("Your goal has not been reached. Are you sure you want to save with fail?", "Confirm Save", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                    if (result == DialogResult.OK)
-                    {
-                        objTracker.UpdateTrackerStatusAndTotalCal("Fail", Convert.ToInt32(lblCalBurn.Text), lblTrackID.Text);
-                        this.RefreshDataGridView();
-                    }
+                    MessageBox.Show("You need to select one tracker and calculate it.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
@@ -335,12 +358,40 @@ namespace FitnessTracker
             lblGoal.Text = "0";
             lblCalBurn.Text = "0";
             this.ShowAllPlaceholder();
+            this.ActiveControl = null;
         }
 
         private void addGoalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Goal goal = new Goal(this);
             goal.Show();
+        }
+
+        private void lblTrackID_TextChanged(object sender, EventArgs e)
+        {
+            if (Constant.IDValidation(lblTrackID.Text, 'T'))
+            {
+                btnClear.Enabled = true;
+                btnCalculate.Enabled = true;
+            }
+            else
+            {
+                btnClear.Enabled = false;
+                btnCalculate.Enabled = false;
+                btnSave.Enabled = false;
+            }
+        }
+
+        private void lblCalBurn_TextChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(lblCalBurn.Text) > 0 && Constant.IDValidation(lblTrackID.Text, 'T'))
+            {
+                btnSave.Enabled = true;
+            }
+            else
+            {
+                btnSave.Enabled = false;
+            }
         }
     }
 }

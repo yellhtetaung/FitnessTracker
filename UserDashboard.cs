@@ -85,5 +85,12 @@ namespace FitnessTracker
             Goal goal = new Goal();
             goal.Show();
         }
+
+        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Benefits benefits = new Benefits();
+            this.Hide();
+            benefits.Show();
+        }
     }
 }

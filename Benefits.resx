@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="menuAdmin.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="menuUser.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
@@ -189,9 +189,24 @@
         CgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="cmsTrack.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>140, 17</value>
-  </metadata>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Walking is good fitness for everyone. It has many benefits. It burns calories, strengthens the heart, lowers blood sugar, eases joint pain, boosts immune function, boosts energy, improves mood, lengthens life span, tones legs, and inspires creative thinking.</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Walking is good fitness for everyone. It has many benefits. It burns calories, strengthens the heart, lowers blood sugar, eases joint pain, boosts immune function, boosts energy, improves mood, lengthens life span, tones legs, and inspires creative thinking.</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Walking is good fitness for everyone. It has many benefits. It burns calories, strengthens the heart, lowers blood sugar, eases joint pain, boosts immune function, boosts energy, improves mood, lengthens life span, tones legs, and inspires creative thinking.</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Walking is good fitness for everyone. It has many benefits. It burns calories, strengthens the heart, lowers blood sugar, eases joint pain, boosts immune function, boosts energy, improves mood, lengthens life span, tones legs, and inspires creative thinking.</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Walking is good fitness for everyone. It has many benefits. It burns calories, strengthens the heart, lowers blood sugar, eases joint pain, boosts immune function, boosts energy, improves mood, lengthens life span, tones legs, and inspires creative thinking.</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Walking is good fitness for everyone. It has many benefits. It burns calories, strengthens the heart, lowers blood sugar, eases joint pain, boosts immune function, boosts energy, improves mood, lengthens life span, tones legs, and inspires creative thinking.</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAMAEBAAAAEAIABoBAAANgAAACAgAAABACAAqBAAAJ4EAAAwMAAAAQAgAKglAABGFQAAKAAAABAA

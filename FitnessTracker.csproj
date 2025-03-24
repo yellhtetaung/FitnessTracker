@@ -83,6 +83,12 @@
     <Compile Include="AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Benefits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Benefits.Designer.cs">
+      <DependentUpon>Benefits.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClsActivity.cs" />
     <Compile Include="ClsTrainer.cs" />
     <Compile Include="ClsUser.cs" />
@@ -170,6 +176,9 @@
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Benefits.resx">
+      <DependentUpon>Benefits.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Goal.resx">
       <DependentUpon>Goal.cs</DependentUpon>
     </EmbeddedResource>
@@ -239,6 +248,7 @@
   <ItemGroup>
     <Content Include="assets\icon.ico" />
     <Content Include="assets\icons\add-circle.png" />
+    <Content Include="assets\icons\award.png" />
     <Content Include="assets\icons\failed.png" />
     <Content Include="assets\icons\login.png" />
     <Content Include="assets\icons\logout.png" />

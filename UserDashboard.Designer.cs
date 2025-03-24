@@ -33,8 +33,6 @@ namespace FitnessTracker
             this.menuUser = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.walkingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.swimmingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addGoalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,10 +86,10 @@ namespace FitnessTracker
             this.menuUser.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuUser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.homeToolStripMenuItem,
-            this.activitiesToolStripMenuItem,
             this.trackerToolStripMenuItem,
             this.addGoalToolStripMenuItem,
             this.searchToolStripMenuItem,
+            this.activitiesToolStripMenuItem,
             this.logOutToolStripMenuItem});
             this.menuUser.Location = new System.Drawing.Point(0, 0);
             this.menuUser.Name = "menuUser";
@@ -111,25 +109,11 @@ namespace FitnessTracker
             // 
             // activitiesToolStripMenuItem
             // 
-            this.activitiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.walkingToolStripMenuItem,
-            this.swimmingToolStripMenuItem});
             this.activitiesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("activitiesToolStripMenuItem.Image")));
             this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
-            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
-            this.activitiesToolStripMenuItem.Text = "Activities";
-            // 
-            // walkingToolStripMenuItem
-            // 
-            this.walkingToolStripMenuItem.Name = "walkingToolStripMenuItem";
-            this.walkingToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.walkingToolStripMenuItem.Text = "Walking";
-            // 
-            // swimmingToolStripMenuItem
-            // 
-            this.swimmingToolStripMenuItem.Name = "swimmingToolStripMenuItem";
-            this.swimmingToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.swimmingToolStripMenuItem.Text = "Swimming";
+            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.activitiesToolStripMenuItem.Text = "Benefits";
+            this.activitiesToolStripMenuItem.Click += new System.EventHandler(this.activitiesToolStripMenuItem_Click);
             // 
             // trackerToolStripMenuItem
             // 
@@ -571,8 +555,6 @@ namespace FitnessTracker
         private System.Windows.Forms.ToolStripMenuItem activitiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trackerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem walkingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem swimmingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblAddress;

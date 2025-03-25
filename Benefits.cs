@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FitnessTracker
@@ -56,13 +49,16 @@ namespace FitnessTracker
 
         private void Benefits_Resize(object sender, EventArgs e)
         {
-            if (WindowState == FormWindowState.Maximized)
+            if (flowLayoutPanel.Width >= 1536)
+            {
+                changeSizePanel(4, 9);
+            }
+            else if (flowLayoutPanel.Width >= 1280 && flowLayoutPanel.Width < 1536)
             {
                 changeSizePanel(3, 9);
             }
-            else if (WindowState == FormWindowState.Normal)
+            else
             {
-                Console.WriteLine(flowLayoutPanel.Width);
                 changeSizePanel(2, 20);
             }
         }
@@ -70,6 +66,11 @@ namespace FitnessTracker
         private void Benefits_Load(object sender, EventArgs e)
         {
             changeSizePanel(2, 20);
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Constant.Logout(this, Constant.Authorization.User);
         }
     }
 }

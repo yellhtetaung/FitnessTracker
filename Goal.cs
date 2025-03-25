@@ -124,6 +124,7 @@ namespace FitnessTracker
             TextBoxController.Placeholder(txtTrackName, enterTrackName);
             TextBoxController.Placeholder(txtSetGoal, enterSetGoal);
             cboAct.SelectedIndex = 0;
+            this.ActiveControl = null;
         }
 
         private void txtTrackName_Enter(object sender, EventArgs e)

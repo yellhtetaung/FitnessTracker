@@ -215,6 +215,7 @@ namespace FitnessTracker
             chkPassword.Checked = false;
             chkPassword.Enabled = false;
             txtPassword.UseSystemPasswordChar = false;
+            this.ActiveControl = null;
         }
 
         private void txtFullName_Enter(object sender, EventArgs e)

@@ -264,6 +264,7 @@ namespace FitnessTracker
             dtpStartDate.MinDate = new DateTime(1753, 1, 1);
             dtpEndDate.Value = DateTime.Today;
             dtpEndDate.MinDate = new DateTime(1753, 1, 1);
+            this.ActiveControl = null;
         }
 
         private void dtpStartDate_ValueChanged(object sender, EventArgs e)

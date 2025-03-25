@@ -112,11 +112,11 @@ namespace FitnessTracker
             // 
             this.cboAct.DisplayMember = "ActID";
             this.cboAct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboAct.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboAct.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboAct.FormattingEnabled = true;
             this.cboAct.Location = new System.Drawing.Point(109, 19);
             this.cboAct.Name = "cboAct";
-            this.cboAct.Size = new System.Drawing.Size(182, 22);
+            this.cboAct.Size = new System.Drawing.Size(182, 24);
             this.cboAct.TabIndex = 7;
             this.cboAct.ValueMember = "ActID";
             this.cboAct.SelectedIndexChanged += new System.EventHandler(this.cboAct_SelectedIndexChanged);

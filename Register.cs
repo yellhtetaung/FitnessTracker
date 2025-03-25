@@ -24,7 +24,6 @@ namespace FitnessTracker
         public Register()
         {
             InitializeComponent();
-            isFromLogin = false;
         }
 
         public Register(bool fromLogin)
@@ -45,6 +44,16 @@ namespace FitnessTracker
             lblID.Text = Constant.AutoID(trainerDta, 'T');
         }
 
+        private void ShowAllPlaceholder()
+        {
+            TextBoxController.Placeholder(txtFullName, enterYourFullName);
+            TextBoxController.Placeholder(txtUsername, enterUsername);
+            TextBoxController.Placeholder(txtEmail, enterEmail);
+            TextBoxController.Placeholder(txtPassword, enterYourPassword);
+            TextBoxController.Placeholder(txtPhone, enterPhoneNumber);
+            TextBoxController.Placeholder(txtAddress, enterAddress);
+        }
+
         private void btnClear_Click(object sender, EventArgs e)
         {
             this.ShowAllPlaceholder();
@@ -55,16 +64,7 @@ namespace FitnessTracker
             chkPassword.Checked = false;
             chkPassword.Enabled = false;
             txtPassword.UseSystemPasswordChar = false;
-        }
-
-        private void ShowAllPlaceholder()
-        {
-            TextBoxController.Placeholder(txtFullName, enterYourFullName);
-            TextBoxController.Placeholder(txtUsername, enterUsername);
-            TextBoxController.Placeholder(txtEmail, enterEmail);
-            TextBoxController.Placeholder(txtPassword, enterYourPassword);
-            TextBoxController.Placeholder(txtPhone, enterPhoneNumber);
-            TextBoxController.Placeholder(txtAddress, enterAddress);
+            this.ActiveControl = null;
         }
 
         private void Register_Load(object sender, EventArgs e)
@@ -172,6 +172,7 @@ namespace FitnessTracker
                             {
                                 Login login = new Login();
                                 this.Hide();
+                                login.Show();
                             }
                             else
                             {

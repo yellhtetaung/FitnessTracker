@@ -129,6 +129,7 @@ namespace FitnessTracker
             dgvTrainer.Refresh();
             cboFilterBy.SelectedIndex = 0;
             filterValueChangedHandler(0);
+            this.ActiveControl = null;
         }
 
         private void txtFilter_Enter(object sender, EventArgs e)

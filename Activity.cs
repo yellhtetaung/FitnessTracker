@@ -34,7 +34,7 @@ namespace FitnessTracker
         private void ClearAll()
         {
             this.ShowAllTextBoxPlaceholder();
-            txtActivityName.Focus();
+            this.ActiveControl = null;
         }
 
         public void UpdateActivity(string id, string name, string metricOne, string metricTwo, string metricThree)

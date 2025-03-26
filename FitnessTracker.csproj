@@ -77,11 +77,11 @@
     <Compile Include="ActivityDetail.Designer.cs">
       <DependentUpon>ActivityDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminDashboard.cs">
+    <Compile Include="TrainerDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminDashboard.Designer.cs">
-      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    <Compile Include="TrainerDashboard.Designer.cs">
+      <DependentUpon>TrainerDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Benefits.cs">
       <SubType>Form</SubType>
@@ -173,8 +173,8 @@
     <EmbeddedResource Include="ActivityDetail.resx">
       <DependentUpon>ActivityDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminDashboard.resx">
-      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    <EmbeddedResource Include="TrainerDashboard.resx">
+      <DependentUpon>TrainerDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Benefits.resx">
       <DependentUpon>Benefits.cs</DependentUpon>

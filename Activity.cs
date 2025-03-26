@@ -131,7 +131,7 @@ namespace FitnessTracker
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AdminDashboard dashboard = new AdminDashboard();
+            TrainerDashboard dashboard = new TrainerDashboard();
             this.Hide();
             dashboard.Show();
         }

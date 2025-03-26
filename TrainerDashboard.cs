@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace FitnessTracker
 {
-    public partial class AdminDashboard : Form
+    public partial class TrainerDashboard : Form
     {
         FitnessTrackerDatasetTableAdapters.TrainersTableAdapter objTrainer = new FitnessTrackerDatasetTableAdapters.TrainersTableAdapter();
         DataTable trainerDta = new DataTable();
@@ -15,7 +15,7 @@ namespace FitnessTracker
         FitnessTrackerDatasetTableAdapters.UsersTableAdapter objUser = new FitnessTrackerDatasetTableAdapters.UsersTableAdapter();
         DataTable userDta = new DataTable();
 
-        public AdminDashboard()
+        public TrainerDashboard()
         {
             InitializeComponent();
         }

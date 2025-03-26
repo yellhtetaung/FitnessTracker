@@ -63,7 +63,7 @@ namespace FitnessTracker
                             loginUsername = trainerDta.Rows[0][1].ToString();
                             loginTrainerID = trainerDta.Rows[0][0].ToString();
                             this.Hide();
-                            AdminDashboard admin = new AdminDashboard();
+                            TrainerDashboard admin = new TrainerDashboard();
                             admin.Show();
                         }
                         else

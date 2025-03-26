@@ -1,7 +1,7 @@
 ﻿
 namespace FitnessTracker
 {
-    partial class AdminDashboard
+    partial class TrainerDashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace FitnessTracker
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrainerDashboard));
             this.menuAdmin = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -513,7 +513,7 @@ namespace FitnessTracker
             this.label13.Size = new System.Drawing.Size(0, 19);
             this.label13.TabIndex = 0;
             // 
-            // AdminDashboard
+            // TrainerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -526,9 +526,9 @@ namespace FitnessTracker
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuAdmin;
             this.MinimumSize = new System.Drawing.Size(960, 603);
-            this.Name = "AdminDashboard";
+            this.Name = "TrainerDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Admin Dashboard";
+            this.Text = "Trainer Dashboard";
             this.Load += new System.EventHandler(this.AdminDashboard_Load);
             this.menuAdmin.ResumeLayout(false);
             this.menuAdmin.PerformLayout();

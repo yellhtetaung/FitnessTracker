@@ -279,8 +279,19 @@ namespace FitnessTracker
                 if (result == DialogResult.Yes)
                 {
                     objTrainer.DeleteTrainerByID(dgvTrainer[0, rowIndex].Value.ToString());
-                    MessageBox.Show($"Trainer ID {dgvTrainer[0, rowIndex].Value.ToString()} account has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.DataGridViewReload();
+                    DialogResult deleteResult = MessageBox.Show($"Trainer ID {dgvTrainer[0, rowIndex].Value.ToString()} account has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    if (deleteResult == DialogResult.OK)
+                    {
+                        if (dgvTrainer[0, rowIndex].Value.ToString() == Login.loginTrainerID)
+                        {
+                            Constant.Logout(this, Constant.Authorization.Admin);
+                        }
+                        else
+                        {
+                            this.DataGridViewReload();
+                        }
+                    }
                 }
             }
             catch (Exception ex)

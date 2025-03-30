@@ -13,7 +13,7 @@ namespace FitnessTracker
         FitnessTrackerDatasetTableAdapters.TrackerTableAdapter objTracker = new FitnessTrackerDatasetTableAdapters.TrackerTableAdapter();
         DataTable trackerDta = new DataTable();
 
-        private readonly Track trackForm;
+        private readonly Tracker trackForm;
         private readonly string enterTrackName = "Enter track name";
         private readonly string enterSetGoal = "Enter set goal";
 
@@ -22,7 +22,7 @@ namespace FitnessTracker
             InitializeComponent();
         }
 
-        public Goal(Track track)
+        public Goal(Tracker track)
         {
             InitializeComponent();
             trackForm = track;
@@ -157,6 +157,11 @@ namespace FitnessTracker
             {
                 TextBoxController.Placeholder(txtSetGoal, enterSetGoal);
             }
+        }
+
+        private void txtSetGoal_TextChanged(object sender, EventArgs e)
+        {
+            Constant.CheckNumberOnly(txtSetGoal, enterSetGoal);
         }
     }
 }

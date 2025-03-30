@@ -376,5 +376,15 @@ namespace FitnessTracker
                 TextBoxController.Placeholder(txtAddress, enterAddress);
             }
         }
+
+        private void txtWeight_TextChanged(object sender, EventArgs e)
+        {
+            Constant.CheckNumberOnly(txtWeight, enterYourWeigth);
+        }
+
+        private void txtHeight_TextChanged(object sender, EventArgs e)
+        {
+            Constant.CheckNumberOnly(txtHeight, enterYourHeight);
+        }
     }
 }

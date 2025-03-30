@@ -19,7 +19,7 @@ namespace FitnessTracker
 
         private void trackerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Track track = new Track();
+            Tracker track = new Tracker();
             this.Hide();
             track.Show();
         }

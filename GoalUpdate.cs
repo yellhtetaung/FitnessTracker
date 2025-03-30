@@ -20,10 +20,10 @@ namespace FitnessTracker
         public DateTime TrackDate { set; get; }
         public string TrackStatus { set; get; }
 
-        private readonly Track trackForm;
+        private readonly Tracker trackForm;
 
 
-        public GoalUpdate(Track track)
+        public GoalUpdate(Tracker track)
         {
             InitializeComponent();
             trackForm = track;
@@ -118,6 +118,11 @@ namespace FitnessTracker
         private void cboAct_SelectedIndexChanged(object sender, EventArgs e)
         {
             ActivityChangeHandler();
+        }
+
+        private void txtSetGoal_TextChanged(object sender, EventArgs e)
+        {
+            Constant.CheckNumberOnly(txtSetGoal);
         }
     }
 }

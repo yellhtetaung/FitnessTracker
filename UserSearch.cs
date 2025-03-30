@@ -47,7 +47,7 @@ namespace FitnessTracker
 
         private void trackerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Track track = new Track();
+            Tracker track = new Tracker();
             this.Hide();
             track.Show();
         }
@@ -306,6 +306,14 @@ namespace FitnessTracker
             Benefits benefits = new Benefits();
             this.Hide();
             benefits.Show();
+        }
+
+        private void txtFilter_TextChanged(object sender, EventArgs e)
+        {
+            if (cboFilterBy.SelectedIndex == (int)FilterByValues.Goal)
+            {
+                Constant.CheckNumberOnly(txtFilter, enterGoal);
+            }
         }
     }
 }

@@ -69,7 +69,7 @@ namespace FitnessTracker
                         else
                         {
                             loginCount += 1;
-                            MessageBox.Show("Incorrect username or password!", "Login in Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Incorrect username or password!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             txtUsername.Focus();
                         }
                     }

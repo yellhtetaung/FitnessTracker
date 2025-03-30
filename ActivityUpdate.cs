@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace FitnessTracker
 {
-    public partial class ActivityDetail : Form
+    public partial class ActivityUpdate : Form
     {
         public string ActivityID { set; get; }
         public string ActivityName { set; get; }
@@ -19,7 +19,7 @@ namespace FitnessTracker
 
         private readonly Activity activityForm;
 
-        public ActivityDetail(Activity activity)
+        public ActivityUpdate(Activity activity)
         {
             InitializeComponent();
             activityForm = activity;

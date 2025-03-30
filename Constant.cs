@@ -139,5 +139,23 @@ namespace FitnessTracker
             string pattern = $"^{specialID}\\d{{4}}$"; ;
             return Regex.IsMatch(id, pattern);
         }
+
+        public static void CheckNumberOnly(TextBox textBox, string placeholder)
+        {
+            if (Regex.IsMatch(textBox.Text, "[^0-9]") && !string.Equals(textBox.Text, placeholder))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                textBox.Text = textBox.Text.Remove(textBox.Text.Length - 1);
+            }
+        }
+
+        public static void CheckNumberOnly(TextBox textBox)
+        {
+            if (Regex.IsMatch(textBox.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                textBox.Text = textBox.Text.Remove(textBox.Text.Length - 1);
+            }
+        }
     }
 }

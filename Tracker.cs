@@ -2,10 +2,11 @@
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace FitnessTracker
 {
-    public partial class Track : Form
+    public partial class Tracker : Form
     {
         FitnessTrackerDatasetTableAdapters.TrackerTableAdapter objTracker = new FitnessTrackerDatasetTableAdapters.TrackerTableAdapter();
         DataTable trackerDta = new DataTable();
@@ -15,7 +16,7 @@ namespace FitnessTracker
         private readonly string enterTime = "Enter time";
         private readonly string enterAHR = "Enter average heart rate";
 
-        public Track()
+        public Tracker()
         {
             InitializeComponent();
         }
@@ -397,6 +398,21 @@ namespace FitnessTracker
             Benefits benefits = new Benefits();
             this.Hide();
             benefits.Show();
+        }
+
+        private void txtMet_TextChanged(object sender, EventArgs e)
+        {
+            Constant.CheckNumberOnly(txtMet, enterMet);
+        }
+
+        private void txtTime_TextChanged(object sender, EventArgs e)
+        {
+            Constant.CheckNumberOnly(txtTime, enterTime);
+        }
+
+        private void txtAHR_TextChanged(object sender, EventArgs e)
+        {
+            Constant.CheckNumberOnly(txtAHR, enterAHR);
         }
     }
 }

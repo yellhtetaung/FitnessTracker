@@ -1,7 +1,7 @@
 ﻿
 namespace FitnessTracker
 {
-    partial class Track
+    partial class Tracker
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace FitnessTracker
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Track));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tracker));
             this.menuAdmin = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -255,6 +255,7 @@ namespace FitnessTracker
             this.txtMet.Size = new System.Drawing.Size(274, 15);
             this.txtMet.TabIndex = 1;
             this.txtMet.WordWrap = false;
+            this.txtMet.TextChanged += new System.EventHandler(this.txtMet_TextChanged);
             this.txtMet.Enter += new System.EventHandler(this.txtMet_Enter);
             this.txtMet.Leave += new System.EventHandler(this.txtMet_Leave);
             // 
@@ -280,6 +281,7 @@ namespace FitnessTracker
             this.txtTime.Size = new System.Drawing.Size(274, 15);
             this.txtTime.TabIndex = 1;
             this.txtTime.WordWrap = false;
+            this.txtTime.TextChanged += new System.EventHandler(this.txtTime_TextChanged);
             this.txtTime.Enter += new System.EventHandler(this.txtTime_Enter);
             this.txtTime.Leave += new System.EventHandler(this.txtTime_Leave);
             // 
@@ -305,6 +307,7 @@ namespace FitnessTracker
             this.txtAHR.Size = new System.Drawing.Size(274, 15);
             this.txtAHR.TabIndex = 1;
             this.txtAHR.WordWrap = false;
+            this.txtAHR.TextChanged += new System.EventHandler(this.txtAHR_TextChanged);
             this.txtAHR.Enter += new System.EventHandler(this.txtAHR_Enter);
             this.txtAHR.Leave += new System.EventHandler(this.txtAHR_Leave);
             // 
@@ -422,7 +425,7 @@ namespace FitnessTracker
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tracker Information";
             // 
-            // Track
+            // Tracker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -435,7 +438,7 @@ namespace FitnessTracker
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1010, 626);
-            this.Name = "Track";
+            this.Name = "Tracker";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tracker";
             this.Load += new System.EventHandler(this.Track_Load);

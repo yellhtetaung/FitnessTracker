@@ -146,6 +146,7 @@ namespace FitnessTracker
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panelSearchText);
             this.groupBox1.Controls.Add(this.cboActivity);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.btnReset);
@@ -153,7 +154,6 @@ namespace FitnessTracker
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cboTrackStatus);
             this.groupBox1.Controls.Add(this.panelDate);
-            this.groupBox1.Controls.Add(this.panelSearchText);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold);
             this.groupBox1.Location = new System.Drawing.Point(12, 47);
             this.groupBox1.Name = "groupBox1";
@@ -314,6 +314,7 @@ namespace FitnessTracker
             this.txtFilter.Size = new System.Drawing.Size(375, 15);
             this.txtFilter.TabIndex = 2;
             this.txtFilter.WordWrap = false;
+            this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
             this.txtFilter.Enter += new System.EventHandler(this.txtFilter_Enter);
             // 
             // fitnessTrackerDataset

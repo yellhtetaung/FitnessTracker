@@ -214,6 +214,7 @@ namespace FitnessTracker
             this.txtSetGoal.Size = new System.Drawing.Size(274, 15);
             this.txtSetGoal.TabIndex = 1;
             this.txtSetGoal.WordWrap = false;
+            this.txtSetGoal.TextChanged += new System.EventHandler(this.txtSetGoal_TextChanged);
             this.txtSetGoal.Enter += new System.EventHandler(this.txtSetGoal_Enter);
             this.txtSetGoal.Leave += new System.EventHandler(this.txtSetGoal_Leave);
             // 

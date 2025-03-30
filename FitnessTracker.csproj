@@ -71,11 +71,11 @@
     <Compile Include="Activity.Designer.cs">
       <DependentUpon>Activity.cs</DependentUpon>
     </Compile>
-    <Compile Include="ActivityDetail.cs">
+    <Compile Include="ActivityUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ActivityDetail.Designer.cs">
-      <DependentUpon>ActivityDetail.cs</DependentUpon>
+    <Compile Include="ActivityUpdate.Designer.cs">
+      <DependentUpon>ActivityUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="TrainerDashboard.cs">
       <SubType>Form</SubType>
@@ -125,11 +125,11 @@
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
     <Compile Include="TextBoxController.cs" />
-    <Compile Include="Track.cs">
+    <Compile Include="Tracker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Track.Designer.cs">
-      <DependentUpon>Track.cs</DependentUpon>
+    <Compile Include="Tracker.Designer.cs">
+      <DependentUpon>Tracker.cs</DependentUpon>
     </Compile>
     <Compile Include="Trainers.cs">
       <SubType>Form</SubType>
@@ -170,8 +170,8 @@
     <EmbeddedResource Include="Activity.resx">
       <DependentUpon>Activity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ActivityDetail.resx">
-      <DependentUpon>ActivityDetail.cs</DependentUpon>
+    <EmbeddedResource Include="ActivityUpdate.resx">
+      <DependentUpon>ActivityUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrainerDashboard.resx">
       <DependentUpon>TrainerDashboard.cs</DependentUpon>
@@ -200,8 +200,8 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Track.resx">
-      <DependentUpon>Track.cs</DependentUpon>
+    <EmbeddedResource Include="Tracker.resx">
+      <DependentUpon>Tracker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Trainers.resx">
       <DependentUpon>Trainers.cs</DependentUpon>

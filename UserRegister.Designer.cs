@@ -472,6 +472,7 @@ namespace FitnessTracker
             this.txtWeight.Size = new System.Drawing.Size(383, 15);
             this.txtWeight.TabIndex = 8;
             this.txtWeight.WordWrap = false;
+            this.txtWeight.TextChanged += new System.EventHandler(this.txtWeight_TextChanged);
             this.txtWeight.Enter += new System.EventHandler(this.txtWeight_Enter);
             this.txtWeight.Leave += new System.EventHandler(this.txtWeight_Leave);
             // 
@@ -509,6 +510,7 @@ namespace FitnessTracker
             this.txtHeight.Size = new System.Drawing.Size(383, 15);
             this.txtHeight.TabIndex = 9;
             this.txtHeight.WordWrap = false;
+            this.txtHeight.TextChanged += new System.EventHandler(this.txtHeight_TextChanged);
             this.txtHeight.Enter += new System.EventHandler(this.txtHeight_Enter);
             this.txtHeight.Leave += new System.EventHandler(this.txtHeight_Leave);
             // 

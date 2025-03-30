@@ -1,7 +1,7 @@
 ﻿
 namespace FitnessTracker
 {
-    partial class ActivityDetail
+    partial class ActivityUpdate
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace FitnessTracker
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActivityDetail));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActivityUpdate));
             this.panelUsername = new System.Windows.Forms.Panel();
             this.txtActivityName = new System.Windows.Forms.TextBox();
             this.lblActivityName = new System.Windows.Forms.Label();
@@ -253,7 +253,7 @@ namespace FitnessTracker
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // ActivityDetail
+            // ActivityUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -272,9 +272,9 @@ namespace FitnessTracker
             this.Controls.Add(this.lblActivity);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(415, 447);
-            this.Name = "ActivityDetail";
+            this.Name = "ActivityUpdate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Activity Detail";
+            this.Text = "Activity Update";
             this.Load += new System.EventHandler(this.ActivityDetail_Load);
             this.panelUsername.ResumeLayout(false);
             this.panelUsername.PerformLayout();

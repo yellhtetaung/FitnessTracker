@@ -156,7 +156,7 @@ namespace FitnessTracker
 
         private void updateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ActivityDetail activityDetail = new ActivityDetail(this);
+            ActivityUpdate activityDetail = new ActivityUpdate(this);
             int row = dgvActData.CurrentRow.Index;
 
             activityDetail.ActivityID = dgvActData[0, row].Value.ToString();

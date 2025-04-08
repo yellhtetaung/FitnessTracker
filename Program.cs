@@ -18,10 +18,10 @@ namespace FitnessTracker
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Admin
-            Application.Run(new Login());
+            //Application.Run(new Login());
 
             // User
-            //Application.Run(new UserLogin());
+            Application.Run(new UserLogin());
         }
     }
 }

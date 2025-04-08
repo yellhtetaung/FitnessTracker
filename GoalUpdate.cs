@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace FitnessTracker
 {
@@ -21,6 +22,9 @@ namespace FitnessTracker
         public string TrackStatus { set; get; }
 
         private readonly Tracker trackForm;
+
+        private readonly string enterTrackName = "Enter track name";
+        private readonly string enterSetGoal = "Enter set goal";
 
 
         public GoalUpdate(Tracker track)
@@ -84,24 +88,26 @@ namespace FitnessTracker
         {
             try
             {
-                if (txtTrackName.Text.Trim() == "")
+                if (string.Equals(txtTrackName.Text, enterTrackName) || string.IsNullOrWhiteSpace(txtTrackName.Text))
                 {
                     MessageBox.Show("Please enter track name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtTrackName.Focus();
                 }
-                else if (txtSetGoal.Text == "")
+                else if (string.Equals(txtSetGoal.Text, enterSetGoal) || string.IsNullOrWhiteSpace(txtSetGoal.Text))
                 {
                     MessageBox.Show("Please enter your goal.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtSetGoal.Focus();
                 }
-
-                int countRecord = objTracker.UpdateTracker(lblActID.Text, UserID, txtTrackName.Text, Convert.ToInt32(txtSetGoal.Text), TotalCalBurn, dtpGoalDate.Value.ToString(), TrackStatus == "Complete" || TrackStatus == "Fail" ? TrackStatus : null, TrackerID);
-
-                if (countRecord > 0)
+                else
                 {
-                    MessageBox.Show("Goal has been updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Hide();
-                    trackForm.RefreshDataGridView();
+                    int countRecord = objTracker.UpdateTracker(lblActID.Text, UserID, txtTrackName.Text, Convert.ToInt32(txtSetGoal.Text), TotalCalBurn, dtpGoalDate.Value.ToString(), TrackStatus == "Complete" || TrackStatus == "Fail" ? TrackStatus : null, TrackerID);
+
+                    if (countRecord > 0)
+                    {
+                        MessageBox.Show("Goal has been updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Hide();
+                        trackForm.RefreshDataGridView();
+                    }
                 }
             }
             catch (Exception ex)
@@ -122,7 +128,39 @@ namespace FitnessTracker
 
         private void txtSetGoal_TextChanged(object sender, EventArgs e)
         {
-            Constant.CheckNumberOnly(txtSetGoal);
+            Constant.CheckNumberOnly(txtSetGoal, enterSetGoal);
+        }
+
+        private void txtTrackName_Enter(object sender, EventArgs e)
+        {
+            if (string.Equals(txtTrackName.Text, enterTrackName))
+            {
+                TextBoxController.Placeholder(txtTrackName, "", Color.Black);
+            }
+        }
+
+        private void txtTrackName_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtTrackName.Text))
+            {
+                TextBoxController.Placeholder(txtTrackName, enterTrackName);
+            }
+        }
+
+        private void txtSetGoal_Enter(object sender, EventArgs e)
+        {
+            if (string.Equals(txtSetGoal.Text, enterSetGoal))
+            {
+                TextBoxController.Placeholder(txtSetGoal, "", Color.Black);
+            }
+        }
+
+        private void txtSetGoal_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSetGoal.Text))
+            {
+                TextBoxController.Placeholder(txtSetGoal, enterSetGoal);
+            }
         }
     }
 }

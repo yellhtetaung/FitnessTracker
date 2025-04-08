@@ -166,14 +166,9 @@ namespace FitnessTracker
                     MessageBox.Show("Username must be more than 3 characters.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtUsername.Focus();
                 }
-                else if (!Regex.IsMatch(txtUsername.Text, usernamePattern))
+                else if (!Constant.UsernameValidation(txtUsername.Text))
                 {
-                    string errorMessageFirstUpperCase = new Regex(@"^[A-Z]").IsMatch(txtUsername.Text) ? "Username must be start with lower character.\n" : "";
-                    string errorMessageFirstCharacter = new Regex(@"^[0-9]").IsMatch(txtUsername.Text) ? "Username must be start with character.\n" : "";
-                    string errorMessageContainerNumber = !new Regex(@"^(?=.*\d)[a-z0-9]").IsMatch(txtUsername.Text) ? "Username must be contain at least one number.\n" : "";
-
-                    string errorMessage = $"{errorMessageFirstUpperCase}{errorMessageFirstCharacter}{errorMessageContainerNumber}";
-                    MessageBox.Show(errorMessage, "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Constant.UsernameValidationAlert(txtUsername.Text);
                     txtUsername.Focus();
                 }
                 else if (string.Equals(txtEmail.Text, enterEmail) || string.IsNullOrWhiteSpace(txtEmail.Text))
@@ -181,7 +176,7 @@ namespace FitnessTracker
                     MessageBox.Show("Please enter your email address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtEmail.Focus();
                 }
-                else if (!Regex.IsMatch(txtEmail.Text, emailPattern))
+                else if (!Constant.EmailValidation(txtEmail.Text))
                 {
                     MessageBox.Show("Invalid your email address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtEmail.Focus();
@@ -190,6 +185,15 @@ namespace FitnessTracker
                 {
                     MessageBox.Show("Please enter your password.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPassword.Focus();
+                }
+                else if (!Constant.PasswordValidation(txtPassword.Text))
+                {
+                    Constant.PasswordValidationAlert(txtPassword.Text);
+                    txtPassword.Focus();
+                }
+                else if (rdoMale.Checked == false && rdoFemale.Checked == false && rdoOther.Checked == false)
+                {
+                    MessageBox.Show("Please choose your gender!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (string.Equals(txtPhone.Text, enterPhoneNumber) || string.IsNullOrWhiteSpace(txtPhone.Text))
                 {
@@ -200,10 +204,6 @@ namespace FitnessTracker
                 {
                     MessageBox.Show("Please enter your address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtAddress.Focus();
-                }
-                else if (rdoMale.Checked == false && rdoFemale.Checked == false && rdoOther.Checked == false)
-                {
-                    MessageBox.Show("Please choose your gender!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {

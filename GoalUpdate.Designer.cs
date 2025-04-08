@@ -323,6 +323,8 @@ namespace FitnessTracker
             this.txtTrackName.Size = new System.Drawing.Size(274, 15);
             this.txtTrackName.TabIndex = 1;
             this.txtTrackName.WordWrap = false;
+            this.txtTrackName.Enter += new System.EventHandler(this.txtTrackName_Enter);
+            this.txtTrackName.Leave += new System.EventHandler(this.txtTrackName_Leave);
             // 
             // panelFullName
             // 
@@ -347,6 +349,8 @@ namespace FitnessTracker
             this.txtSetGoal.TabIndex = 1;
             this.txtSetGoal.WordWrap = false;
             this.txtSetGoal.TextChanged += new System.EventHandler(this.txtSetGoal_TextChanged);
+            this.txtSetGoal.Enter += new System.EventHandler(this.txtSetGoal_Enter);
+            this.txtSetGoal.Leave += new System.EventHandler(this.txtSetGoal_Leave);
             // 
             // btnUpdate
             // 

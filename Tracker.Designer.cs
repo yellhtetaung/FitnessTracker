@@ -366,28 +366,28 @@ namespace FitnessTracker
             this.removeToolStripMenuItem,
             this.removeAllToolStripMenuItem});
             this.cmsTrack.Name = "cmsTrack";
-            this.cmsTrack.Size = new System.Drawing.Size(135, 70);
+            this.cmsTrack.Size = new System.Drawing.Size(125, 70);
             this.cmsTrack.Opened += new System.EventHandler(this.cmsTrack_Opened);
             // 
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.updateToolStripMenuItem.Text = "Update";
             this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
-            this.removeToolStripMenuItem.Text = "Remove";
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeToolStripMenuItem.Text = "Delete";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // removeAllToolStripMenuItem
             // 
             this.removeAllToolStripMenuItem.Name = "removeAllToolStripMenuItem";
-            this.removeAllToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
-            this.removeAllToolStripMenuItem.Text = "Remove All";
+            this.removeAllToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.removeAllToolStripMenuItem.Text = "Delete All";
             this.removeAllToolStripMenuItem.Click += new System.EventHandler(this.removeAllToolStripMenuItem_Click);
             // 
             // btnClear

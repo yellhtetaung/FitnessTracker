@@ -2,7 +2,6 @@
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
 
 namespace FitnessTracker
 {
@@ -225,12 +224,13 @@ namespace FitnessTracker
 
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to delete all trackers?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var trackID = dgvTrack[0, rowIndex].Value;
+            DialogResult result = MessageBox.Show($"Are you sure you want to delete tracker id {trackID}?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-                objTracker.DeleteTracker(dgvTrack[0, rowIndex].Value.ToString());
-                MessageBox.Show("Tracker has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                objTracker.DeleteTracker(trackID.ToString());
+                MessageBox.Show($"Tracker ID {trackID} has been deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.RefreshDataGridView();
             }
         }

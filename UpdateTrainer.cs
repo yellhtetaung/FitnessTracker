@@ -8,7 +8,6 @@ namespace FitnessTracker
     public partial class UpdateTrainer : Form
     {
         FitnessTrackerDatasetTableAdapters.TrainersTableAdapter objTrainer = new FitnessTrackerDatasetTableAdapters.TrainersTableAdapter();
-        DataTable trainerDta = new DataTable();
 
         private readonly string enterYourFullName = "Enter your full name";
         private readonly string enterUsername = "Enter username";
@@ -146,9 +145,6 @@ namespace FitnessTracker
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            string usernamePattern = @"^[a-z][a-zA-Z0-9]*\d[a-zA-Z0-9]*$";
-            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-
             try
             {
                 if (string.Equals(txtFullName.Text, enterYourFullName) || string.IsNullOrWhiteSpace(txtFullName.Text))

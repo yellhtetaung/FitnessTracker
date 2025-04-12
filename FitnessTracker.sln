@@ -5,6 +5,13 @@ VisualStudioVersion = 16.0.35706.149
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessTracker", "FitnessTracker.csproj", "{69868887-4D06-4906-A3DB-15574496C577}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{B84ED6DC-568F-4615-A221-538ED58DF7AA}"
+	ProjectSection(SolutionItems) = preProject
+		..\FitnessTrackerDatabase\fitness_tracking_db.mdf = ..\FitnessTrackerDatabase\fitness_tracking_db.mdf
+		..\FitnessTrackerDatabase\fitness_tracking_db_log.ldf = ..\FitnessTrackerDatabase\fitness_tracking_db_log.ldf
+		..\FitnessTrackerDatabase\FitnessTrackerQuery.sql = ..\FitnessTrackerDatabase\FitnessTrackerQuery.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

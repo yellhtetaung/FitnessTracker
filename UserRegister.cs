@@ -1,47 +1,35 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace FitnessTracker
 {
-    public partial class Register : Form
+    public partial class UserRegister : Form
     {
-        FitnessTrackerDatasetTableAdapters.TrainersTableAdapter objTraniner = new FitnessTrackerDatasetTableAdapters.TrainersTableAdapter();
-        DataTable trainerDta = new DataTable();
+        FitnessTrackerDatasetTableAdapters.UsersTableAdapter objUser = new FitnessTrackerDatasetTableAdapters.UsersTableAdapter();
+        DataTable userDta = new DataTable();
 
         private readonly string enterYourFullName = "Enter your full name";
         private readonly string enterUsername = "Enter username";
         private readonly string enterEmail = "Enter your email address";
         private readonly string enterYourPassword = "Enter your password";
+        private readonly string enterYourNRC = "Enter your national ID";
+        private readonly string enterYourWeigth = "Enter your weigth";
+        private readonly string enterYourHeight = "Enter your height";
         private readonly string enterPhoneNumber = "Enter your phone number";
         private readonly string enterAddress = "Enter your address";
 
-        private readonly bool isFromLogin = false;
-        private readonly Trainers trainerForm;
 
-        public Register()
+        public UserRegister()
         {
             InitializeComponent();
-        }
-
-        public Register(bool fromLogin)
-        {
-            InitializeComponent();
-            isFromLogin = fromLogin;
-        }
-
-        public Register(Trainers trainers)
-        {
-            InitializeComponent();
-            trainerForm = trainers;
         }
 
         public void AutoID()
         {
-            trainerDta = objTraniner.GetData();
-            lblID.Text = Constant.AutoID(trainerDta, 'T');
+            userDta = objUser.GetData();
+            lblID.Text = Constant.AutoID(userDta, 'U');
         }
 
         private void ShowAllPlaceholder()
@@ -50,46 +38,28 @@ namespace FitnessTracker
             TextBoxController.Placeholder(txtUsername, enterUsername);
             TextBoxController.Placeholder(txtEmail, enterEmail);
             TextBoxController.Placeholder(txtPassword, enterYourPassword);
+            TextBoxController.Placeholder(txtNationalID, enterYourNRC);
+            TextBoxController.Placeholder(txtWeight, enterYourWeigth);
+            TextBoxController.Placeholder(txtHeight, enterYourHeight);
             TextBoxController.Placeholder(txtPhone, enterPhoneNumber);
             TextBoxController.Placeholder(txtAddress, enterAddress);
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            this.ShowAllPlaceholder();
-            dtpDOB.Value = DateTime.Today;
-            rdoMale.Checked = false;
-            rdoFemale.Checked = false;
-            rdoOther.Checked = false;
-            chkPassword.Checked = false;
-            chkPassword.Enabled = false;
-            txtPassword.UseSystemPasswordChar = false;
-            this.ActiveControl = null;
-        }
-
-        private void Register_Load(object sender, EventArgs e)
-        {
-            AutoID();
-            ShowAllPlaceholder();
-            chkPassword.Enabled = false;
-            dtpDOB.MaxDate = DateTime.Today;
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
             try
             {
-                if (string.Equals(txtFullName.Text, enterYourFullName) || string.IsNullOrWhiteSpace(txtFullName.Text))
+                if (string.IsNullOrWhiteSpace(txtFullName.Text) || string.Equals(txtFullName.Text, enterYourFullName))
                 {
                     MessageBox.Show("Please enter your full name.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtFullName.Focus();
                 }
-                else if (string.Equals(txtUsername.Text, enterUsername) || string.IsNullOrWhiteSpace(txtUsername.Text))
+                else if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.Equals(txtUsername.Text, enterUsername))
                 {
                     MessageBox.Show("Please enter your username.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtUsername.Focus();
                 }
-                else if (txtUsername.Text.Trim().Length < 3)
+                else if (txtUsername.Text.Length < 3)
                 {
                     MessageBox.Show("Username must be more than 3 characters.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtUsername.Focus();
@@ -99,17 +69,17 @@ namespace FitnessTracker
                     Constant.UsernameValidationAlert(txtUsername.Text);
                     txtUsername.Focus();
                 }
-                else if (string.Equals(txtEmail.Text, enterEmail) || string.IsNullOrWhiteSpace(txtEmail.Text))
+                else if (string.IsNullOrWhiteSpace(txtEmail.Text) || string.Equals(txtEmail.Text, enterEmail))
                 {
                     MessageBox.Show("Please enter your email address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtEmail.Focus();
                 }
                 else if (!Constant.EmailValidation(txtEmail.Text))
                 {
-                    MessageBox.Show("Invalid your email address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalid your email", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtEmail.Focus();
                 }
-                else if (string.Equals(txtPassword.Text, enterYourPassword) || string.IsNullOrWhiteSpace(txtPassword.Text))
+                else if (string.IsNullOrWhiteSpace(txtPassword.Text) || string.Equals(txtPassword.Text, enterYourPassword))
                 {
                     MessageBox.Show("Please enter your password.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPassword.Focus();
@@ -119,83 +89,90 @@ namespace FitnessTracker
                     Constant.PasswordValidationAlert(txtPassword.Text);
                     txtPassword.Focus();
                 }
-                else if (rdoMale.Checked == false && rdoFemale.Checked == false && rdoOther.Checked == false)
+                else if (dtpDOB.Value == null)
                 {
-                    MessageBox.Show("Please choose your gender!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please choose you date of birth.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dtpDOB.Focus();
                 }
-                else if (string.Equals(txtPhone.Text, enterPhoneNumber) || string.IsNullOrWhiteSpace(txtPhone.Text))
+                else if (string.IsNullOrWhiteSpace(txtNationalID.Text) || string.Equals(txtNationalID.Text, enterYourNRC))
+                {
+                    MessageBox.Show("Please enter your national registration card number.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtNationalID.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(txtWeight.Text) || string.Equals(txtWeight.Text, enterYourWeigth))
+                {
+                    MessageBox.Show("Please enter your weight.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtWeight.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(txtHeight.Text) || string.Equals(txtHeight.Text, enterYourHeight))
+                {
+                    MessageBox.Show("Please enter your height.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtHeight.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(txtPhone.Text) || string.Equals(txtPhone.Text, enterPhoneNumber))
                 {
                     MessageBox.Show("Please enter your phone number.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPhone.Focus();
                 }
-                else if (string.Equals(txtAddress.Text, enterAddress) || string.IsNullOrWhiteSpace(txtAddress.Text))
+                else if (string.IsNullOrWhiteSpace(txtAddress.Text) || string.Equals(txtAddress.Text, enterAddress))
                 {
                     MessageBox.Show("Please enter your address.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtAddress.Focus();
                 }
                 else
                 {
-                    ClsTrainer trainerData = new ClsTrainer();
-                    trainerData.ID = lblID.Text;
-                    trainerData.Fullname = txtFullName.Text;
-                    trainerData.Username = txtUsername.Text;
-                    trainerData.Email = txtEmail.Text;
-                    trainerData.Password = txtPassword.Text;
-                    trainerData.DateOfBirth = dtpDOB.Value;
-                    trainerData.Gender = rdoMale.Checked ? (char)Constant.Gender.Male : rdoFemale.Checked ? (char)Constant.Gender.Female : (char)Constant.Gender.Other;
-                    trainerData.Address = txtAddress.Text;
-                    trainerData.Phone = txtPhone.Text;
+                    ClsUser userData = new ClsUser();
+                    userData.ID = lblID.Text;
+                    userData.Fullname = txtFullName.Text;
+                    userData.Username = txtUsername.Text;
+                    userData.Email = txtEmail.Text;
+                    userData.Password = txtPassword.Text;
+                    userData.DOB = dtpDOB.Value;
+                    userData.NationalID = txtNationalID.Text;
+                    userData.Weight = Convert.ToDecimal(txtWeight.Text);
+                    userData.Height = Convert.ToDecimal(txtHeight.Text);
+                    userData.Phone = txtPhone.Text;
+                    userData.Address = txtAddress.Text;
 
-                    DataTable getTrainerDataByUsername = objTraniner.GetTrainerByUsername(trainerData.Username);
-                    DataTable getTrainerDataByEmail = objTraniner.GetTrainerByEmail(trainerData.Email);
+                    DataTable getUserDataByUsername = objUser.GetUserByUsername(userData.Username);
+                    DataTable getUserDataByEmail = objUser.GetUserByEmail(userData.Email);
+                    DataTable getUserDataByNationalID = objUser.GetUserByNationalID(userData.NationalID);
 
-                    if (getTrainerDataByUsername.Rows.Count > 0)
+                    if (getUserDataByUsername.Rows.Count > 0)
                     {
                         throw new Exception("Username already exists.");
                     }
 
-                    if (getTrainerDataByEmail.Rows.Count > 0)
+                    if (getUserDataByEmail.Rows.Count > 0)
                     {
                         throw new Exception("Email already exists.");
                     }
 
-                    if (getTrainerDataByUsername.Rows.Count == 0 && getTrainerDataByEmail.Rows.Count == 0)
+                    if (getUserDataByNationalID.Rows.Count > 0)
                     {
-                        int insertTrainer = objTraniner.InsertTrainerData(trainerData.ID, trainerData.Fullname, trainerData.Username, trainerData.Email, trainerData.Password, trainerData.DateOfBirth, trainerData.Gender.ToString(), trainerData.Phone, trainerData.Address);
+                        throw new Exception("National ID already exists.");
+                    }
 
-                        if (insertTrainer > 0)
+
+                    if (getUserDataByUsername.Rows.Count == 0 && getUserDataByEmail.Rows.Count == 0 && getUserDataByNationalID.Rows.Count == 0)
+                    {
+                        int insertUser = objUser.InsertUserData(userData.ID, userData.Fullname, userData.Username, userData.Email, userData.Password, userData.DOB, userData.NationalID, userData.Weight, userData.Height, userData.Phone, userData.Address);
+
+                        if (insertUser > 0)
                         {
-                            MessageBox.Show("Trainer has been added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            AutoID();
+                            MessageBox.Show("User account has been created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.AutoID();
 
-                            if (this.isFromLogin)
-                            {
-                                Login login = new Login();
-                                this.Hide();
-                                login.Show();
-                            }
-                            else
-                            {
-                                if (trainerForm != null)
-                                {
-                                    trainerForm.DataGridViewReload();
-                                }
-
-                                this.ShowAllPlaceholder();
-                                dtpDOB.Value = DateTime.Today;
-                                rdoMale.Checked = false;
-                                rdoFemale.Checked = false;
-                                rdoOther.Checked = false;
-                                chkPassword.Checked = false;
-                                chkPassword.Enabled = false;
-                                txtPassword.UseSystemPasswordChar = false;
-                            }
+                            UserLogin login = new UserLogin();
+                            this.Hide();
+                            login.ShowDialog();
                         }
                         else
                         {
                             throw new Exception("Something Wrong!");
                         }
                     }
+
                 }
             }
             catch (Exception ex)
@@ -206,9 +183,17 @@ namespace FitnessTracker
 
         private void linkLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Login login = new Login();
+            UserLogin login = new UserLogin();
             this.Hide();
-            login.ShowDialog();
+            login.Show();
+        }
+
+        private void UserRegister_Load(object sender, EventArgs e)
+        {
+            this.AutoID();
+            this.ShowAllPlaceholder();
+            chkPassword.Enabled = false;
+            dtpDOB.MaxDate = DateTime.Today;
         }
 
         private void chkPassword_CheckedChanged(object sender, EventArgs e)
@@ -221,6 +206,16 @@ namespace FitnessTracker
             {
                 txtPassword.UseSystemPasswordChar = true;
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            this.ShowAllPlaceholder();
+            dtpDOB.Value = DateTime.Today;
+            chkPassword.Checked = false;
+            chkPassword.Enabled = false;
+            txtPassword.UseSystemPasswordChar = false;
+            this.ActiveControl = null;
         }
 
         private void txtFullName_Enter(object sender, EventArgs e)
@@ -302,6 +297,54 @@ namespace FitnessTracker
 
         }
 
+        private void txtNationalID_Enter(object sender, EventArgs e)
+        {
+            if (string.Equals(txtNationalID.Text, enterYourNRC))
+            {
+                TextBoxController.Placeholder(txtNationalID, "", Color.Black);
+            }
+        }
+
+        private void txtNationalID_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNationalID.Text))
+            {
+                TextBoxController.Placeholder(txtNationalID, enterYourNRC);
+            }
+        }
+
+        private void txtWeight_Enter(object sender, EventArgs e)
+        {
+            if (string.Equals(txtWeight.Text, enterYourWeigth))
+            {
+                TextBoxController.Placeholder(txtWeight, "", Color.Black);
+            }
+        }
+
+        private void txtWeight_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtWeight.Text))
+            {
+                TextBoxController.Placeholder(txtWeight, enterYourWeigth);
+            }
+        }
+
+        private void txtHeight_Enter(object sender, EventArgs e)
+        {
+            if (string.Equals(txtHeight.Text, enterYourHeight))
+            {
+                TextBoxController.Placeholder(txtHeight, "", Color.Black);
+            }
+        }
+
+        private void txtHeight_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtHeight.Text))
+            {
+                TextBoxController.Placeholder(txtHeight, enterYourHeight);
+            }
+        }
+
         private void txtPhone_Enter(object sender, EventArgs e)
         {
             if (string.Equals(txtPhone.Text, enterPhoneNumber))
@@ -332,6 +375,16 @@ namespace FitnessTracker
             {
                 TextBoxController.Placeholder(txtAddress, enterAddress);
             }
+        }
+
+        private void txtWeight_TextChanged(object sender, EventArgs e)
+        {
+            Constant.CheckNumberOnly(txtWeight, enterYourWeigth);
+        }
+
+        private void txtHeight_TextChanged(object sender, EventArgs e)
+        {
+            Constant.CheckNumberOnly(txtHeight, enterYourHeight);
         }
     }
 }

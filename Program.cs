@@ -16,7 +16,12 @@ namespace FitnessTracker
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Register());
+
+            // Admin
+            //Application.Run(new Login());
+
+            // User
+            Application.Run(new UserLogin());
         }
     }
 }

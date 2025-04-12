@@ -5,28 +5,21 @@ using System.Windows.Forms;
 
 namespace FitnessTracker
 {
-    public partial class Login : Form
+    public partial class UserLogin : Form
     {
-        FitnessTrackerDatasetTableAdapters.TrainersTableAdapter objTrainer = new FitnessTrackerDatasetTableAdapters.TrainersTableAdapter();
-        DataTable trainerDta = new DataTable();
+        FitnessTrackerDatasetTableAdapters.UsersTableAdapter objUser = new FitnessTrackerDatasetTableAdapters.UsersTableAdapter();
+        DataTable userDta = new DataTable();
 
         int loginCount = 0;
         public static string loginUsername;
-        public static string loginTrainerID;
+        public static string loginUserID;
 
         private readonly string enterUsername = "Enter username";
         private readonly string enterPassword = "Enter password";
 
-        public Login()
+        public UserLogin()
         {
             InitializeComponent();
-        }
-
-        private void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Register register = new Register(true);
-            this.Hide();
-            register.Show();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -40,36 +33,36 @@ namespace FitnessTracker
                 }
                 else
                 {
-                    if (string.Equals(txtUsername.Text, enterUsername) || string.IsNullOrWhiteSpace(txtUsername.Text))
+                    if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.Equals(txtUsername.Text, enterUsername))
                     {
-                        MessageBox.Show("Please enter username.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Username must be provide.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtUsername.Focus();
                     }
-                    else if (string.Equals(txtPassword.Text, enterPassword) || string.IsNullOrWhiteSpace(txtPassword.Text))
+                    else if (string.IsNullOrWhiteSpace(txtPassword.Text) || string.Equals(txtPassword.Text, enterPassword))
                     {
-                        MessageBox.Show("Please enter password.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Password must be provide.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtPassword.Focus();
                     }
                     else
                     {
-                        ClsTrainer trainerData = new ClsTrainer();
-                        trainerData.Username = txtUsername.Text;
-                        trainerData.Password = txtPassword.Text;
+                        ClsUser userData = new ClsUser();
+                        userData.Username = txtUsername.Text;
+                        userData.Password = txtPassword.Text;
 
-                        trainerDta = objTrainer.LoginTrainer(trainerData.Username, trainerData.Password);
+                        userDta = objUser.LoginUser(userData.Username, userData.Password);
 
-                        if (trainerDta.Rows.Count > 0)
+                        if (userDta.Rows.Count > 0)
                         {
-                            loginUsername = trainerDta.Rows[0][1].ToString();
-                            loginTrainerID = trainerDta.Rows[0][0].ToString();
+                            loginUsername = userDta.Rows[0][1].ToString();
+                            loginUserID = userDta.Rows[0][0].ToString();
                             this.Hide();
-                            TrainerDashboard admin = new TrainerDashboard();
-                            admin.Show();
+                            UserDashboard dashboard = new UserDashboard();
+                            dashboard.Show();
                         }
                         else
                         {
                             loginCount += 1;
-                            MessageBox.Show("Incorrect username or password!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Incorrect username or password!", "Login in Failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             txtUsername.Focus();
                         }
                     }
@@ -79,6 +72,13 @@ namespace FitnessTracker
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            UserRegister register = new UserRegister();
+            this.Hide();
+            register.Show();
         }
 
         private void chkPassword_CheckedChanged(object sender, EventArgs e)
@@ -91,24 +91,6 @@ namespace FitnessTracker
             {
                 txtPassword.UseSystemPasswordChar = true;
             }
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-            trainerDta = objTrainer.GetData();
-            if (trainerDta.Rows.Count > 0)
-            {
-                lblRegisterAccountDesc.Hide();
-                linkRegister.Hide();
-            }
-            else
-            {
-                lblRegisterAccountDesc.Show();
-                linkRegister.Show();
-            }
-            TextBoxController.Placeholder(txtUsername, enterUsername);
-            TextBoxController.Placeholder(txtPassword, enterPassword);
-            chkPassword.Enabled = false;
         }
 
         private void txtUsername_Enter(object sender, EventArgs e)
@@ -155,6 +137,13 @@ namespace FitnessTracker
                 chkPassword.Enabled = true;
                 txtPassword.UseSystemPasswordChar = !chkPassword.Checked;
             }
+        }
+
+        private void UserLogin_Load(object sender, EventArgs e)
+        {
+            TextBoxController.Placeholder(txtUsername, enterUsername);
+            TextBoxController.Placeholder(txtPassword, enterPassword);
+            chkPassword.Enabled = false;
         }
     }
 }
